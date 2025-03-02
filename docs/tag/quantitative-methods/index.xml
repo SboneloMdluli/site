@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quantitative Methods | Sbonelo Mdluli</title>
+    <link>http://localhost:1313/REPO_NAME/tag/quantitative-methods/</link>
+      <atom:link href="http://localhost:1313/REPO_NAME/tag/quantitative-methods/index.xml" rel="self" type="application/rss+xml" />
+    <description>Quantitative Methods</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/REPO_NAME/media/icon_hu_43cf117bf1a42c34.png</url>
+      <title>Quantitative Methods</title>
+      <link>http://localhost:1313/REPO_NAME/tag/quantitative-methods/</link>
+    </image>
+    
+    <item>
+      <title>Understanding Bond Interest Rate Risk</title>
+      <link>http://localhost:1313/REPO_NAME/post/2024/01/15/understanding-bond-interest-rate-risk/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/REPO_NAME/post/2024/01/15/understanding-bond-interest-rate-risk/</guid>
+      <description>&lt;p&gt;A bond is a fixed income instrument consisting of coupon payments and the face value (Fv). Coupons are regular payments, often expressed as a percentage of the face value. The price of a bond is calculated as the present value of its future cash flows, given by:&lt;/p&gt;
+&lt;p&gt;$$P =\sum_{i=1}^{n} \frac{C_i}{(1+r)^i} + \frac{Fv}{(1+r)^n}$$&lt;/p&gt;
+&lt;p&gt;Where $ C_i $ is the coupon value at time $t$, $n$ is the number of periods before maturity and $r$ is the yield to maturity. Yield to maturity is the expected return of the bond if held till maturity. Given a coupon rate $C_r$, if $ r \lt C_r $ then the bond is trading at a premium, if $ r \gt C_r $ the bond is issued at a discount and if $ r = C_r $ the bond is at par value. The equation above can be simplified to make computation easy.&lt;/p&gt;
+&lt;p&gt;$$P = \frac{C(1-(1+r)^{-n})}{r} + \frac{Fv}{(1+r)^n}$$&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

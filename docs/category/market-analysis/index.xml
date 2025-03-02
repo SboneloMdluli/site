@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Market Analysis | Sbonelo Mdluli</title>
+    <link>http://localhost:1313/REPO_NAME/category/market-analysis/</link>
+      <atom:link href="http://localhost:1313/REPO_NAME/category/market-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <description>Market Analysis</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Wed, 10 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/REPO_NAME/media/icon_hu_43cf117bf1a42c34.png</url>
+      <title>Market Analysis</title>
+      <link>http://localhost:1313/REPO_NAME/category/market-analysis/</link>
+    </image>
+    
+    <item>
+      <title>📊 Understanding Limit Order Books</title>
+      <link>http://localhost:1313/REPO_NAME/post/2024/01/10/understanding-limit-order-books/</link>
+      <pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/REPO_NAME/post/2024/01/10/understanding-limit-order-books/</guid>
+      <description>&lt;p&gt;A limit order book is a fundamental concept in market microstructure that shows the quantity of securities being bid or offered at various price levels.&lt;/p&gt;
+&lt;h2 id=&#34;key-components&#34;&gt;Key Components&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Bid side: Orders to buy at specific prices&lt;/li&gt;
+&lt;li&gt;Ask side: Orders to sell at specific prices&lt;/li&gt;
+&lt;li&gt;Spread: Difference between best bid and ask prices&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;market-impact&#34;&gt;Market Impact&lt;/h2&gt;
+&lt;p&gt;Understanding limit order books helps traders:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Gauge market depth and liquidity&lt;/li&gt;
+&lt;li&gt;Analyze price impact of trades&lt;/li&gt;
+&lt;li&gt;Develop effective execution strategies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/REPO_NAME/post/2024/01/10/understanding-limit-order-books/&#34;&gt;Continue reading about limit order books&amp;hellip;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

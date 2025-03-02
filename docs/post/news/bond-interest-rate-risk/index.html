@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: February 4, 2025 --><html lang="en" >
+
+
+<head><script src="/REPO_NAME/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=REPO_NAME/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Hugo Blox Builder 5.9.7" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+
+  
+  
+    
+    <script src="/REPO_NAME/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="/REPO_NAME/css/vendor-bundle.min.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/REPO_NAME/css/wowchemy.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/REPO_NAME/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/REPO_NAME/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<meta name="description" content="A bond&rsquo;s price sensitivity to interest rate changes is a crucial concept in fixed income markets. This analysis explores how duration and convexity help measure and understand this relationship.
+Price Sensitivity
+The price of a bond is inversely proportional to its yield to maturity. For a 25-year 6% coupon bond with a yield of 9% and face value of $100:
+
+A bond&rsquo;s duration measures its price sensitivity to small interest rate changes
+Higher duration means greater interest rate risk
+Longer-term bonds typically have higher duration
+Convexity helps improve price change estimates for larger rate movements
+
+For example, a 2% change in interest rates would cause approximately a 17% change in the bond&rsquo;s price when accounting for both duration and convexity effects." />
+
+
+
+<link rel="alternate" hreflang="en" href="http://localhost:1313/REPO_NAME/post/news/bond-interest-rate-risk/" />
+<link rel="canonical" href="http://localhost:1313/REPO_NAME/post/news/bond-interest-rate-risk/" />
+
+
+
+
+
+<link rel="icon" type="image/png" href="/REPO_NAME/media/icon_hu_857dd55c234bc14f.png" />
+<link rel="apple-touch-icon" type="image/png" href="/REPO_NAME/media/icon_hu_88611cbd7a187137.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:image" content="http://localhost:1313/REPO_NAME/media/icon_hu_43cf117bf1a42c34.png" />
+
+
+
+  
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Sbonelo Mdluli" />
+<meta property="og:url" content="http://localhost:1313/REPO_NAME/post/news/bond-interest-rate-risk/" />
+<meta property="og:title" content="Understanding Bond Interest Rate Risk | Sbonelo Mdluli" />
+<meta property="og:description" content="A bond&rsquo;s price sensitivity to interest rate changes is a crucial concept in fixed income markets. This analysis explores how duration and convexity help measure and understand this relationship.
+Price Sensitivity
+The price of a bond is inversely proportional to its yield to maturity. For a 25-year 6% coupon bond with a yield of 9% and face value of $100:
+
+A bond&rsquo;s duration measures its price sensitivity to small interest rate changes
+Higher duration means greater interest rate risk
+Longer-term bonds typically have higher duration
+Convexity helps improve price change estimates for larger rate movements
+
+For example, a 2% change in interest rates would cause approximately a 17% change in the bond&rsquo;s price when accounting for both duration and convexity effects." /><meta property="og:image" content="http://localhost:1313/REPO_NAME/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2024-01-15T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2024-01-15T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/REPO_NAME/post/news/bond-interest-rate-risk/"
+  },
+  "headline": "Understanding Bond Interest Rate Risk",
+  
+  "datePublished": "2024-01-15T00:00:00Z",
+  "dateModified": "2024-01-15T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Authors"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sbonelo Mdluli",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/REPO_NAME/media/icon_hu_19349546d07106a3.png"
+    }
+  },
+  "description": "\u003cp\u003eA bond\u0026rsquo;s price sensitivity to interest rate changes is a crucial concept in fixed income markets. This analysis explores how duration and convexity help measure and understand this relationship.\u003c/p\u003e\n\u003ch2 id=\"price-sensitivity\"\u003ePrice Sensitivity\u003c/h2\u003e\n\u003cp\u003eThe price of a bond is inversely proportional to its yield to maturity. For a 25-year 6% coupon bond with a yield of 9% and face value of $100:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eA bond\u0026rsquo;s duration measures its price sensitivity to small interest rate changes\u003c/li\u003e\n\u003cli\u003eHigher duration means greater interest rate risk\u003c/li\u003e\n\u003cli\u003eLonger-term bonds typically have higher duration\u003c/li\u003e\n\u003cli\u003eConvexity helps improve price change estimates for larger rate movements\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor example, a 2% change in interest rates would cause approximately a 17% change in the bond\u0026rsquo;s price when accounting for both duration and convexity effects.\u003c/p\u003e"
+}
+</script>
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Understanding Bond Interest Rate Risk | Sbonelo Mdluli</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="a012f823268552cc5553c000cefbc403" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/REPO_NAME/js/wowchemy-init.min.js"></script>
+
+  
+
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/REPO_NAME/">Sbonelo Mdluli</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/REPO_NAME/">Sbonelo Mdluli</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/REPO_NAME/#about"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/REPO_NAME/#publications"><span>Publications</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/REPO_NAME/#posts"><span>Posts</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/REPO_NAME/#projects"><span>Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/REPO_NAME/#talks"><span>Talks</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/REPO_NAME/#contact"><span>Contact</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    
+<article class="article">
+  <div class="article-container">
+    <h1>Understanding Bond Interest Rate Risk</h1>
+
+    <div class="article-metadata">
+      <span class="article-date">
+        January 15, 2024
+      </span>
+
+      
+      <div class="article-tags">
+        
+        <a class="badge badge-light" href="/tags/finance">finance</a>
+        
+        <a class="badge badge-light" href="/tags/bonds">bonds</a>
+        
+        <a class="badge badge-light" href="/tags/risk">risk</a>
+        
+      </div>
+      
+    </div>
+
+    <div class="article-content">
+      <p>A bond&rsquo;s price sensitivity to interest rate changes is a crucial concept in fixed income markets. This analysis explores how duration and convexity help measure and understand this relationship.</p>
+<h2 id="price-sensitivity">Price Sensitivity</h2>
+<p>The price of a bond is inversely proportional to its yield to maturity. For a 25-year 6% coupon bond with a yield of 9% and face value of $100:</p>
+<ul>
+<li>A bond&rsquo;s duration measures its price sensitivity to small interest rate changes</li>
+<li>Higher duration means greater interest rate risk</li>
+<li>Longer-term bonds typically have higher duration</li>
+<li>Convexity helps improve price change estimates for larger rate movements</li>
+</ul>
+<p>For example, a 2% change in interest rates would cause approximately a 17% change in the bond&rsquo;s price when accounting for both duration and convexity effects.</p>
+<p><a href="http://localhost:1313/REPO_NAME/post/news/bond-interest-rate-risk/">Read more about bond interest rate risk analysis&hellip;</a></p>
+
+    </div>
+  </div>
+</article>
+
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <!-- raw HTML omitted -->Hugo Blox Builder<!-- raw HTML omitted --> — the free, <!-- raw HTML omitted -->open source<!-- raw HTML omitted --> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/REPO_NAME/js/vendor-bundle.min.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+  <script src="/REPO_NAME/js/wowchemy-headroom.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+<script src="/REPO_NAME/en/js/wowchemy.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

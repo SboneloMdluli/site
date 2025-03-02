@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Trading | Sbonelo Mdluli</title>
+    <link>http://localhost:1313/REPO_NAME/tags/trading/</link>
+      <atom:link href="http://localhost:1313/REPO_NAME/tags/trading/index.xml" rel="self" type="application/rss+xml" />
+    <description>Trading</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sun, 14 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/REPO_NAME/media/icon_hu_43cf117bf1a42c34.png</url>
+      <title>Trading</title>
+      <link>http://localhost:1313/REPO_NAME/tags/trading/</link>
+    </image>
+    
+    <item>
+      <title>How Limit Order Books Drive Price Discovery</title>
+      <link>http://localhost:1313/REPO_NAME/post/2024/01/14/how-limit-order-books-drive-price-discovery/</link>
+      <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/REPO_NAME/post/2024/01/14/how-limit-order-books-drive-price-discovery/</guid>
+      <description>&lt;p&gt;The Limit Order Book (LOB) is a fundamental mechanism in modern financial markets that facilitates price discovery and trading. This piece examines how LOBs work and their importance in market structure.&lt;/p&gt;
+&lt;h2 id=&#34;key-components&#34;&gt;Key Components&lt;/h2&gt;
+&lt;p&gt;A limit order book contains:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;All active buy and sell orders&lt;/li&gt;
+&lt;li&gt;Order volumes and prices&lt;/li&gt;
+&lt;li&gt;Submission timestamps&lt;/li&gt;
+&lt;li&gt;The current bid-ask spread&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;order-matching-protocols&#34;&gt;Order Matching Protocols&lt;/h2&gt;
+&lt;p&gt;Two main approaches are used:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Price-Time Priority (PTP)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Orders sorted by price then time&lt;/li&gt;
+&lt;li&gt;Rewards quick order submission&lt;/li&gt;
+&lt;li&gt;Most common in equity markets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Pro Rata&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Orders at same price filled proportionally&lt;/li&gt;
+&lt;li&gt;Encourages larger order sizes&lt;/li&gt;
+&lt;li&gt;Common in some derivatives markets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The choice of protocol influences trader behavior and market efficiency.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/REPO_NAME/post/2024/01/14/how-limit-order-books-drive-price-discovery/&#34;&gt;Continue reading about limit order books&amp;hellip;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

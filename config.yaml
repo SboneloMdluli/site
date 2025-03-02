@@ -1,0 +1,167 @@
+baseURL: "https://YOUR_GITHUB_USERNAME.github.io/REPO_NAME/"
+title: "Sbonelo Mdluli"
+theme: "hugo-blox-builder"
+
+security:
+  funcs:
+    getenv:
+      - ^HUGO_
+      - ^WC_
+      - ^CI$
+      - ^NODE_ENV$
+
+module:
+  imports:
+    - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-bootstrap/v5
+    - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-core
+    - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-seo
+
+defaultContentLanguage: en
+enableGitInfo: true
+
+menu:
+  main:
+    - name: Posts
+      url: '/post/'
+      weight: 20
+
+params:
+  # Theme settings
+  appearance:
+    theme_day: minimal
+    theme_night: minimal
+    font: minimal
+    font_size: L
+
+  # Profile settings
+  profile:
+    show_name: true
+    show_role: true
+    show_social: true
+    show_organizations: true
+    show_address: false
+
+  # Author settings
+  author: Your Name
+  role: Professor of Artificial Intelligence
+  organizations:
+    - name: Stanford University
+      url: ""
+
+  # Mission statement
+  research_statement: |
+    📚 My Research
+
+    I am a quantitative researcher focused on applying mathematical and computational methods to financial markets. My research interests include market microstructure, fixed income modeling, and machine learning applications in finance.
+
+    I apply a range of quantitative methods to investigate market dynamics and develop trading strategies.
+
+    Please reach out to collaborate 😃
+
+  # Contact details
+  email: sbonelo.mdluli@gmail.com
+  phone: 888 888 88 88
+  address:
+    city: Cape Town
+    region: Western Cape
+    country: South Africa
+    country_code: ZA
+
+  # Social/Academic Networking
+  social:
+    - icon: github
+      icon_pack: fab
+      link: https://github.com/SboneloMdluli
+    - icon: linkedin
+      icon_pack: fab
+      link: https://www.linkedin.com/in/sbonelo-mdluli
+
+  # SEO
+  seo:
+    site_type: Person
+    local_business_type: ''
+    org_name: ''
+    description: ''
+    twitter: ''
+
+  # Site features
+  features:
+    syntax_highlighter:
+      theme_light: github-light
+      theme_dark: dracula
+    math:
+      enable: true
+    privacy_pack:
+      enable: false
+    repository:
+      url: 'https://github.com/YOUR_USERNAME/REPO_NAME'
+      content_dir: content
+      branch: main
+    navigation:
+      highlight: true
+      breadcrumb: true
+      smooth_scroll: false
+    search:
+      provider: wowchemy
+      algolia:
+        app_id: ''
+        api_key: ''
+        index_name: ''
+        show_logo: false
+
+# Add GitHub Pages specific settings
+publishDir: "docs"
+
+# Add content organization settings
+permalinks:
+  post: '/post/:year/:month/:day/:slug/'
+  authors: '/author/:slug/'
+  tags: '/tag/:slug/'
+  categories: '/category/:slug/'
+  publication_types: '/publication-type/:slug/'
+  posts: '/post/:slug/'
+  projects: '/project/:slug/'
+
+taxonomies:
+  tag: tags
+  category: categories
+  author: authors
+
+# Content settings
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      unsafe: true  # Allow HTML in markdown
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    style: monokai
+
+outputs:
+  home: [HTML, RSS, JSON]
+  section: [HTML, RSS]
+
+# Enable proper section pages
+cascade:
+  # Blog post folder options
+  - _target:
+      path: /post/**
+    pager: true
+    editable: false
+    reading_time: true
+    commentable: false
+    show_related: true
+    show_breadcrumb: true
+    share: true
+    header:
+      navbar:
+        enable: true
+
+# Add homepage settings
+params:
+  # Homepage settings
+  home:
+    # Use author profile as homepage
+    type: widget_page
+    view: profile

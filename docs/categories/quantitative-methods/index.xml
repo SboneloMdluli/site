@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quantitative Methods | Sbonelo Mdluli</title>
+    <link>http://localhost:1313/REPO_NAME/categories/quantitative-methods/</link>
+      <atom:link href="http://localhost:1313/REPO_NAME/categories/quantitative-methods/index.xml" rel="self" type="application/rss+xml" />
+    <description>Quantitative Methods</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sat, 13 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/REPO_NAME/media/icon_hu_43cf117bf1a42c34.png</url>
+      <title>Quantitative Methods</title>
+      <link>http://localhost:1313/REPO_NAME/categories/quantitative-methods/</link>
+    </image>
+    
+    <item>
+      <title>Principal Component Analysis: A Key Tool for Dimensionality Reduction</title>
+      <link>http://localhost:1313/REPO_NAME/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</link>
+      <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/REPO_NAME/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</guid>
+      <description>&lt;p&gt;Principal Component Analysis (PCA) is a powerful technique for reducing the dimensionality of financial data while preserving important relationships. This article explores the mathematical foundations and practical applications of PCA.&lt;/p&gt;
+&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;
+&lt;p&gt;PCA works by:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Finding directions of maximum variance in the data&lt;/li&gt;
+&lt;li&gt;Creating orthogonal basis vectors (principal components)&lt;/li&gt;
+&lt;li&gt;Projecting data onto lower-dimensional spaces&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The technique is particularly useful for:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Risk factor analysis&lt;/li&gt;
+&lt;li&gt;Portfolio optimization&lt;/li&gt;
+&lt;li&gt;Feature extraction in financial time series&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;mathematical-framework&#34;&gt;Mathematical Framework&lt;/h2&gt;
+&lt;p&gt;The optimization problem can be expressed as:&lt;/p&gt;
+&lt;p&gt;$v^{&lt;em&gt;}=\operatorname&lt;/em&gt;{argmax}&lt;em&gt;v \frac{1}{N}\sum&lt;/em&gt;{i=1}^{N}\langle, x_i,v\rangle^{2}$&lt;/p&gt;
+&lt;p&gt;This leads to eigenvalue decomposition of the covariance matrix.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/REPO_NAME/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/&#34;&gt;Read more about PCA in finance&amp;hellip;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

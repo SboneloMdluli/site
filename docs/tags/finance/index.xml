@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Finance | Sbonelo Mdluli</title>
+    <link>http://localhost:1313/REPO_NAME/tags/finance/</link>
+      <atom:link href="http://localhost:1313/REPO_NAME/tags/finance/index.xml" rel="self" type="application/rss+xml" />
+    <description>Finance</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/REPO_NAME/media/icon_hu_43cf117bf1a42c34.png</url>
+      <title>Finance</title>
+      <link>http://localhost:1313/REPO_NAME/tags/finance/</link>
+    </image>
+    
+    <item>
+      <title>Understanding Bond Interest Rate Risk</title>
+      <link>http://localhost:1313/REPO_NAME/post/2024/01/15/understanding-bond-interest-rate-risk/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/REPO_NAME/post/2024/01/15/understanding-bond-interest-rate-risk/</guid>
+      <description>&lt;p&gt;A bond&amp;rsquo;s price sensitivity to interest rate changes is a crucial concept in fixed income markets. This analysis explores how duration and convexity help measure and understand this relationship.&lt;/p&gt;
+&lt;h2 id=&#34;price-sensitivity&#34;&gt;Price Sensitivity&lt;/h2&gt;
+&lt;p&gt;The price of a bond is inversely proportional to its yield to maturity. For a 25-year 6% coupon bond with a yield of 9% and face value of $100:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A bond&amp;rsquo;s duration measures its price sensitivity to small interest rate changes&lt;/li&gt;
+&lt;li&gt;Higher duration means greater interest rate risk&lt;/li&gt;
+&lt;li&gt;Longer-term bonds typically have higher duration&lt;/li&gt;
+&lt;li&gt;Convexity helps improve price change estimates for larger rate movements&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For example, a 2% change in interest rates would cause approximately a 17% change in the bond&amp;rsquo;s price when accounting for both duration and convexity effects.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/REPO_NAME/post/2024/01/15/understanding-bond-interest-rate-risk/&#34;&gt;Read more about bond interest rate risk analysis&amp;hellip;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

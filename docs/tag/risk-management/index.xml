@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Risk Management | Sbonelo Mdluli</title>
+    <link>http://localhost:1313/REPO_NAME/tag/risk-management/</link>
+      <atom:link href="http://localhost:1313/REPO_NAME/tag/risk-management/index.xml" rel="self" type="application/rss+xml" />
+    <description>Risk Management</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/REPO_NAME/media/icon_hu_43cf117bf1a42c34.png</url>
+      <title>Risk Management</title>
+      <link>http://localhost:1313/REPO_NAME/tag/risk-management/</link>
+    </image>
+    
+    <item>
+      <title>Systematic Risk</title>
+      <link>http://localhost:1313/REPO_NAME/post/2024/01/15/systematic-risk/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/REPO_NAME/post/2024/01/15/systematic-risk/</guid>
+      <description>&lt;p&gt;Key Concepts:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Value-at-Risk (VaR): A measure of the maximum potential loss over a period with a given confidence level. However, VaR has limitations, such as not considering tail dependency and lacking sub-additivity.&lt;/li&gt;
+&lt;li&gt;Expected Shortfall (ES): An improvement over VaR, ES is a coherent risk measure that calculates the average loss in scenarios where losses exceed VaR. It satisfies properties like monotonicity and sub-additivity.&lt;/li&gt;
+&lt;li&gt;Marginal Expected Shortfall (MES): Measures the contribution of a single institution to the overall systemic risk, calculated as the expected loss of an institution conditional on the system&amp;rsquo;s loss exceeding VaR.&lt;/li&gt;
+&lt;li&gt;Capital Shortfall (CS): The amount by which an institution&amp;rsquo;s capital falls short during a crisis. It is influenced by factors like leverage, size, and risk exposure.&lt;/li&gt;
+&lt;li&gt;Long Run Marginal Expected Shortfall (LRMES): An extension of MES over a longer horizon, estimating the expected loss of an institution during a market crash.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Value-At-Risk is the most a financial firm can loss over a period of time with some confidence $1-\alpha$. Formally VaR of $R$ is defined as follows:&lt;/p&gt;
+&lt;p&gt;$$\text{VaR}_{\alpha}(R) = -\inf\{x:\mathbb{P}[R \leq x] \geq \alpha \} = -\sup\{x:\mathbb{P}[R \leq x] &amp;lt; \alpha \}$$&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/systematic_risk.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Understanding Bond Interest Rate Risk</title>
+      <link>http://localhost:1313/REPO_NAME/post/2024/01/15/understanding-bond-interest-rate-risk/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/REPO_NAME/post/2024/01/15/understanding-bond-interest-rate-risk/</guid>
+      <description>&lt;p&gt;A bond is a fixed income instrument consisting of coupon payments and the face value (Fv). Coupons are regular payments, often expressed as a percentage of the face value. The price of a bond is calculated as the present value of its future cash flows, given by:&lt;/p&gt;
+&lt;p&gt;$$P =\sum_{i=1}^{n} \frac{C_i}{(1+r)^i} + \frac{Fv}{(1+r)^n}$$&lt;/p&gt;
+&lt;p&gt;Where $ C_i $ is the coupon value at time $t$, $n$ is the number of periods before maturity and $r$ is the yield to maturity. Yield to maturity is the expected return of the bond if held till maturity. Given a coupon rate $C_r$, if $ r \lt C_r $ then the bond is trading at a premium, if $ r \gt C_r $ the bond is issued at a discount and if $ r = C_r $ the bond is at par value. The equation above can be simplified to make computation easy.&lt;/p&gt;
+&lt;p&gt;$$P = \frac{C(1-(1+r)^{-n})}{r} + \frac{Fv}{(1+r)^n}$$&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/bond_interest_rate_risk.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

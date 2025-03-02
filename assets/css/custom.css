@@ -1,0 +1,11 @@
+/* Custom styles */
+.article-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.article-metadata {
+  margin-bottom: 1rem;
+  color: #666;
+}

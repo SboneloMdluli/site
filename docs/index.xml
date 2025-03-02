@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sbonelo Mdluli ☕️ | Sbonelo Mdluli</title>
+    <link>http://localhost:1313/REPO_NAME/</link>
+      <atom:link href="http://localhost:1313/REPO_NAME/index.xml" rel="self" type="application/rss+xml" />
+    <description>Sbonelo Mdluli ☕️</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Mon, 24 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/REPO_NAME/media/icon_hu_43cf117bf1a42c34.png</url>
+      <title>Sbonelo Mdluli ☕️</title>
+      <link>http://localhost:1313/REPO_NAME/</link>
+    </image>
+    
+    <item>
+      <title>Put-Call Parity</title>
+      <link>http://localhost:1313/REPO_NAME/post/2024/02/08/put-call-parity/</link>
+      <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/REPO_NAME/post/2024/02/08/put-call-parity/</guid>
+      <description>&lt;p&gt;The put-call parity (PCP) establishes the relationship between call and put options that share the same underlying asset and expiration date. This relationship is especially relevant for European options. To illustrate it, we can create a portfolio composed of a long put option ($P(t)=max(K-S_{t},0)$), a short call option ($C(t)=max(S_{t}-K,0)$), and a long position in a non-dividend-paying stock ($S$) of the underlying. Both options have the same strike price ($K$) and expiration date ($T$). The portfolio&amp;rsquo;s structure before the expiration, at $t \leq T$, is described as follows:&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\begin{split}
+\prod_{t}^{} &amp;amp;= S_{t} + max(K-S_{t},0) - max(S_{t}-K,0)\
+&amp;amp;= K e^{-r(t-T)}
+\end{split}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;for European options this portfolio is simply a bond with interest rate $r$ and maturity $T$, the portfolio then becomes $\prod_{T} = K$&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/put_call_parity.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Systematic Risk</title>
+      <link>http://localhost:1313/REPO_NAME/post/2024/01/15/systematic-risk/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/REPO_NAME/post/2024/01/15/systematic-risk/</guid>
+      <description>&lt;p&gt;Key Concepts:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Value-at-Risk (VaR): A measure of the maximum potential loss over a period with a given confidence level. However, VaR has limitations, such as not considering tail dependency and lacking sub-additivity.&lt;/li&gt;
+&lt;li&gt;Expected Shortfall (ES): An improvement over VaR, ES is a coherent risk measure that calculates the average loss in scenarios where losses exceed VaR. It satisfies properties like monotonicity and sub-additivity.&lt;/li&gt;
+&lt;li&gt;Marginal Expected Shortfall (MES): Measures the contribution of a single institution to the overall systemic risk, calculated as the expected loss of an institution conditional on the system&amp;rsquo;s loss exceeding VaR.&lt;/li&gt;
+&lt;li&gt;Capital Shortfall (CS): The amount by which an institution&amp;rsquo;s capital falls short during a crisis. It is influenced by factors like leverage, size, and risk exposure.&lt;/li&gt;
+&lt;li&gt;Long Run Marginal Expected Shortfall (LRMES): An extension of MES over a longer horizon, estimating the expected loss of an institution during a market crash.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Value-At-Risk is the most a financial firm can loss over a period of time with some confidence $1-\alpha$. Formally VaR of $R$ is defined as follows:&lt;/p&gt;
+&lt;p&gt;$$\text{VaR}_{\alpha}(R) = -\inf\{x:\mathbb{P}[R \leq x] \geq \alpha \} = -\sup\{x:\mathbb{P}[R \leq x] &amp;lt; \alpha \}$$&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/systematic_risk.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Understanding Bond Interest Rate Risk</title>
+      <link>http://localhost:1313/REPO_NAME/post/2024/01/15/understanding-bond-interest-rate-risk/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/REPO_NAME/post/2024/01/15/understanding-bond-interest-rate-risk/</guid>
+      <description>&lt;p&gt;A bond is a fixed income instrument consisting of coupon payments and the face value (Fv). Coupons are regular payments, often expressed as a percentage of the face value. The price of a bond is calculated as the present value of its future cash flows, given by:&lt;/p&gt;
+&lt;p&gt;$$P =\sum_{i=1}^{n} \frac{C_i}{(1+r)^i} + \frac{Fv}{(1+r)^n}$$&lt;/p&gt;
+&lt;p&gt;Where $ C_i $ is the coupon value at time $t$, $n$ is the number of periods before maturity and $r$ is the yield to maturity. Yield to maturity is the expected return of the bond if held till maturity. Given a coupon rate $C_r$, if $ r \lt C_r $ then the bond is trading at a premium, if $ r \gt C_r $ the bond is issued at a discount and if $ r = C_r $ the bond is at par value. The equation above can be simplified to make computation easy.&lt;/p&gt;
+&lt;p&gt;$$P = \frac{C(1-(1+r)^{-n})}{r} + \frac{Fv}{(1+r)^n}$$&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/bond_interest_rate_risk.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How Limit Order Books Drive Price Discovery</title>
+      <link>http://localhost:1313/REPO_NAME/post/2024/01/14/how-limit-order-books-drive-price-discovery/</link>
+      <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/REPO_NAME/post/2024/01/14/how-limit-order-books-drive-price-discovery/</guid>
+      <description>&lt;p&gt;The Limit Order Book (LOB) is a fundamental mechanism in modern financial markets that facilitates price discovery and trading. This piece examines how LOBs work and their importance in market structure.&lt;/p&gt;
+&lt;h2 id=&#34;key-components&#34;&gt;Key Components&lt;/h2&gt;
+&lt;p&gt;A limit order book contains:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;All active buy and sell orders&lt;/li&gt;
+&lt;li&gt;Order volumes and prices&lt;/li&gt;
+&lt;li&gt;Submission timestamps&lt;/li&gt;
+&lt;li&gt;The current bid-ask spread&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;order-matching-protocols&#34;&gt;Order Matching Protocols&lt;/h2&gt;
+&lt;p&gt;Two main approaches are used:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Price-Time Priority (PTP)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Orders sorted by price then time&lt;/li&gt;
+&lt;li&gt;Rewards quick order submission&lt;/li&gt;
+&lt;li&gt;Most common in equity markets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Pro Rata&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Orders at same price filled proportionally&lt;/li&gt;
+&lt;li&gt;Encourages larger order sizes&lt;/li&gt;
+&lt;li&gt;Common in some derivatives markets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The choice of protocol influences trader behavior and market efficiency.&lt;/p&gt;
+&lt;h2 id=&#34;definitions&#34;&gt;Definitions&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Bid Price&lt;/strong&gt;
+The bid price at time t is the highest stated price among active buy orders at time t:&lt;/p&gt;
+&lt;p&gt;$$b(t) := \max_{x \in B(t)} \text{px}$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ask Price&lt;/strong&gt;
+The ask price at time t is the lowest stated price among active sell orders at time t:&lt;/p&gt;
+&lt;p&gt;$$a(t) := \min_{x \in A(t)} \text{px}$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bid-Ask Spread&lt;/strong&gt;
+The bid-ask spread at time t is:&lt;/p&gt;
+&lt;p&gt;$$s(t) := a(t) - b(t)$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Mid Price&lt;/strong&gt;
+The mid price at time t is:&lt;/p&gt;
+&lt;p&gt;$$m(t) := \frac{a(t) + b(t)}{2}$$&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/limit_order_book.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Principal Component Analysis: A Key Tool for Dimensionality Reduction</title>
+      <link>http://localhost:1313/REPO_NAME/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</link>
+      <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/REPO_NAME/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</guid>
+      <description>&lt;p&gt;Principal Component Analysis (PCA) is a powerful technique for reducing the dimensionality of financial data while preserving important relationships. This article explores the mathematical foundations and practical applications of PCA.&lt;/p&gt;
+&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;
+&lt;p&gt;PCA works by:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Finding directions of maximum variance in the data&lt;/li&gt;
+&lt;li&gt;Creating orthogonal basis vectors (principal components)&lt;/li&gt;
+&lt;li&gt;Projecting data onto lower-dimensional spaces&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;mathematical-framework&#34;&gt;Mathematical Framework&lt;/h2&gt;
+&lt;p&gt;The optimization problem can be expressed as:&lt;/p&gt;
+&lt;p&gt;$$v^{*}=\underset{v}{\operatorname{argmax}} \frac{1}{N}\sum_{i=1}^{N}\langle x_i,v\rangle^2$$&lt;/p&gt;
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$v^{*}$ is the first principal component&lt;/li&gt;
+&lt;li&gt;$x_i$ represents the i-th data point&lt;/li&gt;
+&lt;li&gt;$N$ is the number of observations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This leads to eigenvalue decomposition of the covariance matrix:&lt;/p&gt;
+&lt;p&gt;$$\Sigma = \frac{1}{N}\sum_{i=1}^{N}(x_i-\mu)(x_i-\mu)^T$$&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/pca.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

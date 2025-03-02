@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Derivatives | Sbonelo Mdluli</title>
+    <link>http://localhost:1313/REPO_NAME/category/derivatives/</link>
+      <atom:link href="http://localhost:1313/REPO_NAME/category/derivatives/index.xml" rel="self" type="application/rss+xml" />
+    <description>Derivatives</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Thu, 08 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/REPO_NAME/media/icon_hu_43cf117bf1a42c34.png</url>
+      <title>Derivatives</title>
+      <link>http://localhost:1313/REPO_NAME/category/derivatives/</link>
+    </image>
+    
+    <item>
+      <title>Put-Call Parity</title>
+      <link>http://localhost:1313/REPO_NAME/post/2024/02/08/put-call-parity/</link>
+      <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/REPO_NAME/post/2024/02/08/put-call-parity/</guid>
+      <description>&lt;p&gt;The put-call parity (PCP) establishes the relationship between call and put options that share the same underlying asset and expiration date. This relationship is especially relevant for European options. To illustrate it, we can create a portfolio composed of a long put option ($P(t)=max(K-S_{t},0)$), a short call option ($C(t)=max(S_{t}-K,0)$), and a long position in a non-dividend-paying stock ($S$) of the underlying. Both options have the same strike price ($K$) and expiration date ($T$). The portfolio&amp;rsquo;s structure before the expiration, at $t \leq T$, is described as follows:&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\begin{split}
+\prod_{t}^{} &amp;amp;= S_{t} + max(K-S_{t},0) - max(S_{t}-K,0)\
+&amp;amp;= K e^{-r(t-T)}
+\end{split}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;for European options this portfolio is simply a bond with interest rate $r$ and maturity $T$, the portfolio then becomes $\prod_{T} = K$&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/put_call_parity.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
