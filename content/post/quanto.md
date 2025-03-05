@@ -14,9 +14,8 @@ As a foreign investor buying assets in a foreign market you are exposed to curre
 Valuation differs based on perspective:
 
 Valuation from domestic investor perspective:
-$
-dS^d_t = S^d_t (\mu^d dt + \sigma^d_s dW^d_t)
-$
+
+$dS^d_t = S^d_t (\mu^d dt + \sigma^d_s dW^d_t)$
 
 Valuation from foreign investor perspective in their domestic denomination:
 $
