@@ -21,10 +21,10 @@ organizations:
     url: ""
 
 interests:
-  - Statistical Modelling
   - Machine Learning
-  - Quantitative Finance
   - Software Development
+  - Statistical Modelling
+  - Quantitative Finance
 
 education:
   courses:

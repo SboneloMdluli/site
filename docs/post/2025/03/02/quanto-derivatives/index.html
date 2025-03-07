@@ -282,8 +282,8 @@
 
 
 
-<link rel="alternate" hreflang="en" href="http://localhost:1313/REPO_NAME/post/2025/03/02/quanto-options/" />
-<link rel="canonical" href="http://localhost:1313/REPO_NAME/post/2025/03/02/quanto-options/" />
+<link rel="alternate" hreflang="en" href="http://localhost:1313/REPO_NAME/post/2025/03/02/quanto-derivatives/" />
+<link rel="canonical" href="http://localhost:1313/REPO_NAME/post/2025/03/02/quanto-derivatives/" />
 
 
 
@@ -320,8 +320,8 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Sbonelo Mdluli" />
-<meta property="og:url" content="http://localhost:1313/REPO_NAME/post/2025/03/02/quanto-options/" />
-<meta property="og:title" content="Quanto Options | Sbonelo Mdluli" />
+<meta property="og:url" content="http://localhost:1313/REPO_NAME/post/2025/03/02/quanto-derivatives/" />
+<meta property="og:title" content="Quanto Derivatives | Sbonelo Mdluli" />
 <meta property="og:description" content="Quanto options are derivatives that protect foreign investors from currency risk by fixing the exchange rate for payoffs, with valuation models differing between domestic and foreign perspectives." /><meta property="og:image" content="http://localhost:1313/REPO_NAME/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
 
   
@@ -357,9 +357,9 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/REPO_NAME/post/2025/03/02/quanto-options/"
+    "@id": "http://localhost:1313/REPO_NAME/post/2025/03/02/quanto-derivatives/"
   },
-  "headline": "Quanto Options",
+  "headline": "Quanto Derivatives",
   
   "datePublished": "2025-03-02T00:00:00Z",
   "dateModified": "2025-03-06T00:35:31+02:00",
@@ -399,7 +399,7 @@
 
 
   
-  <title>Quanto Options | Sbonelo Mdluli</title>
+  <title>Quanto Derivatives | Sbonelo Mdluli</title>
 
   
   
@@ -585,7 +585,7 @@
   
 
       <li class="breadcrumb-item active" aria-current="page">
-        Quanto Options
+        Quanto Derivatives
       </li>
     </ol>
   </nav>
@@ -599,7 +599,7 @@
     
 <article class="article">
   <div class="article-container">
-    <h1>Quanto Options</h1>
+    <h1>Quanto Derivatives</h1>
 
     <div class="article-metadata">
       <span class="article-date">
@@ -621,11 +621,11 @@
 <p>$dS^d_t = S^d_t (\mu^d dt + \sigma_s dW^d_t)$</p>
 <p>Valuation from foreign investor perspective in their domestic denomination:
 $
-dS^f_t = S^f_t \left( r^f - \rho \sigma_s \sigma^f_x \right) dt + S^f_t \left( \sigma_s d\tilde{W}^f_t \right)
+dS^f_t = S^f_t \left( r^f - \rho \sigma_s \sigma_x \right) dt + S^f_t \left( \sigma_s d\tilde{W}^f_t \right)
 $</p>
-<p>using Girsanov theorem $W^f_t$ under change of measure is,</p>
+<p>using Girsanov theorem to change measures, $\tilde{dW}^f_t$ is,</p>
 <p>$
-\tilde{W}^f_t = W^f_t + \frac{\rho \sigma^d_s \sigma^f_x + \mu^d - r^f}{\sigma_s}
+\tilde{dW}^f_t = \frac{\rho \sigma_s \sigma_x + \mu^d - r^f}{\sigma_s} + dW^f_t
 $</p>
 <p>This is a Brownian motion accounting for market risk adjusted for exchange rate, enabling the valuation of the derivative in the foreign investor&rsquo;s domestic currency.</p>
 <ul>
