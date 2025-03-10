@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Market Structure | Sbonelo Mdluli</title>
-    <link>http://localhost:1313/site/tag/market-structure/</link>
-      <atom:link href="http://localhost:1313/site/tag/market-structure/index.xml" rel="self" type="application/rss+xml" />
+    <link>//localhost:1313/tag/market-structure/</link>
+      <atom:link href="//localhost:1313/tag/market-structure/index.xml" rel="self" type="application/rss+xml" />
     <description>Market Structure</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sun, 14 Jan 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png</url>
+      <url>//localhost:1313/media/icon_hu_43cf117bf1a42c34.png</url>
       <title>Market Structure</title>
-      <link>http://localhost:1313/site/tag/market-structure/</link>
+      <link>//localhost:1313/tag/market-structure/</link>
     </image>
     
     <item>
       <title>How Limit Order Books Drive Price Discovery</title>
-      <link>http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/</link>
+      <link>//localhost:1313/post/2024/01/14/how-limit-order-books-drive-price-discovery/</link>
       <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/</guid>
+      <guid>//localhost:1313/post/2024/01/14/how-limit-order-books-drive-price-discovery/</guid>
       <description>&lt;p&gt;The Limit Order Book (LOB) is a fundamental mechanism in modern financial markets that facilitates price discovery and trading. This piece examines how LOBs work and their importance in market structure.&lt;/p&gt;
 &lt;h2 id=&#34;key-components&#34;&gt;Key Components&lt;/h2&gt;
 &lt;p&gt;A limit order book contains:&lt;/p&gt;

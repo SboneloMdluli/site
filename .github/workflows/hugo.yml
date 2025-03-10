@@ -60,7 +60,7 @@ jobs:
           mkdir -p public
 
           # Build site
-          hugo --minify --baseURL "https://sbonelomdluli.github.io/site/" --destination public
+          hugo --minify --baseURL "/" --destination public
 
           # Verify build output
           echo "Public directory contents:"
@@ -84,7 +84,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: public  # Remove the ./ prefix
+          path: public # Remove the ./ prefix
           name: github-pages
 
   # Deployment job

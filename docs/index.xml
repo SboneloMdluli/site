@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sbonelo Mdluli ☕️ | Sbonelo Mdluli</title>
-    <link>http://localhost:1313/site/</link>
-      <atom:link href="http://localhost:1313/site/index.xml" rel="self" type="application/rss+xml" />
+    <link>//localhost:1313/</link>
+      <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <description>Sbonelo Mdluli ☕️</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Mon, 24 Oct 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png</url>
+      <url>//localhost:1313/media/icon_hu_43cf117bf1a42c34.png</url>
       <title>Sbonelo Mdluli ☕️</title>
-      <link>http://localhost:1313/site/</link>
+      <link>//localhost:1313/</link>
     </image>
     
     <item>
       <title>Image Retrieval</title>
-      <link>http://localhost:1313/site/post/2025/03/10/image-retrieval/</link>
+      <link>//localhost:1313/post/2025/03/10/image-retrieval/</link>
       <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/site/post/2025/03/10/image-retrieval/</guid>
+      <guid>//localhost:1313/post/2025/03/10/image-retrieval/</guid>
       <description>&lt;h1 id=&#34;image-retrieval-system-design&#34;&gt;Image Retrieval System Design&lt;/h1&gt;
 &lt;h2 id=&#34;system-overview&#34;&gt;System Overview&lt;/h2&gt;
 &lt;p&gt;The Image Retrieval System is designed with a modular, separates concerns for optimal performance and maintainability. The system consists of four main components:&lt;/p&gt;
@@ -26,7 +26,9 @@
 &lt;li&gt;&lt;strong&gt;Backend/Inference&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Frontend&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;
+
+
+
 
 
 
@@ -44,13 +46,15 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/system_diag.jpg&#34; alt=&#34;System Architecture&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;//localhost:1313/images/system_diag.jpg&#34; alt=&#34;System Architecture&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
+
 &lt;p&gt;The system is composed of two main platforms: one dedicated to handling data and the other focused on inference and user interaction. This design offers a modular and flexible architecture, ensuring seamless integration between components. A scheduler is used to initiate the pipeline and perform batch training processes.&lt;/p&gt;
 &lt;h2 id=&#34;data-pipeline&#34;&gt;Data Pipeline&lt;/h2&gt;
 &lt;p&gt;The data pipeline manages feature engineering and data science tasks using Kedro, which applies software engineering principles to data science projects. This approach eliminates disorganised notebooks and ensures maintainability and production-grade quality.&lt;/p&gt;
-&lt;p&gt;
+
+
+
 
 
 
@@ -68,11 +72,13 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/kedro.png&#34; alt=&#34;Kedro Pipeline&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;//localhost:1313/images/kedro.png&#34; alt=&#34;Kedro Pipeline&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
+
 &lt;p&gt;Dask enables distributed processing across a cluster, making the pipeline efficient for handling large multidimensional image arrays and parallel I/O operations.&lt;/p&gt;
-&lt;p&gt;
+
+
+
 
 
 
@@ -90,9 +96,9 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/dask.png&#34; alt=&#34;Dask Workers&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;//localhost:1313/images/dask.png&#34; alt=&#34;Dask Workers&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
+
 &lt;h2 id=&#34;model-architecture&#34;&gt;Model Architecture&lt;/h2&gt;
 &lt;p&gt;The system uses the Contrastive Language-Image Pre-training (CLIP) model for embedding, which maps both images and text into a shared embedding space. CLIP is trained on image-text pairs and supports zero-shot prediction.&lt;/p&gt;
 &lt;p&gt;For efficient similarity searches, the system employs Faiss, which offers:&lt;/p&gt;
@@ -111,7 +117,9 @@
 &lt;li&gt;An online store (SQLite) optimised for fast inference&lt;/li&gt;
 &lt;li&gt;Reusability of data without repeating EDA, feature engineering, or modeling tasks&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;
+
+
+
 
 
 
@@ -129,9 +137,9 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/feast.png&#34; alt=&#34;Feast Project&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;//localhost:1313/images/feast.png&#34; alt=&#34;Feast Project&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
+
 &lt;h2 id=&#34;model-registry&#34;&gt;Model Registry&lt;/h2&gt;
 &lt;p&gt;The system uses a local file system as storage for models, mimicking a typical model registry. Models can be tested and approved for production readiness, with the potential to configure Kedro using MLflow for model management. We use DVC foe data and model tracking.&lt;/p&gt;
 &lt;h2 id=&#34;backend&#34;&gt;Backend&lt;/h2&gt;
@@ -142,7 +150,9 @@
 &lt;li&gt;Multi-model serving capabilities&lt;/li&gt;
 &lt;li&gt;Resource optimization by loading/unloading models between RAM and disk&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;
+
+
+
 
 
 
@@ -160,12 +170,14 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/api.png&#34; alt=&#34;Project Backend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;//localhost:1313/images/api.png&#34; alt=&#34;Project Backend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
+
 &lt;h2 id=&#34;frontend&#34;&gt;Frontend&lt;/h2&gt;
 &lt;p&gt;The frontend is designed to minimize redundant backend calls by storing search results in the browser&amp;rsquo;s local storage. If a user searches for fewer than k results for the same query, the system retrieves them from memory instead of making additional backend requests.&lt;/p&gt;
-&lt;p&gt;
+
+
+
 
 
 
@@ -183,9 +195,9 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/frontend.png&#34; alt=&#34;System Frontend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;//localhost:1313/images/frontend.png&#34; alt=&#34;System Frontend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
+
 &lt;p&gt;The entire system can be easily deployed and containerised using existing Docker files.&lt;/p&gt;
 &lt;h2 id=&#34;extended-system-for-accessibility&#34;&gt;Extended System for Accessibility&lt;/h2&gt;
 &lt;p&gt;The design can be adapted to assist visually impaired users by:&lt;/p&gt;
@@ -201,197 +213,10 @@
     </item>
     
     <item>
-      <title>Image Retrieval</title>
-      <link>http://localhost:1313/site/post/2025/03/10/image-retrieval/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/site/post/2025/03/10/image-retrieval/</guid>
-      <description>&lt;h1 id=&#34;image-retrieval-system-design&#34;&gt;Image Retrieval System Design&lt;/h1&gt;
-&lt;h2 id=&#34;system-overview&#34;&gt;System Overview&lt;/h2&gt;
-&lt;p&gt;The Image Retrieval System is designed with a modular, separates concerns for optimal performance and maintainability. The system consists of four main components:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Data Pipeline&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Feature Store&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Backend/Inference&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Frontend&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/system_diag.jpg&#34; alt=&#34;System Architecture&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;The system is composed of two main platforms: one dedicated to handling data and the other focused on inference and user interaction. This design offers a modular and flexible architecture, ensuring seamless integration between components. A scheduler is used to initiate the pipeline and perform batch training processes.&lt;/p&gt;
-&lt;h2 id=&#34;data-pipeline&#34;&gt;Data Pipeline&lt;/h2&gt;
-&lt;p&gt;The data pipeline manages feature engineering and data science tasks using Kedro, which applies software engineering principles to data science projects. This approach eliminates disorganized notebooks and ensures maintainability and production-grade quality.&lt;/p&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/kedro.png&#34; alt=&#34;Kedro Pipeline&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;Dask enables distributed processing across a cluster, making the pipeline efficient for handling large multidimensional image arrays and parallel I/O operations.&lt;/p&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/dask.png&#34; alt=&#34;Dask Workers&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;h2 id=&#34;model-architecture&#34;&gt;Model Architecture&lt;/h2&gt;
-&lt;p&gt;The system uses the Contrastive Language-Image Pre-training (CLIP) model for embedding, which maps both images and text into a shared embedding space. CLIP is trained on image-text pairs and supports zero-shot prediction.&lt;/p&gt;
-&lt;p&gt;For efficient similarity searches, the system employs Faiss, which offers:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Fast retrieval by storing indices in memory&lt;/li&gt;
-&lt;li&gt;Minimal memory footprint to keep operational costs low&lt;/li&gt;
-&lt;li&gt;GPU acceleration and parallel processing capabilities&lt;/li&gt;
-&lt;li&gt;Balance between speed and accuracy&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The current implementation uses a flat index suitable for small-scale searches (1,000-10,000 entries), but can easily transition to larger-scale index types if needed.&lt;/p&gt;
-&lt;h2 id=&#34;feature-store&#34;&gt;Feature Store&lt;/h2&gt;
-&lt;p&gt;The feature store houses images, embeddings, and image byte data using Feast, which provides:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;An offline store (Parquet files) optimized for training&lt;/li&gt;
-&lt;li&gt;An online store (SQLite) optimized for fast inference&lt;/li&gt;
-&lt;li&gt;Reusability of data without repeating EDA, feature engineering, or modeling tasks&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/feast.png&#34; alt=&#34;Feast Project&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;h2 id=&#34;model-registry&#34;&gt;Model Registry&lt;/h2&gt;
-&lt;p&gt;The system uses a local file system as storage for models, mimicking a typical model registry. Models can be tested and approved for production readiness, with the potential to configure Kedro using MLflow for model management.&lt;/p&gt;
-&lt;h2 id=&#34;backend&#34;&gt;Backend&lt;/h2&gt;
-&lt;p&gt;The backend features an API for inference built with FastAPI, including:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Basic schema validation for incoming requests&lt;/li&gt;
-&lt;li&gt;In-memory model loading for quick response times&lt;/li&gt;
-&lt;li&gt;Multi-model serving capabilities&lt;/li&gt;
-&lt;li&gt;Resource optimization by loading/unloading models between RAM and disk&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/api.png&#34; alt=&#34;Project Backend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;h2 id=&#34;frontend&#34;&gt;Frontend&lt;/h2&gt;
-&lt;p&gt;The frontend is designed to minimize redundant backend calls by storing search results in the browser&amp;rsquo;s local storage. If a user searches for fewer than k results for the same query, the system retrieves them from memory instead of making additional backend requests.&lt;/p&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/frontend.png&#34; alt=&#34;System Frontend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;The entire system can be easily deployed and containerized using existing Docker files.&lt;/p&gt;
-&lt;h2 id=&#34;extended-system-for-accessibility&#34;&gt;Extended System for Accessibility&lt;/h2&gt;
-&lt;p&gt;The design can be adapted to assist visually impaired users by:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Integrating speech-to-text directly in the browser using TensorFlow.js or ONNX Runtime Web&lt;/li&gt;
-&lt;li&gt;Providing text descriptions of images instead of visual results&lt;/li&gt;
-&lt;li&gt;Using text-to-speech engines running in the browser&lt;/li&gt;
-&lt;li&gt;Leveraging geolocation to select appropriate voice accents&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;User feedback can be collected through simple thumbs up/down emoticons.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Multi-Modal-Image-Retrieval&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View project →&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Quanto Derivatives</title>
-      <link>http://localhost:1313/site/post/2025/03/02/quanto-derivatives/</link>
+      <link>//localhost:1313/post/2025/03/02/quanto-derivatives/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/site/post/2025/03/02/quanto-derivatives/</guid>
+      <guid>//localhost:1313/post/2025/03/02/quanto-derivatives/</guid>
       <description>&lt;p&gt;As a foreign investor buying assets in a foreign market you are exposed to currency rate risk. A Quanto is a derivative whose payoff is written In a foreign currency denomination. The payoff is converted at a predetermined exchange rate allowing the foreign investor to hedge against currency rate risk. The valuation differ on perspective,&lt;/p&gt;
 &lt;p&gt;Valuation from domestic investor perspective under domestic measure:&lt;/p&gt;
 &lt;p&gt;$dS^d_t = S^d_t (\mu^d dt + \sigma_s dW^d_t)$&lt;/p&gt;
@@ -415,9 +240,9 @@ $&lt;/p&gt;
     
     <item>
       <title>Put-Call Parity</title>
-      <link>http://localhost:1313/site/post/2024/02/08/put-call-parity/</link>
+      <link>//localhost:1313/post/2024/02/08/put-call-parity/</link>
       <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/site/post/2024/02/08/put-call-parity/</guid>
+      <guid>//localhost:1313/post/2024/02/08/put-call-parity/</guid>
       <description>&lt;p&gt;The put-call parity (PCP) establishes the relationship between call and put options that share the same underlying asset and expiration date. This relationship is especially relevant for European options. To illustrate it, we can create a portfolio composed of a long put option ($P(t)=max(K-S_{t},0)$), a short call option ($C(t)=max(S_{t}-K,0)$), and a long position in a non-dividend-paying stock ($S$) of the underlying. Both options have the same strike price ($K$) and expiration date ($T$). The portfolio&amp;rsquo;s structure before the expiration, at $t \leq T$, is described as follows:&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 \begin{split}
@@ -432,9 +257,9 @@ $&lt;/p&gt;
     
     <item>
       <title>Systematic Risk</title>
-      <link>http://localhost:1313/site/post/2024/01/15/systematic-risk/</link>
+      <link>//localhost:1313/post/2024/01/15/systematic-risk/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/site/post/2024/01/15/systematic-risk/</guid>
+      <guid>//localhost:1313/post/2024/01/15/systematic-risk/</guid>
       <description>&lt;p&gt;Key Concepts:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Value-at-Risk (VaR): A measure of the maximum potential loss over a period with a given confidence level. However, VaR has limitations, such as not considering tail dependency and lacking sub-additivity.&lt;/li&gt;
@@ -451,9 +276,9 @@ $&lt;/p&gt;
     
     <item>
       <title>Understanding Bond Interest Rate Risk</title>
-      <link>http://localhost:1313/site/post/2024/01/15/understanding-bond-interest-rate-risk/</link>
+      <link>//localhost:1313/post/2024/01/15/understanding-bond-interest-rate-risk/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/site/post/2024/01/15/understanding-bond-interest-rate-risk/</guid>
+      <guid>//localhost:1313/post/2024/01/15/understanding-bond-interest-rate-risk/</guid>
       <description>&lt;p&gt;A bond is a fixed income instrument consisting of coupon payments and the face value (Fv). Coupons are regular payments, often expressed as a percentage of the face value. The price of a bond is calculated as the present value of its future cash flows, given by:&lt;/p&gt;
 &lt;p&gt;$$P =\sum_{i=1}^{n} \frac{C_i}{(1+r)^i} + \frac{Fv}{(1+r)^n}$$&lt;/p&gt;
 &lt;p&gt;Where $ C_i $ is the coupon value at time $t$, $n$ is the number of periods before maturity and $r$ is the yield to maturity. Yield to maturity is the expected return of the bond if held till maturity. Given a coupon rate $C_r$, if $ r \lt C_r $ then the bond is trading at a premium, if $ r \gt C_r $ the bond is issued at a discount and if $ r = C_r $ the bond is at par value. The equation above can be simplified to make computation easy.&lt;/p&gt;
@@ -464,9 +289,9 @@ $&lt;/p&gt;
     
     <item>
       <title>How Limit Order Books Drive Price Discovery</title>
-      <link>http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/</link>
+      <link>//localhost:1313/post/2024/01/14/how-limit-order-books-drive-price-discovery/</link>
       <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/</guid>
+      <guid>//localhost:1313/post/2024/01/14/how-limit-order-books-drive-price-discovery/</guid>
       <description>&lt;p&gt;The Limit Order Book (LOB) is a fundamental mechanism in modern financial markets that facilitates price discovery and trading. This piece examines how LOBs work and their importance in market structure.&lt;/p&gt;
 &lt;h2 id=&#34;key-components&#34;&gt;Key Components&lt;/h2&gt;
 &lt;p&gt;A limit order book contains:&lt;/p&gt;
@@ -514,9 +339,9 @@ The mid price at time t is:&lt;/p&gt;
     
     <item>
       <title>Principal Component Analysis: A Key Tool for Dimensionality Reduction</title>
-      <link>http://localhost:1313/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</link>
+      <link>//localhost:1313/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</link>
       <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</guid>
+      <guid>//localhost:1313/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</guid>
       <description>&lt;p&gt;Principal Component Analysis (PCA) is a powerful technique for reducing the dimensionality of financial data while preserving important relationships. This article explores the mathematical foundations and practical applications of PCA.&lt;/p&gt;
 &lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;
 &lt;p&gt;PCA works by:&lt;/p&gt;
