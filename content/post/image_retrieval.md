@@ -18,7 +18,7 @@ The Image Retrieval System is designed with a modular, separates concerns for op
 3. **Backend/Inference**
 4. **Frontend**
 
-{{< figure src="/images/system_diag.jpg" alt="System Architecture" >}}
+{{< figure src="/site/images/system_diag.jpg" alt="System Architecture" >}}
 
 The system is composed of two main platforms: one dedicated to handling data and the other focused on inference and user interaction. This design offers a modular and flexible architecture, ensuring seamless integration between components. A scheduler is used to initiate the pipeline and perform batch training processes.
 
@@ -26,11 +26,11 @@ The system is composed of two main platforms: one dedicated to handling data and
 
 The data pipeline manages feature engineering and data science tasks using Kedro, which applies software engineering principles to data science projects. This approach eliminates disorganised notebooks and ensures maintainability and production-grade quality.
 
-{{< figure src="/images/kedro.png" alt="Kedro Pipeline" >}}
+{{< figure src="/site/images/kedro.png" alt="Kedro Pipeline" >}}
 
 Dask enables distributed processing across a cluster, making the pipeline efficient for handling large multidimensional image arrays and parallel I/O operations.
 
-{{< figure src="/images/dask.png" alt="Dask Workers" >}}
+{{< figure src="/site/images/dask.png" alt="Dask Workers" >}}
 
 ## Model Architecture
 
@@ -55,7 +55,7 @@ The feature store houses images, embeddings, and image byte data using Feast, wh
 - An online store (SQLite) optimised for fast inference
 - Reusability of data without repeating EDA, feature engineering, or modeling tasks
 
-{{< figure src="/images/feast.png" alt="Feast Project" >}}
+{{< figure src="/site/images/feast.png" alt="Feast Project" >}}
 
 ## Model Registry
 
@@ -70,13 +70,13 @@ The backend features an API for inference built with FastAPI, including:
 - Multi-model serving capabilities
 - Resource optimization by loading/unloading models between RAM and disk
 
-{{< figure src="/images/api.png" alt="Project Backend" >}}
+{{< figure src="/site/images/api.png" alt="Project Backend" >}}
 
 ## Frontend
 
 The frontend is designed to minimize redundant backend calls by storing search results in the browser's local storage. If a user searches for fewer than k results for the same query, the system retrieves them from memory instead of making additional backend requests.
 
-{{< figure src="/images/frontend.png" alt="System Frontend" >}}
+{{< figure src="/site/images/frontend.png" alt="System Frontend" >}}
 
 The entire system can be easily deployed and containerised using existing Docker files.
 
