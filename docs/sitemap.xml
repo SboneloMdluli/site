@@ -3,19 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/REPO_NAME/categories/</loc>
-    <lastmod>2025-03-06T00:35:31+02:00</lastmod>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/REPO_NAME/tag/derivatives/</loc>
-    <lastmod>2025-03-06T00:35:31+02:00</lastmod>
+    <loc>http://localhost:1313/REPO_NAME/post/2025/03/10/image-retrieval/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/REPO_NAME/category/derivatives/</loc>
-    <lastmod>2025-03-06T00:35:31+02:00</lastmod>
+    <loc>http://localhost:1313/REPO_NAME/tag/machine-learning/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/REPO_NAME/post/2025/03/02/quanto-options/</loc>
-    <lastmod>2025-03-06T00:35:31+02:00</lastmod>
+    <loc>http://localhost:1313/REPO_NAME/category/machine-learning/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/REPO_NAME/tags/</loc>
-    <lastmod>2025-03-06T00:35:31+02:00</lastmod>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/REPO_NAME/tag/derivatives/</loc>
+    <lastmod>2025-03-08T00:52:20+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/REPO_NAME/category/derivatives/</loc>
+    <lastmod>2025-03-08T00:52:20+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/REPO_NAME/post/2025/03/02/quanto-derivatives/</loc>
+    <lastmod>2025-03-08T00:52:20+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/REPO_NAME/post/2024/02/08/put-call-parity/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
@@ -41,12 +50,6 @@
     <loc>http://localhost:1313/REPO_NAME/category/market-structure/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/REPO_NAME/tag/machine-learning/</loc>
-    <lastmod>2025-03-02T16:38:03+02:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/REPO_NAME/category/machine-learning/</loc>
-    <lastmod>2025-03-02T16:38:03+02:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/REPO_NAME/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
@@ -54,12 +57,12 @@
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/REPO_NAME/authors/</loc>
-    <lastmod>2025-03-02T16:38:03+02:00</lastmod>
+    <lastmod>2025-03-08T00:52:20+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/REPO_NAME/post/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/REPO_NAME/author/sbonelo-mdluli-%EF%B8%8F/</loc>
-    <lastmod>2025-03-02T16:38:03+02:00</lastmod>
+    <lastmod>2025-03-08T00:52:20+02:00</lastmod>
   </url>
 </urlset>

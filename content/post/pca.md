@@ -12,6 +12,7 @@ Principal Component Analysis (PCA) is a powerful technique for reducing the dime
 ## Key Concepts
 
 PCA works by:
+
 - Finding directions of maximum variance in the data
 - Creating orthogonal basis vectors (principal components)
 - Projecting data onto lower-dimensional spaces
@@ -23,6 +24,7 @@ The optimization problem can be expressed as:
 $$v^{*}=\underset{v}{\operatorname{argmax}} \frac{1}{N}\sum_{i=1}^{N}\langle x_i,v\rangle^2$$
 
 where:
+
 - $v^{*}$ is the first principal component
 - $x_i$ represents the i-th data point
 - $N$ is the number of observations

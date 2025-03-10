@@ -5,7 +5,7 @@ widget: contact
 
 # This file represents a page section.
 headless: true
-active: false  # Set to false to remove from site
+active: false # Set to false to remove from site
 
 # Order that this section appears on the page.
 weight: 130
@@ -14,8 +14,6 @@ title: Contact
 subtitle:
 
 content:
-  # Contact (edit or remove options as required)
-  email: sbonelo.mdluli@gmail.com
   phone:
   address:
     street:
@@ -45,5 +43,5 @@ content:
       captcha: false
 
 design:
-  columns: '2'
+  columns: "2"
 ---
