@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning | Sbonelo Mdluli</title>
-    <link>http://localhost:1313/REPO_NAME/category/machine-learning/</link>
-      <atom:link href="http://localhost:1313/REPO_NAME/category/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <link>//localhost:1313/category/machine-learning/</link>
+      <atom:link href="//localhost:1313/category/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <description>Machine Learning</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/REPO_NAME/media/icon_hu_43cf117bf1a42c34.png</url>
+      <url>//localhost:1313/media/icon_hu_43cf117bf1a42c34.png</url>
       <title>Machine Learning</title>
-      <link>http://localhost:1313/REPO_NAME/category/machine-learning/</link>
+      <link>//localhost:1313/category/machine-learning/</link>
     </image>
     
     <item>
       <title>Image Retrieval</title>
-      <link>http://localhost:1313/REPO_NAME/post/2025/03/10/image-retrieval/</link>
+      <link>//localhost:1313/post/2025/03/10/image-retrieval/</link>
       <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/REPO_NAME/post/2025/03/10/image-retrieval/</guid>
+      <guid>//localhost:1313/post/2025/03/10/image-retrieval/</guid>
       <description>&lt;h1 id=&#34;image-retrieval-system-design&#34;&gt;Image Retrieval System Design&lt;/h1&gt;
 &lt;h2 id=&#34;system-overview&#34;&gt;System Overview&lt;/h2&gt;
 &lt;p&gt;The Image Retrieval System is designed with a modular, separates concerns for optimal performance and maintainability. The system consists of four main components:&lt;/p&gt;
@@ -44,7 +44,7 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;avatar.webp&#34; alt=&#34;System Architecture&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;//localhost:1313/images/system_diag.jpg&#34; alt=&#34;System Architecture&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;The system is composed of two main platforms: one dedicated to handling data and the other focused on inference and user interaction. This design offers a modular and flexible architecture, ensuring seamless integration between components. A scheduler is used to initiate the pipeline and perform batch training processes.&lt;/p&gt;
@@ -68,7 +68,7 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;kedro.png&#34; alt=&#34;Kedro Pipeline&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;//localhost:1313/images/kedro.png&#34; alt=&#34;Kedro Pipeline&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;Dask enables distributed processing across a cluster, making the pipeline efficient for handling large multidimensional image arrays and parallel I/O operations.&lt;/p&gt;
@@ -90,7 +90,7 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;dask.png&#34; alt=&#34;Dask Workers&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;//localhost:1313/images/dask.png&#34; alt=&#34;Dask Workers&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;model-architecture&#34;&gt;Model Architecture&lt;/h2&gt;
@@ -128,7 +128,7 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;api.png&#34; alt=&#34;Feast Project&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;//localhost:1313/images/feast.png&#34; alt=&#34;Feast Project&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;model-registry&#34;&gt;Model Registry&lt;/h2&gt;
@@ -159,7 +159,7 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;api.png&#34; alt=&#34;Project Backend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;//localhost:1313/images/api.png&#34; alt=&#34;Project Backend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;frontend&#34;&gt;Frontend&lt;/h2&gt;
@@ -182,7 +182,7 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;frontend.png&#34; alt=&#34;System Frontend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;//localhost:1313/images/frontend.png&#34; alt=&#34;System Frontend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;p&gt;The entire system can be easily deployed and containerized using existing Docker files.&lt;/p&gt;
@@ -194,27 +194,6 @@
 &lt;li&gt;Using text-to-speech engines running in the browser&lt;/li&gt;
 &lt;li&gt;Leveraging geolocation to select appropriate voice accents&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;avatar.webp&#34; alt=&#34;Extended System&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
 &lt;p&gt;User feedback can be collected through simple thumbs up/down emoticons.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Multi-Modal-Image-Retrieval&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View project →&lt;/a&gt;&lt;/p&gt;
 </description>
@@ -222,9 +201,9 @@
     
     <item>
       <title>Principal Component Analysis: A Key Tool for Dimensionality Reduction</title>
-      <link>http://localhost:1313/REPO_NAME/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</link>
+      <link>//localhost:1313/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</link>
       <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/REPO_NAME/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</guid>
+      <guid>//localhost:1313/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</guid>
       <description>&lt;p&gt;Principal Component Analysis (PCA) is a powerful technique for reducing the dimensionality of financial data while preserving important relationships. This article explores the mathematical foundations and practical applications of PCA.&lt;/p&gt;
 &lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;
 &lt;p&gt;PCA works by:&lt;/p&gt;

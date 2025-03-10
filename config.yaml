@@ -1,4 +1,4 @@
-baseURL: "https://YOUR_GITHUB_USERNAME.github.io/REPO_NAME/"
+baseURL: "/"
 title: "Sbonelo Mdluli"
 theme: "hugo-blox-builder"
 
@@ -40,32 +40,6 @@ params:
     show_social: true
     show_organizations: true
     show_address: false
-
-  # Author settings
-  author: Your Name
-  role: Professor of Artificial Intelligence
-  organizations:
-    - name: Stanford University
-      url: ""
-
-  # Mission statement
-  research_statement: |
-    📚 My Research
-
-    I am a quantitative researcher focused on applying mathematical and computational methods to financial markets. My research interests include market microstructure, fixed income modeling, and machine learning applications in finance.
-
-    I apply a range of quantitative methods to investigate market dynamics and develop trading strategies.
-
-    Please reach out to collaborate 😃
-
-  # Contact details
-  email: sbonelo.mdluli@gmail.com
-  phone: 888 888 88 88
-  address:
-    city: Cape Town
-    region: Western Cape
-    country: South Africa
-    country_code: ZA
 
   # Social/Academic Networking
   social:

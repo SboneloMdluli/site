@@ -1,7 +1,7 @@
 ---
 title: "Image Retrieval"
 date: 2025-03-10
-summary: "Master PCA for financial analysis. Learn how this powerful technique can uncover hidden patterns in your data and improve your quantitative models."
+summary: "A comprehensive guide to building a modular image retrieval system with CLIP embeddings and Faiss. This article details the complete architecture including data pipelines with Kedro and Dask, feature storage with Feast..."
 tags: ["Machine Learning"]
 categories: [Machine Learning]
 math: true
