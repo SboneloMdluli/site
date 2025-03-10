@@ -68,7 +68,7 @@ params:
     privacy_pack:
       enable: false
     repository:
-      url: 'https://github.com/YOUR_USERNAME/REPO_NAME'
+      url: 'https://github.com/SboneloMdluli/site'
       content_dir: content
       branch: main
     navigation:

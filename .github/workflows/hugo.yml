@@ -60,7 +60,7 @@ jobs:
           mkdir -p public
 
           # Build site
-          hugo --minify --baseURL "/" --destination public
+          hugo --minify --baseURL "https://sbonelomdluli.github.io/site/" --destination public
 
           # Verify build output
           echo "Public directory contents:"
