@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Derivatives | Sbonelo Mdluli</title>
-    <link>https://sbonelomdluli.github.io/site/category/derivatives/</link>
-      <atom:link href="https://sbonelomdluli.github.io/site/category/derivatives/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/site/category/derivatives/</link>
+      <atom:link href="http://localhost:1313/site/category/derivatives/index.xml" rel="self" type="application/rss+xml" />
     <description>Derivatives</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sun, 02 Mar 2025 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://sbonelomdluli.github.io/site/media/icon_hu_43cf117bf1a42c34.png</url>
+      <url>http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png</url>
       <title>Derivatives</title>
-      <link>https://sbonelomdluli.github.io/site/category/derivatives/</link>
+      <link>http://localhost:1313/site/category/derivatives/</link>
     </image>
     
     <item>
       <title>Quanto Derivatives</title>
-      <link>https://sbonelomdluli.github.io/site/post/2025/03/02/quanto-derivatives/</link>
+      <link>http://localhost:1313/site/post/2025/03/02/quanto-derivatives/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://sbonelomdluli.github.io/site/post/2025/03/02/quanto-derivatives/</guid>
+      <guid>http://localhost:1313/site/post/2025/03/02/quanto-derivatives/</guid>
       <description>&lt;p&gt;As a foreign investor buying assets in a foreign market you are exposed to currency rate risk. A Quanto is a derivative whose payoff is written In a foreign currency denomination. The payoff is converted at a predetermined exchange rate allowing the foreign investor to hedge against currency rate risk. The valuation differ on perspective,&lt;/p&gt;
 &lt;p&gt;Valuation from domestic investor perspective under domestic measure:&lt;/p&gt;
 &lt;p&gt;$dS^d_t = S^d_t (\mu^d dt + \sigma_s dW^d_t)$&lt;/p&gt;
@@ -40,9 +40,9 @@ $&lt;/p&gt;
     
     <item>
       <title>Put-Call Parity</title>
-      <link>https://sbonelomdluli.github.io/site/post/2024/02/08/put-call-parity/</link>
+      <link>http://localhost:1313/site/post/2024/02/08/put-call-parity/</link>
       <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://sbonelomdluli.github.io/site/post/2024/02/08/put-call-parity/</guid>
+      <guid>http://localhost:1313/site/post/2024/02/08/put-call-parity/</guid>
       <description>&lt;p&gt;The put-call parity (PCP) establishes the relationship between call and put options that share the same underlying asset and expiration date. This relationship is especially relevant for European options. To illustrate it, we can create a portfolio composed of a long put option ($P(t)=max(K-S_{t},0)$), a short call option ($C(t)=max(S_{t}-K,0)$), and a long position in a non-dividend-paying stock ($S$) of the underlying. Both options have the same strike price ($K$) and expiration date ($T$). The portfolio&amp;rsquo;s structure before the expiration, at $t \leq T$, is described as follows:&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 \begin{split}

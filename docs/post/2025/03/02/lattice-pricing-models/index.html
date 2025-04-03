@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: April 3, 2025 --><html lang="en" >
+<!-- Last Published: April 4, 2025 --><html lang="en" >
 
 
 <head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
@@ -278,12 +278,12 @@
 
   
 
-<meta name="description" content="Master PCA for financial analysis. Learn how this powerful technique can uncover hidden patterns in your data and improve your quantitative models." />
+<meta name="description" content="Implementation of binomial and trinomial lattice models for pricing options, including European, American, and Asian options with delta hedging strategies." />
 
 
 
-<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/" />
-<link rel="canonical" href="http://localhost:1313/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/" />
+<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/" />
+<link rel="canonical" href="http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/" />
 
 
 
@@ -320,18 +320,18 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Sbonelo Mdluli" />
-<meta property="og:url" content="http://localhost:1313/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/" />
-<meta property="og:title" content="Principal Component Analysis: A Key Tool for Dimensionality Reduction | Sbonelo Mdluli" />
-<meta property="og:description" content="Master PCA for financial analysis. Learn how this powerful technique can uncover hidden patterns in your data and improve your quantitative models." /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
+<meta property="og:url" content="http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/" />
+<meta property="og:title" content="Lattice Pricing Models | Sbonelo Mdluli" />
+<meta property="og:description" content="Implementation of binomial and trinomial lattice models for pricing options, including European, American, and Asian options with delta hedging strategies." /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
 
   
     <meta
       property="article:published_time"
-      content="2024-01-13T00:00:00&#43;00:00"
+      content="2025-03-02T00:00:00&#43;00:00"
     />
   
   
-    <meta property="article:modified_time" content="2025-03-10T23:19:53&#43;02:00">
+    <meta property="article:modified_time" content="2025-03-02T00:00:00&#43;00:00">
   
 
 
@@ -357,12 +357,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/"
+    "@id": "http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/"
   },
-  "headline": "Principal Component Analysis: A Key Tool for Dimensionality Reduction",
+  "headline": "Lattice Pricing Models",
   
-  "datePublished": "2024-01-13T00:00:00Z",
-  "dateModified": "2025-03-10T23:19:53+02:00",
+  "datePublished": "2025-03-02T00:00:00Z",
+  "dateModified": "2025-03-02T00:00:00Z",
   
   "author": {
     "@type": "Person",
@@ -377,7 +377,7 @@
       "url": "http://localhost:1313/site/media/icon_hu_19349546d07106a3.png"
     }
   },
-  "description": "Master PCA for financial analysis. Learn how this powerful technique can uncover hidden patterns in your data and improve your quantitative models."
+  "description": "Implementation of binomial and trinomial lattice models for pricing options, including European, American, and Asian options with delta hedging strategies."
 }
 </script>
 
@@ -399,7 +399,7 @@
 
 
   
-  <title>Principal Component Analysis: A Key Tool for Dimensionality Reduction | Sbonelo Mdluli</title>
+  <title>Lattice Pricing Models | Sbonelo Mdluli</title>
 
   
   
@@ -419,7 +419,7 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  dark " data-wc-page-id="70bb0281599ab315301aca7f2ed9de70" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  dark " data-wc-page-id="67693b42a18cb945f54575296c49b45a" >
 
   
   
@@ -585,7 +585,7 @@
   
 
       <li class="breadcrumb-item active" aria-current="page">
-        Principal Component Analysis: A Key Tool for Dimensionality Reduction
+        Lattice Pricing Models
       </li>
     </ol>
   </nav>
@@ -599,43 +599,75 @@
     
 <article class="article">
   <div class="article-container">
-    <h1>Principal Component Analysis: A Key Tool for Dimensionality Reduction</h1>
+    <h1>Lattice Pricing Models</h1>
 
     <div class="article-metadata">
       <span class="article-date">
-        January 13, 2024
+        March 2, 2025
       </span>
 
       
       <div class="article-tags">
         
-        <a class="badge badge-light" href="/tags/machine-learning">Machine Learning</a>
+        <a class="badge badge-light" href="/tags/derivatives">Derivatives</a>
         
       </div>
       
     </div>
 
     <div class="article-content">
-      <p>Principal Component Analysis (PCA) is a powerful technique for reducing the dimensionality of financial data while preserving important relationships. This article explores the mathematical foundations and practical applications of PCA.</p>
-<h2 id="key-concepts">Key Concepts</h2>
-<p>PCA works by:</p>
-<ul>
-<li>Finding directions of maximum variance in the data</li>
-<li>Creating orthogonal basis vectors (principal components)</li>
-<li>Projecting data onto lower-dimensional spaces</li>
-</ul>
-<h2 id="mathematical-framework">Mathematical Framework</h2>
-<p>The optimization problem can be expressed as:</p>
-<p>$$v^{*}=\underset{v}{\operatorname{argmax}} \frac{1}{N}\sum_{i=1}^{N}\langle x_i,v\rangle^2$$</p>
-<p>where:</p>
-<ul>
-<li>$v^{*}$ is the first principal component</li>
-<li>$x_i$ represents the i-th data point</li>
-<li>$N$ is the number of observations</li>
-</ul>
-<p>This leads to eigenvalue decomposition of the covariance matrix:</p>
-<p>$$\Sigma = \frac{1}{N}\sum_{i=1}^{N}(x_i-\mu)(x_i-\mu)^T$$</p>
-<p><a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/pca.ipynb" target="_blank" rel="noopener">Read more →</a></p>
+      <h2 id="binomial-tree-model">Binomial Tree Model</h2>
+<p>We can price options in discrete time through lattice models. The first model we consider is the Cox-Ross-Rubinstein Model which is risk neutral under Martingale measure $\mathbb{Q}$. A process $S$ is a Martingale with respect to measure $\mathbb{Q}$ and filtration $\{\mathcal{F}_t\}_{t \geq 0}$, if $ \mathbb{E}^{\mathbb{Q}}[X_t \mid \mathcal{F}_s] = X_s \quad \forall , s\leq t$. This means the process is path unbiased.</p>
+<p>According to this model the stock at time $t$ can move to up by a factor of $u$ with probability $p$ and down by a factor of $d$ with probability $(1-p)$ at the next time step $t+1$. Using the principle of no arbitrage, the stock earns a risk free interest ($r$) and parameters $d &lt; 1 &lt; u$. The risk neutral probability $p$ is then given by mean matching.</p>
+<p>\begin{equation}
+\begin{aligned}
+\begin{aligned}
+\mathbb{E}[S_{t+\Delta t}] &amp;= S_0e^{r\Delta t} \\
+S_0e^{r\Delta t} &amp;= S_0u\cdot p+S_0d\cdot(1-p) \\
+\implies p &amp;= \frac{e^{r\Delta t}-d}{u-d}
+\end{aligned}
+\end{aligned}
+\end{equation}</p>
+<p>Similarly the call option $c_0 = e^{-rT}(c_u\cdot p+c_d\cdot(1-p))$. We can evaluate $u$ and $d$ by matching the variance.</p>
+<p>\begin{equation}
+\begin{aligned}
+\mathbb{V}(S*{t+\Delta t}) &amp;= \mathbb{E}[(S*{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\
+\sigma^2 \Delta t &amp;= p \cdot u^2 + d^2(1-p) + (p \cdot u^2 + d^2(1-p))^2 \\
+\sigma^2 \Delta t &amp;= (p -p^2)(u-d)^2 \\
+\sigma^2 \Delta t &amp;= e^{r\Delta t} (u+d) - u \cdot d - e^{2r\Delta t} \\
+\sigma^2 \Delta t &amp;= e^{r\Delta t} (u+1/u) - u \cdot 1/u - e^{2r\Delta t} \quad \text{[$u\cdot d=1$ ]} \\
+u &amp;= e^{\sigma \sqrt{\Delta t}} \\
+d &amp;= e^{-\sigma \sqrt{\Delta t}}
+\end{aligned}
+\end{equation}</p>
+<p>The above definitions rely on a sufficiently small $\Delta t$ for $p$ to be a valid probability.</p>
+<h2 id="delta-hedging">Delta Hedging</h2>
+<p>We define a portfolio $\Pi_{t}$, under the principle of no arbitrage the portfolio is worth the same at time $t$ regardless of the path takes to $t+1$. Only the weights of the assets is allowed to change in the portfolio, no cash injection or deposits are allowed once the portfolio has been created, this is referred to as a self financing trading strategy.</p>
+<p>\begin{equation}
+\begin{aligned}
+\Pi_{t,u} &amp;= \Delta S_0 u - c_u \quad \text{upward movement}
+\end{aligned}
+\end{equation}</p>
+<p>\begin{equation}
+\begin{aligned}
+\Pi_{t,d} &amp;= \Delta S_0 d - c_d \quad \text{downward movement}
+\end{aligned}
+\end{equation}</p>
+<p>Rebalancing under this constraints leads to delta hedging.</p>
+<p>\begin{equation}
+\begin{aligned}
+\Delta S_0 d - c_d &amp;= \Delta S_0 u - c_u \\
+\Delta &amp;= \frac{c_u-c_d}{S_0 u - S_0 d}
+\end{aligned}
+\end{equation}</p>
+<p>$\Delta$ is the amount of the underlying that we must own for the portfolio to admit no arbitrage.</p>
+<h2 id="american-binomial-tree">American Binomial Tree</h2>
+<p>The American binomial tree extends the standard binomial model to handle early exercise options. At each node, we compare the immediate exercise value with the discounted expected future value to determine the optimal exercise strategy.</p>
+<h2 id="trinomial-tree">Trinomial Tree</h2>
+<p>The trinomial tree model extends the binomial model by allowing for an additional middle state. This provides more flexibility in modeling the underlying price process and can lead to faster convergence compared to binomial trees.</p>
+<h2 id="asian-binomial-tree">Asian Binomial Tree</h2>
+<p>The Asian binomial tree model is used for pricing Asian options where the payoff depends on the average price of the underlying asset over some time period. The model tracks the average price along each path and computes the option value accordingly.</p>
+<p><a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/lattice_pricing_models.ipynb" target="_blank" rel="noopener">Read more →</a></p>
 
     </div>
   </div>

@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors | Sbonelo Mdluli</title>
-    <link>https://sbonelomdluli.github.io/site/authors/</link>
-      <atom:link href="https://sbonelomdluli.github.io/site/authors/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/site/authors/</link>
+      <atom:link href="http://localhost:1313/site/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language>
     <image>
-      <url>https://sbonelomdluli.github.io/site/media/icon_hu_43cf117bf1a42c34.png</url>
+      <url>http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png</url>
       <title>Authors</title>
-      <link>https://sbonelomdluli.github.io/site/authors/</link>
+      <link>http://localhost:1313/site/authors/</link>
     </image>
     
   </channel>

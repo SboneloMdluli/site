@@ -59,7 +59,7 @@ The feature store houses images, embeddings, and image byte data using Feast, wh
 
 ## Model Registry
 
-The system uses a local file system as storage for models, mimicking a typical model registry. Models can be tested and approved for production readiness, with the potential to configure Kedro using MLflow for model management. We use DVC foe data and model tracking.
+The system uses a local file system as storage for models, mimicking a typical model registry. Models can be tested and approved for production readiness, with the potential to configure Kedro using MLflow for model management. We use DVC for data and model tracking.
 
 ## Backend
 

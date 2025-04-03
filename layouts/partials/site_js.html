@@ -1,0 +1,88 @@
+{{ $js := site.Data.assets.js }}
+{{ $cdn_url_jquery := "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" }}
+{{ $js_bundle := site.Params.plugins_js | default (slice "jquery" "bootstrap" "academicons" "fontawesome") }}
+
+{{/* Attempt to load local vendor JS, otherwise load from CDN. */}}
+{{ $has_vendor_js := fileExists "assets/js/vendor/main.min.js" }}
+
+{{ if $has_vendor_js }}
+  {{ $js_bundle = $js_bundle | append "vendor" }}
+{{ end }}
+
+{{ range $js_bundle }}
+  {{ $item := . }}
+
+  {{ if eq $item "jquery" }}
+    <script src="{{ $cdn_url_jquery | relURL }}" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  {{ else if eq $item "academicons" }}
+    {{ $filename := printf "/js/%s.min.js" . }}
+    {{ $path := printf "assets%s" $filename }}
+    {{ if fileExists $path }}
+      {{ $js_path := printf "js/%s" . }}
+      {{ $js_options := dict "targetPath" (printf "js/%s.min.js" .) }}
+      {{ with resources.Get $js_path }}
+        {{ $js_bundle := . | minify | fingerprint "md5" }}
+        <script src="{{ $js_bundle.RelPermalink | relURL }}" integrity="{{ $js_bundle.Data.Integrity }}"></script>
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    {{ $filename := printf "/js/%s.min.js" . }}
+    {{ $path := printf "assets%s" $filename }}
+    {{ if fileExists $path }}
+      {{ $js_path := printf "js/%s" . }}
+      {{ $js_options := dict "targetPath" (printf "js/%s.min.js" .) }}
+      {{ with resources.Get $js_path }}
+        {{ $js_bundle := . | minify | fingerprint "md5" }}
+        <script src="{{ $js_bundle.RelPermalink | relURL }}" integrity="{{ $js_bundle.Data.Integrity }}"></script>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Maps JS. */}}
+{{ $map_provider := lower site.Params.features.map.provider | default "mapnik" }}
+{{ if eq $map_provider "mapnik" }}
+  <script async defer src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
+{{ else if eq $map_provider "google" }}
+  {{ if site.Params.features.map.api_key }}
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ site.Params.features.map.api_key }}"></script>
+  {{ end }}
+{{ end }}
+
+{{ with resources.Get "js/image-loader.js" }}
+  {{ $js := . | minify }}
+  <script src="{{ $js.RelPermalink }}"></script>
+{{ end }}
+
+{{ if site.Params.features.syntax_highlighter.enable }}
+  {{ with resources.Get "js/highlight.min.js" }}
+    {{ $js := . | fingerprint "sha512" }}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+  {{ end }}
+  {{ range site.Params.features.syntax_highlighter.extra_languages }}
+    {{ with resources.Get (printf "js/highlight/%s.min.js" .) }}
+      {{ $js := . | fingerprint "sha512" }}
+      <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+    {{ end }}
+  {{ end }}
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+{{ end }}
+
+{{ if site.Params.features.math.enable }}
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: false,
+        packages: {'[+]': ['noerrors']}
+      },
+      loader: {
+        load: ['[tex]/noerrors']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+{{ end }}
