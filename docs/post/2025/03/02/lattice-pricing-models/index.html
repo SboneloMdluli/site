@@ -3,7 +3,7 @@
 <!-- Last Published: April 4, 2025 --><html lang="en" >
 
 
-<head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
+<head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=59115&amp;path=site/livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -282,8 +282,8 @@
 
 
 
-<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/" />
-<link rel="canonical" href="http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/" />
+<link rel="alternate" hreflang="en" href="http://localhost:59115/site/post/2025/03/02/lattice-pricing-models/" />
+<link rel="canonical" href="http://localhost:59115/site/post/2025/03/02/lattice-pricing-models/" />
 
 
 
@@ -312,7 +312,7 @@
 
 
 <meta property="twitter:card" content="summary" />
-<meta property="twitter:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" />
+<meta property="twitter:image" content="http://localhost:59115/site/media/icon_hu_43cf117bf1a42c34.png" />
 
 
 
@@ -320,9 +320,9 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Sbonelo Mdluli" />
-<meta property="og:url" content="http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/" />
+<meta property="og:url" content="http://localhost:59115/site/post/2025/03/02/lattice-pricing-models/" />
 <meta property="og:title" content="Lattice Pricing Models | Sbonelo Mdluli" />
-<meta property="og:description" content="Implementation of binomial and trinomial lattice models for pricing options, including European, American, and Asian options with delta hedging strategies." /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
+<meta property="og:description" content="Implementation of binomial and trinomial lattice models for pricing options, including European, American, and Asian options with delta hedging strategies." /><meta property="og:image" content="http://localhost:59115/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
 
   
     <meta
@@ -331,7 +331,7 @@
     />
   
   
-    <meta property="article:modified_time" content="2025-03-02T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2025-04-04T00:46:11&#43;02:00">
   
 
 
@@ -357,12 +357,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/"
+    "@id": "http://localhost:59115/site/post/2025/03/02/lattice-pricing-models/"
   },
   "headline": "Lattice Pricing Models",
   
   "datePublished": "2025-03-02T00:00:00Z",
-  "dateModified": "2025-03-02T00:00:00Z",
+  "dateModified": "2025-04-04T00:46:11+02:00",
   
   "author": {
     "@type": "Person",
@@ -374,7 +374,7 @@
     "name": "Sbonelo Mdluli",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/site/media/icon_hu_19349546d07106a3.png"
+      "url": "http://localhost:59115/site/media/icon_hu_19349546d07106a3.png"
     }
   },
   "description": "Implementation of binomial and trinomial lattice models for pricing options, including European, American, and Asian options with delta hedging strategies."
@@ -631,7 +631,7 @@ S_0e^{r\Delta t} &amp;= S_0u\cdot p+S_0d\cdot(1-p) \\
 <p>Similarly the call option $c_0 = e^{-rT}(c_u\cdot p+c_d\cdot(1-p))$. We can evaluate $u$ and $d$ by matching the variance.</p>
 <p>\begin{equation}
 \begin{aligned}
-\mathbb{V}(S*{t+\Delta t}) &amp;= \mathbb{E}[(S*{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\
+\mathbb{V}(S _{t+\Delta t}) &amp;= \mathbb{E}[(S*{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\
 \sigma^2 \Delta t &amp;= p \cdot u^2 + d^2(1-p) + (p \cdot u^2 + d^2(1-p))^2 \\
 \sigma^2 \Delta t &amp;= (p -p^2)(u-d)^2 \\
 \sigma^2 \Delta t &amp;= e^{r\Delta t} (u+d) - u \cdot d - e^{2r\Delta t} \\

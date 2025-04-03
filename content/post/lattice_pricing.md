@@ -29,7 +29,7 @@ Similarly the call option $c_0 = e^{-rT}(c_u\cdot p+c_d\cdot(1-p))$. We can eval
 
 \begin{equation}
 \begin{aligned}
-\mathbb{V}(S*{t+\Delta t}) &= \mathbb{E}[(S*{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\\\
+\mathbb{V}(S \_{t+\Delta t}) &= \mathbb{E}[(S*{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\\\
 \sigma^2 \Delta t &= p \cdot u^2 + d^2(1-p) + (p \cdot u^2 + d^2(1-p))^2 \\\\
 \sigma^2 \Delta t &= (p -p^2)(u-d)^2 \\\\
 \sigma^2 \Delta t &= e^{r\Delta t} (u+d) - u \cdot d - e^{2r\Delta t} \\\\

@@ -2,47 +2,81 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Derivatives | Sbonelo Mdluli</title>
-    <link>http://localhost:1313/site/tag/derivatives/</link>
-      <atom:link href="http://localhost:1313/site/tag/derivatives/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:59115/site/tag/derivatives/</link>
+      <atom:link href="http://localhost:59115/site/tag/derivatives/index.xml" rel="self" type="application/rss+xml" />
     <description>Derivatives</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sun, 02 Mar 2025 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png</url>
+      <url>http://localhost:59115/site/media/icon_hu_43cf117bf1a42c34.png</url>
       <title>Derivatives</title>
-      <link>http://localhost:1313/site/tag/derivatives/</link>
+      <link>http://localhost:59115/site/tag/derivatives/</link>
     </image>
     
     <item>
-      <title>Quanto Derivatives</title>
-      <link>http://localhost:1313/site/post/2025/03/02/quanto-derivatives/</link>
+      <title>Lattice Pricing Models</title>
+      <link>http://localhost:59115/site/post/2025/03/02/lattice-pricing-models/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/site/post/2025/03/02/quanto-derivatives/</guid>
-      <description>&lt;p&gt;As a foreign investor buying assets in a foreign market you are exposed to currency rate risk. A Quanto is a derivative whose payoff is written In a foreign currency denomination. The payoff is converted at a predetermined exchange rate allowing the foreign investor to hedge against currency rate risk. The valuation differ on perspective,&lt;/p&gt;
-&lt;p&gt;Valuation from domestic investor perspective under domestic measure:&lt;/p&gt;
-&lt;p&gt;$dS^d_t = S^d_t (\mu^d dt + \sigma_s dW^d_t)$&lt;/p&gt;
-&lt;p&gt;Valuation from foreign investor perspective in their domestic denomination:
-$
-dS^f_t = S^f_t \left( r^f - \rho \sigma_s \sigma_x \right) dt + S^f_t \left( \sigma_s d\tilde{W}^f_t \right)
-$&lt;/p&gt;
-&lt;p&gt;using Girsanov theorem to change measures, $\tilde{dW}^f_t$ is,&lt;/p&gt;
-&lt;p&gt;$
-\tilde{dW}^f_t = \frac{\rho \sigma_s \sigma_x + \mu^d - r^f}{\sigma_s} + dW^f_t
-$&lt;/p&gt;
-&lt;p&gt;This is a Brownian motion accounting for market risk adjusted for exchange rate, enabling the valuation of the derivative in the foreign investor&amp;rsquo;s domestic currency.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;$ r^f $ is the risk-free rate in foreign currency,&lt;/li&gt;
-&lt;li&gt;$ \rho $ is the correlation between foreign exchange (FX) and stock,&lt;/li&gt;
-&lt;li&gt;$ \sigma^d_s $ is the stock volatility,&lt;/li&gt;
-&lt;li&gt;$ \sigma^f_x $ is the FX rate volatility.&lt;/li&gt;
-&lt;/ul&gt;
+      <guid>http://localhost:59115/site/post/2025/03/02/lattice-pricing-models/</guid>
+      <description>&lt;h2 id=&#34;binomial-tree-model&#34;&gt;Binomial Tree Model&lt;/h2&gt;
+&lt;p&gt;We can price options in discrete time through lattice models. The first model we consider is the Cox-Ross-Rubinstein Model which is risk neutral under Martingale measure $\mathbb{Q}$. A process $S$ is a Martingale with respect to measure $\mathbb{Q}$ and filtration $\{\mathcal{F}_t\}_{t \geq 0}$, if $ \mathbb{E}^{\mathbb{Q}}[X_t \mid \mathcal{F}_s] = X_s \quad \forall , s\leq t$. This means the process is path unbiased.&lt;/p&gt;
+&lt;p&gt;According to this model the stock at time $t$ can move to up by a factor of $u$ with probability $p$ and down by a factor of $d$ with probability $(1-p)$ at the next time step $t+1$. Using the principle of no arbitrage, the stock earns a risk free interest ($r$) and parameters $d &amp;lt; 1 &amp;lt; u$. The risk neutral probability $p$ is then given by mean matching.&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+\begin{aligned}
+\mathbb{E}[S_{t+\Delta t}] &amp;amp;= S_0e^{r\Delta t} \\
+S_0e^{r\Delta t} &amp;amp;= S_0u\cdot p+S_0d\cdot(1-p) \\
+\implies p &amp;amp;= \frac{e^{r\Delta t}-d}{u-d}
+\end{aligned}
+\end{aligned}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;Similarly the call option $c_0 = e^{-rT}(c_u\cdot p+c_d\cdot(1-p))$. We can evaluate $u$ and $d$ by matching the variance.&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+\mathbb{V}(S*{t+\Delta t}) &amp;amp;= \mathbb{E}[(S*{t+\Delta t})^2] - (\mathbb{E}[S*{t+\Delta t}])^2 \\
+\sigma^2 \Delta t &amp;amp;= p \cdot u^2 + d^2(1-p) + (p \cdot u^2 + d^2(1-p))^2 \\
+\sigma^2 \Delta t &amp;amp;= (p -p^2)(u-d)^2 \\
+\sigma^2 \Delta t &amp;amp;= e^{r\Delta t} (u+d) - u \cdot d - e^{2r\Delta t} \\
+\sigma^2 \Delta t &amp;amp;= e^{r\Delta t} (u+1/u) - u \cdot 1/u - e^{2r\Delta t} \quad \text{[$u\cdot d=1$ ]} \\
+u &amp;amp;= e^{\sigma \sqrt{\Delta t}} \\
+d &amp;amp;= e^{-\sigma \sqrt{\Delta t}}
+\end{aligned}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;The above definitions rely on a sufficiently small $\Delta t$ for $p$ to be a valid probability.&lt;/p&gt;
+&lt;h2 id=&#34;delta-hedging&#34;&gt;Delta Hedging&lt;/h2&gt;
+&lt;p&gt;We define a portfolio $\Pi_{t}$, under the principle of no arbitrage the portfolio is worth the same at time $t$ regardless of the path takes to $t+1$. Only the weights of the assets is allowed to change in the portfolio, no cash injection or deposits are allowed once the portfolio has been created, this is referred to as a self financing trading strategy.&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+\Pi_{t,u} &amp;amp;= \Delta S_0 u - c_u \quad \text{upward movement}
+\end{aligned}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+\Pi_{t,d} &amp;amp;= \Delta S_0 d - c_d \quad \text{downward movement}
+\end{aligned}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;Rebalancing under this constraints leads to delta hedging.&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+\Delta S_0 d - c_d &amp;amp;= \Delta S_0 u - c_u \\
+\Delta &amp;amp;= \frac{c_u-c_d}{S_0 u - S_0 d}
+\end{aligned}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;$\Delta$ is the amount of the underlying that we must own for the portfolio to admit no arbitrage.&lt;/p&gt;
+&lt;h2 id=&#34;american-binomial-tree&#34;&gt;American Binomial Tree&lt;/h2&gt;
+&lt;p&gt;The American binomial tree extends the standard binomial model to handle early exercise options. At each node, we compare the immediate exercise value with the discounted expected future value to determine the optimal exercise strategy.&lt;/p&gt;
+&lt;h2 id=&#34;trinomial-tree&#34;&gt;Trinomial Tree&lt;/h2&gt;
+&lt;p&gt;The trinomial tree model extends the binomial model by allowing for an additional middle state. This provides more flexibility in modeling the underlying price process and can lead to faster convergence compared to binomial trees.&lt;/p&gt;
+&lt;h2 id=&#34;asian-binomial-tree&#34;&gt;Asian Binomial Tree&lt;/h2&gt;
+&lt;p&gt;The Asian binomial tree model is used for pricing Asian options where the payoff depends on the average price of the underlying asset over some time period. The model tracks the average price along each path and computes the option value accordingly.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/lattice_pricing_models.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Put-Call Parity</title>
-      <link>http://localhost:1313/site/post/2024/02/08/put-call-parity/</link>
+      <link>http://localhost:59115/site/post/2024/02/08/put-call-parity/</link>
       <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/site/post/2024/02/08/put-call-parity/</guid>
+      <guid>http://localhost:59115/site/post/2024/02/08/put-call-parity/</guid>
       <description>&lt;p&gt;The put-call parity (PCP) establishes the relationship between call and put options that share the same underlying asset and expiration date. This relationship is especially relevant for European options. To illustrate it, we can create a portfolio composed of a long put option ($P(t)=max(K-S_{t},0)$), a short call option ($C(t)=max(S_{t}-K,0)$), and a long position in a non-dividend-paying stock ($S$) of the underlying. Both options have the same strike price ($K$) and expiration date ($T$). The portfolio&amp;rsquo;s structure before the expiration, at $t \leq T$, is described as follows:&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 \begin{split}

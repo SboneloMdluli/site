@@ -2,67 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/site/categories/</loc>
-    <lastmod>2025-03-11T01:39:26+02:00</lastmod>
+    <loc>http://localhost:59115/site/categories/</loc>
+    <lastmod>2025-04-04T00:46:11+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/post/2025/03/10/image-retrieval/</loc>
-    <lastmod>2025-03-11T01:39:26+02:00</lastmod>
+    <loc>http://localhost:59115/site/post/2025/03/10/image-retrieval/</loc>
+    <lastmod>2025-04-04T00:46:11+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/category/machine-learning/</loc>
-    <lastmod>2025-03-11T01:39:26+02:00</lastmod>
+    <loc>http://localhost:59115/site/category/machine-learning/</loc>
+    <lastmod>2025-04-04T00:46:11+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/tag/machine-learning/</loc>
-    <lastmod>2025-03-11T01:39:26+02:00</lastmod>
+    <loc>http://localhost:59115/site/tag/machine-learning/</loc>
+    <lastmod>2025-04-04T00:46:11+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/tags/</loc>
-    <lastmod>2025-03-11T01:39:26+02:00</lastmod>
+    <loc>http://localhost:59115/site/tags/</loc>
+    <lastmod>2025-04-04T00:46:11+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/category/derivatives/</loc>
-    <lastmod>2025-03-08T00:52:20+02:00</lastmod>
+    <loc>http://localhost:59115/site/category/derivatives/</loc>
+    <lastmod>2025-04-04T00:46:11+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/tag/derivatives/</loc>
-    <lastmod>2025-03-08T00:52:20+02:00</lastmod>
+    <loc>http://localhost:59115/site/tag/derivatives/</loc>
+    <lastmod>2025-04-04T00:46:11+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/post/2025/03/02/quanto-derivatives/</loc>
-    <lastmod>2025-03-08T00:52:20+02:00</lastmod>
+    <loc>http://localhost:59115/site/post/2025/03/02/lattice-pricing-models/</loc>
+    <lastmod>2025-04-04T00:46:11+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/post/2024/02/08/put-call-parity/</loc>
+    <loc>http://localhost:59115/site/post/2024/02/08/put-call-parity/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/category/risk-management/</loc>
+    <loc>http://localhost:59115/site/category/risk-management/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/tag/risk-management/</loc>
+    <loc>http://localhost:59115/site/tag/risk-management/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/post/2024/01/15/systematic-risk/</loc>
+    <loc>http://localhost:59115/site/post/2024/01/15/systematic-risk/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/post/2024/01/15/understanding-bond-interest-rate-risk/</loc>
+    <loc>http://localhost:59115/site/post/2024/01/15/understanding-bond-interest-rate-risk/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/</loc>
+    <loc>http://localhost:59115/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/category/market-structure/</loc>
+    <loc>http://localhost:59115/site/category/market-structure/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/tag/market-structure/</loc>
+    <loc>http://localhost:59115/site/tag/market-structure/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</loc>
+    <loc>http://localhost:59115/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</loc>
     <lastmod>2025-03-10T23:19:53+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/</loc>
+    <loc>http://localhost:59115/site/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/authors/</loc>
+    <loc>http://localhost:59115/site/authors/</loc>
     <lastmod>2025-03-08T00:52:20+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/post/</loc>
+    <loc>http://localhost:59115/site/post/</loc>
     <lastmod>2025-03-02T16:38:03+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/author/sbonelo-mdluli-%EF%B8%8F/</loc>
+    <loc>http://localhost:59115/site/author/sbonelo-mdluli-%EF%B8%8F/</loc>
     <lastmod>2025-03-08T00:52:20+02:00</lastmod>
   </url>
 </urlset>

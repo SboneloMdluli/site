@@ -232,7 +232,7 @@ S_0e^{r\Delta t} &amp;amp;= S_0u\cdot p+S_0d\cdot(1-p) \\
 &lt;p&gt;Similarly the call option $c_0 = e^{-rT}(c_u\cdot p+c_d\cdot(1-p))$. We can evaluate $u$ and $d$ by matching the variance.&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 \begin{aligned}
-\mathbb{V}(S*{t+\Delta t}) &amp;amp;= \mathbb{E}[(S*{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\
+\mathbb{V}(S _{t+\Delta t}) &amp;amp;= \mathbb{E}[(S*{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\
 \sigma^2 \Delta t &amp;amp;= p \cdot u^2 + d^2(1-p) + (p \cdot u^2 + d^2(1-p))^2 \\
 \sigma^2 \Delta t &amp;amp;= (p -p^2)(u-d)^2 \\
 \sigma^2 \Delta t &amp;amp;= e^{r\Delta t} (u+d) - u \cdot d - e^{2r\Delta t} \\
