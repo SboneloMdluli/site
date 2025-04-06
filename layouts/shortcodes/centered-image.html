@@ -1,0 +1,11 @@
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default "" }}
+{{ $caption := .Get "caption" | default "" }}
+{{ $width := .Get "width" | default "" }}
+
+<figure style="text-align: center;">
+  <img src="{{ $src }}" alt="{{ $alt }}" {{ with $width }}width="{{ . }}"{{ end }} style="margin: 0 auto; display: block;">
+  {{ with $caption }}
+  <figcaption>{{ . }}</figcaption>
+  {{ end }}
+</figure>

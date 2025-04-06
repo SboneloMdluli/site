@@ -57,48 +57,20 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/kedro.png&#34; alt=&#34;Kedro Pipeline&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/kedro.png&#34; alt=&#34;Kedro Pipeline&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;p&gt;Dask enables distributed processing across a cluster, making the pipeline efficient for handling large multidimensional image arrays and parallel I/O operations.&lt;/p&gt;
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/dask.png&#34; alt=&#34;Dask Workers&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/dask.png&#34; alt=&#34;Dask Workers&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;h2 id=&#34;model-architecture&#34;&gt;Model Architecture&lt;/h2&gt;
 &lt;p&gt;The system uses the Contrastive Language-Image Pre-training (CLIP) model for embedding, which maps both images and text into a shared embedding space. CLIP is trained on image-text pairs and supports zero-shot prediction.&lt;/p&gt;
 &lt;p&gt;For efficient similarity searches, the system employs Faiss, which offers:&lt;/p&gt;
@@ -122,24 +94,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/feast.png&#34; alt=&#34;Feast Project&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/feast.png&#34; alt=&#34;Feast Project&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;h2 id=&#34;model-registry&#34;&gt;Model Registry&lt;/h2&gt;
 &lt;p&gt;The system uses a local file system as storage for models, mimicking a typical model registry. Models can be tested and approved for production readiness, with the potential to configure Kedro using MLflow for model management. We use DVC for data and model tracking.&lt;/p&gt;
 &lt;h2 id=&#34;backend&#34;&gt;Backend&lt;/h2&gt;
@@ -155,24 +113,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/api.png&#34; alt=&#34;Project Backend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/api.png&#34; alt=&#34;Project Backend&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;h2 id=&#34;frontend&#34;&gt;Frontend&lt;/h2&gt;
 &lt;p&gt;The frontend is designed to minimize redundant backend calls by storing search results in the browser&amp;rsquo;s local storage. If a user searches for fewer than k results for the same query, the system retrieves them from memory instead of making additional backend requests.&lt;/p&gt;
 
@@ -180,24 +124,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/frontend.png&#34; alt=&#34;System Frontend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/frontend.png&#34; alt=&#34;System Frontend&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;p&gt;The entire system can be easily deployed and containerised using existing Docker files.&lt;/p&gt;
 &lt;h2 id=&#34;extended-system-for-accessibility&#34;&gt;Extended System for Accessibility&lt;/h2&gt;
 &lt;p&gt;The design can be adapted to assist visually impaired users by:&lt;/p&gt;
@@ -219,6 +149,15 @@
       <guid>http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/</guid>
       <description>&lt;h2 id=&#34;binomial-tree-model&#34;&gt;Binomial Tree Model&lt;/h2&gt;
 &lt;p&gt;We can price options in discrete time through lattice models. The first model we consider is the Cox-Ross-Rubinstein Model which is risk neutral under Martingale measure $\mathbb{Q}$. A process $S$ is a Martingale with respect to measure $\mathbb{Q}$ and filtration $\{\mathcal{F}_t\}_{t \geq 0}$, if $ \mathbb{E}^{\mathbb{Q}}[X_t \mid \mathcal{F}_s] = X_s \quad \forall , s\leq t$. This means the process is path unbiased.&lt;/p&gt;
+
+
+
+
+
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/binomial_tree.jpg&#34; alt=&#34;Binomial Tree&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;p&gt;According to this model the stock at time $t$ can move to up by a factor of $u$ with probability $p$ and down by a factor of $d$ with probability $(1-p)$ at the next time step $t+1$. Using the principle of no arbitrage, the stock earns a risk free interest ($r$) and parameters $d &amp;lt; 1 &amp;lt; u$. The risk neutral probability $p$ is then given by mean matching.&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 \begin{aligned}
@@ -232,7 +171,7 @@ S_0e^{r\Delta t} &amp;amp;= S_0u\cdot p+S_0d\cdot(1-p) \\
 &lt;p&gt;Similarly the call option $c_0 = e^{-rT}(c_u\cdot p+c_d\cdot(1-p))$. We can evaluate $u$ and $d$ by matching the variance.&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 \begin{aligned}
-\mathbb{V}(S _{t+\Delta t}) &amp;amp;= \mathbb{E}[(S*{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\
+\mathbb{V}(S _{t+\Delta t}) &amp;amp;= \mathbb{E}[(S_{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\
 \sigma^2 \Delta t &amp;amp;= p \cdot u^2 + d^2(1-p) + (p \cdot u^2 + d^2(1-p))^2 \\
 \sigma^2 \Delta t &amp;amp;= (p -p^2)(u-d)^2 \\
 \sigma^2 \Delta t &amp;amp;= e^{r\Delta t} (u+d) - u \cdot d - e^{2r\Delta t} \\
@@ -243,7 +182,8 @@ d &amp;amp;= e^{-\sigma \sqrt{\Delta t}}
 \end{equation}&lt;/p&gt;
 &lt;p&gt;The above definitions rely on a sufficiently small $\Delta t$ for $p$ to be a valid probability.&lt;/p&gt;
 &lt;h2 id=&#34;delta-hedging&#34;&gt;Delta Hedging&lt;/h2&gt;
-&lt;p&gt;We define a portfolio $\Pi_{t}$, under the principle of no arbitrage the portfolio is worth the same at time $t$ regardless of the path takes to $t+1$. Only the weights of the assets is allowed to change in the portfolio, no cash injection or deposits are allowed once the portfolio has been created, this is referred to as a self financing trading strategy.&lt;/p&gt;
+&lt;p&gt;We define a portfolio $\Pi_{t}$, under the principle of no arbitrage the portfolio is worth the same at time $t$
+regardless of the path taken to $t+1$. No cash injection or deposits are allowed once the portfolio has been created, portfolio rebalancing is funded using assets within the portfolio. This is referred to as a self financing portfolio.&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 \begin{aligned}
 \Pi_{t,u} &amp;amp;= \Delta S_0 u - c_u \quad \text{upward movement}
@@ -261,11 +201,13 @@ d &amp;amp;= e^{-\sigma \sqrt{\Delta t}}
 \Delta &amp;amp;= \frac{c_u-c_d}{S_0 u - S_0 d}
 \end{aligned}
 \end{equation}&lt;/p&gt;
-&lt;p&gt;$\Delta$ is the amount of the underlying that we must own for the portfolio to admit no arbitrage.&lt;/p&gt;
+&lt;p&gt;$\Delta$ is the amount of the underlying that we must own for the portfolio to be risk neutral.&lt;/p&gt;
 &lt;h2 id=&#34;american-binomial-tree&#34;&gt;American Binomial Tree&lt;/h2&gt;
-&lt;p&gt;The American binomial tree extends the standard binomial model to handle early exercise options. At each node, we compare the immediate exercise value with the discounted expected future value to determine the optimal exercise strategy.&lt;/p&gt;
+&lt;p&gt;The American binomial tree extends the standard binomial model to handle early exercise options.
+At each node, we compare the immediate exercise value with the discounted expected future value to determine the optimal exercise strategy.&lt;/p&gt;
 &lt;h2 id=&#34;trinomial-tree&#34;&gt;Trinomial Tree&lt;/h2&gt;
-&lt;p&gt;The trinomial tree model extends the binomial model by allowing for an additional middle state. This provides more flexibility in modeling the underlying price process and can lead to faster convergence compared to binomial trees.&lt;/p&gt;
+&lt;p&gt;The trinomial tree model extends the binomial model by allowing for an additional middle state.
+This provides more flexibility in modeling the underlying price process and can lead to faster convergence compared to binomial trees.&lt;/p&gt;
 &lt;h2 id=&#34;asian-binomial-tree&#34;&gt;Asian Binomial Tree&lt;/h2&gt;
 &lt;p&gt;The Asian binomial tree model is used for pricing Asian options where the payoff depends on the average price of the underlying asset over some time period. The model tracks the average price along each path and computes the option value accordingly.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/lattice_pricing_models.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;

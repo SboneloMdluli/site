@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: April 4, 2025 --><html lang="en" >
+<!-- Last Published: April 6, 2025 --><html lang="en" >
 
 
-<head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=59115&amp;path=site/livereload" data-no-instant defer></script>
+<head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -282,8 +282,8 @@
 
 
 
-<link rel="alternate" hreflang="en" href="http://localhost:59115/site/post/2025/03/02/lattice-pricing-models/" />
-<link rel="canonical" href="http://localhost:59115/site/post/2025/03/02/lattice-pricing-models/" />
+<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/" />
+<link rel="canonical" href="http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/" />
 
 
 
@@ -312,7 +312,7 @@
 
 
 <meta property="twitter:card" content="summary" />
-<meta property="twitter:image" content="http://localhost:59115/site/media/icon_hu_43cf117bf1a42c34.png" />
+<meta property="twitter:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" />
 
 
 
@@ -320,9 +320,9 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Sbonelo Mdluli" />
-<meta property="og:url" content="http://localhost:59115/site/post/2025/03/02/lattice-pricing-models/" />
+<meta property="og:url" content="http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/" />
 <meta property="og:title" content="Lattice Pricing Models | Sbonelo Mdluli" />
-<meta property="og:description" content="Implementation of binomial and trinomial lattice models for pricing options, including European, American, and Asian options with delta hedging strategies." /><meta property="og:image" content="http://localhost:59115/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
+<meta property="og:description" content="Implementation of binomial and trinomial lattice models for pricing options, including European, American, and Asian options with delta hedging strategies." /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
 
   
     <meta
@@ -331,7 +331,7 @@
     />
   
   
-    <meta property="article:modified_time" content="2025-04-04T00:46:11&#43;02:00">
+    <meta property="article:modified_time" content="2025-04-04T01:05:12&#43;02:00">
   
 
 
@@ -357,12 +357,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:59115/site/post/2025/03/02/lattice-pricing-models/"
+    "@id": "http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/"
   },
   "headline": "Lattice Pricing Models",
   
   "datePublished": "2025-03-02T00:00:00Z",
-  "dateModified": "2025-04-04T00:46:11+02:00",
+  "dateModified": "2025-04-04T01:05:12+02:00",
   
   "author": {
     "@type": "Person",
@@ -374,7 +374,7 @@
     "name": "Sbonelo Mdluli",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:59115/site/media/icon_hu_19349546d07106a3.png"
+      "url": "http://localhost:1313/site/media/icon_hu_19349546d07106a3.png"
     }
   },
   "description": "Implementation of binomial and trinomial lattice models for pricing options, including European, American, and Asian options with delta hedging strategies."
@@ -618,6 +618,15 @@
     <div class="article-content">
       <h2 id="binomial-tree-model">Binomial Tree Model</h2>
 <p>We can price options in discrete time through lattice models. The first model we consider is the Cox-Ross-Rubinstein Model which is risk neutral under Martingale measure $\mathbb{Q}$. A process $S$ is a Martingale with respect to measure $\mathbb{Q}$ and filtration $\{\mathcal{F}_t\}_{t \geq 0}$, if $ \mathbb{E}^{\mathbb{Q}}[X_t \mid \mathcal{F}_s] = X_s \quad \forall , s\leq t$. This means the process is path unbiased.</p>
+
+
+
+
+
+<figure style="text-align: center;">
+  <img src="/site/images/binomial_tree.jpg" alt="Binomial Tree"  style="margin: 0 auto; display: block;">
+  
+</figure>
 <p>According to this model the stock at time $t$ can move to up by a factor of $u$ with probability $p$ and down by a factor of $d$ with probability $(1-p)$ at the next time step $t+1$. Using the principle of no arbitrage, the stock earns a risk free interest ($r$) and parameters $d &lt; 1 &lt; u$. The risk neutral probability $p$ is then given by mean matching.</p>
 <p>\begin{equation}
 \begin{aligned}
@@ -631,7 +640,7 @@ S_0e^{r\Delta t} &amp;= S_0u\cdot p+S_0d\cdot(1-p) \\
 <p>Similarly the call option $c_0 = e^{-rT}(c_u\cdot p+c_d\cdot(1-p))$. We can evaluate $u$ and $d$ by matching the variance.</p>
 <p>\begin{equation}
 \begin{aligned}
-\mathbb{V}(S _{t+\Delta t}) &amp;= \mathbb{E}[(S*{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\
+\mathbb{V}(S _{t+\Delta t}) &amp;= \mathbb{E}[(S_{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\
 \sigma^2 \Delta t &amp;= p \cdot u^2 + d^2(1-p) + (p \cdot u^2 + d^2(1-p))^2 \\
 \sigma^2 \Delta t &amp;= (p -p^2)(u-d)^2 \\
 \sigma^2 \Delta t &amp;= e^{r\Delta t} (u+d) - u \cdot d - e^{2r\Delta t} \\
@@ -642,7 +651,8 @@ d &amp;= e^{-\sigma \sqrt{\Delta t}}
 \end{equation}</p>
 <p>The above definitions rely on a sufficiently small $\Delta t$ for $p$ to be a valid probability.</p>
 <h2 id="delta-hedging">Delta Hedging</h2>
-<p>We define a portfolio $\Pi_{t}$, under the principle of no arbitrage the portfolio is worth the same at time $t$ regardless of the path takes to $t+1$. Only the weights of the assets is allowed to change in the portfolio, no cash injection or deposits are allowed once the portfolio has been created, this is referred to as a self financing trading strategy.</p>
+<p>We define a portfolio $\Pi_{t}$, under the principle of no arbitrage the portfolio is worth the same at time $t$
+regardless of the path taken to $t+1$. No cash injection or deposits are allowed once the portfolio has been created, portfolio rebalancing is funded using assets within the portfolio. This is referred to as a self financing portfolio.</p>
 <p>\begin{equation}
 \begin{aligned}
 \Pi_{t,u} &amp;= \Delta S_0 u - c_u \quad \text{upward movement}
@@ -660,11 +670,13 @@ d &amp;= e^{-\sigma \sqrt{\Delta t}}
 \Delta &amp;= \frac{c_u-c_d}{S_0 u - S_0 d}
 \end{aligned}
 \end{equation}</p>
-<p>$\Delta$ is the amount of the underlying that we must own for the portfolio to admit no arbitrage.</p>
+<p>$\Delta$ is the amount of the underlying that we must own for the portfolio to be risk neutral.</p>
 <h2 id="american-binomial-tree">American Binomial Tree</h2>
-<p>The American binomial tree extends the standard binomial model to handle early exercise options. At each node, we compare the immediate exercise value with the discounted expected future value to determine the optimal exercise strategy.</p>
+<p>The American binomial tree extends the standard binomial model to handle early exercise options.
+At each node, we compare the immediate exercise value with the discounted expected future value to determine the optimal exercise strategy.</p>
 <h2 id="trinomial-tree">Trinomial Tree</h2>
-<p>The trinomial tree model extends the binomial model by allowing for an additional middle state. This provides more flexibility in modeling the underlying price process and can lead to faster convergence compared to binomial trees.</p>
+<p>The trinomial tree model extends the binomial model by allowing for an additional middle state.
+This provides more flexibility in modeling the underlying price process and can lead to faster convergence compared to binomial trees.</p>
 <h2 id="asian-binomial-tree">Asian Binomial Tree</h2>
 <p>The Asian binomial tree model is used for pricing Asian options where the payoff depends on the average price of the underlying asset over some time period. The model tracks the average price along each path and computes the option value accordingly.</p>
 <p><a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/lattice_pricing_models.ipynb" target="_blank" rel="noopener">Read more →</a></p>

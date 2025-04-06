@@ -13,6 +13,8 @@ math: true
 
 We can price options in discrete time through lattice models. The first model we consider is the Cox-Ross-Rubinstein Model which is risk neutral under Martingale measure $\mathbb{Q}$. A process $S$ is a Martingale with respect to measure $\mathbb{Q}$ and filtration $\\{\\mathcal{F}_t\\}\_{t \geq 0}$, if $ \mathbb{E}^{\mathbb{Q}}[X_t \mid \mathcal{F}_s] = X_s \quad \forall \, s\leq t$. This means the process is path unbiased.
 
+{{< centered-image src="/site/images/binomial_tree.jpg" alt="Binomial Tree" >}}
+
 According to this model the stock at time $t$ can move to up by a factor of $u$ with probability $p$ and down by a factor of $d$ with probability $(1-p)$ at the next time step $t+1$. Using the principle of no arbitrage, the stock earns a risk free interest ($r$) and parameters $d < 1 < u$. The risk neutral probability $p$ is then given by mean matching.
 
 \begin{equation}
@@ -29,7 +31,7 @@ Similarly the call option $c_0 = e^{-rT}(c_u\cdot p+c_d\cdot(1-p))$. We can eval
 
 \begin{equation}
 \begin{aligned}
-\mathbb{V}(S \_{t+\Delta t}) &= \mathbb{E}[(S*{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\\\
+\mathbb{V}(S \_{t+\Delta t}) &= \mathbb{E}[(S_{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\\\
 \sigma^2 \Delta t &= p \cdot u^2 + d^2(1-p) + (p \cdot u^2 + d^2(1-p))^2 \\\\
 \sigma^2 \Delta t &= (p -p^2)(u-d)^2 \\\\
 \sigma^2 \Delta t &= e^{r\Delta t} (u+d) - u \cdot d - e^{2r\Delta t} \\\\
@@ -43,7 +45,8 @@ The above definitions rely on a sufficiently small $\Delta t$ for $p$ to be a va
 
 ## Delta Hedging
 
-We define a portfolio $\Pi_{t}$, under the principle of no arbitrage the portfolio is worth the same at time $t$ regardless of the path takes to $t+1$. Only the weights of the assets is allowed to change in the portfolio, no cash injection or deposits are allowed once the portfolio has been created, this is referred to as a self financing trading strategy.
+We define a portfolio $\Pi_{t}$, under the principle of no arbitrage the portfolio is worth the same at time $t$
+regardless of the path taken to $t+1$. No cash injection or deposits are allowed once the portfolio has been created, portfolio rebalancing is funded using assets within the portfolio. This is referred to as a self financing portfolio.
 
 \begin{equation}
 \begin{aligned}
@@ -66,15 +69,17 @@ Rebalancing under this constraints leads to delta hedging.
 \end{aligned}
 \end{equation}
 
-$\Delta$ is the amount of the underlying that we must own for the portfolio to admit no arbitrage.
+$\Delta$ is the amount of the underlying that we must own for the portfolio to be risk neutral.
 
 ## American Binomial Tree
 
-The American binomial tree extends the standard binomial model to handle early exercise options. At each node, we compare the immediate exercise value with the discounted expected future value to determine the optimal exercise strategy.
+The American binomial tree extends the standard binomial model to handle early exercise options.
+At each node, we compare the immediate exercise value with the discounted expected future value to determine the optimal exercise strategy.
 
 ## Trinomial Tree
 
-The trinomial tree model extends the binomial model by allowing for an additional middle state. This provides more flexibility in modeling the underlying price process and can lead to faster convergence compared to binomial trees.
+The trinomial tree model extends the binomial model by allowing for an additional middle state.
+This provides more flexibility in modeling the underlying price process and can lead to faster convergence compared to binomial trees.
 
 ## Asian Binomial Tree
 

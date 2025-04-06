@@ -9,3 +9,13 @@
   margin-bottom: 1rem;
   color: #666;
 }
+
+/* Center images */
+figure.center {
+  text-align: center;
+}
+
+figure.center img {
+  margin: 0 auto;
+  display: block;
+}

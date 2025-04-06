@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: April 4, 2025 --><html lang="en" >
+<!-- Last Published: April 6, 2025 --><html lang="en" >
 
 
-<head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=59115&amp;path=site/livereload" data-no-instant defer></script>
+<head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -282,8 +282,8 @@
 
 
 
-<link rel="alternate" hreflang="en" href="http://localhost:59115/site/post/2025/03/10/image-retrieval/" />
-<link rel="canonical" href="http://localhost:59115/site/post/2025/03/10/image-retrieval/" />
+<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2025/03/10/image-retrieval/" />
+<link rel="canonical" href="http://localhost:1313/site/post/2025/03/10/image-retrieval/" />
 
 
 
@@ -312,7 +312,7 @@
 
 
 <meta property="twitter:card" content="summary" />
-<meta property="twitter:image" content="http://localhost:59115/site/media/icon_hu_43cf117bf1a42c34.png" />
+<meta property="twitter:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" />
 
 
 
@@ -320,9 +320,9 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Sbonelo Mdluli" />
-<meta property="og:url" content="http://localhost:59115/site/post/2025/03/10/image-retrieval/" />
+<meta property="og:url" content="http://localhost:1313/site/post/2025/03/10/image-retrieval/" />
 <meta property="og:title" content="Image Retrieval | Sbonelo Mdluli" />
-<meta property="og:description" content="A comprehensive guide to building a modular image retrieval system with CLIP embeddings and Faiss. This article details the complete architecture including data pipelines with Kedro and Dask, feature storage with Feast..." /><meta property="og:image" content="http://localhost:59115/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
+<meta property="og:description" content="A comprehensive guide to building a modular image retrieval system with CLIP embeddings and Faiss. This article details the complete architecture including data pipelines with Kedro and Dask, feature storage with Feast..." /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
 
   
     <meta
@@ -357,7 +357,7 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:59115/site/post/2025/03/10/image-retrieval/"
+    "@id": "http://localhost:1313/site/post/2025/03/10/image-retrieval/"
   },
   "headline": "Image Retrieval",
   
@@ -374,7 +374,7 @@
     "name": "Sbonelo Mdluli",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:59115/site/media/icon_hu_19349546d07106a3.png"
+      "url": "http://localhost:1313/site/media/icon_hu_19349546d07106a3.png"
     }
   },
   "description": "A comprehensive guide to building a modular image retrieval system with CLIP embeddings and Faiss. This article details the complete architecture including data pipelines with Kedro and Dask, feature storage with Feast..."
@@ -656,48 +656,20 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img src="/site/images/kedro.png" alt="Kedro Pipeline" loading="lazy" data-zoomable /></div>
-  </div></figure>
-
+<figure style="text-align: center;">
+  <img src="/site/images/kedro.png" alt="Kedro Pipeline"  style="margin: 0 auto; display: block;">
+  
+</figure>
 <p>Dask enables distributed processing across a cluster, making the pipeline efficient for handling large multidimensional image arrays and parallel I/O operations.</p>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img src="/site/images/dask.png" alt="Dask Workers" loading="lazy" data-zoomable /></div>
-  </div></figure>
-
+<figure style="text-align: center;">
+  <img src="/site/images/dask.png" alt="Dask Workers"  style="margin: 0 auto; display: block;">
+  
+</figure>
 <h2 id="model-architecture">Model Architecture</h2>
 <p>The system uses the Contrastive Language-Image Pre-training (CLIP) model for embedding, which maps both images and text into a shared embedding space. CLIP is trained on image-text pairs and supports zero-shot prediction.</p>
 <p>For efficient similarity searches, the system employs Faiss, which offers:</p>
@@ -721,24 +693,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img src="/site/images/feast.png" alt="Feast Project" loading="lazy" data-zoomable /></div>
-  </div></figure>
-
+<figure style="text-align: center;">
+  <img src="/site/images/feast.png" alt="Feast Project"  style="margin: 0 auto; display: block;">
+  
+</figure>
 <h2 id="model-registry">Model Registry</h2>
 <p>The system uses a local file system as storage for models, mimicking a typical model registry. Models can be tested and approved for production readiness, with the potential to configure Kedro using MLflow for model management. We use DVC for data and model tracking.</p>
 <h2 id="backend">Backend</h2>
@@ -754,24 +712,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img src="/site/images/api.png" alt="Project Backend" loading="lazy" data-zoomable /></div>
-  </div></figure>
-
+<figure style="text-align: center;">
+  <img src="/site/images/api.png" alt="Project Backend"  style="margin: 0 auto; display: block;">
+  
+</figure>
 <h2 id="frontend">Frontend</h2>
 <p>The frontend is designed to minimize redundant backend calls by storing search results in the browser&rsquo;s local storage. If a user searches for fewer than k results for the same query, the system retrieves them from memory instead of making additional backend requests.</p>
 
@@ -779,24 +723,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img src="/site/images/frontend.png" alt="System Frontend" loading="lazy" data-zoomable /></div>
-  </div></figure>
-
+<figure style="text-align: center;">
+  <img src="/site/images/frontend.png" alt="System Frontend"  style="margin: 0 auto; display: block;">
+  
+</figure>
 <p>The entire system can be easily deployed and containerised using existing Docker files.</p>
 <h2 id="extended-system-for-accessibility">Extended System for Accessibility</h2>
 <p>The design can be adapted to assist visually impaired users by:</p>

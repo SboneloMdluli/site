@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sbonelo Mdluli ☕️ | Sbonelo Mdluli</title>
-    <link>http://localhost:59115/site/</link>
-      <atom:link href="http://localhost:59115/site/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/site/</link>
+      <atom:link href="http://localhost:1313/site/index.xml" rel="self" type="application/rss+xml" />
     <description>Sbonelo Mdluli ☕️</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Mon, 24 Oct 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:59115/site/media/icon_hu_43cf117bf1a42c34.png</url>
+      <url>http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png</url>
       <title>Sbonelo Mdluli ☕️</title>
-      <link>http://localhost:59115/site/</link>
+      <link>http://localhost:1313/site/</link>
     </image>
     
     <item>
       <title>Image Retrieval</title>
-      <link>http://localhost:59115/site/post/2025/03/10/image-retrieval/</link>
+      <link>http://localhost:1313/site/post/2025/03/10/image-retrieval/</link>
       <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:59115/site/post/2025/03/10/image-retrieval/</guid>
+      <guid>http://localhost:1313/site/post/2025/03/10/image-retrieval/</guid>
       <description>&lt;h1 id=&#34;image-retrieval-system-design&#34;&gt;Image Retrieval System Design&lt;/h1&gt;
 &lt;h2 id=&#34;system-overview&#34;&gt;System Overview&lt;/h2&gt;
 &lt;p&gt;The Image Retrieval System is designed with a modular, separates concerns for optimal performance and maintainability. The system consists of four main components:&lt;/p&gt;
@@ -46,7 +46,7 @@
 
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:59115/site/images/system_diag.jpg&#34; alt=&#34;System Architecture&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/system_diag.jpg&#34; alt=&#34;System Architecture&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 
 &lt;p&gt;The system is composed of two main platforms: one dedicated to handling data and the other focused on inference and user interaction. This design offers a modular and flexible architecture, ensuring seamless integration between components. A scheduler is used to initiate the pipeline and perform batch training processes.&lt;/p&gt;
@@ -57,48 +57,20 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:59115/site/images/kedro.png&#34; alt=&#34;Kedro Pipeline&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/kedro.png&#34; alt=&#34;Kedro Pipeline&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;p&gt;Dask enables distributed processing across a cluster, making the pipeline efficient for handling large multidimensional image arrays and parallel I/O operations.&lt;/p&gt;
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:59115/site/images/dask.png&#34; alt=&#34;Dask Workers&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/dask.png&#34; alt=&#34;Dask Workers&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;h2 id=&#34;model-architecture&#34;&gt;Model Architecture&lt;/h2&gt;
 &lt;p&gt;The system uses the Contrastive Language-Image Pre-training (CLIP) model for embedding, which maps both images and text into a shared embedding space. CLIP is trained on image-text pairs and supports zero-shot prediction.&lt;/p&gt;
 &lt;p&gt;For efficient similarity searches, the system employs Faiss, which offers:&lt;/p&gt;
@@ -122,24 +94,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:59115/site/images/feast.png&#34; alt=&#34;Feast Project&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/feast.png&#34; alt=&#34;Feast Project&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;h2 id=&#34;model-registry&#34;&gt;Model Registry&lt;/h2&gt;
 &lt;p&gt;The system uses a local file system as storage for models, mimicking a typical model registry. Models can be tested and approved for production readiness, with the potential to configure Kedro using MLflow for model management. We use DVC for data and model tracking.&lt;/p&gt;
 &lt;h2 id=&#34;backend&#34;&gt;Backend&lt;/h2&gt;
@@ -155,24 +113,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:59115/site/images/api.png&#34; alt=&#34;Project Backend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/api.png&#34; alt=&#34;Project Backend&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;h2 id=&#34;frontend&#34;&gt;Frontend&lt;/h2&gt;
 &lt;p&gt;The frontend is designed to minimize redundant backend calls by storing search results in the browser&amp;rsquo;s local storage. If a user searches for fewer than k results for the same query, the system retrieves them from memory instead of making additional backend requests.&lt;/p&gt;
 
@@ -180,24 +124,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:59115/site/images/frontend.png&#34; alt=&#34;System Frontend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/frontend.png&#34; alt=&#34;System Frontend&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;p&gt;The entire system can be easily deployed and containerised using existing Docker files.&lt;/p&gt;
 &lt;h2 id=&#34;extended-system-for-accessibility&#34;&gt;Extended System for Accessibility&lt;/h2&gt;
 &lt;p&gt;The design can be adapted to assist visually impaired users by:&lt;/p&gt;
@@ -214,11 +144,20 @@
     
     <item>
       <title>Lattice Pricing Models</title>
-      <link>http://localhost:59115/site/post/2025/03/02/lattice-pricing-models/</link>
+      <link>http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/</link>
       <pubDate>Sun, 02 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:59115/site/post/2025/03/02/lattice-pricing-models/</guid>
+      <guid>http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/</guid>
       <description>&lt;h2 id=&#34;binomial-tree-model&#34;&gt;Binomial Tree Model&lt;/h2&gt;
 &lt;p&gt;We can price options in discrete time through lattice models. The first model we consider is the Cox-Ross-Rubinstein Model which is risk neutral under Martingale measure $\mathbb{Q}$. A process $S$ is a Martingale with respect to measure $\mathbb{Q}$ and filtration $\{\mathcal{F}_t\}_{t \geq 0}$, if $ \mathbb{E}^{\mathbb{Q}}[X_t \mid \mathcal{F}_s] = X_s \quad \forall , s\leq t$. This means the process is path unbiased.&lt;/p&gt;
+
+
+
+
+
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/binomial_tree.jpg&#34; alt=&#34;Binomial Tree&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;p&gt;According to this model the stock at time $t$ can move to up by a factor of $u$ with probability $p$ and down by a factor of $d$ with probability $(1-p)$ at the next time step $t+1$. Using the principle of no arbitrage, the stock earns a risk free interest ($r$) and parameters $d &amp;lt; 1 &amp;lt; u$. The risk neutral probability $p$ is then given by mean matching.&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 \begin{aligned}
@@ -232,7 +171,7 @@ S_0e^{r\Delta t} &amp;amp;= S_0u\cdot p+S_0d\cdot(1-p) \\
 &lt;p&gt;Similarly the call option $c_0 = e^{-rT}(c_u\cdot p+c_d\cdot(1-p))$. We can evaluate $u$ and $d$ by matching the variance.&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 \begin{aligned}
-\mathbb{V}(S _{t+\Delta t}) &amp;amp;= \mathbb{E}[(S*{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\
+\mathbb{V}(S _{t+\Delta t}) &amp;amp;= \mathbb{E}[(S_{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\
 \sigma^2 \Delta t &amp;amp;= p \cdot u^2 + d^2(1-p) + (p \cdot u^2 + d^2(1-p))^2 \\
 \sigma^2 \Delta t &amp;amp;= (p -p^2)(u-d)^2 \\
 \sigma^2 \Delta t &amp;amp;= e^{r\Delta t} (u+d) - u \cdot d - e^{2r\Delta t} \\
@@ -243,7 +182,8 @@ d &amp;amp;= e^{-\sigma \sqrt{\Delta t}}
 \end{equation}&lt;/p&gt;
 &lt;p&gt;The above definitions rely on a sufficiently small $\Delta t$ for $p$ to be a valid probability.&lt;/p&gt;
 &lt;h2 id=&#34;delta-hedging&#34;&gt;Delta Hedging&lt;/h2&gt;
-&lt;p&gt;We define a portfolio $\Pi_{t}$, under the principle of no arbitrage the portfolio is worth the same at time $t$ regardless of the path takes to $t+1$. Only the weights of the assets is allowed to change in the portfolio, no cash injection or deposits are allowed once the portfolio has been created, this is referred to as a self financing trading strategy.&lt;/p&gt;
+&lt;p&gt;We define a portfolio $\Pi_{t}$, under the principle of no arbitrage the portfolio is worth the same at time $t$
+regardless of the path taken to $t+1$. No cash injection or deposits are allowed once the portfolio has been created, portfolio rebalancing is funded using assets within the portfolio. This is referred to as a self financing portfolio.&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 \begin{aligned}
 \Pi_{t,u} &amp;amp;= \Delta S_0 u - c_u \quad \text{upward movement}
@@ -261,11 +201,13 @@ d &amp;amp;= e^{-\sigma \sqrt{\Delta t}}
 \Delta &amp;amp;= \frac{c_u-c_d}{S_0 u - S_0 d}
 \end{aligned}
 \end{equation}&lt;/p&gt;
-&lt;p&gt;$\Delta$ is the amount of the underlying that we must own for the portfolio to admit no arbitrage.&lt;/p&gt;
+&lt;p&gt;$\Delta$ is the amount of the underlying that we must own for the portfolio to be risk neutral.&lt;/p&gt;
 &lt;h2 id=&#34;american-binomial-tree&#34;&gt;American Binomial Tree&lt;/h2&gt;
-&lt;p&gt;The American binomial tree extends the standard binomial model to handle early exercise options. At each node, we compare the immediate exercise value with the discounted expected future value to determine the optimal exercise strategy.&lt;/p&gt;
+&lt;p&gt;The American binomial tree extends the standard binomial model to handle early exercise options.
+At each node, we compare the immediate exercise value with the discounted expected future value to determine the optimal exercise strategy.&lt;/p&gt;
 &lt;h2 id=&#34;trinomial-tree&#34;&gt;Trinomial Tree&lt;/h2&gt;
-&lt;p&gt;The trinomial tree model extends the binomial model by allowing for an additional middle state. This provides more flexibility in modeling the underlying price process and can lead to faster convergence compared to binomial trees.&lt;/p&gt;
+&lt;p&gt;The trinomial tree model extends the binomial model by allowing for an additional middle state.
+This provides more flexibility in modeling the underlying price process and can lead to faster convergence compared to binomial trees.&lt;/p&gt;
 &lt;h2 id=&#34;asian-binomial-tree&#34;&gt;Asian Binomial Tree&lt;/h2&gt;
 &lt;p&gt;The Asian binomial tree model is used for pricing Asian options where the payoff depends on the average price of the underlying asset over some time period. The model tracks the average price along each path and computes the option value accordingly.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/lattice_pricing_models.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
@@ -274,9 +216,9 @@ d &amp;amp;= e^{-\sigma \sqrt{\Delta t}}
     
     <item>
       <title>Put-Call Parity</title>
-      <link>http://localhost:59115/site/post/2024/02/08/put-call-parity/</link>
+      <link>http://localhost:1313/site/post/2024/02/08/put-call-parity/</link>
       <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:59115/site/post/2024/02/08/put-call-parity/</guid>
+      <guid>http://localhost:1313/site/post/2024/02/08/put-call-parity/</guid>
       <description>&lt;p&gt;The put-call parity (PCP) establishes the relationship between call and put options that share the same underlying asset and expiration date. This relationship is especially relevant for European options. To illustrate it, we can create a portfolio composed of a long put option ($P(t)=max(K-S_{t},0)$), a short call option ($C(t)=max(S_{t}-K,0)$), and a long position in a non-dividend-paying stock ($S$) of the underlying. Both options have the same strike price ($K$) and expiration date ($T$). The portfolio&amp;rsquo;s structure before the expiration, at $t \leq T$, is described as follows:&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 \begin{split}
@@ -291,9 +233,9 @@ d &amp;amp;= e^{-\sigma \sqrt{\Delta t}}
     
     <item>
       <title>Systematic Risk</title>
-      <link>http://localhost:59115/site/post/2024/01/15/systematic-risk/</link>
+      <link>http://localhost:1313/site/post/2024/01/15/systematic-risk/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:59115/site/post/2024/01/15/systematic-risk/</guid>
+      <guid>http://localhost:1313/site/post/2024/01/15/systematic-risk/</guid>
       <description>&lt;p&gt;Key Concepts:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Value-at-Risk (VaR): A measure of the maximum potential loss over a period with a given confidence level. However, VaR has limitations, such as not considering tail dependency and lacking sub-additivity.&lt;/li&gt;
@@ -310,9 +252,9 @@ d &amp;amp;= e^{-\sigma \sqrt{\Delta t}}
     
     <item>
       <title>Understanding Bond Interest Rate Risk</title>
-      <link>http://localhost:59115/site/post/2024/01/15/understanding-bond-interest-rate-risk/</link>
+      <link>http://localhost:1313/site/post/2024/01/15/understanding-bond-interest-rate-risk/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:59115/site/post/2024/01/15/understanding-bond-interest-rate-risk/</guid>
+      <guid>http://localhost:1313/site/post/2024/01/15/understanding-bond-interest-rate-risk/</guid>
       <description>&lt;p&gt;A bond is a fixed income instrument consisting of coupon payments and the face value (Fv). Coupons are regular payments, often expressed as a percentage of the face value. The price of a bond is calculated as the present value of its future cash flows, given by:&lt;/p&gt;
 &lt;p&gt;$$P =\sum_{i=1}^{n} \frac{C_i}{(1+r)^i} + \frac{Fv}{(1+r)^n}$$&lt;/p&gt;
 &lt;p&gt;Where $ C_i $ is the coupon value at time $t$, $n$ is the number of periods before maturity and $r$ is the yield to maturity. Yield to maturity is the expected return of the bond if held till maturity. Given a coupon rate $C_r$, if $ r \lt C_r $ then the bond is trading at a premium, if $ r \gt C_r $ the bond is issued at a discount and if $ r = C_r $ the bond is at par value. The equation above can be simplified to make computation easy.&lt;/p&gt;
@@ -323,9 +265,9 @@ d &amp;amp;= e^{-\sigma \sqrt{\Delta t}}
     
     <item>
       <title>How Limit Order Books Drive Price Discovery</title>
-      <link>http://localhost:59115/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/</link>
+      <link>http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/</link>
       <pubDate>Sun, 14 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:59115/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/</guid>
+      <guid>http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/</guid>
       <description>&lt;p&gt;The Limit Order Book (LOB) is a fundamental mechanism in modern financial markets that facilitates price discovery and trading. This piece examines how LOBs work and their importance in market structure.&lt;/p&gt;
 &lt;h2 id=&#34;key-components&#34;&gt;Key Components&lt;/h2&gt;
 &lt;p&gt;A limit order book contains:&lt;/p&gt;
@@ -373,9 +315,9 @@ The mid price at time t is:&lt;/p&gt;
     
     <item>
       <title>Principal Component Analysis: A Key Tool for Dimensionality Reduction</title>
-      <link>http://localhost:59115/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</link>
+      <link>http://localhost:1313/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</link>
       <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:59115/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</guid>
+      <guid>http://localhost:1313/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</guid>
       <description>&lt;p&gt;Principal Component Analysis (PCA) is a powerful technique for reducing the dimensionality of financial data while preserving important relationships. This article explores the mathematical foundations and practical applications of PCA.&lt;/p&gt;
 &lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;
 &lt;p&gt;PCA works by:&lt;/p&gt;

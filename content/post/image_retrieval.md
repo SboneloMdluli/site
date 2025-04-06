@@ -26,11 +26,11 @@ The system is composed of two main platforms: one dedicated to handling data and
 
 The data pipeline manages feature engineering and data science tasks using Kedro, which applies software engineering principles to data science projects. This approach eliminates disorganised notebooks and ensures maintainability and production-grade quality.
 
-{{< figure src="/site/images/kedro.png" alt="Kedro Pipeline" >}}
+{{< centered-image  src="/site/images/kedro.png" alt="Kedro Pipeline" >}}
 
 Dask enables distributed processing across a cluster, making the pipeline efficient for handling large multidimensional image arrays and parallel I/O operations.
 
-{{< figure src="/site/images/dask.png" alt="Dask Workers" >}}
+{{< centered-image src="/site/images/dask.png" alt="Dask Workers" >}}
 
 ## Model Architecture
 
@@ -55,7 +55,7 @@ The feature store houses images, embeddings, and image byte data using Feast, wh
 - An online store (SQLite) optimised for fast inference
 - Reusability of data without repeating EDA, feature engineering, or modeling tasks
 
-{{< figure src="/site/images/feast.png" alt="Feast Project" >}}
+{{< centered-image src="/site/images/feast.png" alt="Feast Project" >}}
 
 ## Model Registry
 
@@ -70,13 +70,13 @@ The backend features an API for inference built with FastAPI, including:
 - Multi-model serving capabilities
 - Resource optimization by loading/unloading models between RAM and disk
 
-{{< figure src="/site/images/api.png" alt="Project Backend" >}}
+{{< centered-image src="/site/images/api.png" alt="Project Backend" >}}
 
 ## Frontend
 
 The frontend is designed to minimize redundant backend calls by storing search results in the browser's local storage. If a user searches for fewer than k results for the same query, the system retrieves them from memory instead of making additional backend requests.
 
-{{< figure src="/site/images/frontend.png" alt="System Frontend" >}}
+{{< centered-image src="/site/images/frontend.png" alt="System Frontend" >}}
 
 The entire system can be easily deployed and containerised using existing Docker files.
 
