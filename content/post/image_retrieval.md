@@ -45,6 +45,8 @@ For efficient similarity searches, the system employs Faiss, which offers:
 
 The current implementation uses a flat index suitable for small-scale searches (1,000-10,000 entries), but can easily transition to larger-scale index types if needed.
 
+We further add an image captioning model to generate text from the given retrieved images.
+
 ## Feature Store
 
 The feature store houses images, embeddings, and image byte data, enabling data science teams to reuse this information without repeating EDA, feature engineering, or modeling tasks. This promotes efficiency and cost savings. Feast is used for the feature store, which provides:
@@ -79,16 +81,5 @@ The frontend is designed to minimize redundant backend calls by storing search r
 {{< centered-image src="/site/images/frontend.png" alt="System Frontend" >}}
 
 The entire system can be easily deployed and containerised using existing Docker files.
-
-## Extended System for Accessibility
-
-The design can be adapted to assist visually impaired users by:
-
-- Integrating speech-to-text directly in the browser using TensorFlow.js or ONNX Runtime Web
-- Providing text descriptions of images instead of visual results
-- Using text-to-speech engines running in the browser
-- Leveraging geolocation to select appropriate voice accents
-
-User feedback can be collected through simple thumbs up/down emoticons.
 
 [View project →](https://github.com/SboneloMdluli/Multi-Modal-Image-Retrieval)
