@@ -57,48 +57,20 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/kedro.png&#34; alt=&#34;Kedro Pipeline&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/kedro.png&#34; alt=&#34;Kedro Pipeline&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;p&gt;Dask enables distributed processing across a cluster, making the pipeline efficient for handling large multidimensional image arrays and parallel I/O operations.&lt;/p&gt;
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/dask.png&#34; alt=&#34;Dask Workers&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/dask.png&#34; alt=&#34;Dask Workers&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;h2 id=&#34;model-architecture&#34;&gt;Model Architecture&lt;/h2&gt;
 &lt;p&gt;The system uses the Contrastive Language-Image Pre-training (CLIP) model for embedding, which maps both images and text into a shared embedding space. CLIP is trained on image-text pairs and supports zero-shot prediction.&lt;/p&gt;
 &lt;p&gt;For efficient similarity searches, the system employs Faiss, which offers:&lt;/p&gt;
@@ -122,24 +94,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/feast.png&#34; alt=&#34;Feast Project&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/feast.png&#34; alt=&#34;Feast Project&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;h2 id=&#34;model-registry&#34;&gt;Model Registry&lt;/h2&gt;
 &lt;p&gt;The system uses a local file system as storage for models, mimicking a typical model registry. Models can be tested and approved for production readiness, with the potential to configure Kedro using MLflow for model management. We use DVC for data and model tracking.&lt;/p&gt;
 &lt;h2 id=&#34;backend&#34;&gt;Backend&lt;/h2&gt;
@@ -155,24 +113,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/api.png&#34; alt=&#34;Project Backend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/api.png&#34; alt=&#34;Project Backend&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;h2 id=&#34;frontend&#34;&gt;Frontend&lt;/h2&gt;
 &lt;p&gt;The frontend is designed to minimize redundant backend calls by storing search results in the browser&amp;rsquo;s local storage. If a user searches for fewer than k results for the same query, the system retrieves them from memory instead of making additional backend requests.&lt;/p&gt;
 
@@ -180,24 +124,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/frontend.png&#34; alt=&#34;System Frontend&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/frontend.png&#34; alt=&#34;System Frontend&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;p&gt;The entire system can be easily deployed and containerised using existing Docker files.&lt;/p&gt;
 &lt;h2 id=&#34;extended-system-for-accessibility&#34;&gt;Extended System for Accessibility&lt;/h2&gt;
 &lt;p&gt;The design can be adapted to assist visually impaired users by:&lt;/p&gt;

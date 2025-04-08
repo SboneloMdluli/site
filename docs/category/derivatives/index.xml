@@ -24,24 +24,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure class=&#34;center&#34; &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/binomial_tree.jpg&#34; alt=&#34;Binomial Tree&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/binomial_tree.jpg&#34; alt=&#34;Binomial Tree&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
 &lt;p&gt;According to this model the stock at time $t$ can move to up by a factor of $u$ with probability $p$ and down by a factor of $d$ with probability $(1-p)$ at the next time step $t+1$. Using the principle of no arbitrage, the stock earns a risk free interest ($r$) and parameters $d &amp;lt; 1 &amp;lt; u$. The risk neutral probability $p$ is then given by mean matching.&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 \begin{aligned}
