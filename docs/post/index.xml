@@ -18,7 +18,7 @@
       <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/</guid>
       <description>&lt;h1 id=&#34;stochastic-pricing-models&#34;&gt;Stochastic Pricing Models&lt;/h1&gt;
-&lt;p&gt;This post presents the theoretical foundations of advanced stochastic models for option pricing. We outline the mathematical structure and computational methods for European and American options under both the Heston and Merton jump-diffusion models, including the calculation of Greeks and barrier options.&lt;/p&gt;
+&lt;p&gt;This post presents the theoretical foundations of stochastic models for option pricing. We outline the mathematical structure and computational methods for European and American options under both the Heston and Merton jump-diffusion models, including the calculation of Greeks and barrier options.&lt;/p&gt;
 &lt;h2 id=&#34;1-introduction-to-stochastic-option-pricing&#34;&gt;1. Introduction to Stochastic Option Pricing&lt;/h2&gt;
 &lt;p&gt;Stochastic models are essential for capturing the randomness in financial markets, especially for pricing derivatives like options. Two widely used models are:&lt;/p&gt;
 &lt;ul&gt;

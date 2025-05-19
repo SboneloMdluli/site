@@ -1,7 +1,7 @@
 ---
 title: "Stochastic Pricing Models"
 date: 2025-05-10
-summary: "A technical overview of advanced option pricing using the Heston and Merton models"
+summary: "This article provides an exposition of stochastic models for option pricing, focusing on the mathematical formulation and computational techniques underlying the Heston and Merton jump-diffusion frameworks. Analytical and simulation-based approaches for pricing, risk management, and sensitivity analysis are discussed in detail."
 tags: ["Options Pricing", "Quantitative Finance"]
 categories: [Finance, Quantitative]
 math: true
@@ -9,7 +9,7 @@ math: true
 
 # Stochastic Pricing Models
 
-This post presents the theoretical foundations of advanced stochastic models for option pricing. We outline the mathematical structure and computational methods for European and American options under both the Heston and Merton jump-diffusion models, including the calculation of Greeks and barrier options.
+This post presents the theoretical foundations of stochastic models for option pricing. We outline the mathematical structure and computational methods for European and American options under both the Heston and Merton jump-diffusion models, including the calculation of Greeks and barrier options.
 
 ## 1. Introduction to Stochastic Option Pricing
 
