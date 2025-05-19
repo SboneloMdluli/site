@@ -278,12 +278,12 @@
 
   
 
-<meta name="description" content="Explore how limit order books work and their role in market microstructure." />
+<meta name="description" content="A comprehensive guide to building a modular image retrieval system with CLIP embeddings and Faiss. This article details the complete architecture including data pipelines with Kedro and Dask, feature storage with Feast..." />
 
 
 
-<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/" />
-<link rel="canonical" href="http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/" />
+<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2025/04/08/image-retrieval/" />
+<link rel="canonical" href="http://localhost:1313/site/post/2025/04/08/image-retrieval/" />
 
 
 
@@ -320,18 +320,18 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Sbonelo Mdluli" />
-<meta property="og:url" content="http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/" />
-<meta property="og:title" content="How Limit Order Books Drive Price Discovery | Sbonelo Mdluli" />
-<meta property="og:description" content="Explore how limit order books work and their role in market microstructure." /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
+<meta property="og:url" content="http://localhost:1313/site/post/2025/04/08/image-retrieval/" />
+<meta property="og:title" content="Image Retrieval | Sbonelo Mdluli" />
+<meta property="og:description" content="A comprehensive guide to building a modular image retrieval system with CLIP embeddings and Faiss. This article details the complete architecture including data pipelines with Kedro and Dask, feature storage with Feast..." /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
 
   
     <meta
       property="article:published_time"
-      content="2024-01-14T00:00:00&#43;00:00"
+      content="2025-04-08T00:00:00&#43;00:00"
     />
   
   
-    <meta property="article:modified_time" content="2025-03-02T16:38:03&#43;02:00">
+    <meta property="article:modified_time" content="2025-04-08T21:07:49&#43;02:00">
   
 
 
@@ -357,12 +357,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/"
+    "@id": "http://localhost:1313/site/post/2025/04/08/image-retrieval/"
   },
-  "headline": "How Limit Order Books Drive Price Discovery",
+  "headline": "Image Retrieval",
   
-  "datePublished": "2024-01-14T00:00:00Z",
-  "dateModified": "2025-03-02T16:38:03+02:00",
+  "datePublished": "2025-04-08T00:00:00Z",
+  "dateModified": "2025-04-08T21:07:49+02:00",
   
   "author": {
     "@type": "Person",
@@ -377,7 +377,7 @@
       "url": "http://localhost:1313/site/media/icon_hu_19349546d07106a3.png"
     }
   },
-  "description": "Explore how limit order books work and their role in market microstructure."
+  "description": "A comprehensive guide to building a modular image retrieval system with CLIP embeddings and Faiss. This article details the complete architecture including data pipelines with Kedro and Dask, feature storage with Feast..."
 }
 </script>
 
@@ -399,7 +399,7 @@
 
 
   
-  <title>How Limit Order Books Drive Price Discovery | Sbonelo Mdluli</title>
+  <title>Image Retrieval | Sbonelo Mdluli</title>
 
   
   
@@ -419,7 +419,7 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  dark " data-wc-page-id="de1661fd05720f244ecd82612c37f1de" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  dark " data-wc-page-id="7e09a79a2e2febbe4c21922380e411fe" >
 
   
   
@@ -585,7 +585,7 @@
   
 
       <li class="breadcrumb-item active" aria-current="page">
-        How Limit Order Books Drive Price Discovery
+        Image Retrieval
       </li>
     </ol>
   </nav>
@@ -599,65 +599,137 @@
     
 <article class="article">
   <div class="article-container">
-    <h1>How Limit Order Books Drive Price Discovery</h1>
+    <h1>Image Retrieval</h1>
 
     <div class="article-metadata">
       <span class="article-date">
-        January 14, 2024
+        April 8, 2025
       </span>
 
       
       <div class="article-tags">
         
-        <a class="badge badge-light" href="/tags/market-structure">Market Structure</a>
+        <a class="badge badge-light" href="/tags/machine-learning">Machine Learning</a>
         
       </div>
       
     </div>
 
     <div class="article-content">
-      <p>The Limit Order Book (LOB) is a fundamental mechanism in modern financial markets that facilitates price discovery and trading. This piece examines how LOBs work and their importance in market structure.</p>
-<h2 id="key-components">Key Components</h2>
-<p>A limit order book contains:</p>
-<ul>
-<li>All active buy and sell orders</li>
-<li>Order volumes and prices</li>
-<li>Submission timestamps</li>
-<li>The current bid-ask spread</li>
-</ul>
-<h2 id="order-matching-protocols">Order Matching Protocols</h2>
-<p>Two main approaches are used:</p>
+      <h1 id="image-retrieval-system-design">Image Retrieval System Design</h1>
+<h2 id="system-overview">System Overview</h2>
+<p>The Image Retrieval System is designed with a modular, separates concerns for optimal performance and maintainability. The system consists of four main components:</p>
 <ol>
-<li>Price-Time Priority (PTP)</li>
+<li><strong>Data Pipeline</strong></li>
+<li><strong>Feature Store</strong></li>
+<li><strong>Backend/Inference</strong></li>
+<li><strong>Frontend</strong></li>
 </ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/site/images/system_diag.jpg" alt="System Architecture" loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+<p>The system is composed of two main platforms: one dedicated to handling data and the other focused on inference and user interaction. This design offers a modular and flexible architecture, ensuring seamless integration between components. A scheduler is used to initiate the pipeline and perform batch training processes.</p>
+<h2 id="data-pipeline">Data Pipeline</h2>
+<p>The data pipeline manages feature engineering and data science tasks using Kedro, which applies software engineering principles to data science projects. This approach eliminates disorganised notebooks and ensures maintainability and production-grade quality.</p>
+
+
+
+
+
+<figure style="text-align: center;">
+  <img src="/site/images/kedro.png" alt="Kedro Pipeline"  style="margin: 0 auto; display: block;">
+  
+</figure>
+<p>Dask enables distributed processing across a cluster, making the pipeline efficient for handling large multidimensional image arrays and parallel I/O operations.</p>
+
+
+
+
+
+<figure style="text-align: center;">
+  <img src="/site/images/dask.png" alt="Dask Workers"  style="margin: 0 auto; display: block;">
+  
+</figure>
+<h2 id="model-architecture">Model Architecture</h2>
+<p>The system uses the Contrastive Language-Image Pre-training (CLIP) model for embedding, which maps both images and text into a shared embedding space. CLIP is trained on image-text pairs and supports zero-shot prediction.</p>
+<p>For efficient similarity searches, the system employs Faiss, which offers:</p>
 <ul>
-<li>Orders sorted by price then time</li>
-<li>Rewards quick order submission</li>
-<li>Most common in equity markets</li>
+<li>Fast retrieval by storing indices in memory</li>
+<li>Minimal memory footprint to keep operational costs low</li>
+<li>GPU acceleration and parallel processing capabilities</li>
+<li>Balance between speed and accuracy</li>
 </ul>
-<ol start="2">
-<li>Pro Rata</li>
-</ol>
+<p>The current implementation uses a flat index suitable for small-scale searches (1,000-10,000 entries), but can easily transition to larger-scale index types if needed.</p>
+<p>We further add an image captioning model to generate text from the given retrieved images.</p>
+<h2 id="feature-store">Feature Store</h2>
+<p>The feature store houses images, embeddings, and image byte data, enabling data science teams to reuse this information without repeating EDA, feature engineering, or modeling tasks. This promotes efficiency and cost savings. Feast is used for the feature store, which provides:</p>
+<p>The feature store houses images, embeddings, and image byte data using Feast, which provides:</p>
 <ul>
-<li>Orders at same price filled proportionally</li>
-<li>Encourages larger order sizes</li>
-<li>Common in some derivatives markets</li>
+<li>An offline store (Parquet files) designed for efficient data storage and quick data access</li>
+<li>An online store (SQLite) optimised for fast inference</li>
+<li>Reusability of data without repeating EDA, feature engineering, or modeling tasks</li>
 </ul>
-<p>The choice of protocol influences trader behavior and market efficiency.</p>
-<h2 id="definitions">Definitions</h2>
-<p><strong>Bid Price</strong>
-The bid price at time t is the highest stated price among active buy orders at time t:</p>
-<p>$$b(t) := \max_{x \in B(t)} \text{px}$$</p>
-<p><strong>Ask Price</strong>
-The ask price at time t is the lowest stated price among active sell orders at time t:</p>
-<p>$$a(t) := \min_{x \in A(t)} \text{px}$$</p>
-<p><strong>Bid-Ask Spread</strong>
-The bid-ask spread at time t is:</p>
-<p>$$s(t) := a(t) - b(t)$$</p>
-<p><strong>Mid Price</strong>
-The mid price at time t is:</p>
-<p>$$m(t) := \frac{a(t) + b(t)}{2}$$</p>
-<p><a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/limit_order_book.ipynb" target="_blank" rel="noopener">Read more →</a></p>
+
+
+
+
+
+<figure style="text-align: center;">
+  <img src="/site/images/feast.png" alt="Feast Project"  style="margin: 0 auto; display: block;">
+  
+</figure>
+<h2 id="model-registry">Model Registry</h2>
+<p>The system uses a local file system as storage for models, mimicking a typical model registry. Models can be tested and approved for production readiness, with the potential to configure Kedro using MLflow for model management. We use DVC for data and model tracking.</p>
+<h2 id="backend">Backend</h2>
+<p>The backend features an API for inference built with FastAPI, including:</p>
+<ul>
+<li>Basic schema validation for incoming requests</li>
+<li>In-memory model loading for quick response times</li>
+<li>Multi-model serving capabilities</li>
+<li>Resource optimization by loading/unloading models between RAM and disk</li>
+</ul>
+
+
+
+
+
+<figure style="text-align: center;">
+  <img src="/site/images/api.png" alt="Project Backend"  style="margin: 0 auto; display: block;">
+  
+</figure>
+<h2 id="frontend">Frontend</h2>
+<p>The frontend is designed to minimize redundant backend calls by storing search results in the browser&rsquo;s local storage. If a user searches for fewer than k results for the same query, the system retrieves them from memory instead of making additional backend requests.</p>
+
+
+
+
+
+<figure style="text-align: center;">
+  <img src="/site/images/frontend.png" alt="System Frontend"  style="margin: 0 auto; display: block;">
+  
+</figure>
+<p>The entire system can be easily deployed and containerised using existing Docker files.</p>
+<p><a href="https://github.com/SboneloMdluli/Multi-Modal-Image-Retrieval" target="_blank" rel="noopener">View project →</a></p>
 
     </div>
   </div>

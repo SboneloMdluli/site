@@ -3,19 +3,40 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/site/categories/</loc>
-    <lastmod>2025-04-06T22:57:43+02:00</lastmod>
+    <lastmod>2025-04-08T21:07:49+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/site/category/finance/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/site/tag/finance/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/site/post/2025/03/10/image-retrieval/</loc>
-    <lastmod>2025-04-06T22:57:43+02:00</lastmod>
+    <lastmod>2025-04-08T21:07:49+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/site/category/machine-learning/</loc>
-    <lastmod>2025-04-06T22:57:43+02:00</lastmod>
+    <lastmod>2025-04-08T21:07:49+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/site/tag/machine-learning/</loc>
-    <lastmod>2025-04-06T22:57:43+02:00</lastmod>
+    <lastmod>2025-04-08T21:07:49+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/site/tag/options-pricing/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/site/tag/python/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/site/category/quantitative/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/site/tag/quantitative-finance/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/site/post/2025/03/10/stochastic-pricing-models/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/site/tags/</loc>
-    <lastmod>2025-04-06T22:57:43+02:00</lastmod>
+    <lastmod>2025-04-08T21:07:49+02:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/site/category/derivatives/</loc>
     <lastmod>2025-04-06T22:57:43+02:00</lastmod>

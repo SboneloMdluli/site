@@ -81,6 +81,7 @@
 &lt;li&gt;Balance between speed and accuracy&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The current implementation uses a flat index suitable for small-scale searches (1,000-10,000 entries), but can easily transition to larger-scale index types if needed.&lt;/p&gt;
+&lt;p&gt;We further add an image captioning model to generate text from the given retrieved images.&lt;/p&gt;
 &lt;h2 id=&#34;feature-store&#34;&gt;Feature Store&lt;/h2&gt;
 &lt;p&gt;The feature store houses images, embeddings, and image byte data, enabling data science teams to reuse this information without repeating EDA, feature engineering, or modeling tasks. This promotes efficiency and cost savings. Feast is used for the feature store, which provides:&lt;/p&gt;
 &lt;p&gt;The feature store houses images, embeddings, and image byte data using Feast, which provides:&lt;/p&gt;
@@ -129,15 +130,6 @@
   
 &lt;/figure&gt;
 &lt;p&gt;The entire system can be easily deployed and containerised using existing Docker files.&lt;/p&gt;
-&lt;h2 id=&#34;extended-system-for-accessibility&#34;&gt;Extended System for Accessibility&lt;/h2&gt;
-&lt;p&gt;The design can be adapted to assist visually impaired users by:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Integrating speech-to-text directly in the browser using TensorFlow.js or ONNX Runtime Web&lt;/li&gt;
-&lt;li&gt;Providing text descriptions of images instead of visual results&lt;/li&gt;
-&lt;li&gt;Using text-to-speech engines running in the browser&lt;/li&gt;
-&lt;li&gt;Leveraging geolocation to select appropriate voice accents&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;User feedback can be collected through simple thumbs up/down emoticons.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Multi-Modal-Image-Retrieval&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View project →&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>

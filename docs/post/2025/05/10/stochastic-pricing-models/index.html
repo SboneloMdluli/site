@@ -278,12 +278,12 @@
 
   
 
-<meta name="description" content="Explore how limit order books work and their role in market microstructure." />
+<meta name="description" content="A technical overview of advanced option pricing using the Heston and Merton models" />
 
 
 
-<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/" />
-<link rel="canonical" href="http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/" />
+<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/" />
+<link rel="canonical" href="http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/" />
 
 
 
@@ -320,18 +320,18 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Sbonelo Mdluli" />
-<meta property="og:url" content="http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/" />
-<meta property="og:title" content="How Limit Order Books Drive Price Discovery | Sbonelo Mdluli" />
-<meta property="og:description" content="Explore how limit order books work and their role in market microstructure." /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
+<meta property="og:url" content="http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/" />
+<meta property="og:title" content="Stochastic Pricing Models | Sbonelo Mdluli" />
+<meta property="og:description" content="A technical overview of advanced option pricing using the Heston and Merton models" /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
 
   
     <meta
       property="article:published_time"
-      content="2024-01-14T00:00:00&#43;00:00"
+      content="2025-05-10T00:00:00&#43;00:00"
     />
   
   
-    <meta property="article:modified_time" content="2025-03-02T16:38:03&#43;02:00">
+    <meta property="article:modified_time" content="2025-05-10T00:00:00&#43;00:00">
   
 
 
@@ -357,12 +357,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/"
+    "@id": "http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/"
   },
-  "headline": "How Limit Order Books Drive Price Discovery",
+  "headline": "Stochastic Pricing Models",
   
-  "datePublished": "2024-01-14T00:00:00Z",
-  "dateModified": "2025-03-02T16:38:03+02:00",
+  "datePublished": "2025-05-10T00:00:00Z",
+  "dateModified": "2025-05-10T00:00:00Z",
   
   "author": {
     "@type": "Person",
@@ -377,7 +377,7 @@
       "url": "http://localhost:1313/site/media/icon_hu_19349546d07106a3.png"
     }
   },
-  "description": "Explore how limit order books work and their role in market microstructure."
+  "description": "A technical overview of advanced option pricing using the Heston and Merton models"
 }
 </script>
 
@@ -399,7 +399,7 @@
 
 
   
-  <title>How Limit Order Books Drive Price Discovery | Sbonelo Mdluli</title>
+  <title>Stochastic Pricing Models | Sbonelo Mdluli</title>
 
   
   
@@ -419,7 +419,7 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  dark " data-wc-page-id="de1661fd05720f244ecd82612c37f1de" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  dark " data-wc-page-id="4467d7575e722a4cd39e9d0c9feb00d2" >
 
   
   
@@ -585,7 +585,7 @@
   
 
       <li class="breadcrumb-item active" aria-current="page">
-        How Limit Order Books Drive Price Discovery
+        Stochastic Pricing Models
       </li>
     </ol>
   </nav>
@@ -599,65 +599,67 @@
     
 <article class="article">
   <div class="article-container">
-    <h1>How Limit Order Books Drive Price Discovery</h1>
+    <h1>Stochastic Pricing Models</h1>
 
     <div class="article-metadata">
       <span class="article-date">
-        January 14, 2024
+        May 10, 2025
       </span>
 
       
       <div class="article-tags">
         
-        <a class="badge badge-light" href="/tags/market-structure">Market Structure</a>
+        <a class="badge badge-light" href="/tags/options-pricing">Options Pricing</a>
+        
+        <a class="badge badge-light" href="/tags/quantitative-finance">Quantitative Finance</a>
         
       </div>
       
     </div>
 
     <div class="article-content">
-      <p>The Limit Order Book (LOB) is a fundamental mechanism in modern financial markets that facilitates price discovery and trading. This piece examines how LOBs work and their importance in market structure.</p>
-<h2 id="key-components">Key Components</h2>
-<p>A limit order book contains:</p>
+      <h1 id="stochastic-pricing-models">Stochastic Pricing Models</h1>
+<p>This post presents the theoretical foundations of advanced stochastic models for option pricing. We outline the mathematical structure and computational methods for European and American options under both the Heston and Merton jump-diffusion models, including the calculation of Greeks and barrier options.</p>
+<h2 id="1-introduction-to-stochastic-option-pricing">1. Introduction to Stochastic Option Pricing</h2>
+<p>Stochastic models are essential for capturing the randomness in financial markets, especially for pricing derivatives like options. Two widely used models are:</p>
 <ul>
-<li>All active buy and sell orders</li>
-<li>Order volumes and prices</li>
-<li>Submission timestamps</li>
-<li>The current bid-ask spread</li>
+<li><strong>Heston Model</strong>: Incorporates stochastic volatility, allowing volatility to evolve randomly over time.</li>
+<li><strong>Merton Jump Diffusion Model</strong>: Extends the Black-Scholes framework by adding random jumps in asset prices, capturing sudden market moves.</li>
 </ul>
-<h2 id="order-matching-protocols">Order Matching Protocols</h2>
-<p>Two main approaches are used:</p>
-<ol>
-<li>Price-Time Priority (PTP)</li>
-</ol>
+<h2 id="2-heston-model">2. Heston Model</h2>
+<p>The Heston model describes the evolution of an asset price $S_t$ and its variance $v_t$ as:</p>
+<p>\begin{equation*}
+dS_t = \mu S_t,dt + \sqrt{v_t},S_t,dW_t^S
+\end{equation*}</p>
+<p>\begin{equation*}
+dv_t = \kappa (\theta - v_t),dt + \sigma \sqrt{v_t},dW_t^v
+\end{equation*}</p>
+<p>where $dW_t^S$ and $dW_t^v$ are correlated Brownian motions. Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.</p>
+<h2 id="3-merton-jump-diffusion-model">3. Merton Jump Diffusion Model</h2>
+<p>The Merton model modifies the standard geometric Brownian motion by adding jumps:</p>
+<p>\begin{equation*}
+dS_t = (r - r_j) S_t dt + \sigma S_t dZ_t + J_t S_t dN_t
+\end{equation*}</p>
+<p>\begin{equation*}
+S_= S_{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{dt} z_t^1}+
+\left(e^{\mu_j+\delta z_t^2}-1 \right) y_t \right)
+\end{equation*}</p>
+<p>\begin{equation*}
+r_j = \lambda \left(e^{\mu_j+\frac{\delta^2}{2}}\right)-1
+\end{equation*}</p>
+<p>where $dN_t$ is a Poisson process representing jumps, and $J_t$ is the jump size. Simulation under this model involves generating asset paths with both continuous and jump components, and pricing options by averaging discounted payoffs.</p>
+<h2 id="4-greeks-calculation">4. Greeks Calculation</h2>
+<p>The Greeks measure sensitivities of option prices to various parameters. In this framework, Delta and Gamma are computed using finite difference methods:</p>
 <ul>
-<li>Orders sorted by price then time</li>
-<li>Rewards quick order submission</li>
-<li>Most common in equity markets</li>
+<li><strong>Delta:</strong> Sensitivity to underlying price.</li>
+<li><strong>Gamma:</strong> Sensitivity of Delta to underlying price.</li>
 </ul>
-<ol start="2">
-<li>Pro Rata</li>
-</ol>
-<ul>
-<li>Orders at same price filled proportionally</li>
-<li>Encourages larger order sizes</li>
-<li>Common in some derivatives markets</li>
-</ul>
-<p>The choice of protocol influences trader behavior and market efficiency.</p>
-<h2 id="definitions">Definitions</h2>
-<p><strong>Bid Price</strong>
-The bid price at time t is the highest stated price among active buy orders at time t:</p>
-<p>$$b(t) := \max_{x \in B(t)} \text{px}$$</p>
-<p><strong>Ask Price</strong>
-The ask price at time t is the lowest stated price among active sell orders at time t:</p>
-<p>$$a(t) := \min_{x \in A(t)} \text{px}$$</p>
-<p><strong>Bid-Ask Spread</strong>
-The bid-ask spread at time t is:</p>
-<p>$$s(t) := a(t) - b(t)$$</p>
-<p><strong>Mid Price</strong>
-The mid price at time t is:</p>
-<p>$$m(t) := \frac{a(t) + b(t)}{2}$$</p>
-<p><a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/limit_order_book.ipynb" target="_blank" rel="noopener">Read more →</a></p>
+<p>Finite difference approximations are used to estimate these derivatives numerically.</p>
+<h2 id="5-barrier-options">5. Barrier Options</h2>
+<p>Barrier options are path-dependent derivatives that only pay off if the underlying asset crosses a certain barrier. The framework includes methods for pricing up-and-in and down-and-in options under both the Heston and Merton models, using Monte Carlo simulation to determine whether the barrier is breached and to compute the discounted payoff accordingly.</p>
+<h2 id="6-conclusion">6. Conclusion</h2>
+<p>This theoretical overview provides the mathematical and computational foundation for advanced option pricing models, including simulation, pricing, and risk analysis. The methods described here are applicable to a wide range of financial derivatives and serve as a reference for both theory and practical implementation.</p>
+<p><a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/stochastic_pricing.ipynb" target="_blank" rel="noopener">Read more →</a></p>
 
     </div>
   </div>

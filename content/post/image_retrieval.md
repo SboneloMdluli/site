@@ -1,6 +1,6 @@
 ---
 title: "Image Retrieval"
-date: 2025-03-10
+date: 2025-04-08
 summary: "A comprehensive guide to building a modular image retrieval system with CLIP embeddings and Faiss. This article details the complete architecture including data pipelines with Kedro and Dask, feature storage with Feast..."
 tags: ["Machine Learning"]
 categories: [Machine Learning]

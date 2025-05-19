@@ -278,12 +278,12 @@
 
   
 
-<meta name="description" content="Explore how limit order books work and their role in market microstructure." />
+<meta name="description" content="A hands-on guide to advanced option pricing using the Heston and Merton models, including simulation, Greeks, and barrier options, based on a Python notebook." />
 
 
 
-<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/" />
-<link rel="canonical" href="http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/" />
+<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2025/03/10/stochastic-pricing-models-a-practical-exploration-with-python/" />
+<link rel="canonical" href="http://localhost:1313/site/post/2025/03/10/stochastic-pricing-models-a-practical-exploration-with-python/" />
 
 
 
@@ -320,18 +320,18 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Sbonelo Mdluli" />
-<meta property="og:url" content="http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/" />
-<meta property="og:title" content="How Limit Order Books Drive Price Discovery | Sbonelo Mdluli" />
-<meta property="og:description" content="Explore how limit order books work and their role in market microstructure." /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
+<meta property="og:url" content="http://localhost:1313/site/post/2025/03/10/stochastic-pricing-models-a-practical-exploration-with-python/" />
+<meta property="og:title" content="Stochastic Pricing Models: A Practical Exploration with Python | Sbonelo Mdluli" />
+<meta property="og:description" content="A hands-on guide to advanced option pricing using the Heston and Merton models, including simulation, Greeks, and barrier options, based on a Python notebook." /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
 
   
     <meta
       property="article:published_time"
-      content="2024-01-14T00:00:00&#43;00:00"
+      content="2025-03-10T00:00:00&#43;00:00"
     />
   
   
-    <meta property="article:modified_time" content="2025-03-02T16:38:03&#43;02:00">
+    <meta property="article:modified_time" content="2025-03-10T00:00:00&#43;00:00">
   
 
 
@@ -357,12 +357,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/site/post/2024/01/14/how-limit-order-books-drive-price-discovery/"
+    "@id": "http://localhost:1313/site/post/2025/03/10/stochastic-pricing-models-a-practical-exploration-with-python/"
   },
-  "headline": "How Limit Order Books Drive Price Discovery",
+  "headline": "Stochastic Pricing Models: A Practical Exploration with Python",
   
-  "datePublished": "2024-01-14T00:00:00Z",
-  "dateModified": "2025-03-02T16:38:03+02:00",
+  "datePublished": "2025-03-10T00:00:00Z",
+  "dateModified": "2025-03-10T00:00:00Z",
   
   "author": {
     "@type": "Person",
@@ -377,7 +377,7 @@
       "url": "http://localhost:1313/site/media/icon_hu_19349546d07106a3.png"
     }
   },
-  "description": "Explore how limit order books work and their role in market microstructure."
+  "description": "A hands-on guide to advanced option pricing using the Heston and Merton models, including simulation, Greeks, and barrier options, based on a Python notebook."
 }
 </script>
 
@@ -399,7 +399,7 @@
 
 
   
-  <title>How Limit Order Books Drive Price Discovery | Sbonelo Mdluli</title>
+  <title>Stochastic Pricing Models: A Practical Exploration with Python | Sbonelo Mdluli</title>
 
   
   
@@ -419,7 +419,7 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  dark " data-wc-page-id="de1661fd05720f244ecd82612c37f1de" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  dark " data-wc-page-id="4467d7575e722a4cd39e9d0c9feb00d2" >
 
   
   
@@ -585,7 +585,7 @@
   
 
       <li class="breadcrumb-item active" aria-current="page">
-        How Limit Order Books Drive Price Discovery
+        Stochastic Pricing Models: A Practical Exploration with Python
       </li>
     </ol>
   </nav>
@@ -599,65 +599,107 @@
     
 <article class="article">
   <div class="article-container">
-    <h1>How Limit Order Books Drive Price Discovery</h1>
+    <h1>Stochastic Pricing Models: A Practical Exploration with Python</h1>
 
     <div class="article-metadata">
       <span class="article-date">
-        January 14, 2024
+        March 10, 2025
       </span>
 
       
       <div class="article-tags">
         
-        <a class="badge badge-light" href="/tags/market-structure">Market Structure</a>
+        <a class="badge badge-light" href="/tags/finance">Finance</a>
+        
+        <a class="badge badge-light" href="/tags/python">Python</a>
+        
+        <a class="badge badge-light" href="/tags/options-pricing">Options Pricing</a>
+        
+        <a class="badge badge-light" href="/tags/quantitative-finance">Quantitative Finance</a>
         
       </div>
       
     </div>
 
     <div class="article-content">
-      <p>The Limit Order Book (LOB) is a fundamental mechanism in modern financial markets that facilitates price discovery and trading. This piece examines how LOBs work and their importance in market structure.</p>
-<h2 id="key-components">Key Components</h2>
-<p>A limit order book contains:</p>
+      <h1 id="stochastic-pricing-models-a-practical-exploration-with-python">Stochastic Pricing Models: A Practical Exploration with Python</h1>
+<p>This post explores a range of stochastic models for option pricing, as implemented and analyzed in the <code>stochastic_pricing.ipynb</code> notebook. We walk through the theory, simulation, and practical pricing of European and American options under both the Heston and Merton jump-diffusion models, including the computation of Greeks and barrier options. Here, we summarize the key concepts, code, and findings.</p>
+<h2 id="1-introduction-to-stochastic-option-pricing">1. Introduction to Stochastic Option Pricing</h2>
+<p>Stochastic models are essential for capturing the randomness in financial markets, especially for pricing derivatives like options. Two widely used models are:</p>
 <ul>
-<li>All active buy and sell orders</li>
-<li>Order volumes and prices</li>
-<li>Submission timestamps</li>
-<li>The current bid-ask spread</li>
+<li><strong>Heston Model</strong>: Incorporates stochastic volatility, allowing volatility to evolve randomly over time.</li>
+<li><strong>Merton Jump Diffusion Model</strong>: Extends the Black-Scholes framework by adding random jumps in asset prices, capturing sudden market moves.</li>
 </ul>
-<h2 id="order-matching-protocols">Order Matching Protocols</h2>
-<p>Two main approaches are used:</p>
-<ol>
-<li>Price-Time Priority (PTP)</li>
-</ol>
+<h2 id="2-the-heston-model">2. The Heston Model</h2>
+<p>The Heston model describes the evolution of an asset price ( S_t ) and its variance ( v_t ) as:</p>
+<p>[
+\begin{align*}
+dS_t &amp;= \mu S_t dt + \sqrt{v_t} S_t dW_t^S \
+dv_t &amp;= \kappa (\theta - v_t) dt + \sigma \sqrt{v_t} dW_t^v
+\end{align*}
+]</p>
+<p>where ( dW_t^S ) and ( dW_t^v ) are correlated Brownian motions. The notebook simulates Heston paths and prices European and American options using Monte Carlo and Least Squares Monte Carlo (LSMC) methods.</p>
+<h3 id="key-implementation-steps">Key Implementation Steps</h3>
 <ul>
-<li>Orders sorted by price then time</li>
-<li>Rewards quick order submission</li>
-<li>Most common in equity markets</li>
+<li>Simulate correlated random walks for price and variance.</li>
+<li>Calculate European option prices by discounting average payoffs.</li>
+<li>Use LSMC for American options, regressing future payoffs to estimate optimal early exercise.</li>
 </ul>
-<ol start="2">
-<li>Pro Rata</li>
-</ol>
+<h3 id="example-results">Example Results</h3>
 <ul>
-<li>Orders at same price filled proportionally</li>
-<li>Encourages larger order sizes</li>
-<li>Common in some derivatives markets</li>
+<li><strong>American Call (ρ = -0.30):</strong> 3.54</li>
+<li><strong>American Put (ρ = -0.30):</strong> 2.53</li>
 </ul>
-<p>The choice of protocol influences trader behavior and market efficiency.</p>
-<h2 id="definitions">Definitions</h2>
-<p><strong>Bid Price</strong>
-The bid price at time t is the highest stated price among active buy orders at time t:</p>
-<p>$$b(t) := \max_{x \in B(t)} \text{px}$$</p>
-<p><strong>Ask Price</strong>
-The ask price at time t is the lowest stated price among active sell orders at time t:</p>
-<p>$$a(t) := \min_{x \in A(t)} \text{px}$$</p>
-<p><strong>Bid-Ask Spread</strong>
-The bid-ask spread at time t is:</p>
-<p>$$s(t) := a(t) - b(t)$$</p>
-<p><strong>Mid Price</strong>
-The mid price at time t is:</p>
-<p>$$m(t) := \frac{a(t) + b(t)}{2}$$</p>
-<p><a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/limit_order_book.ipynb" target="_blank" rel="noopener">Read more →</a></p>
+<h2 id="3-the-merton-jump-diffusion-model">3. The Merton Jump Diffusion Model</h2>
+<p>The Merton model modifies the standard geometric Brownian motion by adding jumps:</p>
+<p>[
+dS_t = (r - r_j) S_t dt + \sigma S_t dZ_t + J_t S_t dN_t
+]</p>
+<p>where ( dN_t ) is a Poisson process representing jumps, and ( J_t ) is the jump size. The notebook implements simulation and pricing for European and American options under this model.</p>
+<h3 id="key-implementation-steps-1">Key Implementation Steps</h3>
+<ul>
+<li>Simulate asset paths with both continuous and jump components.</li>
+<li>Price options by averaging discounted payoffs.</li>
+<li>Compute Greeks (Delta, Gamma) using finite differences.</li>
+</ul>
+<h3 id="example-results-1">Example Results</h3>
+<ul>
+<li><strong>European Call (λ = 0.75):</strong> 8.19</li>
+<li><strong>European Put (λ = 0.75):</strong> 7.38</li>
+<li><strong>American Call (λ = 0.75):</strong> 9.45</li>
+<li><strong>American Put (λ = 0.75):</strong> 7.78</li>
+</ul>
+<h2 id="4-greeks-calculation">4. Greeks Calculation</h2>
+<p>The Greeks measure sensitivities of option prices to various parameters. The notebook computes Delta and Gamma for both models using finite difference methods.</p>
+<ul>
+<li><strong>Delta:</strong> Sensitivity to underlying price.</li>
+<li><strong>Gamma:</strong> Sensitivity of Delta to underlying price.</li>
+</ul>
+<p>Example (Merton, λ = 0.75):</p>
+<ul>
+<li><strong>Call Delta:</strong> 0.0232</li>
+<li><strong>Put Delta:</strong> 0.0041</li>
+<li><strong>Call Gamma:</strong> 0.3456</li>
+<li><strong>Put Gamma:</strong> 0.3420</li>
+</ul>
+<h2 id="5-barrier-options">5. Barrier Options</h2>
+<p>The notebook also explores barrier options, which only pay off if the underlying asset crosses a certain barrier.</p>
+<ul>
+<li><strong>Up-and-In (UAI) Call/Put (Heston):</strong>
+<ul>
+<li>Call: 0.08</li>
+<li>Put: 0.06</li>
+</ul>
+</li>
+<li><strong>Down-and-In (DAI) Call/Put (Merton, λ = 0.75, barrier = 65):</strong>
+<ul>
+<li>Call: 18.46</li>
+<li>Put: 2.86</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-conclusion">6. Conclusion</h2>
+<p>This notebook provides a hands-on exploration of advanced option pricing models, including simulation, pricing, and risk analysis. The code demonstrates how to implement these models in Python, and the results highlight the impact of stochastic volatility and jumps on option prices and Greeks. For practitioners and students, this is a valuable reference for both theory and practical implementation.</p>
 
     </div>
   </div>
