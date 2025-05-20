@@ -28,12 +28,35 @@
 &lt;h2 id=&#34;2-heston-model&#34;&gt;2. Heston Model&lt;/h2&gt;
 &lt;p&gt;The Heston model describes the evolution of an asset price $S_t$ and its variance $v_t$ as:&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
-dS_t = \mu S_t,dt + \sqrt{v_t},S_t,dW_t^S
+dS_t = \mu S_t dt + \sqrt{v_t}\ S_t\ dW_t^S
 \end{equation*}&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
-dv_t = \kappa (\theta - v_t),dt + \sigma \sqrt{v_t},dW_t^v
+dv_t = \kappa (\theta - v_t) dt + \sigma \sqrt{v_t}\ dW_t^v
 \end{equation*}&lt;/p&gt;
-&lt;p&gt;where $dW_t^S$ and $dW_t^v$ are correlated Brownian motions. Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.&lt;/p&gt;
+&lt;p&gt;where $dW_t^S$ and $dW_t^v$ are correlated Brownian motions.&lt;/p&gt;
+&lt;p&gt;\begin{equation*}
+dW_t^S dW_t^v = \rho dt
+\end{equation*}&lt;/p&gt;
+&lt;p&gt;Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.&lt;/p&gt;
+&lt;p&gt;In the Heston model, the two Brownian motions $dW_t^S$ and $dW_t^v$ are correlated with correlation coefficient $\rho$. To simulate these correlated processes using independent standard normal variables, we use the Cholesky decomposition.&lt;/p&gt;
+&lt;p&gt;Let $Z_1$ and $Z_2$ be independent standard normal random variables. The correlated Brownian increments can be constructed as:&lt;/p&gt;
+&lt;p&gt;\begin{equation*}
+dW_t^S = \sqrt{dt}\ Z_1
+\end{equation*}&lt;/p&gt;
+&lt;p&gt;\begin{equation*}
+dW_t^v = \rho \sqrt{dt}\ Z_1 + \sqrt{1-\rho^2}\ \sqrt{dt}\ Z_2
+\end{equation*}&lt;/p&gt;
+&lt;p&gt;This transformation ensures that $dW_t^S$ and $dW_t^v$ have the desired correlation $\rho$.&lt;/p&gt;
+&lt;p&gt;The Cholesky decomposition is used to decompose the covariance matrix of the Brownian motions, allowing us to generate correlated random variables from independent ones. For a $2 \times 2$ covariance matrix:&lt;/p&gt;
+&lt;p&gt;$$
+\Sigma = \begin{pmatrix} 1 &amp;amp; \rho \ \rho &amp;amp; 1 \end{pmatrix}
+$$&lt;/p&gt;
+&lt;p&gt;The Cholesky factor $L$ is:&lt;/p&gt;
+&lt;p&gt;$$
+L = \begin{pmatrix} 1 &amp;amp; 0 \ \rho &amp;amp; \sqrt{1-\rho^2} \end{pmatrix}
+$$&lt;/p&gt;
+&lt;p&gt;Given $\mathbf{Z} = (Z_1, Z_2)^T$, the correlated increments are $L \mathbf{Z}$.&lt;/p&gt;
+&lt;p&gt;For a detailed explanation see &lt;a href=&#34;https://www.youtube.com/watch?v=HG3s2StHB3k&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this video on the Heston model&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;3-merton-jump-diffusion-model&#34;&gt;3. Merton Jump Diffusion Model&lt;/h2&gt;
 &lt;p&gt;The Merton model modifies the standard geometric Brownian motion by adding jumps:&lt;/p&gt;
 &lt;p&gt;\begin{equation*}

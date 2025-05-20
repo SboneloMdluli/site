@@ -5,7 +5,7 @@
     <link>http://localhost:1313/site/tag/quantitative-finance/</link>
       <atom:link href="http://localhost:1313/site/tag/quantitative-finance/index.xml" rel="self" type="application/rss+xml" />
     <description>Quantitative Finance</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sat, 10 May 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png</url>
       <title>Quantitative Finance</title>
@@ -14,11 +14,11 @@
     
     <item>
       <title>Stochastic Pricing Models</title>
-      <link>http://localhost:1313/site/post/2025/03/10/stochastic-pricing-models/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/site/post/2025/03/10/stochastic-pricing-models/</guid>
+      <link>http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/</link>
+      <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/</guid>
       <description>&lt;h1 id=&#34;stochastic-pricing-models&#34;&gt;Stochastic Pricing Models&lt;/h1&gt;
-&lt;p&gt;This post presents the theoretical foundations of advanced stochastic models for option pricing. We outline the mathematical structure and computational methods for European and American options under both the Heston and Merton jump-diffusion models, including the calculation of Greeks and barrier options.&lt;/p&gt;
+&lt;p&gt;This post presents the theoretical foundations of stochastic models for option pricing. We outline the mathematical structure and computational methods for European and American options under both the Heston and Merton jump-diffusion models, including the calculation of Greeks and barrier options.&lt;/p&gt;
 &lt;h2 id=&#34;1-introduction-to-stochastic-option-pricing&#34;&gt;1. Introduction to Stochastic Option Pricing&lt;/h2&gt;
 &lt;p&gt;Stochastic models are essential for capturing the randomness in financial markets, especially for pricing derivatives like options. Two widely used models are:&lt;/p&gt;
 &lt;ul&gt;
@@ -34,13 +34,16 @@ dS_t = \mu S_t,dt + \sqrt{v_t},S_t,dW_t^S
 dv_t = \kappa (\theta - v_t),dt + \sigma \sqrt{v_t},dW_t^v
 \end{equation*}&lt;/p&gt;
 &lt;p&gt;where $dW_t^S$ and $dW_t^v$ are correlated Brownian motions. Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.&lt;/p&gt;
+&lt;p&gt;\begin{equation*}
+dW_t^S dW_t^v = \rho dt
+\end{equation*}&lt;/p&gt;
 &lt;h2 id=&#34;3-merton-jump-diffusion-model&#34;&gt;3. Merton Jump Diffusion Model&lt;/h2&gt;
 &lt;p&gt;The Merton model modifies the standard geometric Brownian motion by adding jumps:&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 dS_t = (r - r_j) S_t dt + \sigma S_t dZ_t + J_t S_t dN_t
 \end{equation*}&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
-S&lt;em&gt;t = S&lt;/em&gt;{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{dt} z_t^1}+
+S_= S_{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{dt} z_t^1}+
 \left(e^{\mu_j+\delta z_t^2}-1 \right) y_t \right)
 \end{equation*}&lt;/p&gt;
 &lt;p&gt;\begin{equation*}

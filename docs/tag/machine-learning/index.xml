@@ -5,7 +5,7 @@
     <link>http://localhost:1313/site/tag/machine-learning/</link>
       <atom:link href="http://localhost:1313/site/tag/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <description>Machine Learning</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Tue, 08 Apr 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png</url>
       <title>Machine Learning</title>
@@ -14,9 +14,9 @@
     
     <item>
       <title>Image Retrieval</title>
-      <link>http://localhost:1313/site/post/2025/03/10/image-retrieval/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/site/post/2025/03/10/image-retrieval/</guid>
+      <link>http://localhost:1313/site/post/2025/04/08/image-retrieval/</link>
+      <pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2025/04/08/image-retrieval/</guid>
       <description>&lt;h1 id=&#34;image-retrieval-system-design&#34;&gt;Image Retrieval System Design&lt;/h1&gt;
 &lt;h2 id=&#34;system-overview&#34;&gt;System Overview&lt;/h2&gt;
 &lt;p&gt;The Image Retrieval System is designed with a modular, separates concerns for optimal performance and maintainability. The system consists of four main components:&lt;/p&gt;

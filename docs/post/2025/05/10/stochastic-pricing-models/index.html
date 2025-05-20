@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: May 19, 2025 --><html lang="en" >
+<!-- Last Published: May 20, 2025 --><html lang="en" >
 
 
 <head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
@@ -331,7 +331,7 @@
     />
   
   
-    <meta property="article:modified_time" content="2025-05-10T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2025-05-19T23:18:05&#43;02:00">
   
 
 
@@ -362,7 +362,7 @@
   "headline": "Stochastic Pricing Models",
   
   "datePublished": "2025-05-10T00:00:00Z",
-  "dateModified": "2025-05-10T00:00:00Z",
+  "dateModified": "2025-05-19T23:18:05+02:00",
   
   "author": {
     "@type": "Person",
@@ -629,12 +629,35 @@
 <h2 id="2-heston-model">2. Heston Model</h2>
 <p>The Heston model describes the evolution of an asset price $S_t$ and its variance $v_t$ as:</p>
 <p>\begin{equation*}
-dS_t = \mu S_t,dt + \sqrt{v_t},S_t,dW_t^S
+dS_t = \mu S_t dt + \sqrt{v_t}\ S_t\ dW_t^S
 \end{equation*}</p>
 <p>\begin{equation*}
-dv_t = \kappa (\theta - v_t),dt + \sigma \sqrt{v_t},dW_t^v
+dv_t = \kappa (\theta - v_t) dt + \sigma \sqrt{v_t}\ dW_t^v
 \end{equation*}</p>
-<p>where $dW_t^S$ and $dW_t^v$ are correlated Brownian motions. Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.</p>
+<p>where $dW_t^S$ and $dW_t^v$ are correlated Brownian motions.</p>
+<p>\begin{equation*}
+dW_t^S dW_t^v = \rho dt
+\end{equation*}</p>
+<p>Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.</p>
+<p>In the Heston model, the two Brownian motions $dW_t^S$ and $dW_t^v$ are correlated with correlation coefficient $\rho$. To simulate these correlated processes using independent standard normal variables, we use the Cholesky decomposition.</p>
+<p>Let $Z_1$ and $Z_2$ be independent standard normal random variables. The correlated Brownian increments can be constructed as:</p>
+<p>\begin{equation*}
+dW_t^S = \sqrt{dt}\ Z_1
+\end{equation*}</p>
+<p>\begin{equation*}
+dW_t^v = \rho \sqrt{dt}\ Z_1 + \sqrt{1-\rho^2}\ \sqrt{dt}\ Z_2
+\end{equation*}</p>
+<p>This transformation ensures that $dW_t^S$ and $dW_t^v$ have the desired correlation $\rho$.</p>
+<p>The Cholesky decomposition is used to decompose the covariance matrix of the Brownian motions, allowing us to generate correlated random variables from independent ones. For a $2 \times 2$ covariance matrix:</p>
+<p>$$
+\Sigma = \begin{pmatrix} 1 &amp; \rho \ \rho &amp; 1 \end{pmatrix}
+$$</p>
+<p>The Cholesky factor $L$ is:</p>
+<p>$$
+L = \begin{pmatrix} 1 &amp; 0 \ \rho &amp; \sqrt{1-\rho^2} \end{pmatrix}
+$$</p>
+<p>Given $\mathbf{Z} = (Z_1, Z_2)^T$, the correlated increments are $L \mathbf{Z}$.</p>
+<p>For a detailed explanation see <a href="https://www.youtube.com/watch?v=HG3s2StHB3k" target="_blank" rel="noopener">this video on the Heston model</a>.</p>
 <h2 id="3-merton-jump-diffusion-model">3. Merton Jump Diffusion Model</h2>
 <p>The Merton model modifies the standard geometric Brownian motion by adding jumps:</p>
 <p>\begin{equation*}

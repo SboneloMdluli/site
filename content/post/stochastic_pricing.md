@@ -23,14 +23,50 @@ Stochastic models are essential for capturing the randomness in financial market
 The Heston model describes the evolution of an asset price $S_t$ and its variance $v_t$ as:
 
 \begin{equation*}
-dS_t = \mu S_t\,dt + \sqrt{v_t}\,S_t\,dW_t^S
+dS_t = \mu S_t dt + \sqrt{v_t}\ S_t\ dW_t^S
 \end{equation*}
 
 \begin{equation*}
-dv_t = \kappa (\theta - v_t)\,dt + \sigma \sqrt{v_t}\,dW_t^v
+dv_t = \kappa (\theta - v_t) dt + \sigma \sqrt{v_t}\ dW_t^v
 \end{equation*}
 
-where $dW_t^S$ and $dW_t^v$ are correlated Brownian motions. Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.
+where $dW_t^S$ and $dW_t^v$ are correlated Brownian motions.
+
+\begin{equation*}
+dW_t^S dW_t^v = \rho dt
+\end{equation*}
+
+Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.
+
+In the Heston model, the two Brownian motions $dW_t^S$ and $dW_t^v$ are correlated with correlation coefficient $\rho$. To simulate these correlated processes using independent standard normal variables, we use the Cholesky decomposition.
+
+Let $Z_1$ and $Z_2$ be independent standard normal random variables. The correlated Brownian increments can be constructed as:
+
+\begin{equation*}
+dW_t^S = \sqrt{dt}\ Z_1
+\end{equation*}
+
+\begin{equation*}
+dW_t^v = \rho \sqrt{dt}\ Z_1 + \sqrt{1-\rho^2}\ \sqrt{dt}\ Z_2
+\end{equation*}
+
+This transformation ensures that $dW_t^S$ and $dW_t^v$ have the desired correlation $\rho$.
+
+The Cholesky decomposition is used to decompose the covariance matrix of the Brownian motions, allowing us to generate correlated random variables from independent ones. For a $2 \times 2$ covariance matrix:
+
+$$
+\Sigma = \begin{pmatrix} 1 & \rho \\ \rho & 1 \end{pmatrix}
+$$
+
+The Cholesky factor $L$ is:
+
+$$
+L = \begin{pmatrix} 1 & 0 \\ \rho & \sqrt{1-\rho^2} \end{pmatrix}
+$$
+
+Given $\mathbf{Z} = (Z_1, Z_2)^T$, the correlated increments are $L \mathbf{Z}$.
+
+For a detailed explanation see [this video on the Heston model](https://www.youtube.com/watch?v=HG3s2StHB3k).
 
 ## 3. Merton Jump Diffusion Model
 
