@@ -138,4 +138,4 @@ params:
   home:
     # Use author profile as homepage
     type: widget_page
-    view: profile
+    view: profileß

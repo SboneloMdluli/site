@@ -18,9 +18,9 @@ window.MathJax = {
       ['\\[', '\\]'],
     ],
     processEscapes: false,
-    packages: {'[+]': ['noerrors']},
+    packages: {'[+]': ['noerrors', 'ams']},
   },
   loader: {
-    load: ['[tex]/noerrors'],
+    load: ['[tex]/noerrors', '[tex]/ams'],
   },
 };
