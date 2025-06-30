@@ -17,21 +17,29 @@ subtitle:
 date_format: Jan 2006
 
 experience:
+  - title: Data Scientist - Specialist Machine Learning
+    company: Absa Group
+    company_url: ""
+    location: South Africa
+    date_start: "2025-06-01"
+    date_end: ""
+    description: |
+      
   - title: Consulting Software Engineer/Data Scientist
     company: Blue Bean Software
     company_url: ""
     location: South Africa
     date_start: "2022-09-01"
-    date_end: ""
+    date_end: "2025-05-31"
     description: |
-      Responsibilities include:
-      * Developed machine learning and statistical models across various domains, including model selection, validation, and ONNX quantisation to optimise performance and reduce model size
-      * Developed and maintained robust engines for High Value Payment Systems (HVPS) with ISO 20022 message validation, leveraging Camel integration patterns
-      * Built and optimised data pipelines using Kedro framework, creating custom parsers for partitioned files and implementing efficient ML workflows
-      * Implemented comprehensive MLOps practices using MLFlow, DVC, and Evidently for experiment tracking, model versioning, and performance monitoring
-      * Deployed production-ready solutions on AWS (S3, EC2, SageMaker) with multi-model serving capabilities, while contributing to chatbot development for enhanced customer engagement
+      * Developed and deployed machine learning and statistical models, including model selection, validation, and ONNX quantisation for performance and efficiency
+      * Built and optimised data pipelines for machine learning workloads using Kedro, including custom parsers and efficient workflow design
+      * Used Apache Camel for asynchronous service communication, enhancing straight-through processing for High Value Payment Systems (HVPS)
+      * Conducted business validation and data transformation of ISO 20022 messages between RTGS systems (central bank) and participant banks, leveraging XML Schema Definitions
+      * Implemented MLOps practices (MLFlow, DVC, Evidently) for experiment tracking, model versioning, and monitoring
+      * Delivered production-ready solutions on AWS (S3, EC2, SageMaker) and contributed to chatbot development for customer engagement
 
-  - title: Graduate
+  - title: Graduate Trainee
     company: Iress
     company_url: ""
     location: South Africa
@@ -42,6 +50,7 @@ experience:
       * Develop and test trading solutions, including algorithmic trading models using FIX protocol
       * Work with financial instruments such as (SSF, T/VWAP, Dark Pools, etc) and troubleshoot business requirements
       * Design trading setups, risk management and assisted in corporate action settlements
+      * Worked on derivatives, funds, and equities
 
 design:
   columns: "2"
