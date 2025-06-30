@@ -6,7 +6,7 @@ title: Sbonelo Mdluli ☕️
 superuser: true
 
 # Role/position
-role: Data Scientist / Software Engineer
+role: Data Scientist / Machine Learning Engineer
 
 # Avatar (image path relative to your profile directory)
 avatar_filename: avatar.webp
