@@ -17,14 +17,14 @@ status:
 
 # Organizations/Affiliations
 organizations:
-  - name: Blue Bean Software
+  - name: ABSA GROUP
     url: ""
 
 interests:
   - Machine Learning
-  - Software Development
-  - Statistical Modelling
   - Quantitative Finance
+  - Statistical Modelling
+  - Software Development
 
 education:
   courses:

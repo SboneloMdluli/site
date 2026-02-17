@@ -18,13 +18,12 @@ date_format: Jan 2006
 
 experience:
   - title: Data Scientist - Specialist Machine Learning
-    company: Absa Group
+    company: ABSA Group
     company_url: ""
     location: South Africa
     date_start: "2025-06-01"
     date_end: ""
-    description: |
-      
+    description: ""
   - title: Consulting Software Engineer/Data Scientist
     company: Blue Bean Software
     company_url: ""

@@ -5,12 +5,107 @@
     <link>http://localhost:1313/site/tag/quantitative-finance/</link>
       <atom:link href="http://localhost:1313/site/tag/quantitative-finance/index.xml" rel="self" type="application/rss+xml" />
     <description>Quantitative Finance</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sat, 10 May 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sun, 01 Feb 2026 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png</url>
+      <url>http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png</url>
       <title>Quantitative Finance</title>
       <link>http://localhost:1313/site/tag/quantitative-finance/</link>
     </image>
+    
+    <item>
+      <title>Portfolio Optimization: Beyond Markowitz with Denoising</title>
+      <link>http://localhost:1313/site/post/2026/02/01/portfolio-optimization-beyond-markowitz-with-denoising/</link>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2026/02/01/portfolio-optimization-beyond-markowitz-with-denoising/</guid>
+      <description>&lt;p&gt;The classical Markowitz Mean-Variance Optimization (MVO) remains one of the most influential frameworks in portfolio management. However, its practical application is plagued by estimation error in the covariance matrix, sensitivity to inputs, and a tendency to produce concentrated, unstable portfolios. In this post we explore three families of techniques — denoising, clustering, and back-testing — that address these limitations, and show how combining them can yield more robust, diversified portfolios.&lt;/p&gt;
+&lt;p&gt;We illustrate the ideas on a multi-stock universe spanning several sectors, using daily returns over a recent historical window split into training and testing periods.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-baseline-markowitz-mvo&#34;&gt;1. Baseline: Markowitz MVO&lt;/h2&gt;
+&lt;p&gt;The traditional MVO solves for the portfolio weights \(\mathbf{w}^{*}\) that maximise the Sharpe ratio:&lt;/p&gt;
+&lt;p&gt;$$\mathbf{w}^{*} = \underset{\mathbf{w}}{\operatorname{argmax}} ; \frac{\mathbf{w}^{\top} \mu}{\sqrt{\mathbf{w}^{\top} \Sigma \mathbf{w}}}$$&lt;/p&gt;
+&lt;p&gt;subject to \(\mathbf{w} \geq 0\), \(\sum w_{i} = 1\).&lt;/p&gt;
+&lt;p&gt;The efficient frontier traces all optimal risk-return trade-offs, but the weights that land on it are notoriously sensitive to small perturbations in \(\Sigma\). Even minor changes in the estimated covariance can produce wildly different allocations.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-denoising-the-covariance-matrix&#34;&gt;2. Denoising the Covariance Matrix&lt;/h2&gt;
+&lt;p&gt;The covariance matrix \(\Sigma\) is the Achilles&amp;rsquo; heel of MVO. With \(N\) assets the number of parameters grows as \(O(N^{2})\), and sampling noise accumulates fast, especially when the sample size \(T\) is not much larger than \(N\). Because MVO inverts \(\Sigma\), tiny noisy eigenvalues get amplified into large, erratic weight swings.&lt;/p&gt;
+&lt;h3 id=&#34;21-ledoit-wolf-shrinkage&#34;&gt;2.1 Ledoit-Wolf Shrinkage&lt;/h3&gt;
+&lt;p&gt;The Ledoit-Wolf (LW) estimator replaces the sample covariance with a convex combination:&lt;/p&gt;
+&lt;p&gt;$$\Sigma_{\mathrm{shrunk}} = (1 - \alpha) S + \alpha T$$&lt;/p&gt;
+&lt;p&gt;where \(S\) is the sample covariance, \(T\) is a structured target (typically a diagonal matrix of sample variances), and \(\alpha\) is chosen to minimise the expected Frobenius loss against the true covariance.&lt;/p&gt;
+&lt;p&gt;The LW method shrinks all correlations uniformly toward zero, reducing noise without dramatically altering the portfolio structure.&lt;/p&gt;
+&lt;h3 id=&#34;22-marchenkopastur-denoising&#34;&gt;2.2 Marchenko–Pastur Denoising&lt;/h3&gt;
+&lt;p&gt;Random Matrix Theory (RMT) offers a more surgical approach to denoising. The key insight is that when \(T\) observations of \(N\) asset returns are drawn from a true covariance matrix \(\Sigma\), the eigenvalues of the sample covariance \(S\) are systematically distorted. If the returns were purely random (i.e., \(\Sigma = I\)), the eigenvalue density of \(S\) would follow the &lt;strong&gt;Marchenko–Pastur distribution&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;$$f_{\mathrm{MP}}(\lambda) = \frac{T}{2 \pi \sigma^{2} N} \frac{\sqrt{(\lambda_{+} - \lambda)(\lambda - \lambda_{-})}}{\lambda}$$&lt;/p&gt;
+&lt;p&gt;for \(\lambda \in [\lambda_{-},; \lambda_{+}]\), where the bounds are:&lt;/p&gt;
+&lt;p&gt;$$\lambda_{\pm} = \sigma^{2} \left(1 \pm \sqrt{\frac{N}{T}}\right)^{2}$$&lt;/p&gt;
+&lt;p&gt;and \(\sigma^{2}\) is the variance of the noise. Eigenvalues that fall within \([\lambda_{-},; \lambda_{+}]\) are consistent with pure randomness — they carry no genuine signal. Eigenvalues above \(\lambda_{+}\) reflect true structure in the data: sector exposures, market factors, and other real correlations.&lt;/p&gt;
+&lt;p&gt;The denoising procedure works as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Compute the eigendecomposition&lt;/strong&gt; of the sample correlation matrix: \(C = Q \Lambda Q^{\top}\).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fit the Marchenko–Pastur distribution&lt;/strong&gt; to the bulk of eigenvalues to estimate \(\sigma^{2}\) (the noise variance) and identify the threshold \(\lambda_{+}\).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Shrink the noisy eigenvalues.&lt;/strong&gt; All eigenvalues \(\lambda_{i} \leq \lambda_{+}\) are replaced. The simplest approach sets them all equal to their average, preserving the matrix trace:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$\tilde{\lambda}_{i} = \frac{1}{\lvert \mathcal{N} \rvert} \sum_{j \in \mathcal{N}} \lambda_{j} \qquad \text{for } i \in \mathcal{N}$$&lt;/p&gt;
+&lt;p&gt;where \(\mathcal{N} = \{i : \lambda_{i} \leq \lambda_{+}\}\). The signal eigenvalues (\(\lambda_{i} &amp;gt; \lambda_{+}\)) are left untouched.&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Reconstruct&lt;/strong&gt; the denoised correlation matrix: \(\tilde{C} = Q \tilde{\Lambda} Q^{\top}\).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The ratio \(q = N / T\) is critical: the higher it is, the wider the Marchenko–Pastur bulk and the more eigenvalues are noise-dominated. For a typical portfolio with \(N = 12\) stocks and \(T \approx 390\) daily observations, \(q \approx 0.03\), meaning the noise band is relatively narrow and most eigenvalues carry signal. But for larger universes — say \(N = 500\) with a year of daily data — \(q\) exceeds 1 and the majority of eigenvalues are pure noise. This is precisely where RMT denoising becomes indispensable.&lt;/p&gt;
+&lt;p&gt;Compared to Ledoit-Wolf shrinkage, which applies a uniform correction to every element of \(\Sigma\), the Marchenko–Pastur approach is &lt;strong&gt;selective&lt;/strong&gt;: it leaves the dominant eigenvectors (market, sector, and style factors) intact while collapsing the noisy directions. This surgical precision makes it particularly effective for large portfolios where the signal-to-noise separation is stark.&lt;/p&gt;
+&lt;h3 id=&#34;23-enhanced-portfolio-optimization-epo&#34;&gt;2.3 Enhanced Portfolio Optimization (EPO)&lt;/h3&gt;
+&lt;p&gt;The Enhanced Portfolio Optimization (EPO) method uses the same shrinkage form as Ledoit-Wolf but optimises \(\alpha\) directly for the Sharpe ratio rather than for covariance accuracy. Combined with Combinatorial Purged Cross-Validation (CPCV) to select \(\alpha\), EPO provides a data-driven, performance-oriented estimate of the covariance matrix.&lt;/p&gt;
+&lt;h3 id=&#34;24-bayesian-approaches&#34;&gt;2.4 Bayesian Approaches&lt;/h3&gt;
+&lt;p&gt;The Bayesian framework treats \(\mu\), \(\Sigma\), and the weights \(\mathbf{w}\) as random variables, naturally incorporating parameter uncertainty:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Priors:&lt;/strong&gt; Normal for mean returns; Half-Normal for volatilities; \(\mathrm{LKJ}(\eta = 2)\) for the correlation matrix (encouraging shrinkage toward independence); Dirichlet for weights (ensuring they sum to one and lie in \([0, 1]\)).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Constraints and objectives&lt;/strong&gt; (weight caps, Sharpe maximisation) are encoded as potential functions in the MCMC sampler, making parameter estimation and portfolio construction a single unified step.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In practice, the Bayesian Normal model substantially outperforms the baseline across Sharpe ratio, drawdown, and volatility. Two factors drive this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Joint uncertainty propagation&lt;/strong&gt; — correlated errors in \(\mu\) and \(\Sigma\) cancel rather than compound.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Posterior averaging&lt;/strong&gt; — the final weights are an expectation over thousands of MCMC draws, smoothing out any single noisy optimum.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The Student-\(t\) variant adds robustness to fat-tailed returns, trading a little Sharpe for improved tail-risk control (lower VaR).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3-clustering-hierarchical-risk-parity-and-beyond&#34;&gt;3. Clustering: Hierarchical Risk Parity and Beyond&lt;/h2&gt;
+&lt;p&gt;Rather than inverting \(\Sigma\), clustering methods allocate capital through the hierarchical structure of asset correlations.&lt;/p&gt;
+&lt;h3 id=&#34;31-hierarchical-risk-parity-hrp&#34;&gt;3.1 Hierarchical Risk Parity (HRP)&lt;/h3&gt;
+&lt;p&gt;HRP follows three steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Hierarchical clustering&lt;/strong&gt; — build a dendrogram from correlation-based distances using Ward linkage.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Quasi-diagonalisation&lt;/strong&gt; — reorder \(\Sigma\) so correlated assets sit adjacent.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Recursive bisection&lt;/strong&gt; — split the ordered assets top-down; at each split allocate inversely to each sub-cluster&amp;rsquo;s variance:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$w_{L} = 1 - \frac{V_{L}}{V_{L} + V_{R}}, \qquad w_{R} = 1 - w_{L}$$&lt;/p&gt;
+&lt;p&gt;where \(V_{L}\) and \(V_{R}\) are the inverse-variance-weighted portfolio variances of the left and right splits.&lt;/p&gt;
+&lt;p&gt;HRP avoids matrix inversion entirely, scales well, and naturally diversifies across clusters. In out-of-sample testing it consistently outperforms baseline MVO on risk-adjusted returns.&lt;/p&gt;
+&lt;h3 id=&#34;32-hierarchical-equal-risk-contribution-herc&#34;&gt;3.2 Hierarchical Equal Risk Contribution (HERC)&lt;/h3&gt;
+&lt;p&gt;HERC extends HRP with two refinements:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Early stopping&lt;/strong&gt; via a Gap Index selects the optimal number of clusters, preventing overfitting to noisy sub-clusters.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Risk-aware allocation&lt;/strong&gt; uses Conditional Drawdown-at-Risk (CDaR) instead of variance, capturing tail risk:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$\operatorname{CDaR}_{\alpha}(\mathbf{w}) = \frac{1}{1 - \alpha} \int_{\alpha}^{1} D_{q}(\mathbf{w}) , dq$$&lt;/p&gt;
+&lt;p&gt;where \(D_{q}\) is the portfolio drawdown at quantile \(q\).&lt;/p&gt;
+&lt;p&gt;HERC tends to achieve the strongest risk-adjusted returns among the methods studied, with improved diversification across sectors, though at marginally higher tail risk.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;4-back-testing-with-cpcv&#34;&gt;4. Back-testing with CPCV&lt;/h2&gt;
+&lt;p&gt;Standard train/test splits waste data and can introduce look-ahead bias. Combinatorial Purged Cross-Validation (CPCV) partitions the time series into \(G\) groups and selects \(K\) groups for testing, generating \(\binom{G}{K}\) paths while:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Purging&lt;/strong&gt; observations near the train/test boundary to prevent information leakage.&lt;/li&gt;
+&lt;li&gt;Preserving temporal ordering within each path.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With \(G = 5\) and \(K = 2\), CPCV produces 10 independent evaluation paths, giving a far richer picture of out-of-sample behaviour than a single train/test split.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;5-combining-techniques&#34;&gt;5. Combining Techniques&lt;/h2&gt;
+&lt;p&gt;The real power emerges from composition:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Denoising + Back-testing (EPO + CPCV):&lt;/strong&gt; CPCV searches over shrinkage parameters and selects the median optimal \(\alpha\) across paths, providing a stable, data-driven covariance estimate. This yields consistent incremental gains over standalone denoising.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Clustering + Back-testing (HRP/HERC + CPCV):&lt;/strong&gt; Clustering methods are sensitive to the quality of the hierarchical structure in each fold. Folds with weak or unstable clusters can degrade performance. Increasing fold size or sampling frequency mitigates this.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Denoising + Clustering:&lt;/strong&gt; A denoised correlation matrix feeds cleaner distances into the hierarchical clustering step, producing more stable dendrograms and, consequently, more robust weight allocations.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Stochastic Pricing Models</title>

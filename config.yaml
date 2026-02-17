@@ -133,9 +133,9 @@ cascade:
         enable: true
 
 # Add homepage settings
-params:
-  # Homepage settings
-  home:
-    # Use author profile as homepage
-    type: widget_page
-    view: profileß
+# params:
+#   # Homepage settings
+#   home:
+#     # Use author profile as homepage
+#     type: widget_page
+#     view: profileß

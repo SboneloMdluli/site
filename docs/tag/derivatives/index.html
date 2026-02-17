@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: June 30, 2025 --><html lang="en" >
+<!-- Last Published: February 17, 2026 --><html lang="en" >
 
 
 <head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
@@ -66,6 +66,9 @@
   
 
   
+  
+    
+    <script src="/site/js/mathjax-config.js"></script>
   
 
   
@@ -181,9 +184,9 @@
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -225,8 +228,8 @@
   
     
     
-    <link rel="stylesheet" href="/site/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" disabled>
-    <link rel="stylesheet" href="/site/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/site/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/site/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
   
 
   
@@ -275,7 +278,7 @@
 
   
 
-<meta name="description" content="Data Scientist / Software Engineer" />
+<meta name="description" content="Data Scientist / Machine Learning Engineer" />
 
 
 
@@ -286,10 +289,10 @@
 
 
 
-<link rel="icon" type="image/png" href="/site/media/icon_hu_857dd55c234bc14f.png" />
-<link rel="apple-touch-icon" type="image/png" href="/site/media/icon_hu_88611cbd7a187137.png" />
+<link rel="icon" type="image/png" href="/site/media/icon_hu_ae99fbc64983dc75.png" />
+<link rel="apple-touch-icon" type="image/png" href="/site/media/icon_hu_e06036a7df0a0b5f.png" />
 
-<meta name="theme-color" content="#bbdefb" />
+<meta name="theme-color" content="#1565c0" />
 
 
 
@@ -309,7 +312,7 @@
 
 
 <meta property="twitter:card" content="summary" />
-<meta property="twitter:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" />
+<meta property="twitter:image" content="http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png" />
 
 
 
@@ -319,7 +322,7 @@
 <meta property="og:site_name" content="Sbonelo Mdluli" />
 <meta property="og:url" content="http://localhost:1313/site/tag/derivatives/" />
 <meta property="og:title" content="Derivatives | Sbonelo Mdluli" />
-<meta property="og:description" content="Data Scientist / Software Engineer" /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
+<meta property="og:description" content="Data Scientist / Machine Learning Engineer" /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png" /><meta property="og:locale" content="en" />
 
   
     <meta property="og:updated_time" content="2025-03-02T00:00:00&#43;00:00" />
@@ -367,7 +370,7 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  dark "  >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   "  >
 
   
   
@@ -382,6 +385,43 @@
 
   
 
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
 
 
 
@@ -480,9 +520,30 @@
         
         
         
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
 
         
         
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
         
 
         
@@ -648,6 +709,21 @@
 
 
 
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: false,
+        packages: {'[+]': ['noerrors', 'ams']}
+      },
+      loader: {
+        load: ['[tex]/noerrors', '[tex]/ams']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
 </body>

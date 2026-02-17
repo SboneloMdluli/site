@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: June 30, 2025 --><html lang="en" >
+<!-- Last Published: February 17, 2026 --><html lang="en" >
 
 
 <head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
@@ -67,6 +67,9 @@
 
   
   
+    
+    <script src="/site/js/mathjax-config.js"></script>
+  
 
   
 
@@ -84,7 +87,8 @@
     
       
       
-      
+    
+    
       
         
       
@@ -92,9 +96,6 @@
       
         
       
-        
-      
-    
     
     
 
@@ -191,9 +192,9 @@
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -235,8 +236,8 @@
   
     
     
-    <link rel="stylesheet" href="/site/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" disabled>
-    <link rel="stylesheet" href="/site/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/site/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/site/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
   
 
   
@@ -296,10 +297,10 @@
 
 
 
-<link rel="icon" type="image/png" href="/site/media/icon_hu_857dd55c234bc14f.png" />
-<link rel="apple-touch-icon" type="image/png" href="/site/media/icon_hu_88611cbd7a187137.png" />
+<link rel="icon" type="image/png" href="/site/media/icon_hu_ae99fbc64983dc75.png" />
+<link rel="apple-touch-icon" type="image/png" href="/site/media/icon_hu_e06036a7df0a0b5f.png" />
 
-<meta name="theme-color" content="#bbdefb" />
+<meta name="theme-color" content="#1565c0" />
 
 
 
@@ -319,7 +320,7 @@
 
 
 <meta property="twitter:card" content="summary" />
-<meta property="twitter:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" />
+<meta property="twitter:image" content="http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png" />
 
 
 
@@ -332,8 +333,8 @@
 <meta property="og:type" content="profile" />
 <meta property="og:site_name" content="Sbonelo Mdluli" />
 <meta property="og:url" content="http://localhost:1313/site/" />
-<meta property="og:title" content="Sbonelo Mdluli ☕️ | Sbonelo Mdluli" />
-<meta property="og:description" content="Data Scientist / Machine Learning Engineer" /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_43cf117bf1a42c34.png" /><meta property="og:locale" content="en" />
+<meta property="og:title" content="Sbonelo Mdluli" />
+<meta property="og:description" content="Data Scientist / Machine Learning Engineer" /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png" /><meta property="og:locale" content="en" />
 
   
     <meta property="og:updated_time" content="2022-10-24T00:00:00&#43;00:00" />
@@ -346,7 +347,13 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite","url": "http://localhost:1313/site/"
+  "@type": "WebSite",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "http://localhost:1313/site/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "url": "http://localhost:1313/site/"
 }
 </script>
 
@@ -369,7 +376,7 @@
 
 
   
-  <title>Sbonelo Mdluli ☕️ | Sbonelo Mdluli</title>
+  <title>Sbonelo Mdluli</title>
 
   
   
@@ -389,7 +396,7 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" class="page-wrapper  dark " data-wc-page-id="3976528693a0108357f4928017600865" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" class="page-wrapper   " data-wc-page-id="3976528693a0108357f4928017600865" >
 
   
   
@@ -404,6 +411,43 @@
 
   
 
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
 
 
 
@@ -502,9 +546,30 @@
         
         
         
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
 
         
         
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
         
 
         
@@ -526,35 +591,17 @@
 
     
 
-
-  
-
-
-
-
-
-
-
-
-
-  
-  
-
 <span class="js-widget-page d-none"></span>
 
 
 
-
-
   
   
-  
-  
+    
 
 
 
 
-  
 
 
 
@@ -612,12 +659,7 @@
 
 
 
-
-
-
-
-
-<section id="about" class="home-section wg-about  "  >
+<section id="section-about-biography" class="home-section wg-about-biography  "  >
  <div class="home-section-bg " >
    
  </div>
@@ -654,7 +696,7 @@
       
       <img class="avatar avatar-circle"
            width="270" height="270"
-           src="/site/author/sbonelo-mdluli-%EF%B8%8F/avatar_hu_dfd690dffe7626f5.webp" alt="Sbonelo Mdluli ☕️">
+           src="/site/author/sbonelo-mdluli-%EF%B8%8F/avatar_hu_40a8fb306a21f6d5.webp" alt="Sbonelo Mdluli ☕️">
       
 
       <div class="portrait-title">
@@ -666,7 +708,7 @@
         
         <h3>
           
-          <span>Blue Bean Software</span>
+          <span>ABSA GROUP</span>
           
         </h3>
         
@@ -717,25 +759,39 @@
     
     <h1>Biography</h1>
 
+    
     <div class="article-style">
       <p>I&rsquo;m a data scientist and machine learning engineer with expertise in machine learning, quantitative modeling and software engineering. My strong quantitative and analytical skills are rooted in a background in Electrical and Information Engineering, complemented by an MSc in Financial Engineering. I specialize in developing production machine learning solutions, constructing efficient data pipelines, and deploying robust inference systems that consistently deliver measurable outcomes using MLOps best practises. My experience spans from modelling to developing software consuming produced models.</p>
 
     </div>
+    
 
     <div class="row">
 
       
       <div class="col-md-5">
         <div class="section-subheading">Interests</div>
-        <ul class="ul-interests mb-0">
+        <ul class="ul-interests fa-ul mb-0">
           
-          <li>Machine Learning</li>
+          <li>
+            <i class="fa-li fa-solid fa-book-open"></i>
+            Machine Learning
+          </li>
           
-          <li>Software Development</li>
+          <li>
+            <i class="fa-li fa-solid fa-book-open"></i>
+            Quantitative Finance
+          </li>
           
-          <li>Statistical Modelling</li>
+          <li>
+            <i class="fa-li fa-solid fa-book-open"></i>
+            Statistical Modelling
+          </li>
           
-          <li>Quantitative Finance</li>
+          <li>
+            <i class="fa-li fa-solid fa-book-open"></i>
+            Software Development
+          </li>
           
         </ul>
       </div>
@@ -747,7 +803,7 @@
         <ul class="ul-edu fa-ul mb-0">
           
           <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
+            <i class="fa-li fa-solid fa-graduation-cap"></i>
             <div class="description">
               <p class="course">MSc in Financial Engineering, 2026</p>
               <p class="institution">WorldQuant University</p>
@@ -755,7 +811,7 @@
           </li>
           
           <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
+            <i class="fa-li fa-solid fa-graduation-cap"></i>
             <div class="description">
               <p class="course">BScEng in Electrical and Information Engineering, 2020</p>
               <p class="institution">University of the Witwatersrand</p>
@@ -776,9 +832,11 @@
   </div>
 </section>
 
-
   
 
+  
+  
+    
 
 
 
@@ -840,7 +898,7 @@
 
 
 
-<section id="experience" class="home-section wg-experience  "  >
+<section id="section-experience" class="home-section wg-experience  "  >
  <div class="home-section-bg " >
    
  </div>
@@ -897,9 +955,9 @@
         <div class="card-body">
 
               <div class="section-subheading card-title exp-title text-muted my-0">Data Scientist - Specialist Machine Learning</div>
-              <div class="section-subheading card-title exp-company text-muted my-0">Absa Group</div>
+              <div class="section-subheading card-title exp-company text-muted my-0">ABSA Group</div>
               <div class="text-muted exp-meta">
-                Jun 2025 –
+                June 2025 –
                 
                   Present
                 
@@ -938,7 +996,7 @@
               <div class="section-subheading card-title exp-title text-muted my-0">Consulting Software Engineer/Data Scientist</div>
               <div class="section-subheading card-title exp-company text-muted my-0">Blue Bean Software</div>
               <div class="text-muted exp-meta">
-                Sep 2022 –
+                September 2022 –
                 
                   May 2025
                 
@@ -985,9 +1043,9 @@
               <div class="section-subheading card-title exp-title text-muted my-0">Graduate Trainee</div>
               <div class="section-subheading card-title exp-company text-muted my-0">Iress</div>
               <div class="text-muted exp-meta">
-                Jan 2021 –
+                January 2021 –
                 
-                  Aug 2022
+                  August 2022
                 
                 
                   <span class="middot-divider"></span>
@@ -995,13 +1053,13 @@
                 
               </div>
 
-          <div class="card-text"><p>Responsibilities include:</p>
-<ul>
+          <div class="card-text"><ul>
 <li>Develop and test trading solutions, including algorithmic trading models using FIX protocol</li>
 <li>Work with financial instruments such as (SSF, T/VWAP, Dark Pools, etc) and troubleshoot business requirements</li>
 <li>Design trading setups, risk management and assisted in corporate action settlements</li>
 <li>Worked on derivatives, funds, and equities</li>
-</ul></div>
+</ul>
+</div>
         </div>
       </div>
     </div>
@@ -1018,9 +1076,11 @@
   </div>
 </section>
 
-
   
 
+  
+  
+    
 
 
 
@@ -1082,7 +1142,7 @@
 
 
 
-<section id="posts" class="home-section wg-collection  "  >
+<section id="section-collection" class="home-section wg-collection  "  >
  <div class="home-section-bg " >
    
  </div>
@@ -1120,6 +1180,10 @@
 
 
 
+
+  
+  
+  
   
   
 
@@ -1151,6 +1215,97 @@
 <div class="col-12 col-lg-8">
 
   
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item view-compact">
+  <div class="media-body">
+
+    <div class="section-subheading article-title mb-0 mt-0">
+      <a href="/site/post/2026/02/01/portfolio-optimization-beyond-markowitz-with-denoising/" >Portfolio Optimization: Beyond Markowitz with Denoising</a>
+    </div>
+
+    
+    <a href="/site/post/2026/02/01/portfolio-optimization-beyond-markowitz-with-denoising/"  class="summary-link">
+      <div class="article-style">
+        Improving mean-variance optimization using covariance denoising (Ledoit-Wolf, Marchenko–Pastur, EPO, Bayesian), hierarchical clustering (HRP, HERC), and combinatorial purged cross-validation.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Feb 1, 2026
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/site/category/quantitative-finance/">Quantitative Finance</a></span>
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
 
   
     
@@ -1525,99 +1680,6 @@
 </div>
 
   
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item view-compact">
-  <div class="media-body">
-
-    <div class="section-subheading article-title mb-0 mt-0">
-      <a href="/site/post/2024/01/15/systematic-risk/" >Systematic Risk</a>
-    </div>
-
-    
-    <a href="/site/post/2024/01/15/systematic-risk/"  class="summary-link">
-      <div class="article-style">
-        The article discusses systematic risk, which refers to the potential for widespread financial instability that cannot be mitigated through diversification but only through hedging. It highlights the importance of monitoring systematic risk for financial institutions and policymakers to manage risk exposure effectively.
-      </div>
-    </a>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-          Last updated on
-      
-    
-    Mar 2, 2025
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-  
-
-  
-  
-  <span class="middot-divider"></span>
-  <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/site/category/risk-management/">Risk Management</a></span>
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-  
 
   
   
@@ -1655,7 +1717,7 @@
   </div>
 </section>
 
-
+  
 
 
   </div>
@@ -1773,6 +1835,21 @@
 
 
 
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: false,
+        packages: {'[+]': ['noerrors', 'ams']}
+      },
+      loader: {
+        load: ['[tex]/noerrors', '[tex]/ams']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
 </body>
