@@ -39,7 +39,21 @@ where \\(S\\) is the sample covariance, \\(T\\) is a structured target (typicall
 
 The LW method shrinks all correlations uniformly toward zero, reducing noise without dramatically altering the portfolio structure.
 
-### 2.2 Marchenko–Pastur Denoising
+### 2.2 Enhanced Portfolio Optimization (EPO)
+
+EPO controls the tension between a fully data-driven portfolio and a maximally diversified one through a single shrinkage parameter \\(w \in [0, 1]\\). Rather than denoising the covariance matrix in eigenvalue space, EPO acts directly on the off-diagonal correlations, blending the historical covariance with a diagonal target:
+
+$$\tilde{\Sigma} = (1 - w)\,\Sigma\_{\mathrm{hist}} + w\,\Sigma\_{\mathrm{target}}$$
+
+Here \\(\Sigma\_{\mathrm{hist}}\\) is the sample covariance carrying all historical correlations, while \\(\Sigma\_{\mathrm{target}}\\) retains only the diagonal variances — setting every cross-asset covariance to zero. As \\(w\\) increases from 0 to 1, the optimizer progressively ignores inter-asset correlations, transitioning the solution from a concentrated MVO portfolio toward a signal-weighted diversified one.
+
+In its simplest form (Simple EPO), this shrinkage has a transparent closed-form interpretation. The resulting weight vector decomposes as a convex combination of two portfolios:
+
+$$\mathbf{w}\_{\mathrm{EPO}} = (1 - w)\,\mathbf{w}\_{\mathrm{MVO}} + w\,\mathbf{w}\_{\mathrm{signal}}$$
+
+where \\(\mathbf{w}\_{\mathrm{MVO}}\\) are the classical mean-variance weights (sensitive to noisy correlations in \\(\Sigma\_{\mathrm{hist}}\\)) and \\(\mathbf{w}\_{\mathrm{signal}}\\) are signal-only weights derived from expected returns alone, ignoring cross-asset structure entirely. The parameter \\(w\\) thus provides a direct, interpretable dial between estimation-risk-heavy MVO and a pure-signal allocation.
+
+### 2.3 Marchenko–Pastur Denoising
 
 Random Matrix Theory (RMT) offers a more surgical approach to denoising. The key insight is that when \\(T\\) observations of \\(N\\) asset returns are drawn from a true covariance matrix \\(\Sigma\\), the eigenvalues of the sample covariance \\(S\\) are systematically distorted. If the returns were purely random (i.e., \\(\Sigma = I\\)), the eigenvalue density of \\(S\\) would follow the **Marchenko–Pastur distribution**:
 
@@ -66,10 +80,6 @@ where \\(\mathcal{N} = \\{i : \lambda\_{i} \leq \lambda\_{+}\\}\\). The signal e
 The ratio \\(q = N / T\\) is critical: the higher it is, the wider the Marchenko–Pastur bulk and the more eigenvalues are noise-dominated. For a typical portfolio with \\(N = 12\\) stocks and \\(T \approx 390\\) daily observations, \\(q \approx 0.03\\), meaning the noise band is relatively narrow and most eigenvalues carry signal. But for larger universes say \\(N = 500\\) with a year of daily data \\(q\\) exceeds 1 and the majority of eigenvalues are pure noise. This is precisely where RMT denoising is useful.
 
 Compared to Ledoit-Wolf shrinkage, which applies a uniform correction to every element of \\(\Sigma\\), the Marchenko–Pastur approach is **selective**: it leaves the dominant eigenvectors (market, sector, and style factors) intact while collapsing the noisy directions. This surgical precision makes it particularly effective for large portfolios where the signal-to-noise separation is stark.
-
-### 2.3 Enhanced Portfolio Optimization (EPO)
-
-The Enhanced Portfolio Optimization (EPO) method uses the same shrinkage form as Ledoit-Wolf but optimises \\(\alpha\\) directly for the Sharpe ratio rather than for covariance accuracy. Combined with Combinatorial Purged Cross-Validation (CPCV) to select \\(\alpha\\), EPO provides a data-driven, performance-oriented estimate of the covariance matrix.
 
 ### 2.4 Bayesian Approaches
 
@@ -139,3 +149,4 @@ The real power emerges from composition:
 - **Clustering + Back-testing (HRP/HERC + CPCV):** Clustering methods are sensitive to the quality of the hierarchical structure in each fold. Folds with weak or unstable clusters can degrade performance. Increasing fold size or sampling frequency mitigates this.
 - **Denoising + Clustering:** A denoised correlation matrix feeds cleaner distances into the hierarchical clustering step, producing more stable dendrograms and, consequently, more robust weight allocations.
 
+[Read more →](https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/portfolio_optimization.ipynb)

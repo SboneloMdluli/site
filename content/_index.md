@@ -68,20 +68,10 @@ sections:
 # Is this the primary user of the site?
 superuser: true
 
-# Role/position
-role: Quantitative Researcher
-
 # Status emoji
 status:
   icon: 📊
 
-# Organizations/Affiliations
-organizations:
-  - name: WorldQuant University
-    url: ""
-
-# Short bio (displayed in user profile at end of posts)
-bio: My research interests include market microstructure, fixed income modeling, and machine learning applications in finance.
 
 interests:
   - Quantitative Finance

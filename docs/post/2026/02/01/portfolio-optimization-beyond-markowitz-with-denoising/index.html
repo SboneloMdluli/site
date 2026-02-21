@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: February 17, 2026 --><html lang="en" >
+<!-- Last Published: February 21, 2026 --><html lang="en" >
 
 
 <head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
@@ -694,7 +694,14 @@
 <p>$$\Sigma_{\mathrm{shrunk}} = (1 - \alpha) S + \alpha T$$</p>
 <p>where \(S\) is the sample covariance, \(T\) is a structured target (typically a diagonal matrix of sample variances), and \(\alpha\) is chosen to minimise the expected Frobenius loss against the true covariance.</p>
 <p>The LW method shrinks all correlations uniformly toward zero, reducing noise without dramatically altering the portfolio structure.</p>
-<h3 id="22-marchenkopastur-denoising">2.2 Marchenko–Pastur Denoising</h3>
+<h3 id="22-enhanced-portfolio-optimization-epo">2.2 Enhanced Portfolio Optimization (EPO)</h3>
+<p>EPO controls the tension between a fully data-driven portfolio and a maximally diversified one through a single shrinkage parameter \(w \in [0, 1]\). Rather than denoising the covariance matrix in eigenvalue space, EPO acts directly on the off-diagonal correlations, blending the historical covariance with a diagonal target:</p>
+<p>$$\tilde{\Sigma} = (1 - w),\Sigma_{\mathrm{hist}} + w,\Sigma_{\mathrm{target}}$$</p>
+<p>Here \(\Sigma_{\mathrm{hist}}\) is the sample covariance carrying all historical correlations, while \(\Sigma_{\mathrm{target}}\) retains only the diagonal variances — setting every cross-asset covariance to zero. As \(w\) increases from 0 to 1, the optimizer progressively ignores inter-asset correlations, transitioning the solution from a concentrated MVO portfolio toward a signal-weighted diversified one.</p>
+<p>In its simplest form (Simple EPO), this shrinkage has a transparent closed-form interpretation. The resulting weight vector decomposes as a convex combination of two portfolios:</p>
+<p>$$\mathbf{w}_{\mathrm{EPO}} = (1 - w),\mathbf{w}_{\mathrm{MVO}} + w,\mathbf{w}_{\mathrm{signal}}$$</p>
+<p>where \(\mathbf{w}_{\mathrm{MVO}}\) are the classical mean-variance weights (sensitive to noisy correlations in \(\Sigma_{\mathrm{hist}}\)) and \(\mathbf{w}_{\mathrm{signal}}\) are signal-only weights derived from expected returns alone, ignoring cross-asset structure entirely. The parameter \(w\) thus provides a direct, interpretable dial between estimation-risk-heavy MVO and a pure-signal allocation.</p>
+<h3 id="23-marchenkopastur-denoising">2.3 Marchenko–Pastur Denoising</h3>
 <p>Random Matrix Theory (RMT) offers a more surgical approach to denoising. The key insight is that when \(T\) observations of \(N\) asset returns are drawn from a true covariance matrix \(\Sigma\), the eigenvalues of the sample covariance \(S\) are systematically distorted. If the returns were purely random (i.e., \(\Sigma = I\)), the eigenvalue density of \(S\) would follow the <strong>Marchenko–Pastur distribution</strong>:</p>
 <p>$$f_{\mathrm{MP}}(\lambda) = \frac{T}{2 \pi \sigma^{2} N} \frac{\sqrt{(\lambda_{+} - \lambda)(\lambda - \lambda_{-})}}{\lambda}$$</p>
 <p>for \(\lambda \in [\lambda_{-},; \lambda_{+}]\), where the bounds are:</p>
@@ -713,8 +720,6 @@
 </ol>
 <p>The ratio \(q = N / T\) is critical: the higher it is, the wider the Marchenko–Pastur bulk and the more eigenvalues are noise-dominated. For a typical portfolio with \(N = 12\) stocks and \(T \approx 390\) daily observations, \(q \approx 0.03\), meaning the noise band is relatively narrow and most eigenvalues carry signal. But for larger universes say \(N = 500\) with a year of daily data \(q\) exceeds 1 and the majority of eigenvalues are pure noise. This is precisely where RMT denoising is useful.</p>
 <p>Compared to Ledoit-Wolf shrinkage, which applies a uniform correction to every element of \(\Sigma\), the Marchenko–Pastur approach is <strong>selective</strong>: it leaves the dominant eigenvectors (market, sector, and style factors) intact while collapsing the noisy directions. This surgical precision makes it particularly effective for large portfolios where the signal-to-noise separation is stark.</p>
-<h3 id="23-enhanced-portfolio-optimization-epo">2.3 Enhanced Portfolio Optimization (EPO)</h3>
-<p>The Enhanced Portfolio Optimization (EPO) method uses the same shrinkage form as Ledoit-Wolf but optimises \(\alpha\) directly for the Sharpe ratio rather than for covariance accuracy. Combined with Combinatorial Purged Cross-Validation (CPCV) to select \(\alpha\), EPO provides a data-driven, performance-oriented estimate of the covariance matrix.</p>
 <h3 id="24-bayesian-approaches">2.4 Bayesian Approaches</h3>
 <p>The Bayesian framework treats \(\mu\), \(\Sigma\), and the weights \(\mathbf{w}\) as random variables, naturally incorporating parameter uncertainty:</p>
 <ul>
@@ -765,6 +770,7 @@
 <li><strong>Clustering + Back-testing (HRP/HERC + CPCV):</strong> Clustering methods are sensitive to the quality of the hierarchical structure in each fold. Folds with weak or unstable clusters can degrade performance. Increasing fold size or sampling frequency mitigates this.</li>
 <li><strong>Denoising + Clustering:</strong> A denoised correlation matrix feeds cleaner distances into the hierarchical clustering step, producing more stable dendrograms and, consequently, more robust weight allocations.</li>
 </ul>
+<p><a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/portfolio_optimization.ipynb" target="_blank" rel="noopener">Read more →</a></p>
 
     </div>
   </div>
@@ -837,6 +843,23 @@
   
 
 
+<script src="/site/js/vendor-bundle.min.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
 
 
 
@@ -845,61 +868,98 @@
 
 
   
-
-  
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  
-
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-    
-    
-    
-  
-
-  
-
-  
-    
-    
-    
-  
-
-
-
-
-
-  <script async defer src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
-
-
-
-
-
-
-
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: false,
-        packages: {'[+]': ['noerrors', 'ams']}
-      },
-      loader: {
-        load: ['[tex]/noerrors', '[tex]/ams']
-      }
-    };
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
   </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+  <script src="/site/js/wowchemy-headroom.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/site/en/js/wowchemy.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </body>

@@ -17,7 +17,7 @@ module:
     - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-seo
 
 defaultContentLanguage: en
-enableGitInfo: true
+enableGitInfo: false
 
 menu:
   main:
