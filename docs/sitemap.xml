@@ -3,10 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/site/categories/</loc>
-    <lastmod>2026-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/site/category/machine-learning/</loc>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/site/tag/machine-learning/</loc>
-    <lastmod>2026-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/site/post/</loc>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/site/post/2026/02/22/probabilistic-graphical-models/</loc>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/site/tags/</loc>
+    <lastmod>2026-02-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/site/tag/portfolio-management/</loc>
     <lastmod>2026-02-01T00:00:00+00:00</lastmod>
@@ -14,16 +26,10 @@
     <loc>http://localhost:1313/site/post/2026/02/01/portfolio-optimization-beyond-markowitz-with-denoising/</loc>
     <lastmod>2026-02-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/site/post/</loc>
-    <lastmod>2026-02-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/site/category/quantitative-finance/</loc>
     <lastmod>2026-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/site/tag/quantitative-finance/</loc>
-    <lastmod>2026-02-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/site/tags/</loc>
     <lastmod>2026-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/site/category/finance/</loc>
@@ -39,9 +45,6 @@
     <lastmod>2025-05-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/site/post/2025/04/08/image-retrieval/</loc>
-    <lastmod>2025-04-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/site/category/machine-learning/</loc>
     <lastmod>2025-04-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/site/category/derivatives/</loc>

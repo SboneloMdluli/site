@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: February 22, 2026 --><html lang="en" >
+
+
+<head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Hugo Blox Builder 5.9.7" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+
+  
+  
+    
+    <script src="/site/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="/site/css/vendor-bundle.min.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/site/css/wowchemy.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/site/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/site/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Sbonelo Mdluli ☕️" />
+
+
+
+
+
+  
+
+<meta name="description" content="An intuitive introduction to probabilistic graphical models (PGMs): how Bayesian networks and Markov networks represent joint distributions, how we learn them from data, and why Markov blankets matter." />
+
+
+
+<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2026/02/22/probabilistic-graphical-models-bayesian-networks-markov-networks-and-markov-blankets/" />
+<link rel="canonical" href="http://localhost:1313/site/post/2026/02/22/probabilistic-graphical-models-bayesian-networks-markov-networks-and-markov-blankets/" />
+
+
+
+
+
+<link rel="icon" type="image/png" href="/site/media/icon_hu_ae99fbc64983dc75.png" />
+<link rel="apple-touch-icon" type="image/png" href="/site/media/icon_hu_e06036a7df0a0b5f.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:image" content="http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png" />
+
+
+
+  
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Sbonelo Mdluli" />
+<meta property="og:url" content="http://localhost:1313/site/post/2026/02/22/probabilistic-graphical-models-bayesian-networks-markov-networks-and-markov-blankets/" />
+<meta property="og:title" content="Probabilistic Graphical Models: Bayesian Networks, Markov Networks, and Markov Blankets | Sbonelo Mdluli" />
+<meta property="og:description" content="An intuitive introduction to probabilistic graphical models (PGMs): how Bayesian networks and Markov networks represent joint distributions, how we learn them from data, and why Markov blankets matter." /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png" /><meta property="og:locale" content="en" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2026-02-22T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2026-02-22T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/site/post/2026/02/22/probabilistic-graphical-models-bayesian-networks-markov-networks-and-markov-blankets/"
+  },
+  "headline": "Probabilistic Graphical Models: Bayesian Networks, Markov Networks, and Markov Blankets",
+  
+  "datePublished": "2026-02-22T00:00:00Z",
+  "dateModified": "2026-02-22T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Sbonelo Mdluli ☕️"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sbonelo Mdluli",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/site/media/icon_hu_3fed93dbf0434f0e.png"
+    }
+  },
+  "description": "An intuitive introduction to probabilistic graphical models (PGMs): how Bayesian networks and Markov networks represent joint distributions, how we learn them from data, and why Markov blankets matter."
+}
+</script>
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Probabilistic Graphical Models: Bayesian Networks, Markov Networks, and Markov Blankets | Sbonelo Mdluli</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="a3402209d9f17505ca529016bd491e00" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/site/js/wowchemy-init.min.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/site/">Sbonelo Mdluli</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/site/">Sbonelo Mdluli</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/site/post/"><span>Posts</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+      
+      
+      <div class="article-container py-1" style="background: initial">
+        
+  <nav class="d-none d-md-flex" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      
+  
+    
+  
+    
+  
+
+    <li class="breadcrumb-item">
+      <a href="/site/">
+        
+          Home
+        
+      </a>
+    </li>
+  
+
+    <li class="breadcrumb-item">
+      <a href="/site/post/">
+        
+          Posts
+        
+      </a>
+    </li>
+  
+
+      <li class="breadcrumb-item active" aria-current="page">
+        Probabilistic Graphical Models: Bayesian Networks, Markov Networks, and Markov Blankets
+      </li>
+    </ol>
+  </nav>
+
+
+
+
+      </div>
+    
+
+    
+<article class="article">
+  <div class="article-container">
+    <h1>Probabilistic Graphical Models: Bayesian Networks, Markov Networks, and Markov Blankets</h1>
+
+    <div class="article-metadata">
+      <span class="article-date">
+        February 22, 2026
+      </span>
+
+      
+      <div class="article-tags">
+        
+        <a class="badge badge-light" href="/tags/machine-learning">Machine Learning</a>
+        
+      </div>
+      
+    </div>
+
+    <div class="article-content">
+      <p>Probabilistic Graphical Models (PGMs) combine <strong>probability theory</strong> and <strong>graph theory</strong> to represent complex relationships among random variables. PGMs are attractive because they can encode <strong>conditional independence</strong> (for tractable inference) while remaining <strong>interpretable</strong> (you can literally “see” dependencies as edges in a graph).</p>
+<h2 id="from-joint-distributions-to-graphs">From joint distributions to graphs</h2>
+<p>Let (X_1,\dots,X_n) be random variables. A fundamental identity used throughout PGMs is the <strong>chain rule</strong>:</p>
+<p>$$
+p(x_1,\dots,x_n) = \prod_{i=1}^{n} p(x_i \mid x_1,\dots,x_{i-1}).
+$$</p>
+<p>A graph (G=(V,E)) is a set of <strong>vertices</strong> (V) (variables) and <strong>edges</strong> (E) (relationships). Two common families show up in PGMs:</p>
+<ul>
+<li><strong>Directed graphs</strong>: edges have orientation (X \to Y).</li>
+<li><strong>Undirected graphs</strong>: edges have no orientation (X - Y).</li>
+</ul>
+<p>In undirected models, the idea of a <strong>clique</strong> matters.</p>
+<p><strong>Clique</strong>: a set of vertices where every pair is connected by an edge. A clique is <strong>maximal</strong> if you cannot add any other vertex without breaking completeness.</p>
+<h2 id="belief-networks-bayesian-networks">Belief networks (Bayesian networks)</h2>
+<p>A <strong>Bayesian network</strong> (also called a <em>belief network</em>) is a <strong>directed acyclic graph (DAG)</strong>. The key modeling move is replacing the generic chain rule factorization with a <em>graph-respecting</em> factorization:</p>
+<p>$$
+p(x_1,\dots,x_n) = \prod_{i=1}^{n} p!\left(x_i \mid \mathrm{Pa}(X_i)\right),
+$$</p>
+<p>where (\mathrm{Pa}(X_i)) denotes the parents of node (X_i) in the DAG.</p>
+<p>This expresses <strong>local conditional independences</strong>: each variable is independent of its non-descendants given its parents.</p>
+<h3 id="d-separation-how-independence-reads-off-the-graph">D-separation (how “independence” reads off the graph)</h3>
+<p>To talk precisely about conditional independence in a directed graph, we use <strong>d-separation</strong>. The classic three motifs are:</p>
+<ol>
+<li><strong>Chain</strong>: (X \to Z \to Y) (conditioning on (Z) blocks the path)</li>
+<li><strong>Fork</strong>: (X \leftarrow Z \to Y) (conditioning on (Z) blocks the path)</li>
+<li><strong>Collider</strong>: (X \to Z \leftarrow Y) (conditioning on (Z) <em>opens</em> the path)</li>
+</ol>
+<p>This is why Bayesian networks can be both <strong>interpretable</strong> (the motifs are easy to reason about) and <strong>efficient</strong> (many variables become irrelevant once you condition on the right ones).</p>
+<h2 id="markov-networks-markov-random-fields">Markov networks (Markov random fields)</h2>
+<p>A <strong>Markov network</strong> is an <strong>undirected</strong> probabilistic model. Instead of conditional probability tables along directed edges, we work with <strong>clique potentials</strong>.</p>
+<p>Let (\mathcal{C}) denote the set of cliques in the graph. Then the joint distribution is written as:</p>
+<p>$$
+p(x) = \frac{1}{Z}\prod_{C \in \mathcal{C}} \psi_C(x_C),
+$$</p>
+<p>where (\psi_C(\cdot)\ge 0) is a potential function over clique variables (x_C), and (Z) is the <strong>partition function</strong> (a normalizing constant that ensures probabilities sum to 1).</p>
+<p>Markov networks are flexible because they do not enforce acyclicity and can be easier to specify for symmetric relationships. The trade-off is that they do <strong>not</strong> directly encode causal direction.</p>
+<h2 id="learning-pgms-parameters-vs-structure">Learning PGMs: parameters vs structure</h2>
+<p>PGM “learning” typically means one (or both) of the following:</p>
+<h3 id="parameter-learning-probabilities-with-a-fixed-graph">Parameter learning (probabilities with a fixed graph)</h3>
+<p>Assume the graph structure is known. Then:</p>
+<ul>
+<li>In <strong>discrete</strong> Bayesian networks, parameters are often <strong>conditional probability tables (CPTs)</strong>.</li>
+<li>You can estimate parameters via <strong>maximum likelihood</strong> (count-and-normalize) or <strong>Bayesian estimation</strong> (e.g., Dirichlet priors).</li>
+<li>With <strong>missing data</strong>, parameter estimation often becomes iterative (e.g., <strong>EM</strong> or <strong>Gibbs sampling</strong>).</li>
+</ul>
+<h3 id="structure-learning-discovering-the-graph">Structure learning (discovering the graph)</h3>
+<p>When the structure is unknown, we want to infer which edges should exist.</p>
+<ul>
+<li><strong>Constraint-based</strong> methods use conditional independence tests (e.g., the <strong>PC algorithm</strong>).</li>
+<li><strong>Score-based</strong> methods search for high-scoring graphs under criteria like <strong>BIC</strong>, <strong>BDe</strong>, or <strong>MDL</strong>, usually with heuristic search (e.g., hill climbing, simulated annealing).</li>
+<li><strong>Hybrid</strong> methods try to combine the strengths of both (find a skeleton with tests, then refine with scoring).</li>
+</ul>
+<p>The hard parts are computational: the number of possible graphs explodes with variables, “Markov equivalent” graphs can be indistinguishable without extra assumptions, and latent variables can confound dependencies.</p>
+<h2 id="markov-blankets-why-you-can-ignore-most-variables">Markov blankets (why you can ignore most variables)</h2>
+<p>The <strong>Markov blanket</strong> of a target variable (X) is the <em>minimal</em> set of variables that renders (X) conditionally independent of everything else in the model.</p>
+<p>In a <strong>Bayesian network</strong>, the (Pearl) Markov blanket of (X) is:</p>
+<ul>
+<li><strong>Parents of (X)</strong></li>
+<li><strong>Children of (X)</strong></li>
+<li><strong>Co-parents of (X)</strong> (the other parents of (X)’s children)</li>
+</ul>
+<p>If we write the Markov blanket as (\mathrm{MB}(X)), the key property is:</p>
+<p>$$
+X \perp!!!\perp \left(V \setminus \left({X}\cup \mathrm{MB}(X)\right)\right);\middle|; \mathrm{MB}(X).
+$$</p>
+<h3 id="intuition">Intuition</h3>
+<p>Everything you can learn about (X) from the rest of the network must flow through either:</p>
+<ul>
+<li>what directly influences (X) (parents),</li>
+<li>what (X) directly influences (children),</li>
+<li>or alternative explanations for (X)’s children (co-parents).</li>
+</ul>
+<p>Condition on those, and the rest of the graph becomes irrelevant for predicting or inferring (X).</p>
+<h3 id="why-markov-blankets-matter-in-practice">Why Markov blankets matter in practice</h3>
+<ul>
+<li><strong>Feature selection</strong>: focus only on the most relevant variables for predicting a target.</li>
+<li><strong>Faster inference</strong>: many queries reduce to local neighborhoods.</li>
+<li><strong>Interpretability</strong>: the blanket is a compact “explanation set” for what drives the target.</li>
+</ul>
+<h3 id="a-simple-example">A simple example</h3>
+<p>Suppose your target is whether a patient has a condition (X). In a Bayesian network, plausible Markov blanket members might include:</p>
+<ul>
+<li><strong>Parents</strong>: risk factors that directly influence (X) (e.g., age, exposure variables)</li>
+<li><strong>Children</strong>: observed symptoms influenced by (X)</li>
+<li><strong>Co-parents</strong>: other causes of those symptoms (alternative explanations)</li>
+</ul>
+<p>The Markov blanket idea says: to reason about (X), you don’t need “everything”—you need the smallest set that shields (X) from the rest.</p>
+<h3 id="beyond-pearl-friston-blankets-briefly">Beyond Pearl: Friston blankets (briefly)</h3>
+<p>You’ll sometimes see <strong>Friston’s Markov blanket</strong> in neuroscience/active inference: it partitions states into internal vs external, connected through <em>sensory</em> and <em>active</em> boundary states. It’s related in spirit (a conditional-independence boundary), but it’s used for different modeling questions than the standard Bayesian-network Markov blanket above.</p>
+<h2 id="closing-thought">Closing thought</h2>
+<p>PGMs are powerful whenever you need more than point forecasts: they model <strong>full distributions</strong>, support <strong>updating under new information</strong>, and—via Markov blankets—help you scale to higher-dimensional systems without losing interpretability.</p>
+
+    </div>
+  </div>
+</article>
+
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/site/js/vendor-bundle.min.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+  <script src="/site/js/wowchemy-headroom.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/site/en/js/wowchemy.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

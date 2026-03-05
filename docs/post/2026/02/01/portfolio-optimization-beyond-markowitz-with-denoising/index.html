@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: February 21, 2026 --><html lang="en" >
+<!-- Last Published: March 5, 2026 --><html lang="en" >
 
 
 <head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
@@ -683,7 +683,7 @@
 <hr>
 <h2 id="1-baseline-markowitz-mvo">1. Baseline: Markowitz MVO</h2>
 <p>The traditional MVO solves for the portfolio weights \(\mathbf{w}^{*}\) that maximise the Sharpe ratio:</p>
-<p>$$\mathbf{w}^{*} = \underset{\mathbf{w}}{\operatorname{argmax}} ; \frac{\mathbf{w}^{\top} \mu}{\sqrt{\mathbf{w}^{\top} \Sigma \mathbf{w}}}$$</p>
+<p>$$\mathbf{w}^{*} = \underset{\mathbf{w}}{\operatorname{argmax}} \ \frac{\mathbf{w}^{\top} \mu}{\sqrt{\mathbf{w}^{\top} \Sigma \mathbf{w}}}$$</p>
 <p>subject to \(\mathbf{w} \geq 0\), \(\sum w_{i} = 1\).</p>
 <p>The efficient frontier traces all optimal risk-return trade-offs, but the weights that land on it are notoriously sensitive to small perturbations in \(\Sigma\). Even minor changes in the estimated covariance can produce wildly different allocations.</p>
 <hr>
@@ -696,17 +696,17 @@
 <p>The LW method shrinks all correlations uniformly toward zero, reducing noise without dramatically altering the portfolio structure.</p>
 <h3 id="22-enhanced-portfolio-optimization-epo">2.2 Enhanced Portfolio Optimization (EPO)</h3>
 <p>EPO controls the tension between a fully data-driven portfolio and a maximally diversified one through a single shrinkage parameter \(w \in [0, 1]\). Rather than denoising the covariance matrix in eigenvalue space, EPO acts directly on the off-diagonal correlations, blending the historical covariance with a diagonal target:</p>
-<p>$$\tilde{\Sigma} = (1 - w),\Sigma_{\mathrm{hist}} + w,\Sigma_{\mathrm{target}}$$</p>
+<p>$$\tilde{\Sigma} = (1 - w)\ \Sigma_{\mathrm{hist}} + w\ \Sigma_{\mathrm{target}}$$</p>
 <p>Here \(\Sigma_{\mathrm{hist}}\) is the sample covariance carrying all historical correlations, while \(\Sigma_{\mathrm{target}}\) retains only the diagonal variances — setting every cross-asset covariance to zero. As \(w\) increases from 0 to 1, the optimizer progressively ignores inter-asset correlations, transitioning the solution from a concentrated MVO portfolio toward a signal-weighted diversified one.</p>
 <p>In its simplest form (Simple EPO), this shrinkage has a transparent closed-form interpretation. The resulting weight vector decomposes as a convex combination of two portfolios:</p>
-<p>$$\mathbf{w}_{\mathrm{EPO}} = (1 - w),\mathbf{w}_{\mathrm{MVO}} + w,\mathbf{w}_{\mathrm{signal}}$$</p>
+<p>$$\mathbf{w}_{\mathrm{EPO}} = (1 - w)\ \mathbf{w}_{\mathrm{MVO}} + w\ \mathbf{w}_{\mathrm{signal}}$$</p>
 <p>where \(\mathbf{w}_{\mathrm{MVO}}\) are the classical mean-variance weights (sensitive to noisy correlations in \(\Sigma_{\mathrm{hist}}\)) and \(\mathbf{w}_{\mathrm{signal}}\) are signal-only weights derived from expected returns alone, ignoring cross-asset structure entirely. The parameter \(w\) thus provides a direct, interpretable dial between estimation-risk-heavy MVO and a pure-signal allocation.</p>
 <h3 id="23-marchenkopastur-denoising">2.3 Marchenko–Pastur Denoising</h3>
 <p>Random Matrix Theory (RMT) offers a more surgical approach to denoising. The key insight is that when \(T\) observations of \(N\) asset returns are drawn from a true covariance matrix \(\Sigma\), the eigenvalues of the sample covariance \(S\) are systematically distorted. If the returns were purely random (i.e., \(\Sigma = I\)), the eigenvalue density of \(S\) would follow the <strong>Marchenko–Pastur distribution</strong>:</p>
 <p>$$f_{\mathrm{MP}}(\lambda) = \frac{T}{2 \pi \sigma^{2} N} \frac{\sqrt{(\lambda_{+} - \lambda)(\lambda - \lambda_{-})}}{\lambda}$$</p>
-<p>for \(\lambda \in [\lambda_{-},; \lambda_{+}]\), where the bounds are:</p>
+<p>for \(\lambda \in [\lambda_{-},\ \lambda_{+}]\), where the bounds are:</p>
 <p>$$\lambda_{\pm} = \sigma^{2} \left(1 \pm \sqrt{\frac{N}{T}}\right)^{2}$$</p>
-<p>and \(\sigma^{2}\) is the variance of the noise. Eigenvalues that fall within \([\lambda_{-},; \lambda_{+}]\) are consistent with pure randomness — they carry no genuine signal. Eigenvalues above \(\lambda_{+}\) reflect true structure in the data: sector exposures, market factors, and other real correlations.</p>
+<p>and \(\sigma^{2}\) is the variance of the noise. Eigenvalues that fall within \([\lambda_{-},\  \lambda_{+}]\) are consistent with pure randomness — they carry no genuine signal. Eigenvalues above \(\lambda_{+}\) reflect true structure in the data: sector exposures, market factors, and other real correlations.</p>
 <p>The denoising procedure works as follows:</p>
 <ol>
 <li><strong>Compute the eigendecomposition</strong> of the sample correlation matrix: \(C = Q \Lambda Q^{\top}\).</li>
@@ -723,7 +723,7 @@
 <h3 id="24-bayesian-approaches">2.4 Bayesian Approaches</h3>
 <p>The Bayesian framework treats \(\mu\), \(\Sigma\), and the weights \(\mathbf{w}\) as random variables, naturally incorporating parameter uncertainty:</p>
 <ul>
-<li><strong>Priors:</strong> Normal for mean returns; Half-Normal for volatilities; \(\mathrm{LKJ}(\eta = 2)\) for the correlation matrix (encouraging shrinkage toward independence); Dirichlet for weights (ensuring they sum to one and lie in \([0, 1]\)).</li>
+<li><strong>Priors:</strong> Normal for mean returns  Half-Normal for volatilities; \(\mathrm{LKJ}(\eta = 2)\) for the correlation matrix (encouraging shrinkage toward independence); Dirichlet for weights (ensuring they sum to one and lie in \([0, 1]\)).</li>
 <li><strong>Constraints and objectives</strong> (weight caps, Sharpe maximisation) are encoded as potential functions in the MCMC sampler, making parameter estimation and portfolio construction a single unified step.</li>
 </ul>
 <p>In practice, the Bayesian Normal model substantially outperforms the baseline across Sharpe ratio, drawdown, and volatility. Two factors drive this:</p>

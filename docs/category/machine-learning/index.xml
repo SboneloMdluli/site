@@ -5,12 +5,152 @@
     <link>http://localhost:1313/site/category/machine-learning/</link>
       <atom:link href="http://localhost:1313/site/category/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <description>Machine Learning</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Tue, 08 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png</url>
       <title>Machine Learning</title>
       <link>http://localhost:1313/site/category/machine-learning/</link>
     </image>
+    
+    <item>
+      <title>Probabilistic Graphical Models</title>
+      <link>http://localhost:1313/site/post/2026/02/22/probabilistic-graphical-models/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2026/02/22/probabilistic-graphical-models/</guid>
+      <description>&lt;p&gt;Probabilistic graphical models (PGMs) provide a mathematical framework that combines probability theory and graph theory in order to represent complex relationships among random variables. Two broad classes of PGMs are commonly distinguished: &lt;strong&gt;belief networks&lt;/strong&gt; (Bayesian networks) and &lt;strong&gt;Markov networks&lt;/strong&gt; (Markov random fields).&lt;/p&gt;
+&lt;h2 id=&#34;preliminaries-probability-and-graphs&#34;&gt;Preliminaries: probability and graphs&lt;/h2&gt;
+&lt;p&gt;A probability space is defined by the triplet $\left(\Omega, \mathcal{F}, \mathbb{P}\right)$, where $\Omega$ is the sample space (the set of all possible outcomes of an experiment), $\mathcal{F}$ is a $\sigma$-algebra of events (subsets of $\Omega$), and $\mathbb{P}$ is a probability measure assigning a probability to each event in $\mathcal{F}$.&lt;/p&gt;
+&lt;p&gt;Informally, a random variable $X$ is a measurable function $X: \Omega \to \mathbb{R}$, mapping outcomes in $\Omega$ to real numbers.&lt;/p&gt;
+&lt;p&gt;A fundamental identity in PGMs is the &lt;strong&gt;chain rule&lt;/strong&gt;. Given random variables $X_1, \dots, X_n$, their joint distribution factorizes as:&lt;/p&gt;
+&lt;p&gt;$$
+P(X_1, \ldots, X_n) = \prod_{i=1}^{n} P\left(X_i \mid X_1, \ldots, X_{i-1}\right)
+$$&lt;/p&gt;
+&lt;p&gt;A graph $G$ is defined by a set of vertices $V$ and a set of edges $E$. There are two main types of graphs: directed and undirected.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Directed graphs&lt;/strong&gt; have edges with orientation, denoted as $X \rightarrow Y$, indicating that $X$ is a parent of $Y$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Undirected graphs&lt;/strong&gt; have edges without orientation, so connections are symmetric between nodes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In undirected graphs, the notion of a clique is important.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Definition (clique):&lt;/strong&gt; A clique is a complete subgraph; that is, a set of vertices $C \subseteq V$ such that every pair of vertices in $C$ is connected by an edge. A clique is &lt;strong&gt;maximal&lt;/strong&gt; if it is not properly contained in any larger clique.&lt;/p&gt;
+&lt;h2 id=&#34;belief-networks-bayesian-networks&#34;&gt;Belief networks (Bayesian networks)&lt;/h2&gt;
+&lt;p&gt;A belief network is a &lt;strong&gt;directed acyclic graph (DAG)&lt;/strong&gt; that represents conditional dependencies among random variables. The defining property is a local Markov condition: each variable is conditionally independent of its non-descendants given its parents. Consequently, the joint distribution factorizes as&lt;/p&gt;
+&lt;p&gt;$$
+P(X_1,\ldots,X_n) = \prod_{i=1}^{n} P\left(X_i \mid {\mathrm{Pa}(X_{i-1})}\right)
+$$&lt;/p&gt;
+&lt;p&gt;where (\mathrm{Pa}(X_i)) denotes the set of parent nodes of (X_i) in the DAG, and (x_{\mathrm{Pa}(X_i)}) denotes the values assigned to those parent variables.&lt;/p&gt;
+&lt;h3 id=&#34;d-separation&#34;&gt;D-separation&lt;/h3&gt;
+&lt;p&gt;To formally describe conditional independence relationships among random variables in a belief network, one introduces &lt;strong&gt;directed separation (d-separation)&lt;/strong&gt;. The three canonical motifs are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Chain&lt;/strong&gt; ((X \to Z \to Y))&lt;/p&gt;
+&lt;p&gt;$$
+P(x,z,y) = P(x)\ P(z\mid x)\ P(y\mid z)
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Fork&lt;/strong&gt; ((X \leftarrow Z \to Y))&lt;/p&gt;
+&lt;p&gt;$$
+P(x,z,y) = P(z)\ P(x\mid z)\ P(y\mid z)
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Collider&lt;/strong&gt; ((X \to Z \leftarrow Y)) (with (X \perp!!!\perp Y) implied by the collider graph)&lt;/p&gt;
+&lt;p&gt;$$
+P(x,z,y) = P(x)\ P(y)\ P(z\mid x,y)
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These motifs determine when paths transmit or block statistical dependence under conditioning, and they provide a graphical criterion for reading off conditional independences implied by the model.&lt;/p&gt;
+&lt;p&gt;Belief networks provide an efficient and interpretable representation of complex joint distributions through conditional independence. However, they may incur substantial computational cost and can scale poorly for large or densely connected systems. Moreover, the acyclicity constraint restricts the class of interactions that can be represented directly, which motivates the consideration of alternative undirected models.&lt;/p&gt;
+&lt;h2 id=&#34;markov-networks-markov-random-fields&#34;&gt;Markov networks (Markov random fields)&lt;/h2&gt;
+&lt;p&gt;A Markov network is a probabilistic model represented by an &lt;strong&gt;undirected&lt;/strong&gt; graph. In contrast to belief networks, the joint distribution is expressed in terms of nonnegative potential functions defined over cliques. Let (\mathcal{C}) denote a collection of (typically maximal) cliques. The joint distribution takes the form&lt;/p&gt;
+&lt;p&gt;$$
+P(x) = \frac{1}{Z}\prod_{C \in \mathcal{C}} \psi_C(x_C)
+$$&lt;/p&gt;
+&lt;p&gt;where $\psi_C(x_C) \geq 0$ is a nonnegative potential function defined on the variables in clique $C$, and $Z$ is called the &lt;strong&gt;partition function&lt;/strong&gt;. The partition function serves to normalize the distribution, ensuring that the total probability sums (or integrates) to 1.&lt;/p&gt;
+&lt;h3 id=&#34;the-partition-function&#34;&gt;The partition function&lt;/h3&gt;
+&lt;p&gt;The partition function $Z$ is defined so that $P(x)$ is a valid probability distribution. In the discrete case, where $x$ ranges over a finite or countable state space $\mathcal{X}$,&lt;/p&gt;
+&lt;p&gt;$$
+Z = \sum_{x \in \mathcal{X}} \prod_{C \in \mathcal{C}} \psi_C(x_C)
+$$&lt;/p&gt;
+&lt;p&gt;and in the continuous case the corresponding expression is an integral:&lt;/p&gt;
+&lt;p&gt;$$
+Z = \int \prod_{C \in \mathcal{C}} \psi_C(x_C),dx
+$$&lt;/p&gt;
+&lt;p&gt;Beyond its normalizing role, (Z) (and its logarithm, the log-partition function) governs many quantities of interest, including marginal likelihoods and gradients used in parameter estimation for undirected models. In general, computing (Z) exactly is intractable for large graphs, and practical methods rely on approximations&lt;/p&gt;
+&lt;p&gt;Markov networks satisfy the following Markov properties:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Global Markov property&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Local Markov property&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pairwise Markov property&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;They represent conditional independence via graph separation and are more flexible than belief networks in that they impose no acyclicity constraint. Nonetheless, due to the absence of edge orientation, Markov networks do not directly encode causal relationships. A belief network can be transformed into an undirected graph via moralization, although such transformations do not, in general, preserve all conditional independence relations.&lt;/p&gt;
+&lt;h2 id=&#34;markov-models-markov-chains&#34;&gt;Markov models (Markov chains)&lt;/h2&gt;
+&lt;p&gt;Separately from Markov networks, the term &lt;em&gt;Markov model&lt;/em&gt; is often used to refer to &lt;strong&gt;Markov chains&lt;/strong&gt;, i.e., stochastic processes ({X_t}_{t\ge 0}) that satisfy the &lt;strong&gt;Markov property&lt;/strong&gt;. In discrete time, this property states that the conditional distribution of the next state depends only on the present state:&lt;/p&gt;
+&lt;p&gt;$$
+\mathbb{P}(X_{t+1}=x \mid X_t, X_{t-1}, \ldots, X_0) = \mathbb{P}(X_{t+1}=x \mid X_t)
+$$&lt;/p&gt;
+&lt;p&gt;Equivalently, (X_{t+1}) is conditionally independent of ((X_{t-1},\ldots,X_0)) given (X_t).&lt;/p&gt;
+&lt;p&gt;For a finite-state, time-homogeneous discrete-time Markov chain, the dynamics are characterized by a &lt;strong&gt;transition matrix&lt;/strong&gt; (P) with entries&lt;/p&gt;
+&lt;p&gt;$$
+P_{ij} = \mathbb{P}(X_{t+1}=j \mid X_t=i)
+$$&lt;/p&gt;
+&lt;p&gt;and (k)-step transition probabilities are given by matrix powers (P^k). Under standard conditions (e.g., irreducibility and aperiodicity), the chain admits a stationary distribution (\pi) satisfying (\pi^\top P = \pi^\top).&lt;/p&gt;
+&lt;p&gt;In continuous time, Markov chains are specified via an &lt;strong&gt;infinitesimal generator&lt;/strong&gt; (Q), which encodes transition rates and yields transition probabilities through (P(t) = \exp(Qt)). Common variants discussed in applications include discrete-time Markov chains (DTMCs), continuous-time Markov chains (CTMCs), absorbing chains, and reversible chains.&lt;/p&gt;
+&lt;h2 id=&#34;parameter-learning-and-structure-learning&#34;&gt;Parameter learning and structure learning&lt;/h2&gt;
+&lt;p&gt;It is important to distinguish between learning &lt;strong&gt;parameters&lt;/strong&gt; and learning &lt;strong&gt;structure&lt;/strong&gt;. These tasks play complementary roles in constructing and using graphical models.&lt;/p&gt;
+&lt;h3 id=&#34;parameter-learning&#34;&gt;Parameter learning&lt;/h3&gt;
+&lt;p&gt;Parameter learning concerns the estimation of numerical quantities (e.g., conditional probabilities in a Bayesian network) when the graph structure is known or assumed. In discrete Bayesian networks, the parameters are commonly represented as conditional probability tables (CPTs), which quantify the distribution of each variable conditional on its parent configuration.&lt;/p&gt;
+&lt;p&gt;Two broad approaches are typical:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Maximum likelihood estimation&lt;/strong&gt;, which reduces to counting configurations and normalizing in the fully observed discrete case.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bayesian estimation&lt;/strong&gt;, which combines prior beliefs with observed data (e.g., using conjugate priors such as Dirichlet distributions for multinomial parameters).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When data are incomplete, parameter learning typically requires iterative procedures such as expectation–maximization (EM) or sampling-based methods (e.g., Gibbs sampling).&lt;/p&gt;
+&lt;h3 id=&#34;structure-learning&#34;&gt;Structure learning&lt;/h3&gt;
+&lt;p&gt;Structure learning aims to infer the graph topology from data, i.e., to determine which conditional dependencies should be represented by edges. This problem is substantially more difficult than parameter learning because the number of candidate structures grows rapidly with the number of variables.&lt;/p&gt;
+&lt;p&gt;Two major families of methods are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Constraint-based methods&lt;/strong&gt;, which use statistical tests of conditional independence to prune edges and orient a compatible structure (e.g., the PC algorithm).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Score-based methods&lt;/strong&gt;, which treat structure learning as an optimization problem by assigning scores that balance goodness-of-fit with complexity (e.g., BIC, BDe, MDL), then searching the space of structures via greedy or stochastic heuristics (e.g., hill climbing, simulated annealing).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;inferred-causality-algorithm-pc-algorithm&#34;&gt;Inferred causality algorithm (PC algorithm)&lt;/h3&gt;
+&lt;p&gt;The PC algorithm is an example of this type of approach. It starts with a complete undirected graph that contains an edge linking every pair of variables, and gradually removes edges until the only edges remaining are directed edges oriented correctly.&lt;/p&gt;
+&lt;p&gt;Hybrid approaches combine these ideas, for example by learning an undirected skeleton via tests and then refining edge orientations using a scoring criterion. Practical challenges include computational complexity, the existence of Markov-equivalent structures, the need for increasing sample size as dimensionality grows, and the influence of latent variables.&lt;/p&gt;
+&lt;h3 id=&#34;key-distinctions-between-parameter-and-structure-learning&#34;&gt;Key distinctions between parameter and structure learning&lt;/h3&gt;
+&lt;p&gt;Parameter learning estimates numerical quantities associated with an assumed structure, whereas structure learning seeks to determine which conditional dependencies are present, often by identifying (in)dependencies among variables. In practice, parameter learning is typically computationally manageable under complete data, while structure learning is resource intensive and frequently relies on heuristic or approximate search procedures. Moreover, the sample complexity of structure learning increases rapidly with the number of variables, motivating constraints such as variable selection or limits on the maximum number of parents per node.&lt;/p&gt;
+&lt;h2 id=&#34;markov-blankets&#34;&gt;Markov blankets&lt;/h2&gt;
+&lt;p&gt;The &lt;strong&gt;Markov blanket&lt;/strong&gt; of a target variable (X) is the minimal set of variables that separates (X) from the remainder of the graph, in the sense that conditioning on this set renders (X) conditionally independent of all other variables.&lt;/p&gt;
+&lt;p&gt;In a &lt;strong&gt;Bayesian network&lt;/strong&gt;, the (Pearl) Markov blanket of (X) is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Parents of (X)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Children of (X)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Co-parents of (X)&lt;/strong&gt; (the other parents of (X)’s children)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If we write the Markov blanket as (\mathrm{MB}(X)), the key property is:&lt;/p&gt;
+&lt;p&gt;$$
+X \perp!!!\perp \left(V \setminus \left({X}\cup \mathrm{MB}(X)\right)\right) \mid \mathrm{MB}(X)
+$$&lt;/p&gt;
+&lt;p&gt;The Markov blanket concept is frequently used for local prediction and inference: to predict (X) it suffices, under the model assumptions, to condition on (\mathrm{MB}(X)) rather than the full set of variables. Consequently, Markov blankets provide a principled criterion for identifying a compact set of variables that are most directly relevant to a target of interest.&lt;/p&gt;
+&lt;h3 id=&#34;types-of-markov-blankets&#34;&gt;Types of Markov blankets&lt;/h3&gt;
+&lt;p&gt;Two commonly cited notions are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Pearl Markov blanket&lt;/strong&gt;: the Bayesian-network construction described above (parents, children, and co-parents).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Friston Markov blanket&lt;/strong&gt;: a boundary-state formalism used in active inference which partitions states into internal and external, mediated by sensory and active states.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;advantages-and-limitations&#34;&gt;Advantages and limitations&lt;/h3&gt;
+&lt;p&gt;Advantages of applying Markov blankets include:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Computational efficiency&lt;/strong&gt;: inference and prediction for a target variable can be localized to a comparatively small subset of variables.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interpretability&lt;/strong&gt;: the blanket provides a compact description of the most directly relevant dependencies for a target.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Limitations include:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Discovery cost&lt;/strong&gt;: in high-dimensional settings, identifying a minimal blanket (or a suitable approximation) can be computationally demanding.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data requirements&lt;/strong&gt;: reliable blanket identification may require substantial sample sizes. With limited data, estimated blankets may be unstable or misleading.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>Image Retrieval</title>
