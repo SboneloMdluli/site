@@ -3,7 +3,7 @@ title: "Image Retrieval"
 date: 2025-04-08
 summary: "A comprehensive guide to building a modular image retrieval system with CLIP embeddings and Faiss. This article details the complete architecture including data pipelines with Kedro and Dask, feature storage with Feast..."
 tags: ["Machine Learning"]
-categories: [Machine Learning]
+categories: ["Machine Learning"]
 math: true
 ---
 
@@ -48,8 +48,6 @@ The current implementation uses a flat index suitable for small-scale searches (
 We further add an image captioning model to generate text from the given retrieved images.
 
 ## Feature Store
-
-The feature store houses images, embeddings, and image byte data, enabling data science teams to reuse this information without repeating EDA, feature engineering, or modeling tasks. This promotes efficiency and cost savings. Feast is used for the feature store, which provides:
 
 The feature store houses images, embeddings, and image byte data using Feast, which provides:
 

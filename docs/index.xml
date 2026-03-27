@@ -23,7 +23,7 @@
 &lt;p&gt;Informally, a random variable $X$ is a measurable function $X: \Omega \to \mathbb{R}$, mapping outcomes in $\Omega$ to real numbers.&lt;/p&gt;
 &lt;p&gt;A fundamental identity in PGMs is the chain rule. Given random variables $X_1, \dots, X_n$, their joint distribution factorizes as:&lt;/p&gt;
 &lt;p&gt;$$
-P(X_1, \ldots, X_n) = \prod_{i=1}^{n} P\left(X_i \mid X_1, \ldots, X_{i-1}\right)
+\mathbb{P}(X_1, \ldots, X_n) = \prod_{i=1}^{n} \mathbb{P}\left(X_i \mid X_1, \ldots, X_{i-1}\right)
 $$&lt;/p&gt;
 &lt;p&gt;A graph $G$ is defined by a set of vertices $V$ and a set of edges $E$. There are two main types of graphs: directed and undirected.&lt;/p&gt;
 &lt;ul&gt;
@@ -35,7 +35,7 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;belief-networks-bayesian-networks&#34;&gt;Belief networks (Bayesian networks)&lt;/h2&gt;
 &lt;p&gt;A belief network is a directed acyclic graph (DAG) that represents conditional dependencies among random variables. The defining property is a local Markov condition: each variable is conditionally independent of its non-descendants given its parents. Consequently, the joint distribution factorizes as&lt;/p&gt;
 &lt;p&gt;$$
-P(X_1,\ldots,X_n) = \prod_{i=1}^{n} P\left(X_i \mid {\mathrm{Pa}(X_{i-1})}\right)
+\mathbb{P}(X_1,\ldots,X_n) = \prod_{i=1}^{n} \mathbb{P}\left(X_i \mid {\mathrm{Pa}(X_{i-1})}\right)
 $$&lt;/p&gt;
 &lt;p&gt;where $\mathrm{Pa}(X_{i-1})$ denotes the set of parent nodes of $X_{i-1}$ in the DAG.&lt;/p&gt;
 &lt;h3 id=&#34;d-separation&#34;&gt;D-separation&lt;/h3&gt;
@@ -44,19 +44,19 @@ $$&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;Chain $(X \rightarrow Z \rightarrow Y)$&lt;/p&gt;
 &lt;p&gt;$$
-P(x,z,y) = P(x)\ P(z\mid x)\ P(y\mid z)
+\mathbb{P}(x,z,y) = \mathbb{P}(x)\ \mathbb{P}(z\mid x)\ \mathbb{P}(y\mid z)
 $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Fork $(X \leftarrow Z \rightarrow Y)$&lt;/p&gt;
 &lt;p&gt;$$
-P(x,z,y) = P(z)\ P(x\mid z)\ P(y\mid z)
+\mathbb{P}(x,z,y) = \mathbb{P}(z)\ \mathbb{P}(x\mid z)\ \mathbb{P}(y\mid z)
 $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Collider $(X \rightarrow Z \leftarrow Y)$ with $X \perp Y \mid Z$&lt;/p&gt;
 &lt;p&gt;$$
-P(x,z,y) = P(x)\ P(y)\ P(z\mid x,y)
+\mathbb{P}(x,z,y) = \mathbb{P}(x)\ \mathbb{P}(y)\ \mathbb{P}(z\mid x,y)
 $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -65,11 +65,11 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;markov-networks-markov-random-fields&#34;&gt;Markov networks (Markov random fields)&lt;/h2&gt;
 &lt;p&gt;A Markov network is a probabilistic model represented by an undirected graph. In contrast to belief networks, the joint distribution is expressed in terms of nonnegative potential functions defined over cliques. Let $\mathcal{C}$ denote a collection of maximal cliques. The joint distribution takes the form&lt;/p&gt;
 &lt;p&gt;$$
-P(x) = \frac{1}{Z}\prod_{C \in \mathcal{C}} \psi_C(x_C)
+\mathbb{P}(x) = \frac{1}{Z}\prod_{C \in \mathcal{C}} \psi_C(x_C)
 $$&lt;/p&gt;
 &lt;p&gt;where $\psi_C(x_C) \geq 0$ is a nonnegative potential function defined on the variables in clique $C$, and $Z$ is called the partition function. The partition function serves to normalize the distribution, ensuring that the total probability sums (or integrates) to 1.&lt;/p&gt;
 &lt;h3 id=&#34;the-partition-function&#34;&gt;The partition function&lt;/h3&gt;
-&lt;p&gt;The partition function $Z$ is defined so that $P(x)$ is a valid probability distribution. In the discrete case, where $x$ ranges over a finite or countable state space $\mathcal{X}$,&lt;/p&gt;
+&lt;p&gt;The partition function $Z$ is defined so that $\mathbb{P}(x)$ is a valid probability distribution. In the discrete case, where $x$ ranges over a finite or countable state space $\mathcal{X}$,&lt;/p&gt;
 &lt;p&gt;$$
 Z = \sum_{x \in \mathcal{X}} \prod_{C \in \mathcal{C}} \psi_C(x_C)
 $$&lt;/p&gt;
@@ -137,10 +137,6 @@ $$&lt;/p&gt;
 &lt;li&gt;Children of $X$&lt;/li&gt;
 &lt;li&gt;Co-parents of $X$ (the other parents of $X$’s children)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If we write the Markov blanket as $\mathrm{MB}(X)$, the key property is:&lt;/p&gt;
-&lt;p&gt;$$
-X \perp!!!\perp \big( V \setminus ({X} \cup \mathrm{MB}(X)) \big) ;\big|; \mathrm{MB}(X)
-$$&lt;/p&gt;
 &lt;p&gt;The Markov blanket concept is frequently used for local prediction and inference: to predict $X$ it suffices, under the model assumptions, to condition on $\mathrm{MB}(X)$ rather than the full set of variables. Consequently, Markov blankets provide a principled criterion for identifying a compact set of variables that are most directly relevant to a target of interest.&lt;/p&gt;
 &lt;h3 id=&#34;types-of-markov-blankets&#34;&gt;Types of Markov blankets&lt;/h3&gt;
 &lt;p&gt;Two commonly cited notions are:&lt;/p&gt;
@@ -159,6 +155,7 @@ $$&lt;/p&gt;
 &lt;li&gt;Discovery cost: in high-dimensional settings, identifying a minimal blanket (or a suitable approximation) can be computationally demanding.&lt;/li&gt;
 &lt;li&gt;Data requirements: reliable blanket identification may require substantial sample sizes. With limited data, estimated blankets may be unstable or misleading.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;read more &lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/probabilistic_graphical_models.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;notebook&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -277,19 +274,19 @@ $$&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Merton Jump Diffusion Model&lt;/strong&gt;: Extends the Black-Scholes framework by adding random jumps in asset prices, capturing sudden market moves.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;2-heston-model&#34;&gt;2. Heston Model&lt;/h2&gt;
-&lt;p&gt;The Heston model describes the evolution of an asset price $S_t$ and its variance $v_t$ as:&lt;/p&gt;
+&lt;p&gt;The Heston model jointly evolves the asset price $S_t$ and its instantaneous variance $v_t$ (so volatility is $\sqrt{v_t}$):&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 dS_t = \mu S_t dt + \sqrt{v_t}\ S_t\ dW_t^S
 \end{equation*}&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 dv_t = \kappa (\theta - v_t) dt + \sigma \sqrt{v_t}\ dW_t^v
 \end{equation*}&lt;/p&gt;
-&lt;p&gt;where $dW_t^S$ and $dW_t^v$ are correlated Brownian motions.&lt;/p&gt;
+&lt;p&gt;Here, $\mu$ is the drift term, $\kappa$ is the speed of mean reversion of variance, $\theta$ is the long-run variance level, and $\sigma$ is the volatility of variance (vol-of-vol). The shocks $dW_t^S$ and $dW_t^v$ are Brownian increments for the price and variance processes, respectively, and they satisfy:&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 dW_t^S dW_t^v = \rho dt
 \end{equation*}&lt;/p&gt;
 &lt;p&gt;Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.&lt;/p&gt;
-&lt;p&gt;In the Heston model, the two Brownian motions $dW_t^S$ and $dW_t^v$ are correlated with correlation coefficient $\rho$. To simulate these correlated processes using independent standard normal variables, we use the Cholesky decomposition.&lt;/p&gt;
+&lt;p&gt;To simulate correlated shocks, let $Z_1$ and $Z_2$ be independent standard normals and set:&lt;/p&gt;
 &lt;p&gt;Let $Z_1$ and $Z_2$ be independent standard normal random variables. The correlated Brownian increments can be constructed as:&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 dW_t^S = \sqrt{dt}\ Z_1
@@ -297,30 +294,30 @@ dW_t^S = \sqrt{dt}\ Z_1
 &lt;p&gt;\begin{equation*}
 dW_t^v = \rho \sqrt{dt}\ Z_1 + \sqrt{1-\rho^2}\ \sqrt{dt}\ Z_2
 \end{equation*}&lt;/p&gt;
-&lt;p&gt;This transformation ensures that $dW_t^S$ and $dW_t^v$ have the desired correlation $\rho$.&lt;/p&gt;
-&lt;p&gt;The Cholesky decomposition is used to decompose the covariance matrix of the Brownian motions, allowing us to generate correlated random variables from independent ones. For a $2 \times 2$ covariance matrix:&lt;/p&gt;
+&lt;p&gt;This guarantees the required instantaneous correlation $\rho$. In matrix form, the correlation matrix is&lt;/p&gt;
 &lt;p&gt;$$
 \Sigma = \begin{pmatrix} 1 &amp;amp; \rho \ \rho &amp;amp; 1 \end{pmatrix}
 $$&lt;/p&gt;
-&lt;p&gt;The Cholesky factor $L$ is:&lt;/p&gt;
+&lt;p&gt;with Cholesky factor&lt;/p&gt;
 &lt;p&gt;$$
 L = \begin{pmatrix} 1 &amp;amp; 0 \ \rho &amp;amp; \sqrt{1-\rho^2} \end{pmatrix}
 $$&lt;/p&gt;
-&lt;p&gt;Given $\mathbf{Z} = (Z_1, Z_2)^T$, the correlated increments are $L \mathbf{Z}$.&lt;/p&gt;
+&lt;p&gt;so that, for $\mathbf{Z}=(Z_1,Z_2)^T$, the correlated increments are $L\mathbf{Z}$.&lt;/p&gt;
 &lt;p&gt;For a detailed explanation see &lt;a href=&#34;https://www.youtube.com/watch?v=HG3s2StHB3k&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this video on the Heston model&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;3-merton-jump-diffusion-model&#34;&gt;3. Merton Jump Diffusion Model&lt;/h2&gt;
-&lt;p&gt;The Merton model modifies the standard geometric Brownian motion by adding jumps:&lt;/p&gt;
+&lt;p&gt;The Merton model extends geometric Brownian motion by adding a jump component:&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 dS_t = (r - r_j) S_t dt + \sigma S_t dZ_t + J_t S_t dN_t
 \end{equation*}&lt;/p&gt;
+&lt;p&gt;In this model, $r$ is the risk-free rate, $dZ_t$ is the diffusion shock, and $\sigma$ is diffusion volatility (distinct from the Heston vol-of-vol parameter). The Poisson increment $dN_t$ captures random jump arrivals, and $J_t$ controls jump size. The compensator $r_j$ adjusts drift so jump risk is accounted for in expectation.&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
-S_= S_{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{dt} z_t^1}+
+S_t = S_{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{dt} z_t^1}+
 \left(e^{\mu_j+\delta z_t^2}-1 \right) y_t \right)
 \end{equation*}&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 r_j = \lambda \left(e^{\mu_j+\frac{\delta^2}{2}}\right)-1
 \end{equation*}&lt;/p&gt;
-&lt;p&gt;where $dN_t$ is a Poisson process representing jumps, and $J_t$ is the jump size. Simulation under this model involves generating asset paths with both continuous and jump components, and pricing options by averaging discounted payoffs.&lt;/p&gt;
+&lt;p&gt;In the discrete update, $S_{t-1}$ is the previous-step price, $z_t^1$ drives the diffusion term, and the jump term uses a random jump indicator/count $y_t$ together with jump-size shock $z_t^2$. Parameters $\lambda$, $\mu_j$, and $\delta$ denote jump intensity, mean log-jump size, and log-jump volatility, respectively. Simulation proceeds by combining diffusion and jump parts pathwise, then discounting payoffs.&lt;/p&gt;
 &lt;h2 id=&#34;4-greeks-calculation&#34;&gt;4. Greeks Calculation&lt;/h2&gt;
 &lt;p&gt;The Greeks measure sensitivities of option prices to various parameters. In this framework, Delta and Gamma are computed using finite difference methods:&lt;/p&gt;
 &lt;ul&gt;
@@ -329,7 +326,7 @@ r_j = \lambda \left(e^{\mu_j+\frac{\delta^2}{2}}\right)-1
 &lt;/ul&gt;
 &lt;p&gt;Finite difference approximations are used to estimate these derivatives numerically.&lt;/p&gt;
 &lt;h2 id=&#34;5-barrier-options&#34;&gt;5. Barrier Options&lt;/h2&gt;
-&lt;p&gt;Barrier options are path-dependent derivatives that only pay off if the underlying asset crosses a certain barrier. The framework includes methods for pricing up-and-in and down-and-in options under both the Heston and Merton models, using Monte Carlo simulation to determine whether the barrier is breached and to compute the discounted payoff accordingly.&lt;/p&gt;
+&lt;p&gt;Barrier options are path-dependent derivatives whose payoff depends on whether the underlying touches a preset barrier during the option life. In a &lt;strong&gt;knock-in&lt;/strong&gt; contract, the option becomes active only if the barrier is hit (for example, an up-and-in call activates only after the price rises to the barrier), while in a &lt;strong&gt;knock-out&lt;/strong&gt; contract, hitting the barrier cancels the option (for example, an up-and-out call is extinguished once the barrier is reached). This makes barrier options generally cheaper than plain vanilla options with similar strikes, since activation/cancellation conditions reduce expected payoff in many paths. Under both Heston and Merton dynamics, pricing is performed by simulating full paths, checking barrier events at each time step, and then discounting the payoff only on paths that satisfy the specific knock-in or knock-out rule.&lt;/p&gt;
 &lt;h2 id=&#34;6-conclusion&#34;&gt;6. Conclusion&lt;/h2&gt;
 &lt;p&gt;This theoretical overview provides the mathematical and computational foundation for advanced option pricing models, including simulation, pricing, and risk analysis. The methods described here are applicable to a wide range of financial derivatives and serve as a reference for both theory and practical implementation.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/stochastic_pricing.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
@@ -407,7 +404,6 @@ r_j = \lambda \left(e^{\mu_j+\frac{\delta^2}{2}}\right)-1
 &lt;p&gt;The current implementation uses a flat index suitable for small-scale searches (1,000-10,000 entries), but can easily transition to larger-scale index types if needed.&lt;/p&gt;
 &lt;p&gt;We further add an image captioning model to generate text from the given retrieved images.&lt;/p&gt;
 &lt;h2 id=&#34;feature-store&#34;&gt;Feature Store&lt;/h2&gt;
-&lt;p&gt;The feature store houses images, embeddings, and image byte data, enabling data science teams to reuse this information without repeating EDA, feature engineering, or modeling tasks. This promotes efficiency and cost savings. Feast is used for the feature store, which provides:&lt;/p&gt;
 &lt;p&gt;The feature store houses images, embeddings, and image byte data using Feast, which provides:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;An offline store (Parquet files) designed for efficient data storage and quick data access&lt;/li&gt;

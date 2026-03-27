@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: March 5, 2026 --><html lang="en" >
+<!-- Last Published: March 27, 2026 --><html lang="en" >
 
 
 <head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
@@ -517,7 +517,7 @@
 
       
       
-      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+      <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
 
         
         <ul class="navbar-nav d-md-inline-flex">
@@ -547,7 +547,107 @@
           
 
           <li class="nav-item">
-            <a class="nav-link  active" href="/site/post/"><span>Posts</span></a>
+            <a class="nav-link  active" href="/site/"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-about-biography"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-experience"><span>Experience</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/site/post/"><span>Articles</span></a>
           </li>
 
           
@@ -656,25 +756,71 @@
 
     
 <article class="article">
-  <div class="article-container">
-    <h1>Image Retrieval</h1>
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress-bar" id="reading-progress-bar"></div>
+  </div>
 
-    <div class="article-metadata">
-      <span class="article-date">
-        April 8, 2025
-      </span>
+  <div class="article-container">
+    <header class="article-hero">
+      <h1>Image Retrieval</h1>
+
+      <div class="article-metadata">
+        <span class="article-date">
+          April 8, 2025
+        </span>
+        <span class="meta-dot">-</span>
+        <span class="article-read-time">3 min read</span>
+        <span class="meta-dot">-</span>
+        <span class="article-word-count">438 words</span>
+
+        
+        <div class="article-categories">
+          
+          <a class="badge badge-primary" href="/site/category/machine-learning/">Machine Learning</a>
+          
+        </div>
+        
+      </div>
+
+      
+      <div class="article-summary-card">
+        <p class="summary-label">Why this matters</p>
+        <p class="summary-text">A comprehensive guide to building a modular image retrieval system with CLIP embeddings and Faiss. This article details the complete architecture including data pipelines with Kedro and Dask, feature storage with Feast&hellip;</p>
+      </div>
+      
 
       
       <div class="article-tags">
         
-        <a class="badge badge-light" href="/tags/machine-learning">Machine Learning</a>
+        <a class="badge badge-light" href="/site/tag/machine-learning/">Machine Learning</a>
         
       </div>
       
-    </div>
+    </header>
 
-    <div class="article-content">
-      <h1 id="image-retrieval-system-design">Image Retrieval System Design</h1>
+    
+    <div class="article-layout">
+      
+      <aside class="article-toc-panel" aria-label="Article contents">
+        <p class="toc-title">On this page</p>
+        <div class="article-toc">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#system-overview">System Overview</a></li>
+    <li><a href="#data-pipeline">Data Pipeline</a></li>
+    <li><a href="#model-architecture">Model Architecture</a></li>
+    <li><a href="#feature-store">Feature Store</a></li>
+    <li><a href="#model-registry">Model Registry</a></li>
+    <li><a href="#backend">Backend</a></li>
+    <li><a href="#frontend">Frontend</a></li>
+  </ul>
+</nav>
+        </div>
+      </aside>
+      
+
+      <div class="article-content">
+        <h1 id="image-retrieval-system-design">Image Retrieval System Design</h1>
 <h2 id="system-overview">System Overview</h2>
 <p>The Image Retrieval System is designed with a modular, separates concerns for optimal performance and maintainability. The system consists of four main components:</p>
 <ol>
@@ -740,7 +886,6 @@
 <p>The current implementation uses a flat index suitable for small-scale searches (1,000-10,000 entries), but can easily transition to larger-scale index types if needed.</p>
 <p>We further add an image captioning model to generate text from the given retrieved images.</p>
 <h2 id="feature-store">Feature Store</h2>
-<p>The feature store houses images, embeddings, and image byte data, enabling data science teams to reuse this information without repeating EDA, feature engineering, or modeling tasks. This promotes efficiency and cost savings. Feast is used for the feature store, which provides:</p>
 <p>The feature store houses images, embeddings, and image byte data using Feast, which provides:</p>
 <ul>
 <li>An offline store (Parquet files) designed for efficient data storage and quick data access</li>
@@ -789,9 +934,28 @@
 <p>The entire system can be easily deployed and containerised using existing Docker files.</p>
 <p><a href="https://github.com/SboneloMdluli/Multi-Modal-Image-Retrieval" target="_blank" rel="noopener">View project →</a></p>
 
+      </div>
     </div>
   </div>
 </article>
+
+<script>
+  (function () {
+    var progressBar = document.getElementById("reading-progress-bar");
+    if (!progressBar) return;
+
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+      progressBar.style.width = Math.min(Math.max(progress, 0), 100) + "%";
+    }
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+  })();
+</script>
 
   </div>
 

@@ -2,8 +2,8 @@
 title: "Stochastic Pricing Models"
 date: 2025-05-10
 summary: "This article provides an exposition of stochastic models for option pricing, focusing on the mathematical formulation and computational techniques underlying the Heston and Merton jump-diffusion frameworks. Analytical and simulation-based approaches for pricing, risk management, and sensitivity analysis are discussed in detail."
-tags: ["Options Pricing", "Quantitative Finance"]
-categories: [Finance, Quantitative]
+tags: ["Quantitative Finance", "Derivatives"]
+categories: ["Quantitative Finance"]
 math: true
 ---
 
@@ -20,7 +20,7 @@ Stochastic models are essential for capturing the randomness in financial market
 
 ## 2. Heston Model
 
-The Heston model describes the evolution of an asset price $S_t$ and its variance $v_t$ as:
+The Heston model jointly evolves the asset price $S_t$ and its instantaneous variance $v_t$ (so volatility is $\sqrt{v_t}$):
 
 \begin{equation*}
 dS_t = \mu S_t dt + \sqrt{v_t}\ S_t\ dW_t^S
@@ -30,7 +30,7 @@ dS_t = \mu S_t dt + \sqrt{v_t}\ S_t\ dW_t^S
 dv_t = \kappa (\theta - v_t) dt + \sigma \sqrt{v_t}\ dW_t^v
 \end{equation*}
 
-where $dW_t^S$ and $dW_t^v$ are correlated Brownian motions.
+Here, $\mu$ is the drift term, $\kappa$ is the speed of mean reversion of variance, $\theta$ is the long-run variance level, and $\sigma$ is the volatility of variance (vol-of-vol). The shocks $dW_t^S$ and $dW_t^v$ are Brownian increments for the price and variance processes, respectively, and they satisfy:
 
 \begin{equation*}
 dW_t^S dW_t^v = \rho dt
@@ -38,7 +38,7 @@ dW_t^S dW_t^v = \rho dt
 
 Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.
 
-In the Heston model, the two Brownian motions $dW_t^S$ and $dW_t^v$ are correlated with correlation coefficient $\rho$. To simulate these correlated processes using independent standard normal variables, we use the Cholesky decomposition.
+To simulate correlated shocks, let $Z_1$ and $Z_2$ be independent standard normals and set:
 
 Let $Z_1$ and $Z_2$ be independent standard normal random variables. The correlated Brownian increments can be constructed as:
 
@@ -50,42 +50,42 @@ dW_t^S = \sqrt{dt}\ Z_1
 dW_t^v = \rho \sqrt{dt}\ Z_1 + \sqrt{1-\rho^2}\ \sqrt{dt}\ Z_2
 \end{equation*}
 
-This transformation ensures that $dW_t^S$ and $dW_t^v$ have the desired correlation $\rho$.
-
-The Cholesky decomposition is used to decompose the covariance matrix of the Brownian motions, allowing us to generate correlated random variables from independent ones. For a $2 \times 2$ covariance matrix:
+This guarantees the required instantaneous correlation $\rho$. In matrix form, the correlation matrix is
 
 $$
 \Sigma = \begin{pmatrix} 1 & \rho \\ \rho & 1 \end{pmatrix}
 $$
 
-The Cholesky factor $L$ is:
+with Cholesky factor
 
 $$
 L = \begin{pmatrix} 1 & 0 \\ \rho & \sqrt{1-\rho^2} \end{pmatrix}
 $$
 
-Given $\mathbf{Z} = (Z_1, Z_2)^T$, the correlated increments are $L \mathbf{Z}$.
+so that, for $\mathbf{Z}=(Z_1,Z_2)^T$, the correlated increments are $L\mathbf{Z}$.
 
 For a detailed explanation see [this video on the Heston model](https://www.youtube.com/watch?v=HG3s2StHB3k).
 
 ## 3. Merton Jump Diffusion Model
 
-The Merton model modifies the standard geometric Brownian motion by adding jumps:
+The Merton model extends geometric Brownian motion by adding a jump component:
 
 \begin{equation*}
 dS_t = (r - r_j) S_t dt + \sigma S_t dZ_t + J_t S_t dN_t
 \end{equation*}
 
-\begin{equation\*}
-S\_= S\_{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{dt} z_t^1}+
+In this model, $r$ is the risk-free rate, $dZ_t$ is the diffusion shock, and $\sigma$ is diffusion volatility (distinct from the Heston vol-of-vol parameter). The Poisson increment $dN_t$ captures random jump arrivals, and $J_t$ controls jump size. The compensator $r_j$ adjusts drift so jump risk is accounted for in expectation.
+
+\begin{equation*}
+S_t = S_{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{dt} z_t^1}+
 \left(e^{\mu_j+\delta z_t^2}-1 \right) y_t \right)
-\end{equation\*}
+\end{equation*}
 
 \begin{equation*}
 r_j = \lambda \left(e^{\mu_j+\frac{\delta^2}{2}}\right)-1
 \end{equation*}
 
-where $dN_t$ is a Poisson process representing jumps, and $J_t$ is the jump size. Simulation under this model involves generating asset paths with both continuous and jump components, and pricing options by averaging discounted payoffs.
+In the discrete update, $S_{t-1}$ is the previous-step price, $z_t^1$ drives the diffusion term, and the jump term uses a random jump indicator/count $y_t$ together with jump-size shock $z_t^2$. Parameters $\lambda$, $\mu_j$, and $\delta$ denote jump intensity, mean log-jump size, and log-jump volatility, respectively. Simulation proceeds by combining diffusion and jump parts pathwise, then discounting payoffs.
 
 ## 4. Greeks Calculation
 
@@ -98,7 +98,7 @@ Finite difference approximations are used to estimate these derivatives numerica
 
 ## 5. Barrier Options
 
-Barrier options are path-dependent derivatives that only pay off if the underlying asset crosses a certain barrier. The framework includes methods for pricing up-and-in and down-and-in options under both the Heston and Merton models, using Monte Carlo simulation to determine whether the barrier is breached and to compute the discounted payoff accordingly.
+Barrier options are path-dependent derivatives whose payoff depends on whether the underlying touches a preset barrier during the option life. In a **knock-in** contract, the option becomes active only if the barrier is hit (for example, an up-and-in call activates only after the price rises to the barrier), while in a **knock-out** contract, hitting the barrier cancels the option (for example, an up-and-out call is extinguished once the barrier is reached). This makes barrier options generally cheaper than plain vanilla options with similar strikes, since activation/cancellation conditions reduce expected payoff in many paths. Under both Heston and Merton dynamics, pricing is performed by simulating full paths, checking barrier events at each time step, and then discounting the payoff only on paths that satisfy the specific knock-in or knock-out rule.
 
 ## 6. Conclusion
 

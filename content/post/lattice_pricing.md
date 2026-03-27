@@ -4,8 +4,8 @@ date: 2025-03-02
 summary: "Implementation of binomial and trinomial lattice models for pricing options, including European, American, and Asian options with delta hedging strategies."
 draft: false
 featured: false
-tags: ["Derivatives"]
-categories: ["Derivatives"]
+tags: ["Quantitative Finance", "Derivatives"]
+categories: ["Quantitative Finance"]
 math: true
 ---
 

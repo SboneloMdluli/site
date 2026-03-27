@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: March 5, 2026 --><html lang="en" >
+<!-- Last Published: March 27, 2026 --><html lang="en" >
 
 
 <head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
@@ -517,7 +517,7 @@
 
       
       
-      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+      <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
 
         
         <ul class="navbar-nav d-md-inline-flex">
@@ -547,7 +547,107 @@
           
 
           <li class="nav-item">
-            <a class="nav-link  active" href="/site/post/"><span>Posts</span></a>
+            <a class="nav-link  active" href="/site/"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-about-biography"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-experience"><span>Experience</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/site/post/"><span>Articles</span></a>
           </li>
 
           
@@ -656,25 +756,56 @@
 
     
 <article class="article">
-  <div class="article-container">
-    <h1>Put-Call Parity</h1>
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress-bar" id="reading-progress-bar"></div>
+  </div>
 
-    <div class="article-metadata">
-      <span class="article-date">
-        February 8, 2024
-      </span>
+  <div class="article-container">
+    <header class="article-hero">
+      <h1>Put-Call Parity</h1>
+
+      <div class="article-metadata">
+        <span class="article-date">
+          February 8, 2024
+        </span>
+        <span class="meta-dot">-</span>
+        <span class="article-read-time">1 min read</span>
+        <span class="meta-dot">-</span>
+        <span class="article-word-count">127 words</span>
+
+        
+        <div class="article-categories">
+          
+          <a class="badge badge-primary" href="/site/category/quantitative-finance/">Quantitative Finance</a>
+          
+        </div>
+        
+      </div>
+
+      
+      <div class="article-summary-card">
+        <p class="summary-label">Why this matters</p>
+        <p class="summary-text">The put-call parity establishes the relationship between European call and put options with the same strike price and expiration date, demonstrating how a portfolio of options and the underlying asset can replicate a risk-free bond.</p>
+      </div>
+      
 
       
       <div class="article-tags">
         
-        <a class="badge badge-light" href="/tags/derivatives">Derivatives</a>
+        <a class="badge badge-light" href="/site/tag/quantitative-finance/">Quantitative Finance</a>
+        
+        <a class="badge badge-light" href="/site/tag/derivatives/">Derivatives</a>
         
       </div>
       
-    </div>
+    </header>
 
-    <div class="article-content">
-      <p>The put-call parity (PCP) establishes the relationship between call and put options that share the same underlying asset and expiration date. This relationship is especially relevant for European options. To illustrate it, we can create a portfolio composed of a long put option ($P(t)=max(K-S_{t},0)$), a short call option ($C(t)=max(S_{t}-K,0)$), and a long position in a non-dividend-paying stock ($S$) of the underlying. Both options have the same strike price ($K$) and expiration date ($T$). The portfolio&rsquo;s structure before the expiration, at $t \leq T$, is described as follows:</p>
+    
+    <div class="article-layout">
+      
+
+      <div class="article-content">
+        <p>The put-call parity (PCP) establishes the relationship between call and put options that share the same underlying asset and expiration date. This relationship is especially relevant for European options. To illustrate it, we can create a portfolio composed of a long put option ($P(t)=max(K-S_{t},0)$), a short call option ($C(t)=max(S_{t}-K,0)$), and a long position in a non-dividend-paying stock ($S$) of the underlying. Both options have the same strike price ($K$) and expiration date ($T$). The portfolio&rsquo;s structure before the expiration, at $t \leq T$, is described as follows:</p>
 <p>\begin{equation}
 \begin{split}
 \prod_{t}^{} &amp;= S_{t} + max(K-S_{t},0) - max(S_{t}-K,0)\
@@ -684,9 +815,28 @@
 <p>for European options this portfolio is simply a bond with interest rate $r$ and maturity $T$, the portfolio then becomes $\prod_{T} = K$</p>
 <p><a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/put_call_parity.ipynb" target="_blank" rel="noopener">Read more →</a></p>
 
+      </div>
     </div>
   </div>
 </article>
+
+<script>
+  (function () {
+    var progressBar = document.getElementById("reading-progress-bar");
+    if (!progressBar) return;
+
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+      progressBar.style.width = Math.min(Math.max(progress, 0), 100) + "%";
+    }
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+  })();
+</script>
 
   </div>
 

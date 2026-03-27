@@ -3,7 +3,7 @@ title: "Principal Component Analysis: A Key Tool for Dimensionality Reduction"
 date: 2024-01-13
 summary: "Master PCA for financial analysis. Learn how this powerful technique can uncover hidden patterns in your data and improve your quantitative models."
 tags: ["Machine Learning"]
-categories: [Machine Learning]
+categories: ["Machine Learning"]
 math: true
 ---
 

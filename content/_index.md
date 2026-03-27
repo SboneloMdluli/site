@@ -8,11 +8,13 @@ sections:
   - block: about.biography
     content:
       title: Biography
+      subtitle: Practical notes on derivatives, market microstructure, and production machine learning
       username: admin
 
   - block: experience
     content:
-      title: Experience
+      title: Industry Experience
+      subtitle: Building robust models and data systems in finance
       date_format: Jan 2006
       items:
         - title: Data Scientist - Specialist Machine Learning
@@ -51,15 +53,17 @@ sections:
 
   - block: collection
     content:
-      title: Recent Posts
-      subtitle: ""
-      text: ""
-      count: 5
+      title: Articles
+      subtitle: Theory, implementation, and real-world trade-offs
+      count: 6
       filters:
         folders:
           - post
+      archive:
+        enable: true
+        text: Explore all posts
     design:
-      view: compact
+      view: card
       columns: "2"
 
 # Display name

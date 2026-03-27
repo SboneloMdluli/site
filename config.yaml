@@ -21,10 +21,18 @@ enableGitInfo: false
 
 menu:
   main:
-    - name: Posts
-      url: '/post/'
+    - name: Home
+      url: '/'
+      weight: 10
+    - name: About
+      url: '/#section-about-biography'
       weight: 20
-
+    - name: Experience
+      url: '/#section-experience'
+      weight: 30
+    - name: Articles
+      url: '/post/'
+      weight: 40
 params:
   # Theme settings
   appearance:
@@ -32,6 +40,12 @@ params:
     theme_night: minimal
     font: minimal
     font_size: L
+  header:
+    navbar:
+      align: c
+      show_search: true
+      show_day_night: true
+      highlight_active_link: true
 
   # Profile settings
   profile:

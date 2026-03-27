@@ -3,8 +3,8 @@ title: "Put-Call Parity"
 date: 2024-02-08
 summary: "The put-call parity establishes the relationship between European call and put options with the same strike price and expiration date, demonstrating how a portfolio of options and the underlying asset can replicate a risk-free bond."
 draft: false
-tags: ["Derivatives"]
-categories: ["Derivatives"]
+tags: ["Quantitative Finance", "Derivatives"]
+categories: ["Quantitative Finance"]
 math: true
 ---
 

@@ -4,8 +4,8 @@ date: 2024-01-14
 summary: "Explore how limit order books work and their role in market microstructure."
 draft: false
 featured: false
-tags: ["Market Structure"]
-categories: ["Market Structure"]
+tags: ["Market Microstructure"]
+categories: ["Market Microstructure"]
 math: true
 ---
 

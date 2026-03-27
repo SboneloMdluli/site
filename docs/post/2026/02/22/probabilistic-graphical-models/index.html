@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: March 5, 2026 --><html lang="en" >
+<!-- Last Published: March 27, 2026 --><html lang="en" >
 
 
 <head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
@@ -517,7 +517,7 @@
 
       
       
-      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+      <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
 
         
         <ul class="navbar-nav d-md-inline-flex">
@@ -547,7 +547,107 @@
           
 
           <li class="nav-item">
-            <a class="nav-link  active" href="/site/post/"><span>Posts</span></a>
+            <a class="nav-link  active" href="/site/"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-about-biography"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-experience"><span>Experience</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/site/post/"><span>Articles</span></a>
           </li>
 
           
@@ -656,31 +756,96 @@
 
     
 <article class="article">
-  <div class="article-container">
-    <h1>Probabilistic Graphical Models</h1>
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress-bar" id="reading-progress-bar"></div>
+  </div>
 
-    <div class="article-metadata">
-      <span class="article-date">
-        February 22, 2026
-      </span>
+  <div class="article-container">
+    <header class="article-hero">
+      <h1>Probabilistic Graphical Models</h1>
+
+      <div class="article-metadata">
+        <span class="article-date">
+          February 22, 2026
+        </span>
+        <span class="meta-dot">-</span>
+        <span class="article-read-time">8 min read</span>
+        <span class="meta-dot">-</span>
+        <span class="article-word-count">1640 words</span>
+
+        
+        <div class="article-categories">
+          
+          <a class="badge badge-primary" href="/site/category/machine-learning/">Machine Learning</a>
+          
+        </div>
+        
+      </div>
+
+      
+      <div class="article-summary-card">
+        <p class="summary-label">Why this matters</p>
+        <p class="summary-text">A concise, formal overview of probabilistic graphical models (PGMs), including Bayesian networks, Markov networks, parameter and structure learning, and Markov blankets.</p>
+      </div>
+      
 
       
       <div class="article-tags">
         
-        <a class="badge badge-light" href="/tags/machine-learning">Machine Learning</a>
+        <a class="badge badge-light" href="/site/tag/machine-learning/">Machine Learning</a>
         
       </div>
       
-    </div>
+    </header>
 
-    <div class="article-content">
-      <p>Probabilistic graphical models (PGMs) provide a mathematical framework that combines probability theory and graph theory in order to represent complex relationships among random variables. Two broad classes of PGMs are commonly distinguished: belief networks (Bayesian networks) and Markov networks (Markov random fields).</p>
+    
+    <div class="article-layout">
+      
+      <aside class="article-toc-panel" aria-label="Article contents">
+        <p class="toc-title">On this page</p>
+        <div class="article-toc">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#preliminaries-probability-and-graphs">Preliminaries: probability and graphs</a></li>
+    <li><a href="#belief-networks-bayesian-networks">Belief networks (Bayesian networks)</a>
+      <ul>
+        <li><a href="#d-separation">D-separation</a></li>
+      </ul>
+    </li>
+    <li><a href="#markov-networks-markov-random-fields">Markov networks (Markov random fields)</a>
+      <ul>
+        <li><a href="#the-partition-function">The partition function</a></li>
+      </ul>
+    </li>
+    <li><a href="#markov-models-markov-chains">Markov models (Markov chains)</a></li>
+    <li><a href="#parameter-learning-and-structure-learning">Parameter learning and structure learning</a>
+      <ul>
+        <li><a href="#parameter-learning">Parameter learning</a></li>
+        <li><a href="#structure-learning">Structure learning</a></li>
+        <li><a href="#inferred-causality-algorithm-pc-algorithm">Inferred causality algorithm (PC algorithm)</a></li>
+        <li><a href="#key-distinctions-between-parameter-and-structure-learning">Key distinctions between parameter and structure learning</a></li>
+      </ul>
+    </li>
+    <li><a href="#markov-blankets">Markov blankets</a>
+      <ul>
+        <li><a href="#types-of-markov-blankets">Types of Markov blankets</a></li>
+        <li><a href="#advantages-and-limitations">Advantages and limitations</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+      </aside>
+      
+
+      <div class="article-content">
+        <p>Probabilistic graphical models (PGMs) provide a mathematical framework that combines probability theory and graph theory in order to represent complex relationships among random variables. Two broad classes of PGMs are commonly distinguished: belief networks (Bayesian networks) and Markov networks (Markov random fields).</p>
 <h2 id="preliminaries-probability-and-graphs">Preliminaries: probability and graphs</h2>
 <p>A probability space is defined by the triplet $\left(\Omega, \mathcal{F}, \mathbb{P}\right)$, where $\Omega$ is the sample space (the set of all possible outcomes of an experiment), $\mathcal{F}$ is a $\sigma$-algebra of events (subsets of $\Omega$), and $\mathbb{P}$ is a probability measure assigning a probability to each event in $\mathcal{F}$.</p>
 <p>Informally, a random variable $X$ is a measurable function $X: \Omega \to \mathbb{R}$, mapping outcomes in $\Omega$ to real numbers.</p>
 <p>A fundamental identity in PGMs is the chain rule. Given random variables $X_1, \dots, X_n$, their joint distribution factorizes as:</p>
 <p>$$
-P(X_1, \ldots, X_n) = \prod_{i=1}^{n} P\left(X_i \mid X_1, \ldots, X_{i-1}\right)
+\mathbb{P}(X_1, \ldots, X_n) = \prod_{i=1}^{n} \mathbb{P}\left(X_i \mid X_1, \ldots, X_{i-1}\right)
 $$</p>
 <p>A graph $G$ is defined by a set of vertices $V$ and a set of edges $E$. There are two main types of graphs: directed and undirected.</p>
 <ul>
@@ -692,7 +857,7 @@ $$</p>
 <h2 id="belief-networks-bayesian-networks">Belief networks (Bayesian networks)</h2>
 <p>A belief network is a directed acyclic graph (DAG) that represents conditional dependencies among random variables. The defining property is a local Markov condition: each variable is conditionally independent of its non-descendants given its parents. Consequently, the joint distribution factorizes as</p>
 <p>$$
-P(X_1,\ldots,X_n) = \prod_{i=1}^{n} P\left(X_i \mid {\mathrm{Pa}(X_{i-1})}\right)
+\mathbb{P}(X_1,\ldots,X_n) = \prod_{i=1}^{n} \mathbb{P}\left(X_i \mid {\mathrm{Pa}(X_{i-1})}\right)
 $$</p>
 <p>where $\mathrm{Pa}(X_{i-1})$ denotes the set of parent nodes of $X_{i-1}$ in the DAG.</p>
 <h3 id="d-separation">D-separation</h3>
@@ -701,19 +866,19 @@ $$</p>
 <li>
 <p>Chain $(X \rightarrow Z \rightarrow Y)$</p>
 <p>$$
-P(x,z,y) = P(x)\ P(z\mid x)\ P(y\mid z)
+\mathbb{P}(x,z,y) = \mathbb{P}(x)\ \mathbb{P}(z\mid x)\ \mathbb{P}(y\mid z)
 $$</p>
 </li>
 <li>
 <p>Fork $(X \leftarrow Z \rightarrow Y)$</p>
 <p>$$
-P(x,z,y) = P(z)\ P(x\mid z)\ P(y\mid z)
+\mathbb{P}(x,z,y) = \mathbb{P}(z)\ \mathbb{P}(x\mid z)\ \mathbb{P}(y\mid z)
 $$</p>
 </li>
 <li>
 <p>Collider $(X \rightarrow Z \leftarrow Y)$ with $X \perp Y \mid Z$</p>
 <p>$$
-P(x,z,y) = P(x)\ P(y)\ P(z\mid x,y)
+\mathbb{P}(x,z,y) = \mathbb{P}(x)\ \mathbb{P}(y)\ \mathbb{P}(z\mid x,y)
 $$</p>
 </li>
 </ul>
@@ -722,11 +887,11 @@ $$</p>
 <h2 id="markov-networks-markov-random-fields">Markov networks (Markov random fields)</h2>
 <p>A Markov network is a probabilistic model represented by an undirected graph. In contrast to belief networks, the joint distribution is expressed in terms of nonnegative potential functions defined over cliques. Let $\mathcal{C}$ denote a collection of maximal cliques. The joint distribution takes the form</p>
 <p>$$
-P(x) = \frac{1}{Z}\prod_{C \in \mathcal{C}} \psi_C(x_C)
+\mathbb{P}(x) = \frac{1}{Z}\prod_{C \in \mathcal{C}} \psi_C(x_C)
 $$</p>
 <p>where $\psi_C(x_C) \geq 0$ is a nonnegative potential function defined on the variables in clique $C$, and $Z$ is called the partition function. The partition function serves to normalize the distribution, ensuring that the total probability sums (or integrates) to 1.</p>
 <h3 id="the-partition-function">The partition function</h3>
-<p>The partition function $Z$ is defined so that $P(x)$ is a valid probability distribution. In the discrete case, where $x$ ranges over a finite or countable state space $\mathcal{X}$,</p>
+<p>The partition function $Z$ is defined so that $\mathbb{P}(x)$ is a valid probability distribution. In the discrete case, where $x$ ranges over a finite or countable state space $\mathcal{X}$,</p>
 <p>$$
 Z = \sum_{x \in \mathcal{X}} \prod_{C \in \mathcal{C}} \psi_C(x_C)
 $$</p>
@@ -794,10 +959,6 @@ $$</p>
 <li>Children of $X$</li>
 <li>Co-parents of $X$ (the other parents of $X$’s children)</li>
 </ul>
-<p>If we write the Markov blanket as $\mathrm{MB}(X)$, the key property is:</p>
-<p>$$
-X \perp!!!\perp \big( V \setminus ({X} \cup \mathrm{MB}(X)) \big) ;\big|; \mathrm{MB}(X)
-$$</p>
 <p>The Markov blanket concept is frequently used for local prediction and inference: to predict $X$ it suffices, under the model assumptions, to condition on $\mathrm{MB}(X)$ rather than the full set of variables. Consequently, Markov blankets provide a principled criterion for identifying a compact set of variables that are most directly relevant to a target of interest.</p>
 <h3 id="types-of-markov-blankets">Types of Markov blankets</h3>
 <p>Two commonly cited notions are:</p>
@@ -816,10 +977,30 @@ $$</p>
 <li>Discovery cost: in high-dimensional settings, identifying a minimal blanket (or a suitable approximation) can be computationally demanding.</li>
 <li>Data requirements: reliable blanket identification may require substantial sample sizes. With limited data, estimated blankets may be unstable or misleading.</li>
 </ol>
+<p>read more <a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/probabilistic_graphical_models.ipynb" target="_blank" rel="noopener">notebook</a>.</p>
 
+      </div>
     </div>
   </div>
 </article>
+
+<script>
+  (function () {
+    var progressBar = document.getElementById("reading-progress-bar");
+    if (!progressBar) return;
+
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+      progressBar.style.width = Math.min(Math.max(progress, 0), 100) + "%";
+    }
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+  })();
+</script>
 
   </div>
 

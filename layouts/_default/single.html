@@ -1,25 +1,80 @@
 {{ define "main" }}
 <article class="article">
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress-bar" id="reading-progress-bar"></div>
+  </div>
+
   <div class="article-container">
-    <h1>{{ .Title }}</h1>
+    <header class="article-hero">
+      <h1>{{ .Title }}</h1>
 
-    <div class="article-metadata">
-      <span class="article-date">
-        {{ .Date.Format "January 2, 2006" }}
-      </span>
+      <div class="article-metadata">
+        <span class="article-date">
+          {{ .Date.Format "January 2, 2006" }}
+        </span>
+        <span class="meta-dot">-</span>
+        <span class="article-read-time">{{ .ReadingTime }} min read</span>
+        <span class="meta-dot">-</span>
+        <span class="article-word-count">{{ .WordCount }} words</span>
 
-      {{ with .Params.tags }}
+        {{ if .Params.categories }}
+        <div class="article-categories">
+          {{ range .GetTerms "categories" }}
+          <a class="badge badge-primary" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+
+      {{ if .Summary }}
+      <div class="article-summary-card">
+        <p class="summary-label">Why this matters</p>
+        <p class="summary-text">{{ .Summary }}</p>
+      </div>
+      {{ end }}
+
+      {{ if .Params.tags }}
       <div class="article-tags">
-        {{ range . }}
-        <a class="badge badge-light" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+        {{ range .GetTerms "tags" }}
+        <a class="badge badge-light" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
         {{ end }}
       </div>
       {{ end }}
-    </div>
+    </header>
 
-    <div class="article-content">
-      {{ .Content }}
+    {{ $toc := .TableOfContents }}
+    <div class="article-layout">
+      {{ if gt (len ($toc | plainify)) 0 }}
+      <aside class="article-toc-panel" aria-label="Article contents">
+        <p class="toc-title">On this page</p>
+        <div class="article-toc">
+          {{ $toc }}
+        </div>
+      </aside>
+      {{ end }}
+
+      <div class="article-content">
+        {{ .Content }}
+      </div>
     </div>
   </div>
 </article>
+
+<script>
+  (function () {
+    var progressBar = document.getElementById("reading-progress-bar");
+    if (!progressBar) return;
+
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+      progressBar.style.width = Math.min(Math.max(progress, 0), 100) + "%";
+    }
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+  })();
+</script>
 {{ end }}

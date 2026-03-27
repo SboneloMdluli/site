@@ -5,12 +5,85 @@
     <link>http://localhost:1313/site/tag/derivatives/</link>
       <atom:link href="http://localhost:1313/site/tag/derivatives/index.xml" rel="self" type="application/rss+xml" />
     <description>Derivatives</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sun, 02 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sat, 10 May 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png</url>
       <title>Derivatives</title>
       <link>http://localhost:1313/site/tag/derivatives/</link>
     </image>
+    
+    <item>
+      <title>Stochastic Pricing Models</title>
+      <link>http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/</link>
+      <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/</guid>
+      <description>&lt;h1 id=&#34;stochastic-pricing-models&#34;&gt;Stochastic Pricing Models&lt;/h1&gt;
+&lt;p&gt;This post presents the theoretical foundations of stochastic models for option pricing. We outline the mathematical structure and computational methods for European and American options under both the Heston and Merton jump-diffusion models, including the calculation of Greeks and barrier options.&lt;/p&gt;
+&lt;h2 id=&#34;1-introduction-to-stochastic-option-pricing&#34;&gt;1. Introduction to Stochastic Option Pricing&lt;/h2&gt;
+&lt;p&gt;Stochastic models are essential for capturing the randomness in financial markets, especially for pricing derivatives like options. Two widely used models are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Heston Model&lt;/strong&gt;: Incorporates stochastic volatility, allowing volatility to evolve randomly over time.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Merton Jump Diffusion Model&lt;/strong&gt;: Extends the Black-Scholes framework by adding random jumps in asset prices, capturing sudden market moves.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-heston-model&#34;&gt;2. Heston Model&lt;/h2&gt;
+&lt;p&gt;The Heston model jointly evolves the asset price $S_t$ and its instantaneous variance $v_t$ (so volatility is $\sqrt{v_t}$):&lt;/p&gt;
+&lt;p&gt;\begin{equation*}
+dS_t = \mu S_t dt + \sqrt{v_t}\ S_t\ dW_t^S
+\end{equation*}&lt;/p&gt;
+&lt;p&gt;\begin{equation*}
+dv_t = \kappa (\theta - v_t) dt + \sigma \sqrt{v_t}\ dW_t^v
+\end{equation*}&lt;/p&gt;
+&lt;p&gt;Here, $\mu$ is the drift term, $\kappa$ is the speed of mean reversion of variance, $\theta$ is the long-run variance level, and $\sigma$ is the volatility of variance (vol-of-vol). The shocks $dW_t^S$ and $dW_t^v$ are Brownian increments for the price and variance processes, respectively, and they satisfy:&lt;/p&gt;
+&lt;p&gt;\begin{equation*}
+dW_t^S dW_t^v = \rho dt
+\end{equation*}&lt;/p&gt;
+&lt;p&gt;Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.&lt;/p&gt;
+&lt;p&gt;To simulate correlated shocks, let $Z_1$ and $Z_2$ be independent standard normals and set:&lt;/p&gt;
+&lt;p&gt;Let $Z_1$ and $Z_2$ be independent standard normal random variables. The correlated Brownian increments can be constructed as:&lt;/p&gt;
+&lt;p&gt;\begin{equation*}
+dW_t^S = \sqrt{dt}\ Z_1
+\end{equation*}&lt;/p&gt;
+&lt;p&gt;\begin{equation*}
+dW_t^v = \rho \sqrt{dt}\ Z_1 + \sqrt{1-\rho^2}\ \sqrt{dt}\ Z_2
+\end{equation*}&lt;/p&gt;
+&lt;p&gt;This guarantees the required instantaneous correlation $\rho$. In matrix form, the correlation matrix is&lt;/p&gt;
+&lt;p&gt;$$
+\Sigma = \begin{pmatrix} 1 &amp;amp; \rho \ \rho &amp;amp; 1 \end{pmatrix}
+$$&lt;/p&gt;
+&lt;p&gt;with Cholesky factor&lt;/p&gt;
+&lt;p&gt;$$
+L = \begin{pmatrix} 1 &amp;amp; 0 \ \rho &amp;amp; \sqrt{1-\rho^2} \end{pmatrix}
+$$&lt;/p&gt;
+&lt;p&gt;so that, for $\mathbf{Z}=(Z_1,Z_2)^T$, the correlated increments are $L\mathbf{Z}$.&lt;/p&gt;
+&lt;p&gt;For a detailed explanation see &lt;a href=&#34;https://www.youtube.com/watch?v=HG3s2StHB3k&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this video on the Heston model&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;3-merton-jump-diffusion-model&#34;&gt;3. Merton Jump Diffusion Model&lt;/h2&gt;
+&lt;p&gt;The Merton model extends geometric Brownian motion by adding a jump component:&lt;/p&gt;
+&lt;p&gt;\begin{equation*}
+dS_t = (r - r_j) S_t dt + \sigma S_t dZ_t + J_t S_t dN_t
+\end{equation*}&lt;/p&gt;
+&lt;p&gt;In this model, $r$ is the risk-free rate, $dZ_t$ is the diffusion shock, and $\sigma$ is diffusion volatility (distinct from the Heston vol-of-vol parameter). The Poisson increment $dN_t$ captures random jump arrivals, and $J_t$ controls jump size. The compensator $r_j$ adjusts drift so jump risk is accounted for in expectation.&lt;/p&gt;
+&lt;p&gt;\begin{equation*}
+S_t = S_{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{dt} z_t^1}+
+\left(e^{\mu_j+\delta z_t^2}-1 \right) y_t \right)
+\end{equation*}&lt;/p&gt;
+&lt;p&gt;\begin{equation*}
+r_j = \lambda \left(e^{\mu_j+\frac{\delta^2}{2}}\right)-1
+\end{equation*}&lt;/p&gt;
+&lt;p&gt;In the discrete update, $S_{t-1}$ is the previous-step price, $z_t^1$ drives the diffusion term, and the jump term uses a random jump indicator/count $y_t$ together with jump-size shock $z_t^2$. Parameters $\lambda$, $\mu_j$, and $\delta$ denote jump intensity, mean log-jump size, and log-jump volatility, respectively. Simulation proceeds by combining diffusion and jump parts pathwise, then discounting payoffs.&lt;/p&gt;
+&lt;h2 id=&#34;4-greeks-calculation&#34;&gt;4. Greeks Calculation&lt;/h2&gt;
+&lt;p&gt;The Greeks measure sensitivities of option prices to various parameters. In this framework, Delta and Gamma are computed using finite difference methods:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Delta:&lt;/strong&gt; Sensitivity to underlying price.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gamma:&lt;/strong&gt; Sensitivity of Delta to underlying price.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Finite difference approximations are used to estimate these derivatives numerically.&lt;/p&gt;
+&lt;h2 id=&#34;5-barrier-options&#34;&gt;5. Barrier Options&lt;/h2&gt;
+&lt;p&gt;Barrier options are path-dependent derivatives whose payoff depends on whether the underlying touches a preset barrier during the option life. In a &lt;strong&gt;knock-in&lt;/strong&gt; contract, the option becomes active only if the barrier is hit (for example, an up-and-in call activates only after the price rises to the barrier), while in a &lt;strong&gt;knock-out&lt;/strong&gt; contract, hitting the barrier cancels the option (for example, an up-and-out call is extinguished once the barrier is reached). This makes barrier options generally cheaper than plain vanilla options with similar strikes, since activation/cancellation conditions reduce expected payoff in many paths. Under both Heston and Merton dynamics, pricing is performed by simulating full paths, checking barrier events at each time step, and then discounting the payoff only on paths that satisfy the specific knock-in or knock-out rule.&lt;/p&gt;
+&lt;h2 id=&#34;6-conclusion&#34;&gt;6. Conclusion&lt;/h2&gt;
+&lt;p&gt;This theoretical overview provides the mathematical and computational foundation for advanced option pricing models, including simulation, pricing, and risk analysis. The methods described here are applicable to a wide range of financial derivatives and serve as a reference for both theory and practical implementation.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/stochastic_pricing.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Lattice Pricing Models</title>

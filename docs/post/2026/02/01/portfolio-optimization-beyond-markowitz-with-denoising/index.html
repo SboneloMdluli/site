@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: March 5, 2026 --><html lang="en" >
+<!-- Last Published: March 27, 2026 --><html lang="en" >
 
 
 <head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
@@ -517,7 +517,7 @@
 
       
       
-      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+      <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
 
         
         <ul class="navbar-nav d-md-inline-flex">
@@ -547,7 +547,107 @@
           
 
           <li class="nav-item">
-            <a class="nav-link  active" href="/site/post/"><span>Posts</span></a>
+            <a class="nav-link  active" href="/site/"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-about-biography"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-experience"><span>Experience</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/site/post/"><span>Articles</span></a>
           </li>
 
           
@@ -656,29 +756,83 @@
 
     
 <article class="article">
-  <div class="article-container">
-    <h1>Portfolio Optimization: Beyond Markowitz with Denoising</h1>
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress-bar" id="reading-progress-bar"></div>
+  </div>
 
-    <div class="article-metadata">
-      <span class="article-date">
-        February 1, 2026
-      </span>
+  <div class="article-container">
+    <header class="article-hero">
+      <h1>Portfolio Optimization: Beyond Markowitz with Denoising</h1>
+
+      <div class="article-metadata">
+        <span class="article-date">
+          February 1, 2026
+        </span>
+        <span class="meta-dot">-</span>
+        <span class="article-read-time">7 min read</span>
+        <span class="meta-dot">-</span>
+        <span class="article-word-count">1395 words</span>
+
+        
+        <div class="article-categories">
+          
+          <a class="badge badge-primary" href="/site/category/quantitative-finance/">Quantitative Finance</a>
+          
+        </div>
+        
+      </div>
+
+      
+      <div class="article-summary-card">
+        <p class="summary-label">Why this matters</p>
+        <p class="summary-text">Improving mean-variance optimization using covariance denoising (Ledoit-Wolf, Marchenko–Pastur, EPO, Bayesian), hierarchical clustering (HRP, HERC), and combinatorial purged cross-validation.</p>
+      </div>
+      
 
       
       <div class="article-tags">
         
-        <a class="badge badge-light" href="/tags/quantitative-finance">Quantitative Finance</a>
+        <a class="badge badge-light" href="/site/tag/quantitative-finance/">Quantitative Finance</a>
         
-        <a class="badge badge-light" href="/tags/portfolio-management">Portfolio Management</a>
-        
-        <a class="badge badge-light" href="/tags/machine-learning">Machine Learning</a>
+        <a class="badge badge-light" href="/site/tag/machine-learning/">Machine Learning</a>
         
       </div>
       
-    </div>
+    </header>
 
-    <div class="article-content">
-      <p>The classical Markowitz Mean-Variance Optimization (MVO) remains one of the most influential frameworks in portfolio management. However, its practical application is plagued by estimation error in the covariance matrix, sensitivity to inputs, and a tendency to produce concentrated, unstable portfolios. In this post we explore three families of techniques — denoising, clustering, and back-testing — that address these limitations, and show how combining them can yield more robust, diversified portfolios.</p>
+    
+    <div class="article-layout">
+      
+      <aside class="article-toc-panel" aria-label="Article contents">
+        <p class="toc-title">On this page</p>
+        <div class="article-toc">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-baseline-markowitz-mvo">1. Baseline: Markowitz MVO</a></li>
+    <li><a href="#2-denoising-the-covariance-matrix">2. Denoising the Covariance Matrix</a>
+      <ul>
+        <li><a href="#21-ledoit-wolf-shrinkage">2.1 Ledoit-Wolf Shrinkage</a></li>
+        <li><a href="#22-enhanced-portfolio-optimization-epo">2.2 Enhanced Portfolio Optimization (EPO)</a></li>
+        <li><a href="#23-marchenkopastur-denoising">2.3 Marchenko–Pastur Denoising</a></li>
+        <li><a href="#24-bayesian-approaches">2.4 Bayesian Approaches</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-clustering-hierarchical-risk-parity-and-beyond">3. Clustering: Hierarchical Risk Parity and Beyond</a>
+      <ul>
+        <li><a href="#31-hierarchical-risk-parity-hrp">3.1 Hierarchical Risk Parity (HRP)</a></li>
+        <li><a href="#32-hierarchical-equal-risk-contribution-herc">3.2 Hierarchical Equal Risk Contribution (HERC)</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-back-testing-with-cpcv">4. Back-testing with CPCV</a></li>
+    <li><a href="#5-combining-techniques">5. Combining Techniques</a></li>
+  </ul>
+</nav>
+        </div>
+      </aside>
+      
+
+      <div class="article-content">
+        <p>The classical Markowitz Mean-Variance Optimization (MVO) remains one of the most influential frameworks in portfolio management. However, its practical application is plagued by estimation error in the covariance matrix, sensitivity to inputs, and a tendency to produce concentrated, unstable portfolios. In this post we explore three families of techniques — denoising, clustering, and back-testing — that address these limitations, and show how combining them can yield more robust, diversified portfolios.</p>
 <p>We illustrate the ideas on a multi-stock universe spanning several sectors, using daily returns over a recent historical window split into training and testing periods.</p>
 <hr>
 <h2 id="1-baseline-markowitz-mvo">1. Baseline: Markowitz MVO</h2>
@@ -772,9 +926,28 @@
 </ul>
 <p><a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/portfolio_optimization.ipynb" target="_blank" rel="noopener">Read more →</a></p>
 
+      </div>
     </div>
   </div>
 </article>
+
+<script>
+  (function () {
+    var progressBar = document.getElementById("reading-progress-bar");
+    if (!progressBar) return;
+
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+      progressBar.style.width = Math.min(Math.max(progress, 0), 100) + "%";
+    }
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+  })();
+</script>
 
   </div>
 

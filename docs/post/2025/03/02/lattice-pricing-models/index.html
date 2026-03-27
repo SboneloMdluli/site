@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: March 5, 2026 --><html lang="en" >
+<!-- Last Published: March 27, 2026 --><html lang="en" >
 
 
 <head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
@@ -517,7 +517,7 @@
 
       
       
-      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+      <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
 
         
         <ul class="navbar-nav d-md-inline-flex">
@@ -547,7 +547,107 @@
           
 
           <li class="nav-item">
-            <a class="nav-link  active" href="/site/post/"><span>Posts</span></a>
+            <a class="nav-link  active" href="/site/"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-about-biography"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-experience"><span>Experience</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/site/post/"><span>Articles</span></a>
           </li>
 
           
@@ -656,25 +756,71 @@
 
     
 <article class="article">
-  <div class="article-container">
-    <h1>Lattice Pricing Models</h1>
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress-bar" id="reading-progress-bar"></div>
+  </div>
 
-    <div class="article-metadata">
-      <span class="article-date">
-        March 2, 2025
-      </span>
+  <div class="article-container">
+    <header class="article-hero">
+      <h1>Lattice Pricing Models</h1>
+
+      <div class="article-metadata">
+        <span class="article-date">
+          March 2, 2025
+        </span>
+        <span class="meta-dot">-</span>
+        <span class="article-read-time">3 min read</span>
+        <span class="meta-dot">-</span>
+        <span class="article-word-count">534 words</span>
+
+        
+        <div class="article-categories">
+          
+          <a class="badge badge-primary" href="/site/category/quantitative-finance/">Quantitative Finance</a>
+          
+        </div>
+        
+      </div>
+
+      
+      <div class="article-summary-card">
+        <p class="summary-label">Why this matters</p>
+        <p class="summary-text">Implementation of binomial and trinomial lattice models for pricing options, including European, American, and Asian options with delta hedging strategies.</p>
+      </div>
+      
 
       
       <div class="article-tags">
         
-        <a class="badge badge-light" href="/tags/derivatives">Derivatives</a>
+        <a class="badge badge-light" href="/site/tag/quantitative-finance/">Quantitative Finance</a>
+        
+        <a class="badge badge-light" href="/site/tag/derivatives/">Derivatives</a>
         
       </div>
       
-    </div>
+    </header>
 
-    <div class="article-content">
-      <h2 id="binomial-tree-model">Binomial Tree Model</h2>
+    
+    <div class="article-layout">
+      
+      <aside class="article-toc-panel" aria-label="Article contents">
+        <p class="toc-title">On this page</p>
+        <div class="article-toc">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#binomial-tree-model">Binomial Tree Model</a></li>
+    <li><a href="#delta-hedging">Delta Hedging</a></li>
+    <li><a href="#american-binomial-tree">American Binomial Tree</a></li>
+    <li><a href="#trinomial-tree">Trinomial Tree</a></li>
+    <li><a href="#asian-binomial-tree">Asian Binomial Tree</a></li>
+  </ul>
+</nav>
+        </div>
+      </aside>
+      
+
+      <div class="article-content">
+        <h2 id="binomial-tree-model">Binomial Tree Model</h2>
 <p>We can price options in discrete time through lattice models. The first model we consider is the Cox-Ross-Rubinstein Model which is risk neutral under Martingale measure $\mathbb{Q}$. A process $S$ is a Martingale with respect to measure $\mathbb{Q}$ and filtration $\{\mathcal{F}_t\}_{t \geq 0}$, if $ \mathbb{E}^{\mathbb{Q}}[X_t \mid \mathcal{F}_s] = X_s \quad \forall , s\leq t$. This means the process is path unbiased.</p>
 
 
@@ -739,9 +885,28 @@ This provides more flexibility in modeling the underlying price process and can 
 <p>The Asian binomial tree model is used for pricing Asian options where the payoff depends on the average price of the underlying asset over some time period. The model tracks the average price along each path and computes the option value accordingly.</p>
 <p><a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/lattice_pricing_models.ipynb" target="_blank" rel="noopener">Read more →</a></p>
 
+      </div>
     </div>
   </div>
 </article>
+
+<script>
+  (function () {
+    var progressBar = document.getElementById("reading-progress-bar");
+    if (!progressBar) return;
+
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+      progressBar.style.width = Math.min(Math.max(progress, 0), 100) + "%";
+    }
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+  })();
+</script>
 
   </div>
 

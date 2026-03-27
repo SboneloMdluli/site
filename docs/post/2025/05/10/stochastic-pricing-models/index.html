@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: March 5, 2026 --><html lang="en" >
+<!-- Last Published: March 27, 2026 --><html lang="en" >
 
 
 <head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
@@ -517,7 +517,7 @@
 
       
       
-      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+      <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
 
         
         <ul class="navbar-nav d-md-inline-flex">
@@ -547,7 +547,107 @@
           
 
           <li class="nav-item">
-            <a class="nav-link  active" href="/site/post/"><span>Posts</span></a>
+            <a class="nav-link  active" href="/site/"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-about-biography"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-experience"><span>Experience</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/site/post/"><span>Articles</span></a>
           </li>
 
           
@@ -656,27 +756,72 @@
 
     
 <article class="article">
-  <div class="article-container">
-    <h1>Stochastic Pricing Models</h1>
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress-bar" id="reading-progress-bar"></div>
+  </div>
 
-    <div class="article-metadata">
-      <span class="article-date">
-        May 10, 2025
-      </span>
+  <div class="article-container">
+    <header class="article-hero">
+      <h1>Stochastic Pricing Models</h1>
+
+      <div class="article-metadata">
+        <span class="article-date">
+          May 10, 2025
+        </span>
+        <span class="meta-dot">-</span>
+        <span class="article-read-time">4 min read</span>
+        <span class="meta-dot">-</span>
+        <span class="article-word-count">745 words</span>
+
+        
+        <div class="article-categories">
+          
+          <a class="badge badge-primary" href="/site/category/quantitative-finance/">Quantitative Finance</a>
+          
+        </div>
+        
+      </div>
+
+      
+      <div class="article-summary-card">
+        <p class="summary-label">Why this matters</p>
+        <p class="summary-text">This article provides an exposition of stochastic models for option pricing, focusing on the mathematical formulation and computational techniques underlying the Heston and Merton jump-diffusion frameworks. Analytical and simulation-based approaches for pricing, risk management, and sensitivity analysis are discussed in detail.</p>
+      </div>
+      
 
       
       <div class="article-tags">
         
-        <a class="badge badge-light" href="/tags/options-pricing">Options Pricing</a>
+        <a class="badge badge-light" href="/site/tag/quantitative-finance/">Quantitative Finance</a>
         
-        <a class="badge badge-light" href="/tags/quantitative-finance">Quantitative Finance</a>
+        <a class="badge badge-light" href="/site/tag/derivatives/">Derivatives</a>
         
       </div>
       
-    </div>
+    </header>
 
-    <div class="article-content">
-      <h1 id="stochastic-pricing-models">Stochastic Pricing Models</h1>
+    
+    <div class="article-layout">
+      
+      <aside class="article-toc-panel" aria-label="Article contents">
+        <p class="toc-title">On this page</p>
+        <div class="article-toc">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-introduction-to-stochastic-option-pricing">1. Introduction to Stochastic Option Pricing</a></li>
+    <li><a href="#2-heston-model">2. Heston Model</a></li>
+    <li><a href="#3-merton-jump-diffusion-model">3. Merton Jump Diffusion Model</a></li>
+    <li><a href="#4-greeks-calculation">4. Greeks Calculation</a></li>
+    <li><a href="#5-barrier-options">5. Barrier Options</a></li>
+    <li><a href="#6-conclusion">6. Conclusion</a></li>
+  </ul>
+</nav>
+        </div>
+      </aside>
+      
+
+      <div class="article-content">
+        <h1 id="stochastic-pricing-models">Stochastic Pricing Models</h1>
 <p>This post presents the theoretical foundations of stochastic models for option pricing. We outline the mathematical structure and computational methods for European and American options under both the Heston and Merton jump-diffusion models, including the calculation of Greeks and barrier options.</p>
 <h2 id="1-introduction-to-stochastic-option-pricing">1. Introduction to Stochastic Option Pricing</h2>
 <p>Stochastic models are essential for capturing the randomness in financial markets, especially for pricing derivatives like options. Two widely used models are:</p>
@@ -685,19 +830,19 @@
 <li><strong>Merton Jump Diffusion Model</strong>: Extends the Black-Scholes framework by adding random jumps in asset prices, capturing sudden market moves.</li>
 </ul>
 <h2 id="2-heston-model">2. Heston Model</h2>
-<p>The Heston model describes the evolution of an asset price $S_t$ and its variance $v_t$ as:</p>
+<p>The Heston model jointly evolves the asset price $S_t$ and its instantaneous variance $v_t$ (so volatility is $\sqrt{v_t}$):</p>
 <p>\begin{equation*}
 dS_t = \mu S_t dt + \sqrt{v_t}\ S_t\ dW_t^S
 \end{equation*}</p>
 <p>\begin{equation*}
 dv_t = \kappa (\theta - v_t) dt + \sigma \sqrt{v_t}\ dW_t^v
 \end{equation*}</p>
-<p>where $dW_t^S$ and $dW_t^v$ are correlated Brownian motions.</p>
+<p>Here, $\mu$ is the drift term, $\kappa$ is the speed of mean reversion of variance, $\theta$ is the long-run variance level, and $\sigma$ is the volatility of variance (vol-of-vol). The shocks $dW_t^S$ and $dW_t^v$ are Brownian increments for the price and variance processes, respectively, and they satisfy:</p>
 <p>\begin{equation*}
 dW_t^S dW_t^v = \rho dt
 \end{equation*}</p>
 <p>Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.</p>
-<p>In the Heston model, the two Brownian motions $dW_t^S$ and $dW_t^v$ are correlated with correlation coefficient $\rho$. To simulate these correlated processes using independent standard normal variables, we use the Cholesky decomposition.</p>
+<p>To simulate correlated shocks, let $Z_1$ and $Z_2$ be independent standard normals and set:</p>
 <p>Let $Z_1$ and $Z_2$ be independent standard normal random variables. The correlated Brownian increments can be constructed as:</p>
 <p>\begin{equation*}
 dW_t^S = \sqrt{dt}\ Z_1
@@ -705,30 +850,30 @@ dW_t^S = \sqrt{dt}\ Z_1
 <p>\begin{equation*}
 dW_t^v = \rho \sqrt{dt}\ Z_1 + \sqrt{1-\rho^2}\ \sqrt{dt}\ Z_2
 \end{equation*}</p>
-<p>This transformation ensures that $dW_t^S$ and $dW_t^v$ have the desired correlation $\rho$.</p>
-<p>The Cholesky decomposition is used to decompose the covariance matrix of the Brownian motions, allowing us to generate correlated random variables from independent ones. For a $2 \times 2$ covariance matrix:</p>
+<p>This guarantees the required instantaneous correlation $\rho$. In matrix form, the correlation matrix is</p>
 <p>$$
 \Sigma = \begin{pmatrix} 1 &amp; \rho \ \rho &amp; 1 \end{pmatrix}
 $$</p>
-<p>The Cholesky factor $L$ is:</p>
+<p>with Cholesky factor</p>
 <p>$$
 L = \begin{pmatrix} 1 &amp; 0 \ \rho &amp; \sqrt{1-\rho^2} \end{pmatrix}
 $$</p>
-<p>Given $\mathbf{Z} = (Z_1, Z_2)^T$, the correlated increments are $L \mathbf{Z}$.</p>
+<p>so that, for $\mathbf{Z}=(Z_1,Z_2)^T$, the correlated increments are $L\mathbf{Z}$.</p>
 <p>For a detailed explanation see <a href="https://www.youtube.com/watch?v=HG3s2StHB3k" target="_blank" rel="noopener">this video on the Heston model</a>.</p>
 <h2 id="3-merton-jump-diffusion-model">3. Merton Jump Diffusion Model</h2>
-<p>The Merton model modifies the standard geometric Brownian motion by adding jumps:</p>
+<p>The Merton model extends geometric Brownian motion by adding a jump component:</p>
 <p>\begin{equation*}
 dS_t = (r - r_j) S_t dt + \sigma S_t dZ_t + J_t S_t dN_t
 \end{equation*}</p>
+<p>In this model, $r$ is the risk-free rate, $dZ_t$ is the diffusion shock, and $\sigma$ is diffusion volatility (distinct from the Heston vol-of-vol parameter). The Poisson increment $dN_t$ captures random jump arrivals, and $J_t$ controls jump size. The compensator $r_j$ adjusts drift so jump risk is accounted for in expectation.</p>
 <p>\begin{equation*}
-S_= S_{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{dt} z_t^1}+
+S_t = S_{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{dt} z_t^1}+
 \left(e^{\mu_j+\delta z_t^2}-1 \right) y_t \right)
 \end{equation*}</p>
 <p>\begin{equation*}
 r_j = \lambda \left(e^{\mu_j+\frac{\delta^2}{2}}\right)-1
 \end{equation*}</p>
-<p>where $dN_t$ is a Poisson process representing jumps, and $J_t$ is the jump size. Simulation under this model involves generating asset paths with both continuous and jump components, and pricing options by averaging discounted payoffs.</p>
+<p>In the discrete update, $S_{t-1}$ is the previous-step price, $z_t^1$ drives the diffusion term, and the jump term uses a random jump indicator/count $y_t$ together with jump-size shock $z_t^2$. Parameters $\lambda$, $\mu_j$, and $\delta$ denote jump intensity, mean log-jump size, and log-jump volatility, respectively. Simulation proceeds by combining diffusion and jump parts pathwise, then discounting payoffs.</p>
 <h2 id="4-greeks-calculation">4. Greeks Calculation</h2>
 <p>The Greeks measure sensitivities of option prices to various parameters. In this framework, Delta and Gamma are computed using finite difference methods:</p>
 <ul>
@@ -737,14 +882,33 @@ r_j = \lambda \left(e^{\mu_j+\frac{\delta^2}{2}}\right)-1
 </ul>
 <p>Finite difference approximations are used to estimate these derivatives numerically.</p>
 <h2 id="5-barrier-options">5. Barrier Options</h2>
-<p>Barrier options are path-dependent derivatives that only pay off if the underlying asset crosses a certain barrier. The framework includes methods for pricing up-and-in and down-and-in options under both the Heston and Merton models, using Monte Carlo simulation to determine whether the barrier is breached and to compute the discounted payoff accordingly.</p>
+<p>Barrier options are path-dependent derivatives whose payoff depends on whether the underlying touches a preset barrier during the option life. In a <strong>knock-in</strong> contract, the option becomes active only if the barrier is hit (for example, an up-and-in call activates only after the price rises to the barrier), while in a <strong>knock-out</strong> contract, hitting the barrier cancels the option (for example, an up-and-out call is extinguished once the barrier is reached). This makes barrier options generally cheaper than plain vanilla options with similar strikes, since activation/cancellation conditions reduce expected payoff in many paths. Under both Heston and Merton dynamics, pricing is performed by simulating full paths, checking barrier events at each time step, and then discounting the payoff only on paths that satisfy the specific knock-in or knock-out rule.</p>
 <h2 id="6-conclusion">6. Conclusion</h2>
 <p>This theoretical overview provides the mathematical and computational foundation for advanced option pricing models, including simulation, pricing, and risk analysis. The methods described here are applicable to a wide range of financial derivatives and serve as a reference for both theory and practical implementation.</p>
 <p><a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/stochastic_pricing.ipynb" target="_blank" rel="noopener">Read more →</a></p>
 
+      </div>
     </div>
   </div>
 </article>
+
+<script>
+  (function () {
+    var progressBar = document.getElementById("reading-progress-bar");
+    if (!progressBar) return;
+
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+      progressBar.style.width = Math.min(Math.max(progress, 0), 100) + "%";
+    }
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+  })();
+</script>
 
   </div>
 

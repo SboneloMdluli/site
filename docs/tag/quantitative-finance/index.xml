@@ -35,10 +35,10 @@
 &lt;p&gt;The LW method shrinks all correlations uniformly toward zero, reducing noise without dramatically altering the portfolio structure.&lt;/p&gt;
 &lt;h3 id=&#34;22-enhanced-portfolio-optimization-epo&#34;&gt;2.2 Enhanced Portfolio Optimization (EPO)&lt;/h3&gt;
 &lt;p&gt;EPO controls the tension between a fully data-driven portfolio and a maximally diversified one through a single shrinkage parameter \(w \in [0, 1]\). Rather than denoising the covariance matrix in eigenvalue space, EPO acts directly on the off-diagonal correlations, blending the historical covariance with a diagonal target:&lt;/p&gt;
-&lt;p&gt;$$\tilde{\Sigma} = (1 - w),\Sigma_{\mathrm{hist}} + w,\Sigma_{\mathrm{target}}$$&lt;/p&gt;
+&lt;p&gt;$$\tilde{\Sigma} = (1 - w)\ \Sigma_{\mathrm{hist}} + w\ \Sigma_{\mathrm{target}}$$&lt;/p&gt;
 &lt;p&gt;Here \(\Sigma_{\mathrm{hist}}\) is the sample covariance carrying all historical correlations, while \(\Sigma_{\mathrm{target}}\) retains only the diagonal variances — setting every cross-asset covariance to zero. As \(w\) increases from 0 to 1, the optimizer progressively ignores inter-asset correlations, transitioning the solution from a concentrated MVO portfolio toward a signal-weighted diversified one.&lt;/p&gt;
 &lt;p&gt;In its simplest form (Simple EPO), this shrinkage has a transparent closed-form interpretation. The resulting weight vector decomposes as a convex combination of two portfolios:&lt;/p&gt;
-&lt;p&gt;$$\mathbf{w}_{\mathrm{EPO}} = (1 - w),\mathbf{w}_{\mathrm{MVO}} + w,\mathbf{w}_{\mathrm{signal}}$$&lt;/p&gt;
+&lt;p&gt;$$\mathbf{w}_{\mathrm{EPO}} = (1 - w)\ \mathbf{w}_{\mathrm{MVO}} + w\ \mathbf{w}_{\mathrm{signal}}$$&lt;/p&gt;
 &lt;p&gt;where \(\mathbf{w}_{\mathrm{MVO}}\) are the classical mean-variance weights (sensitive to noisy correlations in \(\Sigma_{\mathrm{hist}}\)) and \(\mathbf{w}_{\mathrm{signal}}\) are signal-only weights derived from expected returns alone, ignoring cross-asset structure entirely. The parameter \(w\) thus provides a direct, interpretable dial between estimation-risk-heavy MVO and a pure-signal allocation.&lt;/p&gt;
 &lt;h3 id=&#34;23-marchenkopastur-denoising&#34;&gt;2.3 Marchenko–Pastur Denoising&lt;/h3&gt;
 &lt;p&gt;Random Matrix Theory (RMT) offers a more surgical approach to denoising. The key insight is that when \(T\) observations of \(N\) asset returns are drawn from a true covariance matrix \(\Sigma\), the eigenvalues of the sample covariance \(S\) are systematically distorted. If the returns were purely random (i.e., \(\Sigma = I\)), the eigenvalue density of \(S\) would follow the &lt;strong&gt;Marchenko–Pastur distribution&lt;/strong&gt;:&lt;/p&gt;
@@ -127,19 +127,19 @@
 &lt;li&gt;&lt;strong&gt;Merton Jump Diffusion Model&lt;/strong&gt;: Extends the Black-Scholes framework by adding random jumps in asset prices, capturing sudden market moves.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;2-heston-model&#34;&gt;2. Heston Model&lt;/h2&gt;
-&lt;p&gt;The Heston model describes the evolution of an asset price $S_t$ and its variance $v_t$ as:&lt;/p&gt;
+&lt;p&gt;The Heston model jointly evolves the asset price $S_t$ and its instantaneous variance $v_t$ (so volatility is $\sqrt{v_t}$):&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 dS_t = \mu S_t dt + \sqrt{v_t}\ S_t\ dW_t^S
 \end{equation*}&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 dv_t = \kappa (\theta - v_t) dt + \sigma \sqrt{v_t}\ dW_t^v
 \end{equation*}&lt;/p&gt;
-&lt;p&gt;where $dW_t^S$ and $dW_t^v$ are correlated Brownian motions.&lt;/p&gt;
+&lt;p&gt;Here, $\mu$ is the drift term, $\kappa$ is the speed of mean reversion of variance, $\theta$ is the long-run variance level, and $\sigma$ is the volatility of variance (vol-of-vol). The shocks $dW_t^S$ and $dW_t^v$ are Brownian increments for the price and variance processes, respectively, and they satisfy:&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 dW_t^S dW_t^v = \rho dt
 \end{equation*}&lt;/p&gt;
 &lt;p&gt;Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.&lt;/p&gt;
-&lt;p&gt;In the Heston model, the two Brownian motions $dW_t^S$ and $dW_t^v$ are correlated with correlation coefficient $\rho$. To simulate these correlated processes using independent standard normal variables, we use the Cholesky decomposition.&lt;/p&gt;
+&lt;p&gt;To simulate correlated shocks, let $Z_1$ and $Z_2$ be independent standard normals and set:&lt;/p&gt;
 &lt;p&gt;Let $Z_1$ and $Z_2$ be independent standard normal random variables. The correlated Brownian increments can be constructed as:&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 dW_t^S = \sqrt{dt}\ Z_1
@@ -147,30 +147,30 @@ dW_t^S = \sqrt{dt}\ Z_1
 &lt;p&gt;\begin{equation*}
 dW_t^v = \rho \sqrt{dt}\ Z_1 + \sqrt{1-\rho^2}\ \sqrt{dt}\ Z_2
 \end{equation*}&lt;/p&gt;
-&lt;p&gt;This transformation ensures that $dW_t^S$ and $dW_t^v$ have the desired correlation $\rho$.&lt;/p&gt;
-&lt;p&gt;The Cholesky decomposition is used to decompose the covariance matrix of the Brownian motions, allowing us to generate correlated random variables from independent ones. For a $2 \times 2$ covariance matrix:&lt;/p&gt;
+&lt;p&gt;This guarantees the required instantaneous correlation $\rho$. In matrix form, the correlation matrix is&lt;/p&gt;
 &lt;p&gt;$$
 \Sigma = \begin{pmatrix} 1 &amp;amp; \rho \ \rho &amp;amp; 1 \end{pmatrix}
 $$&lt;/p&gt;
-&lt;p&gt;The Cholesky factor $L$ is:&lt;/p&gt;
+&lt;p&gt;with Cholesky factor&lt;/p&gt;
 &lt;p&gt;$$
 L = \begin{pmatrix} 1 &amp;amp; 0 \ \rho &amp;amp; \sqrt{1-\rho^2} \end{pmatrix}
 $$&lt;/p&gt;
-&lt;p&gt;Given $\mathbf{Z} = (Z_1, Z_2)^T$, the correlated increments are $L \mathbf{Z}$.&lt;/p&gt;
+&lt;p&gt;so that, for $\mathbf{Z}=(Z_1,Z_2)^T$, the correlated increments are $L\mathbf{Z}$.&lt;/p&gt;
 &lt;p&gt;For a detailed explanation see &lt;a href=&#34;https://www.youtube.com/watch?v=HG3s2StHB3k&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this video on the Heston model&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;3-merton-jump-diffusion-model&#34;&gt;3. Merton Jump Diffusion Model&lt;/h2&gt;
-&lt;p&gt;The Merton model modifies the standard geometric Brownian motion by adding jumps:&lt;/p&gt;
+&lt;p&gt;The Merton model extends geometric Brownian motion by adding a jump component:&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 dS_t = (r - r_j) S_t dt + \sigma S_t dZ_t + J_t S_t dN_t
 \end{equation*}&lt;/p&gt;
+&lt;p&gt;In this model, $r$ is the risk-free rate, $dZ_t$ is the diffusion shock, and $\sigma$ is diffusion volatility (distinct from the Heston vol-of-vol parameter). The Poisson increment $dN_t$ captures random jump arrivals, and $J_t$ controls jump size. The compensator $r_j$ adjusts drift so jump risk is accounted for in expectation.&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
-S_= S_{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{dt} z_t^1}+
+S_t = S_{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{dt} z_t^1}+
 \left(e^{\mu_j+\delta z_t^2}-1 \right) y_t \right)
 \end{equation*}&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 r_j = \lambda \left(e^{\mu_j+\frac{\delta^2}{2}}\right)-1
 \end{equation*}&lt;/p&gt;
-&lt;p&gt;where $dN_t$ is a Poisson process representing jumps, and $J_t$ is the jump size. Simulation under this model involves generating asset paths with both continuous and jump components, and pricing options by averaging discounted payoffs.&lt;/p&gt;
+&lt;p&gt;In the discrete update, $S_{t-1}$ is the previous-step price, $z_t^1$ drives the diffusion term, and the jump term uses a random jump indicator/count $y_t$ together with jump-size shock $z_t^2$. Parameters $\lambda$, $\mu_j$, and $\delta$ denote jump intensity, mean log-jump size, and log-jump volatility, respectively. Simulation proceeds by combining diffusion and jump parts pathwise, then discounting payoffs.&lt;/p&gt;
 &lt;h2 id=&#34;4-greeks-calculation&#34;&gt;4. Greeks Calculation&lt;/h2&gt;
 &lt;p&gt;The Greeks measure sensitivities of option prices to various parameters. In this framework, Delta and Gamma are computed using finite difference methods:&lt;/p&gt;
 &lt;ul&gt;
@@ -179,10 +179,99 @@ r_j = \lambda \left(e^{\mu_j+\frac{\delta^2}{2}}\right)-1
 &lt;/ul&gt;
 &lt;p&gt;Finite difference approximations are used to estimate these derivatives numerically.&lt;/p&gt;
 &lt;h2 id=&#34;5-barrier-options&#34;&gt;5. Barrier Options&lt;/h2&gt;
-&lt;p&gt;Barrier options are path-dependent derivatives that only pay off if the underlying asset crosses a certain barrier. The framework includes methods for pricing up-and-in and down-and-in options under both the Heston and Merton models, using Monte Carlo simulation to determine whether the barrier is breached and to compute the discounted payoff accordingly.&lt;/p&gt;
+&lt;p&gt;Barrier options are path-dependent derivatives whose payoff depends on whether the underlying touches a preset barrier during the option life. In a &lt;strong&gt;knock-in&lt;/strong&gt; contract, the option becomes active only if the barrier is hit (for example, an up-and-in call activates only after the price rises to the barrier), while in a &lt;strong&gt;knock-out&lt;/strong&gt; contract, hitting the barrier cancels the option (for example, an up-and-out call is extinguished once the barrier is reached). This makes barrier options generally cheaper than plain vanilla options with similar strikes, since activation/cancellation conditions reduce expected payoff in many paths. Under both Heston and Merton dynamics, pricing is performed by simulating full paths, checking barrier events at each time step, and then discounting the payoff only on paths that satisfy the specific knock-in or knock-out rule.&lt;/p&gt;
 &lt;h2 id=&#34;6-conclusion&#34;&gt;6. Conclusion&lt;/h2&gt;
 &lt;p&gt;This theoretical overview provides the mathematical and computational foundation for advanced option pricing models, including simulation, pricing, and risk analysis. The methods described here are applicable to a wide range of financial derivatives and serve as a reference for both theory and practical implementation.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/stochastic_pricing.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lattice Pricing Models</title>
+      <link>http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/</link>
+      <pubDate>Sun, 02 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/</guid>
+      <description>&lt;h2 id=&#34;binomial-tree-model&#34;&gt;Binomial Tree Model&lt;/h2&gt;
+&lt;p&gt;We can price options in discrete time through lattice models. The first model we consider is the Cox-Ross-Rubinstein Model which is risk neutral under Martingale measure $\mathbb{Q}$. A process $S$ is a Martingale with respect to measure $\mathbb{Q}$ and filtration $\{\mathcal{F}_t\}_{t \geq 0}$, if $ \mathbb{E}^{\mathbb{Q}}[X_t \mid \mathcal{F}_s] = X_s \quad \forall , s\leq t$. This means the process is path unbiased.&lt;/p&gt;
+
+
+
+
+
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/binomial_tree.jpg&#34; alt=&#34;Binomial Tree&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
+&lt;/figure&gt;
+&lt;p&gt;According to this model the stock at time $t$ can move to up by a factor of $u$ with probability $p$ and down by a factor of $d$ with probability $(1-p)$ at the next time step $t+1$. Using the principle of no arbitrage, the stock earns a risk free interest ($r$) and parameters $d &amp;lt; 1 &amp;lt; u$. The risk neutral probability $p$ is then given by mean matching.&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+\begin{aligned}
+\mathbb{E}[S_{t+\Delta t}] &amp;amp;= S_0e^{r\Delta t} \\
+S_0e^{r\Delta t} &amp;amp;= S_0u\cdot p+S_0d\cdot(1-p) \\
+\implies p &amp;amp;= \frac{e^{r\Delta t}-d}{u-d}
+\end{aligned}
+\end{aligned}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;Similarly the call option $c_0 = e^{-rT}(c_u\cdot p+c_d\cdot(1-p))$. We can evaluate $u$ and $d$ by matching the variance.&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+\mathbb{V}(S _{t+\Delta t}) &amp;amp;= \mathbb{E}[(S_{t+\Delta t})^2] - (\mathbb{E}[S_{t+\Delta t}])^2 \\
+\sigma^2 \Delta t &amp;amp;= p \cdot u^2 + d^2(1-p) + (p \cdot u^2 + d^2(1-p))^2 \\
+\sigma^2 \Delta t &amp;amp;= (p -p^2)(u-d)^2 \\
+\sigma^2 \Delta t &amp;amp;= e^{r\Delta t} (u+d) - u \cdot d - e^{2r\Delta t} \\
+\sigma^2 \Delta t &amp;amp;= e^{r\Delta t} (u+1/u) - u \cdot 1/u - e^{2r\Delta t} \quad \text{[$u\cdot d=1$ ]} \\
+u &amp;amp;= e^{\sigma \sqrt{\Delta t}} \\
+d &amp;amp;= e^{-\sigma \sqrt{\Delta t}}
+\end{aligned}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;The above definitions rely on a sufficiently small $\Delta t$ for $p$ to be a valid probability.&lt;/p&gt;
+&lt;h2 id=&#34;delta-hedging&#34;&gt;Delta Hedging&lt;/h2&gt;
+&lt;p&gt;We define a portfolio $\Pi_{t}$, under the principle of no arbitrage the portfolio is worth the same at time $t$
+regardless of the path taken to $t+1$. No cash injection or deposits are allowed once the portfolio has been created, portfolio rebalancing is funded using assets within the portfolio. This is referred to as a self financing portfolio.&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+\Pi_{t,u} &amp;amp;= \Delta S_0 u - c_u \quad \text{upward movement}
+\end{aligned}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+\Pi_{t,d} &amp;amp;= \Delta S_0 d - c_d \quad \text{downward movement}
+\end{aligned}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;Rebalancing under this constraints leads to delta hedging.&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+\Delta S_0 d - c_d &amp;amp;= \Delta S_0 u - c_u \\
+\Delta &amp;amp;= \frac{c_u-c_d}{S_0 u - S_0 d}
+\end{aligned}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;$\Delta$ is the amount of the underlying that we must own for the portfolio to be risk neutral.&lt;/p&gt;
+&lt;h2 id=&#34;american-binomial-tree&#34;&gt;American Binomial Tree&lt;/h2&gt;
+&lt;p&gt;The American binomial tree extends the standard binomial model to handle early exercise options.
+At each node, we compare the immediate exercise value with the discounted expected future value to determine the optimal exercise strategy.&lt;/p&gt;
+&lt;h2 id=&#34;trinomial-tree&#34;&gt;Trinomial Tree&lt;/h2&gt;
+&lt;p&gt;The trinomial tree model extends the binomial model by allowing for an additional middle state.
+This provides more flexibility in modeling the underlying price process and can lead to faster convergence compared to binomial trees.&lt;/p&gt;
+&lt;h2 id=&#34;asian-binomial-tree&#34;&gt;Asian Binomial Tree&lt;/h2&gt;
+&lt;p&gt;The Asian binomial tree model is used for pricing Asian options where the payoff depends on the average price of the underlying asset over some time period. The model tracks the average price along each path and computes the option value accordingly.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/lattice_pricing_models.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Put-Call Parity</title>
+      <link>http://localhost:1313/site/post/2024/02/08/put-call-parity/</link>
+      <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2024/02/08/put-call-parity/</guid>
+      <description>&lt;p&gt;The put-call parity (PCP) establishes the relationship between call and put options that share the same underlying asset and expiration date. This relationship is especially relevant for European options. To illustrate it, we can create a portfolio composed of a long put option ($P(t)=max(K-S_{t},0)$), a short call option ($C(t)=max(S_{t}-K,0)$), and a long position in a non-dividend-paying stock ($S$) of the underlying. Both options have the same strike price ($K$) and expiration date ($T$). The portfolio&amp;rsquo;s structure before the expiration, at $t \leq T$, is described as follows:&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\begin{split}
+\prod_{t}^{} &amp;amp;= S_{t} + max(K-S_{t},0) - max(S_{t}-K,0)\
+&amp;amp;= K e^{-r(t-T)}
+\end{split}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;for European options this portfolio is simply a bond with interest rate $r$ and maturity $T$, the portfolio then becomes $\prod_{T} = K$&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/put_call_parity.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

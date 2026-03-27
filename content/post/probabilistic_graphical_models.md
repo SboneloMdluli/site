@@ -19,7 +19,7 @@ Informally, a random variable $X$ is a measurable function $X: \Omega \to \mathb
 A fundamental identity in PGMs is the chain rule. Given random variables $X_1, \dots, X_n$, their joint distribution factorizes as:
 
 $$
-P(X_1, \ldots, X_n) = \prod_{i=1}^{n} P\left(X_i \mid X_1, \ldots, X_{i-1}\right)
+\mathbb{P}(X_1, \ldots, X_n) = \prod_{i=1}^{n} \mathbb{P}\left(X_i \mid X_1, \ldots, X_{i-1}\right)
 $$
 
 A graph $G$ is defined by a set of vertices $V$ and a set of edges $E$. There are two main types of graphs: directed and undirected.
@@ -36,7 +36,7 @@ Definition (clique): A clique is a complete subgraph; that is, a set of vertices
 A belief network is a directed acyclic graph (DAG) that represents conditional dependencies among random variables. The defining property is a local Markov condition: each variable is conditionally independent of its non-descendants given its parents. Consequently, the joint distribution factorizes as
 
 $$
-P(X_1,\ldots,X_n) = \prod_{i=1}^{n} P\\left(X_i \mid {\mathrm{Pa}(X_{i-1})}\right)
+\mathbb{P}(X_1,\ldots,X_n) = \prod_{i=1}^{n} \mathbb{P}\\left(X_i \mid {\mathrm{Pa}(X_{i-1})}\right)
 $$
 
 where $\mathrm{Pa}(X_{i-1})$ denotes the set of parent nodes of $X_{i-1}$ in the DAG.
@@ -48,19 +48,19 @@ To formally describe conditional independence relationships among random variabl
 - Chain $(X \rightarrow Z \rightarrow Y)$
 
   $$
-  P(x,z,y) = P(x)\ P(z\mid x)\ P(y\mid z)
+  \mathbb{P}(x,z,y) = \mathbb{P}(x)\ \mathbb{P}(z\mid x)\ \mathbb{P}(y\mid z)
   $$
 
 - Fork $(X \leftarrow Z \rightarrow Y)$
 
   $$
-  P(x,z,y) = P(z)\ P(x\mid z)\ P(y\mid z)
+  \mathbb{P}(x,z,y) = \mathbb{P}(z)\ \mathbb{P}(x\mid z)\ \mathbb{P}(y\mid z)
   $$
 
 - Collider $(X \rightarrow Z \leftarrow Y)$ with $X \perp Y \mid Z$
 
   $$
-  P(x,z,y) = P(x)\ P(y)\ P(z\mid x,y)
+  \mathbb{P}(x,z,y) = \mathbb{P}(x)\ \mathbb{P}(y)\ \mathbb{P}(z\mid x,y)
   $$
 
 These motifs determine when paths transmit or block statistical dependence under conditioning, and they provide a graphical criterion for reading off conditional independences implied by the model.
@@ -72,14 +72,14 @@ Belief networks provide an efficient and interpretable representation of complex
 A Markov network is a probabilistic model represented by an undirected graph. In contrast to belief networks, the joint distribution is expressed in terms of nonnegative potential functions defined over cliques. Let $\mathcal{C}$ denote a collection of maximal cliques. The joint distribution takes the form
 
 $$
-P(x) = \frac{1}{Z}\prod_{C \in \mathcal{C}} \psi_C(x_C)
+\mathbb{P}(x) = \frac{1}{Z}\prod_{C \in \mathcal{C}} \psi_C(x_C)
 $$
 
 where $\psi_C(x_C) \geq 0$ is a nonnegative potential function defined on the variables in clique $C$, and $Z$ is called the partition function. The partition function serves to normalize the distribution, ensuring that the total probability sums (or integrates) to 1.
 
 ### The partition function
 
-The partition function $Z$ is defined so that $P(x)$ is a valid probability distribution. In the discrete case, where $x$ ranges over a finite or countable state space $\mathcal{X}$,
+The partition function $Z$ is defined so that $\mathbb{P}(x)$ is a valid probability distribution. In the discrete case, where $x$ ranges over a finite or countable state space $\mathcal{X}$,
 
 $$
 Z = \sum_{x \in \mathcal{X}} \prod_{C \in \mathcal{C}} \psi_C(x_C)
@@ -180,12 +180,6 @@ In a Bayesian network, the (Pearl) Markov blanket of $X$ is:
 - Children of $X$
 - Co-parents of $X$ (the other parents of $X$’s children)
 
-If we write the Markov blanket as $\mathrm{MB}(X)$, the key property is:
-
-$$
-X \perp\!\!\!\perp \big( V \setminus (\{X\} \cup \mathrm{MB}(X)) \big) \;\big|\; \mathrm{MB}(X)
-$$
-
 The Markov blanket concept is frequently used for local prediction and inference: to predict $X$ it suffices, under the model assumptions, to condition on $\mathrm{MB}(X)$ rather than the full set of variables. Consequently, Markov blankets provide a principled criterion for identifying a compact set of variables that are most directly relevant to a target of interest.
 
 ### Types of Markov blankets
@@ -206,4 +200,6 @@ Limitations include:
 
 1. Discovery cost: in high-dimensional settings, identifying a minimal blanket (or a suitable approximation) can be computationally demanding.
 2. Data requirements: reliable blanket identification may require substantial sample sizes. With limited data, estimated blankets may be unstable or misleading.
+
+read more [notebook](https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/probabilistic_graphical_models.ipynb).
 

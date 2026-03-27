@@ -2,8 +2,8 @@
 title: "Portfolio Optimization: Beyond Markowitz with Denoising"
 date: 2026-02-01
 summary: "Improving mean-variance optimization using covariance denoising (Ledoit-Wolf, Marchenko–Pastur, EPO, Bayesian), hierarchical clustering (HRP, HERC), and combinatorial purged cross-validation."
-tags: ["Quantitative Finance", "Portfolio Management", "Machine Learning"]
-categories: [Quantitative Finance]
+tags: ["Quantitative Finance", "Machine Learning"]
+categories: ["Quantitative Finance"]
 math: true
 ---
 
