@@ -7,8 +7,6 @@ type: landing
 sections:
   - block: about.biography
     content:
-      title: Biography
-      subtitle: Practical notes on derivatives, market microstructure, and production machine learning
       username: admin
 
   - block: experience
@@ -65,43 +63,4 @@ sections:
     design:
       view: card
       columns: "2"
-
-# Display name
-# title: Sbonelo Mdluli ☕️
-
-# Is this the primary user of the site?
-superuser: true
-
-# Status emoji
-status:
-  icon: 📊
-
-
-interests:
-  - Quantitative Finance
-  - Machine Learning
-  - Market Microstructure
-  - Risk Management
-
-education:
-  courses:
-    - course: MSc in Financial Engineering
-      institution: WorldQuant University
-      year: 2023
-    - course: BSc in Electrical Engineering
-      institution: University of Cape Town
-      year: 2019
-
-# Social/Academic Networking
-social:
-  - icon: github
-    icon_pack: fab
-    link: https://github.com/SboneloMdluli
-  - icon: linkedin
-    icon_pack: fab
-    link: https://www.linkedin.com/in/sbonelo-mdluli
-
-highlight_name: true
-
-# type: widget_page
 ---

@@ -42,7 +42,9 @@ params:
     font_size: L
   header:
     navbar:
+      enable: true
       align: c
+      show_logo: true
       show_search: true
       show_day_night: true
       highlight_active_link: true
@@ -62,15 +64,16 @@ params:
       link: https://github.com/SboneloMdluli
     - icon: linkedin
       icon_pack: fab
-      link: https://www.linkedin.com/in/sbonelo-mdluli
+      link: https://www.linkedin.com/in/sbonelomdluli/
 
   # SEO
-  seo:
-    site_type: Person
-    local_business_type: ''
-    org_name: ''
-    description: ''
-    twitter: ''
+  marketing:
+    seo:
+      site_type: Person
+      local_business_type: ''
+      org_name: ''
+      description: 'Quant finance and production ML — derivatives pricing, market microstructure, and MLOps by Sbonelo Mdluli.'
+      twitter: ''
 
   # Site features
   features:
@@ -88,7 +91,7 @@ params:
     navigation:
       highlight: true
       breadcrumb: true
-      smooth_scroll: false
+      smooth_scroll: true
     search:
       provider: wowchemy
       algolia:
@@ -140,7 +143,7 @@ cascade:
     reading_time: true
     commentable: false
     show_related: true
-    show_breadcrumb: true
+    show_breadcrumb: false
     share: true
     header:
       navbar:

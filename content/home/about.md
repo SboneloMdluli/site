@@ -19,36 +19,4 @@ title: Biography
 author: "admin"
 ---
 
----
-
-title: Sbonelo Mdluli
-
-interests:
-
-- Quantitative Finance
-- Machine Learning
-- Market Microstructure
-- Risk Management
-
-education:
-courses:
-
-- course: MSc in Financial Engineering
-  institution: WorldQuant University
-  year: 2026
-- course: BSc in Electrical Engineering
-  institution: University of Cape Town
-  year: 2020
-
-social:
-
-- icon: github
-  icon_pack: fab
-  link: https://github.com/SboneloMdluli
-- icon: linkedin
-  icon_pack: fab
-  link: https://www.linkedin.com/in/sbonelo-mdluli
-
-## highlight_name: true
-
 [View my latest research and blog posts →](/#posts)

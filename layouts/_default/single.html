@@ -26,13 +26,6 @@
         {{ end }}
       </div>
 
-      {{ if .Summary }}
-      <div class="article-summary-card">
-        <p class="summary-label">Why this matters</p>
-        <p class="summary-text">{{ .Summary }}</p>
-      </div>
-      {{ end }}
-
       {{ if .Params.tags }}
       <div class="article-tags">
         {{ range .GetTerms "tags" }}

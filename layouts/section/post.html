@@ -1,0 +1,22 @@
+{{- define "main" -}}
+
+{{ partial "page_header.html" . }}
+
+<div class="universal-wrapper post-card-grid">
+  {{ with .Content }}
+  <div class="article-style">{{ . }}</div>
+  {{ end }}
+
+  {{ $paginator := .Paginate .Data.Pages }}
+  <div class="row post-cards-row">
+    {{ range $index, $item := $paginator.Pages }}
+    <div class="col-12 col-md-6 post-card-col">
+      {{ partial "functions/render_view" (dict "page" $ "item" . "view" ($.Params.view | default "card") "index" $index) }}
+    </div>
+    {{ end }}
+  </div>
+
+  {{ partial "pagination" . }}
+</div>
+
+{{- end -}}

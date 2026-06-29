@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Sbonelo Mdluli ☕️
+title: Sbonelo Mdluli
 
 # Is this the primary user of the site?
 superuser: true

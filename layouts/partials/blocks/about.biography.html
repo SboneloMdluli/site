@@ -38,6 +38,8 @@
 
       <div class="portrait-title">
 
+        {{/* Name appears in navbar; show it only on standalone author pages. */}}
+        {{ if not $block }}
         <h2>
           {{- if $person.name_pronunciation -}}
             <ruby>
@@ -48,8 +50,11 @@
             {{- $person_page.Title -}}
           {{- end -}}
         </h2>
+        {{ end }}
 
-        {{ with $person.role }}<h3>{{ . | markdownify | emojify }}</h3>{{ end }}
+        {{ with $person.role }}<h3 class="profile-role">{{ . | markdownify | emojify }}</h3>{{ end }}
+
+        {{ with $person.tagline }}<p class="profile-tagline">{{ . | markdownify | emojify }}</p>{{ end }}
 
         {{ range $person.organizations }}
         <h3>
@@ -86,9 +91,6 @@
     </div>
   </div>
   <div class="col-12 col-lg-8">
-
-    {{/* Only display widget title in explicit instances of about widget, not in author pages. */}}
-    {{ with $block.content.title }}<h1>{{ . | markdownify | emojify }}</h1>{{ end }}
 
     {{ with $person_page.Content }}
     <div class="article-style">
