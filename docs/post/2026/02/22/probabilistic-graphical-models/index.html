@@ -1,37 +1,1014 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=generator content="Hugo Blox Builder 5.9.7"><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload as=style href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap"><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media=print onload='this.media="all"'><script src=/site/js/mathjax-config.js></script><link rel=stylesheet href=/site/css/vendor-bundle.min.26c458e6907dc03073573976b7f4044e.css media=print onload='this.media="all"'><script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js integrity crossorigin=anonymous async></script><link rel=stylesheet href=/site/css/wowchemy.5adeb309104bf059bfce5194cee5d4d8.css><link rel=stylesheet href=/site/css/libs/chroma/github-light.min.css title=hl-light media=print onload='this.media="all"'><link rel=stylesheet href=/site/css/libs/chroma/dracula.min.css title=hl-dark media=print onload='this.media="all"' disabled><meta name=author content="Sbonelo Mdluli"><meta name=description content="A concise, formal overview of probabilistic graphical models (PGMs), including Bayesian networks, Markov networks, parameter and structure learning, and Markov blankets."><link rel=alternate hreflang=en href=https://sbonelomdluli.github.io/site/post/2026/02/22/probabilistic-graphical-models/><link rel=canonical href=https://sbonelomdluli.github.io/site/post/2026/02/22/probabilistic-graphical-models/><link rel=icon type=image/png href=/site/media/icon_hu_ae99fbc64983dc75.png><link rel=apple-touch-icon type=image/png href=/site/media/icon_hu_e06036a7df0a0b5f.png><meta name=theme-color content="#1565c0"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://sbonelomdluli.github.io/site/media/icon_hu_d618173b9ba69b7d.png"><meta property="og:type" content="article"><meta property="og:site_name" content="Sbonelo Mdluli"><meta property="og:url" content="https://sbonelomdluli.github.io/site/post/2026/02/22/probabilistic-graphical-models/"><meta property="og:title" content="Probabilistic Graphical Models | Sbonelo Mdluli"><meta property="og:description" content="A concise, formal overview of probabilistic graphical models (PGMs), including Bayesian networks, Markov networks, parameter and structure learning, and Markov blankets."><meta property="og:image" content="https://sbonelomdluli.github.io/site/media/icon_hu_d618173b9ba69b7d.png"><meta property="og:locale" content="en"><meta property="article:published_time" content="2026-02-22T00:00:00+00:00"><meta property="article:modified_time" content="2026-02-22T00:00:00+00:00"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://sbonelomdluli.github.io/site/post/2026/02/22/probabilistic-graphical-models/"},"headline":"Probabilistic Graphical Models","datePublished":"2026-02-22T00:00:00Z","dateModified":"2026-02-22T00:00:00Z","author":{"@type":"Person","name":"Sbonelo Mdluli"},"publisher":{"@type":"Organization","name":"Sbonelo Mdluli","logo":{"@type":"ImageObject","url":"https://sbonelomdluli.github.io/site/media/icon_hu_3fed93dbf0434f0e.png"}},"description":"A concise, formal overview of probabilistic graphical models (PGMs), including Bayesian networks, Markov networks, parameter and structure learning, and Markov blankets."}</script><title>Probabilistic Graphical Models | Sbonelo Mdluli</title><link rel=stylesheet href=/site/css/custom.min.e4ba59803d06db5121305f648e58135cbccc10816af8bb3e71c48df3f6f5b30e.css integrity="sha256-5LpZgD0G21EhMF9kjlgTXLzMEIFq+Ls+ccSN8/b1sw4=" crossorigin=anonymous></head><body id=top data-spy=scroll data-offset=70 data-target=#TableOfContents class=page-wrapper data-wc-page-id=a3402209d9f17505ca529016bd491e00><script src=/site/js/wowchemy-init.min.9e4214442a7711d35691acd58f6f6361.js></script><aside class=search-modal id=search><div class=container><section class=search-header><div class="row no-gutters justify-content-between mb-3"><div class=col-6><h1>Search</h1></div><div class="col-6 col-search-close"><a class=js-search href=# aria-label=Close><i class="fas fa-times-circle text-muted" aria-hidden=true></i></a></div></div><div id=search-box><input name=q id=search-query placeholder=Search... autocapitalize=off autocomplete=off autocorrect=off spellcheck=false type=search class=form-control aria-label=Search...></div></section><section class=section-search-results><div id=search-hits></div></section></div></aside><div class="page-header header--fixed"><header><nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main><div class=container-xl><div class="d-none d-lg-inline-flex"><a class=navbar-brand href=/site/>Sbonelo Mdluli</a></div><button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar-content aria-expanded=false aria-label="Toggle navigation">
-<span><i class="fas fa-bars"></i></span></button><div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class=navbar-brand href=/site/>Sbonelo Mdluli</a></div><div class="navbar-collapse main-menu-item collapse justify-content-center" id=navbar-content><ul class="navbar-nav d-md-inline-flex"><li class=nav-item><a class=nav-link href=/site/><span>Home</span></a></li><li class=nav-item><a class=nav-link href=/site/#section-about-biography><span>About</span></a></li><li class=nav-item><a class=nav-link href=/site/#section-experience><span>Experience</span></a></li><li class=nav-item><a class="nav-link active" href=/site/post/><span>Articles</span></a></li></ul></div><ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2"><li class=nav-item><a class="nav-link js-search" href=# aria-label=Search><i class="fas fa-search" aria-hidden=true></i></a></li><li class="nav-item dropdown theme-dropdown"><a href=# class=nav-link data-toggle=dropdown aria-haspopup=true aria-label="Display preferences"><i class="fas fa-moon" aria-hidden=true></i></a><div class=dropdown-menu><a href=# class="dropdown-item js-set-theme-light"><span>Light</span>
-</a><a href=# class="dropdown-item js-set-theme-dark"><span>Dark</span>
-</a><a href=# class="dropdown-item js-set-theme-auto"><span>Automatic</span></a></div></li></ul></div></nav></header></div><div class=page-body><article class=article><div class=reading-progress aria-hidden=true><div class=reading-progress-bar id=reading-progress-bar></div></div><div class=article-container><header class=article-hero><h1>Probabilistic Graphical Models</h1><div class=article-metadata><span class=article-date>February 22, 2026
-</span><span class=meta-dot>-</span>
-<span class=article-read-time>8 min read</span>
-<span class=meta-dot>-</span>
-<span class=article-word-count>1640 words</span><div class=article-categories><a class="badge badge-primary" href=/site/category/machine-learning/>Machine Learning</a></div></div><div class=article-tags><a class="badge badge-light" href=/site/tag/machine-learning/>Machine Learning</a></div></header><div class=article-layout><aside class=article-toc-panel aria-label="Article contents"><p class=toc-title>On this page</p><div class=article-toc><nav id=TableOfContents><ul><li><a href=#preliminaries-probability-and-graphs>Preliminaries: probability and graphs</a></li><li><a href=#belief-networks-bayesian-networks>Belief networks (Bayesian networks)</a><ul><li><a href=#d-separation>D-separation</a></li></ul></li><li><a href=#markov-networks-markov-random-fields>Markov networks (Markov random fields)</a><ul><li><a href=#the-partition-function>The partition function</a></li></ul></li><li><a href=#markov-models-markov-chains>Markov models (Markov chains)</a></li><li><a href=#parameter-learning-and-structure-learning>Parameter learning and structure learning</a><ul><li><a href=#parameter-learning>Parameter learning</a></li><li><a href=#structure-learning>Structure learning</a></li><li><a href=#inferred-causality-algorithm-pc-algorithm>Inferred causality algorithm (PC algorithm)</a></li><li><a href=#key-distinctions-between-parameter-and-structure-learning>Key distinctions between parameter and structure learning</a></li></ul></li><li><a href=#markov-blankets>Markov blankets</a><ul><li><a href=#types-of-markov-blankets>Types of Markov blankets</a></li><li><a href=#advantages-and-limitations>Advantages and limitations</a></li></ul></li></ul></nav></div></aside><div class=article-content><p>Probabilistic graphical models (PGMs) provide a mathematical framework that combines probability theory and graph theory in order to represent complex relationships among random variables. Two broad classes of PGMs are commonly distinguished: belief networks (Bayesian networks) and Markov networks (Markov random fields).</p><h2 id=preliminaries-probability-and-graphs>Preliminaries: probability and graphs</h2><p>A probability space is defined by the triplet $\left(\Omega, \mathcal{F}, \mathbb{P}\right)$, where $\Omega$ is the sample space (the set of all possible outcomes of an experiment), $\mathcal{F}$ is a $\sigma$-algebra of events (subsets of $\Omega$), and $\mathbb{P}$ is a probability measure assigning a probability to each event in $\mathcal{F}$.</p><p>Informally, a random variable $X$ is a measurable function $X: \Omega \to \mathbb{R}$, mapping outcomes in $\Omega$ to real numbers.</p><p>A fundamental identity in PGMs is the chain rule. Given random variables $X_1, \dots, X_n$, their joint distribution factorizes as:</p><p>$$
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: July 2, 2026 --><html lang="en" >
+
+
+<head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Hugo Blox Builder 5.9.7" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+
+  
+  
+    
+    <script src="/site/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="/site/css/vendor-bundle.min.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/site/css/wowchemy.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/site/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/site/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Sbonelo Mdluli" />
+
+
+
+
+
+  
+
+<meta name="description" content="A concise, formal overview of probabilistic graphical models (PGMs), including Bayesian networks, Markov networks, parameter and structure learning, and Markov blankets." />
+
+
+
+<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2026/02/22/probabilistic-graphical-models/" />
+<link rel="canonical" href="http://localhost:1313/site/post/2026/02/22/probabilistic-graphical-models/" />
+
+
+
+
+
+<link rel="icon" type="image/png" href="/site/media/icon_hu_ae99fbc64983dc75.png" />
+<link rel="apple-touch-icon" type="image/png" href="/site/media/icon_hu_e06036a7df0a0b5f.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:image" content="http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png" />
+
+
+
+  
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Sbonelo Mdluli" />
+<meta property="og:url" content="http://localhost:1313/site/post/2026/02/22/probabilistic-graphical-models/" />
+<meta property="og:title" content="Probabilistic Graphical Models | Sbonelo Mdluli" />
+<meta property="og:description" content="A concise, formal overview of probabilistic graphical models (PGMs), including Bayesian networks, Markov networks, parameter and structure learning, and Markov blankets." /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png" /><meta property="og:locale" content="en" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2026-02-22T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2026-02-22T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/site/post/2026/02/22/probabilistic-graphical-models/"
+  },
+  "headline": "Probabilistic Graphical Models",
+  
+  "datePublished": "2026-02-22T00:00:00Z",
+  "dateModified": "2026-02-22T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Sbonelo Mdluli"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sbonelo Mdluli",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/site/media/icon_hu_3fed93dbf0434f0e.png"
+    }
+  },
+  "description": "A concise, formal overview of probabilistic graphical models (PGMs), including Bayesian networks, Markov networks, parameter and structure learning, and Markov blankets."
+}
+</script>
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Probabilistic Graphical Models | Sbonelo Mdluli</title>
+
+  
+  
+  
+    
+
+  
+  <link rel="stylesheet" href="/site/css/custom.min.e4ba59803d06db5121305f648e58135cbccc10816af8bb3e71c48df3f6f5b30e.css" integrity="sha256-5LpZgD0G21EhMF9kjlgTXLzMEIFq&#43;Ls&#43;ccSN8/b1sw4=" crossorigin="anonymous">
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="a3402209d9f17505ca529016bd491e00" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/site/js/wowchemy-init.min.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/site/">Sbonelo Mdluli</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/site/">Sbonelo Mdluli</a>
+      </div>
+      
+
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+            
+          
+
+          
+          
+          
+          
+          
+          
+          
+
+          
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+            
+          
+
+          
+          
+          
+          
+          
+          
+          
+
+          
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-about-biography"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+            
+          
+
+          
+          
+          
+          
+          
+          
+          
+
+          
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-experience"><span>Experience</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+            
+          
+
+          
+          
+          
+          
+          
+          
+          
+
+          
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/site/post/"><span>Articles</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+          
+        
+
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    
+<article class="article">
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress-bar" id="reading-progress-bar"></div>
+  </div>
+
+  <div class="article-container">
+    <header class="article-hero">
+      <h1>Probabilistic Graphical Models</h1>
+
+      <div class="article-metadata">
+        <span class="article-date">
+          February 22, 2026
+        </span>
+        <span class="meta-dot">-</span>
+        <span class="article-read-time">8 min read</span>
+        <span class="meta-dot">-</span>
+        <span class="article-word-count">1640 words</span>
+      </div>
+    </header>
+
+    
+    <div class="article-layout">
+      
+      <aside class="article-toc-panel" aria-label="Article contents">
+        <p class="toc-title">On this page</p>
+        <div class="article-toc">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#preliminaries-probability-and-graphs">Preliminaries: probability and graphs</a></li>
+    <li><a href="#belief-networks-bayesian-networks">Belief networks (Bayesian networks)</a>
+      <ul>
+        <li><a href="#d-separation">D-separation</a></li>
+      </ul>
+    </li>
+    <li><a href="#markov-networks-markov-random-fields">Markov networks (Markov random fields)</a>
+      <ul>
+        <li><a href="#the-partition-function">The partition function</a></li>
+      </ul>
+    </li>
+    <li><a href="#markov-models-markov-chains">Markov models (Markov chains)</a></li>
+    <li><a href="#parameter-learning-and-structure-learning">Parameter learning and structure learning</a>
+      <ul>
+        <li><a href="#parameter-learning">Parameter learning</a></li>
+        <li><a href="#structure-learning">Structure learning</a></li>
+        <li><a href="#inferred-causality-algorithm-pc-algorithm">Inferred causality algorithm (PC algorithm)</a></li>
+        <li><a href="#key-distinctions-between-parameter-and-structure-learning">Key distinctions between parameter and structure learning</a></li>
+      </ul>
+    </li>
+    <li><a href="#markov-blankets">Markov blankets</a>
+      <ul>
+        <li><a href="#types-of-markov-blankets">Types of Markov blankets</a></li>
+        <li><a href="#advantages-and-limitations">Advantages and limitations</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+      </aside>
+      
+
+      <div class="article-content">
+        <p>Probabilistic graphical models (PGMs) provide a mathematical framework that combines probability theory and graph theory in order to represent complex relationships among random variables. Two broad classes of PGMs are commonly distinguished: belief networks (Bayesian networks) and Markov networks (Markov random fields).</p>
+<h2 id="preliminaries-probability-and-graphs">Preliminaries: probability and graphs</h2>
+<p>A probability space is defined by the triplet $\left(\Omega, \mathcal{F}, \mathbb{P}\right)$, where $\Omega$ is the sample space (the set of all possible outcomes of an experiment), $\mathcal{F}$ is a $\sigma$-algebra of events (subsets of $\Omega$), and $\mathbb{P}$ is a probability measure assigning a probability to each event in $\mathcal{F}$.</p>
+<p>Informally, a random variable $X$ is a measurable function $X: \Omega \to \mathbb{R}$, mapping outcomes in $\Omega$ to real numbers.</p>
+<p>A fundamental identity in PGMs is the chain rule. Given random variables $X_1, \dots, X_n$, their joint distribution factorizes as:</p>
+<p>$$
 \mathbb{P}(X_1, \ldots, X_n) = \prod_{i=1}^{n} \mathbb{P}\left(X_i \mid X_1, \ldots, X_{i-1}\right)
-$$</p><p>A graph $G$ is defined by a set of vertices $V$ and a set of edges $E$. There are two main types of graphs: directed and undirected.</p><ul><li>Directed graphs have edges with orientation, denoted as $X \rightarrow Y$, indicating that $X$ is a parent of $Y$.</li><li>Undirected graphs have edges without orientation, so connections are symmetric between nodes.</li></ul><p>In undirected graphs, the notion of a clique is important.</p><p>Definition (clique): A clique is a complete subgraph; that is, a set of vertices $C \subseteq V$ such that every pair of vertices in $C$ is connected by an edge. A clique is maximal if it is not properly contained in any larger clique.</p><h2 id=belief-networks-bayesian-networks>Belief networks (Bayesian networks)</h2><p>A belief network is a directed acyclic graph (DAG) that represents conditional dependencies among random variables. The defining property is a local Markov condition: each variable is conditionally independent of its non-descendants given its parents. Consequently, the joint distribution factorizes as</p><p>$$
+$$</p>
+<p>A graph $G$ is defined by a set of vertices $V$ and a set of edges $E$. There are two main types of graphs: directed and undirected.</p>
+<ul>
+<li>Directed graphs have edges with orientation, denoted as $X \rightarrow Y$, indicating that $X$ is a parent of $Y$.</li>
+<li>Undirected graphs have edges without orientation, so connections are symmetric between nodes.</li>
+</ul>
+<p>In undirected graphs, the notion of a clique is important.</p>
+<p>Definition (clique): A clique is a complete subgraph; that is, a set of vertices $C \subseteq V$ such that every pair of vertices in $C$ is connected by an edge. A clique is maximal if it is not properly contained in any larger clique.</p>
+<h2 id="belief-networks-bayesian-networks">Belief networks (Bayesian networks)</h2>
+<p>A belief network is a directed acyclic graph (DAG) that represents conditional dependencies among random variables. The defining property is a local Markov condition: each variable is conditionally independent of its non-descendants given its parents. Consequently, the joint distribution factorizes as</p>
+<p>$$
 \mathbb{P}(X_1,\ldots,X_n) = \prod_{i=1}^{n} \mathbb{P}\left(X_i \mid {\mathrm{Pa}(X_{i-1})}\right)
-$$</p><p>where $\mathrm{Pa}(X_{i-1})$ denotes the set of parent nodes of $X_{i-1}$ in the DAG.</p><h3 id=d-separation>D-separation</h3><p>To formally describe conditional independence relationships among random variables in a belief network, one introduces directed separation (d-separation). The three canonical motifs are:</p><ul><li><p>Chain $(X \rightarrow Z \rightarrow Y)$</p><p>$$
+$$</p>
+<p>where $\mathrm{Pa}(X_{i-1})$ denotes the set of parent nodes of $X_{i-1}$ in the DAG.</p>
+<h3 id="d-separation">D-separation</h3>
+<p>To formally describe conditional independence relationships among random variables in a belief network, one introduces directed separation (d-separation). The three canonical motifs are:</p>
+<ul>
+<li>
+<p>Chain $(X \rightarrow Z \rightarrow Y)$</p>
+<p>$$
 \mathbb{P}(x,z,y) = \mathbb{P}(x)\ \mathbb{P}(z\mid x)\ \mathbb{P}(y\mid z)
-$$</p></li><li><p>Fork $(X \leftarrow Z \rightarrow Y)$</p><p>$$
+$$</p>
+</li>
+<li>
+<p>Fork $(X \leftarrow Z \rightarrow Y)$</p>
+<p>$$
 \mathbb{P}(x,z,y) = \mathbb{P}(z)\ \mathbb{P}(x\mid z)\ \mathbb{P}(y\mid z)
-$$</p></li><li><p>Collider $(X \rightarrow Z \leftarrow Y)$ with $X \perp Y \mid Z$</p><p>$$
+$$</p>
+</li>
+<li>
+<p>Collider $(X \rightarrow Z \leftarrow Y)$ with $X \perp Y \mid Z$</p>
+<p>$$
 \mathbb{P}(x,z,y) = \mathbb{P}(x)\ \mathbb{P}(y)\ \mathbb{P}(z\mid x,y)
-$$</p></li></ul><p>These motifs determine when paths transmit or block statistical dependence under conditioning, and they provide a graphical criterion for reading off conditional independences implied by the model.</p><p>Belief networks provide an efficient and interpretable representation of complex joint distributions through conditional independence. However, they may incur substantial computational cost and can scale poorly for large or densely connected systems. Moreover, the acyclicity constraint restricts the class of interactions that can be represented directly, which motivates the consideration of alternative undirected models.</p><h2 id=markov-networks-markov-random-fields>Markov networks (Markov random fields)</h2><p>A Markov network is a probabilistic model represented by an undirected graph. In contrast to belief networks, the joint distribution is expressed in terms of nonnegative potential functions defined over cliques. Let $\mathcal{C}$ denote a collection of maximal cliques. The joint distribution takes the form</p><p>$$
+$$</p>
+</li>
+</ul>
+<p>These motifs determine when paths transmit or block statistical dependence under conditioning, and they provide a graphical criterion for reading off conditional independences implied by the model.</p>
+<p>Belief networks provide an efficient and interpretable representation of complex joint distributions through conditional independence. However, they may incur substantial computational cost and can scale poorly for large or densely connected systems. Moreover, the acyclicity constraint restricts the class of interactions that can be represented directly, which motivates the consideration of alternative undirected models.</p>
+<h2 id="markov-networks-markov-random-fields">Markov networks (Markov random fields)</h2>
+<p>A Markov network is a probabilistic model represented by an undirected graph. In contrast to belief networks, the joint distribution is expressed in terms of nonnegative potential functions defined over cliques. Let $\mathcal{C}$ denote a collection of maximal cliques. The joint distribution takes the form</p>
+<p>$$
 \mathbb{P}(x) = \frac{1}{Z}\prod_{C \in \mathcal{C}} \psi_C(x_C)
-$$</p><p>where $\psi_C(x_C) \geq 0$ is a nonnegative potential function defined on the variables in clique $C$, and $Z$ is called the partition function. The partition function serves to normalize the distribution, ensuring that the total probability sums (or integrates) to 1.</p><h3 id=the-partition-function>The partition function</h3><p>The partition function $Z$ is defined so that $\mathbb{P}(x)$ is a valid probability distribution. In the discrete case, where $x$ ranges over a finite or countable state space $\mathcal{X}$,</p><p>$$
+$$</p>
+<p>where $\psi_C(x_C) \geq 0$ is a nonnegative potential function defined on the variables in clique $C$, and $Z$ is called the partition function. The partition function serves to normalize the distribution, ensuring that the total probability sums (or integrates) to 1.</p>
+<h3 id="the-partition-function">The partition function</h3>
+<p>The partition function $Z$ is defined so that $\mathbb{P}(x)$ is a valid probability distribution. In the discrete case, where $x$ ranges over a finite or countable state space $\mathcal{X}$,</p>
+<p>$$
 Z = \sum_{x \in \mathcal{X}} \prod_{C \in \mathcal{C}} \psi_C(x_C)
-$$</p><p>and in the continuous case the corresponding expression is an integral:</p><p>$$
+$$</p>
+<p>and in the continuous case the corresponding expression is an integral:</p>
+<p>$$
 Z = \int \prod_{C \in \mathcal{C}} \psi_C(x_C),dx
-$$</p><p>Beyond its normalizing role, $Z$ (and its logarithm, the log-partition function) governs many quantities of interest, including marginal likelihoods and gradients used in parameter estimation for undirected models. In general, computing $Z$ exactly is intractable for large graphs, and practical methods rely on approximations</p><p>Markov networks satisfy the following Markov properties:</p><ol><li>Global Markov property</li><li>Local Markov property</li><li>Pairwise Markov property</li></ol><p>They represent conditional independence via graph separation and are more flexible than belief networks in that they impose no acyclicity constraint. Nonetheless, due to the absence of edge orientation, Markov networks do not directly encode causal relationships. A belief network can be transformed into an undirected graph via moralization, although such transformations do not, in general, preserve all conditional independence relations.</p><h2 id=markov-models-markov-chains>Markov models (Markov chains)</h2><p>Separately from Markov networks, the term Markov model is often used to refer to Markov chains, i.e., stochastic processes ${X_{t\ge 0}}$ that satisfy the Markov property. In discrete time, this property states that the conditional distribution of the next state depends only on the present state:</p><p>$$
+$$</p>
+<p>Beyond its normalizing role, $Z$ (and its logarithm, the log-partition function) governs many quantities of interest, including marginal likelihoods and gradients used in parameter estimation for undirected models. In general, computing $Z$ exactly is intractable for large graphs, and practical methods rely on approximations</p>
+<p>Markov networks satisfy the following Markov properties:</p>
+<ol>
+<li>Global Markov property</li>
+<li>Local Markov property</li>
+<li>Pairwise Markov property</li>
+</ol>
+<p>They represent conditional independence via graph separation and are more flexible than belief networks in that they impose no acyclicity constraint. Nonetheless, due to the absence of edge orientation, Markov networks do not directly encode causal relationships. A belief network can be transformed into an undirected graph via moralization, although such transformations do not, in general, preserve all conditional independence relations.</p>
+<h2 id="markov-models-markov-chains">Markov models (Markov chains)</h2>
+<p>Separately from Markov networks, the term Markov model is often used to refer to Markov chains, i.e., stochastic processes ${X_{t\ge 0}}$ that satisfy the Markov property. In discrete time, this property states that the conditional distribution of the next state depends only on the present state:</p>
+<p>$$
 \mathbb{P}(X_{t+1}=x \mid X_t, X_{t-1}, \ldots, X_0) = \mathbb{P}(X_{t+1}=x \mid X_t)
-$$</p><p>Equivalently, $X_{t+1}$ is conditionally independent of $X_{t-1}, \ldots, X_0$ given $X_t$:</p><p>$$
+$$</p>
+<p>Equivalently, $X_{t+1}$ is conditionally independent of $X_{t-1}, \ldots, X_0$ given $X_t$:</p>
+<p>$$
 X_{t+1} \perp (X_{t-1}, \ldots, X_0) \mid X_t
-$$</p><p>For a finite-state, time-homogeneous discrete-time Markov chain, the dynamics are characterized by a transition matrix $ P $ with entries</p><p>$$
+$$</p>
+<p>For a finite-state, time-homogeneous discrete-time Markov chain, the dynamics are characterized by a transition matrix $ P $ with entries</p>
+<p>$$
 P_{ij} = \mathbb{P}(X_{t+1} = j \mid X_t = i),
-$$</p><p>and the $k$-step transition probabilities are given by the entries of the matrix power $P^k$. Under standard conditions, the chain admits a stationary distribution $\pi$ satisfying</p><p>$$
+$$</p>
+<p>and the $k$-step transition probabilities are given by the entries of the matrix power $P^k$. Under standard conditions, the chain admits a stationary distribution $\pi$ satisfying</p>
+<p>$$
 \pi^\top P = \pi^\top.
-$$</p><p>In continuous time, Markov chains are specified via an infinitesimal generator $ Q $, which encodes transition rates and yields transition probabilities via</p><p>$$
+$$</p>
+<p>In continuous time, Markov chains are specified via an infinitesimal generator $ Q $, which encodes transition rates and yields transition probabilities via</p>
+<p>$$
 P(t) = \exp(Qt).
-$$</p><p>Common variants discussed in applications include discrete-time Markov chains (DTMCs), continuous-time Markov chains (CTMCs), absorbing chains, and reversible chains.</p><h2 id=parameter-learning-and-structure-learning>Parameter learning and structure learning</h2><p>It is important to distinguish between learning parameters and learning structure. These tasks play complementary roles in constructing and using graphical models.</p><h3 id=parameter-learning>Parameter learning</h3><p>Parameter learning concerns the estimation of numerical quantities (e.g conditional probabilities in a Bayesian network) when the graph structure is known or assumed. In discrete Bayesian networks, the parameters are commonly represented as conditional probability tables (CPTs), which quantify the distribution of each variable conditional on its parent configuration.</p><p>Two broad approaches are typical:</p><ul><li>Maximum likelihood estimation, which reduces to counting configurations and normalizing in the fully observed discrete case.</li><li>Bayesian estimation, which combines prior beliefs with observed data (e.g using conjugate priors such as Dirichlet distributions for multinomial parameters).</li></ul><p>When data are incomplete, parameter learning typically requires iterative procedures such as expectation–maximization (EM) or sampling-based methods (e.g Gibbs sampling).</p><h3 id=structure-learning>Structure learning</h3><p>Structure learning aims to infer the graph topology from data, i.e., to determine which conditional dependencies should be represented by edges. This problem is substantially more difficult than parameter learning because the number of candidate structures grows rapidly with the number of variables.</p><p>Two major families of methods are:</p><ul><li>Constraint-based methods, which use statistical tests of conditional independence to prune edges and orient a compatible structure (e.g PC algorithm).</li><li>Score-based methods, which treat structure learning as an optimization problem by assigning scores that balance goodness-of-fit with complexity (e.g. BIC, BDe, MDL), then searching the space of structures via greedy or stochastic heuristics (e.g hill climbing, simulated annealing).</li></ul><h3 id=inferred-causality-algorithm-pc-algorithm>Inferred causality algorithm (PC algorithm)</h3><p>The PC algorithm is an example of this type of approach. It starts with a complete undirected graph that contains an edge linking every pair of variables, and gradually removes edges until the only edges remaining are directed edges oriented correctly.</p><p>Hybrid approaches combine these ideas, for example by learning an undirected skeleton via tests and then refining edge orientations using a scoring criterion. Practical challenges include computational complexity, the existence of Markov-equivalent structures, the need for increasing sample size as dimensionality grows, and the influence of latent variables.</p><h3 id=key-distinctions-between-parameter-and-structure-learning>Key distinctions between parameter and structure learning</h3><p>Parameter learning estimates numerical quantities associated with an assumed structure, whereas structure learning seeks to determine which conditional dependencies are present, often by identifying (in)dependencies among variables. In practice, parameter learning is typically computationally manageable under complete data, while structure learning is resource intensive and frequently relies on heuristic or approximate search procedures. Moreover, the sample complexity of structure learning increases rapidly with the number of variables, motivating constraints such as variable selection or limits on the maximum number of parents per node.</p><h2 id=markov-blankets>Markov blankets</h2><p>The Markov blanket of a target variable $X$ is the minimal set of variables that separates $X$ from the remainder of the graph, in the sense that conditioning on this set renders $X$ conditionally independent of all other variables.</p><p>In a Bayesian network, the (Pearl) Markov blanket of $X$ is:</p><ul><li>Parents of $X$</li><li>Children of $X$</li><li>Co-parents of $X$ (the other parents of $X$’s children)</li></ul><p>The Markov blanket concept is frequently used for local prediction and inference: to predict $X$ it suffices, under the model assumptions, to condition on $\mathrm{MB}(X)$ rather than the full set of variables. Consequently, Markov blankets provide a principled criterion for identifying a compact set of variables that are most directly relevant to a target of interest.</p><h3 id=types-of-markov-blankets>Types of Markov blankets</h3><p>Two commonly cited notions are:</p><ol><li>Pearl Markov blanket: the Bayesian-network construction described above (parents, children, and co-parents).</li><li>Friston Markov blanket: a boundary-state formalism used in active inference which partitions states into internal and external, mediated by sensory and active states.</li></ol><h3 id=advantages-and-limitations>Advantages and limitations</h3><p>Advantages of applying Markov blankets include:</p><ol><li>Computational efficiency: inference and prediction for a target variable can be localized to a comparatively small subset of variables.</li><li>Interpretability: the blanket provides a compact description of the most directly relevant dependencies for a target.</li></ol><p>Limitations include:</p><ol><li>Discovery cost: in high-dimensional settings, identifying a minimal blanket (or a suitable approximation) can be computationally demanding.</li><li>Data requirements: reliable blanket identification may require substantial sample sizes. With limited data, estimated blankets may be unstable or misleading.</li></ol><p>read more <a href=https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/probabilistic_graphical_models.ipynb target=_blank rel=noopener>notebook</a>.</p></div></div></div></article><script>(function(){var t=document.getElementById("reading-progress-bar");if(!t)return;function e(){var n=window.scrollY||document.documentElement.scrollTop,e=document.documentElement.scrollHeight-window.innerHeight,s=e>0?n/e*100:0;t.style.width=Math.min(Math.max(s,0),100)+"%"}e(),window.addEventListener("scroll",e,{passive:!0}),window.addEventListener("resize",e)})()</script></div><div class=page-footer><div class=container><footer class=site-footer><p class=powered-by>Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target=_blank rel=noopener>Hugo Blox Builder</a> — the free, <a href=https://github.com/HugoBlox/hugo-blox-builder target=_blank rel=noopener>open source</a> website builder that empowers creators.</p></footer></div></div><script src=/site/js/vendor-bundle.min.6782e3f6a4f06ea4766df038c45ecf40.js></script><script id=search-hit-fuse-template type=text/x-template>
+$$</p>
+<p>Common variants discussed in applications include discrete-time Markov chains (DTMCs), continuous-time Markov chains (CTMCs), absorbing chains, and reversible chains.</p>
+<h2 id="parameter-learning-and-structure-learning">Parameter learning and structure learning</h2>
+<p>It is important to distinguish between learning parameters and learning structure. These tasks play complementary roles in constructing and using graphical models.</p>
+<h3 id="parameter-learning">Parameter learning</h3>
+<p>Parameter learning concerns the estimation of numerical quantities (e.g conditional probabilities in a Bayesian network) when the graph structure is known or assumed. In discrete Bayesian networks, the parameters are commonly represented as conditional probability tables (CPTs), which quantify the distribution of each variable conditional on its parent configuration.</p>
+<p>Two broad approaches are typical:</p>
+<ul>
+<li>Maximum likelihood estimation, which reduces to counting configurations and normalizing in the fully observed discrete case.</li>
+<li>Bayesian estimation, which combines prior beliefs with observed data (e.g using conjugate priors such as Dirichlet distributions for multinomial parameters).</li>
+</ul>
+<p>When data are incomplete, parameter learning typically requires iterative procedures such as expectation–maximization (EM) or sampling-based methods (e.g Gibbs sampling).</p>
+<h3 id="structure-learning">Structure learning</h3>
+<p>Structure learning aims to infer the graph topology from data, i.e., to determine which conditional dependencies should be represented by edges. This problem is substantially more difficult than parameter learning because the number of candidate structures grows rapidly with the number of variables.</p>
+<p>Two major families of methods are:</p>
+<ul>
+<li>Constraint-based methods, which use statistical tests of conditional independence to prune edges and orient a compatible structure (e.g  PC algorithm).</li>
+<li>Score-based methods, which treat structure learning as an optimization problem by assigning scores that balance goodness-of-fit with complexity (e.g. BIC, BDe, MDL), then searching the space of structures via greedy or stochastic heuristics (e.g hill climbing, simulated annealing).</li>
+</ul>
+<h3 id="inferred-causality-algorithm-pc-algorithm">Inferred causality algorithm (PC algorithm)</h3>
+<p>The PC algorithm is an example of this type of approach. It starts with a complete undirected graph that contains an edge linking every pair of variables, and gradually removes edges until the only edges remaining are directed edges oriented correctly.</p>
+<p>Hybrid approaches combine these ideas, for example by learning an undirected skeleton via tests and then refining edge orientations using a scoring criterion. Practical challenges include computational complexity, the existence of Markov-equivalent structures, the need for increasing sample size as dimensionality grows, and the influence of latent variables.</p>
+<h3 id="key-distinctions-between-parameter-and-structure-learning">Key distinctions between parameter and structure learning</h3>
+<p>Parameter learning estimates numerical quantities associated with an assumed structure, whereas structure learning seeks to determine which conditional dependencies are present, often by identifying (in)dependencies among variables. In practice, parameter learning is typically computationally manageable under complete data, while structure learning is resource intensive and frequently relies on heuristic or approximate search procedures. Moreover, the sample complexity of structure learning increases rapidly with the number of variables, motivating constraints such as variable selection or limits on the maximum number of parents per node.</p>
+<h2 id="markov-blankets">Markov blankets</h2>
+<p>The Markov blanket of a target variable $X$ is the minimal set of variables that separates $X$ from the remainder of the graph, in the sense that conditioning on this set renders $X$ conditionally independent of all other variables.</p>
+<p>In a Bayesian network, the (Pearl) Markov blanket of $X$ is:</p>
+<ul>
+<li>Parents of $X$</li>
+<li>Children of $X$</li>
+<li>Co-parents of $X$ (the other parents of $X$’s children)</li>
+</ul>
+<p>The Markov blanket concept is frequently used for local prediction and inference: to predict $X$ it suffices, under the model assumptions, to condition on $\mathrm{MB}(X)$ rather than the full set of variables. Consequently, Markov blankets provide a principled criterion for identifying a compact set of variables that are most directly relevant to a target of interest.</p>
+<h3 id="types-of-markov-blankets">Types of Markov blankets</h3>
+<p>Two commonly cited notions are:</p>
+<ol>
+<li>Pearl Markov blanket: the Bayesian-network construction described above (parents, children, and co-parents).</li>
+<li>Friston Markov blanket: a boundary-state formalism used in active inference which partitions states into internal and external, mediated by sensory and active states.</li>
+</ol>
+<h3 id="advantages-and-limitations">Advantages and limitations</h3>
+<p>Advantages of applying Markov blankets include:</p>
+<ol>
+<li>Computational efficiency: inference and prediction for a target variable can be localized to a comparatively small subset of variables.</li>
+<li>Interpretability: the blanket provides a compact description of the most directly relevant dependencies for a target.</li>
+</ol>
+<p>Limitations include:</p>
+<ol>
+<li>Discovery cost: in high-dimensional settings, identifying a minimal blanket (or a suitable approximation) can be computationally demanding.</li>
+<li>Data requirements: reliable blanket identification may require substantial sample sizes. With limited data, estimated blankets may be unstable or misleading.</li>
+</ol>
+<p>read more <a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/probabilistic_graphical_models.ipynb" target="_blank" rel="noopener">notebook</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<script>
+  (function () {
+    var progressBar = document.getElementById("reading-progress-bar");
+    if (!progressBar) return;
+
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+      progressBar.style.width = Math.min(Math.max(progress, 0), 100) + "%";
+    }
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+  })();
+</script>
+
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/site/js/vendor-bundle.min.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
     <div class="search-hit" id="summary-{{key}}">
       <div class="search-hit-content">
         <div class="search-hit-name">
@@ -41,4 +1018,89 @@ $$</p><p>Common variants discussed in applications include discrete-time Markov 
         </div>
       </div>
     </div>
-  </script><script src=https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin=anonymous></script><script id=page-data type=application/json>{"use_headroom":true}</script><script src=/site/js/wowchemy-headroom.b95a7e109243f29d04930ae8cb49a756.js type=module></script><script src=/site/en/js/wowchemy.min.0e2a0f05cf2b31cd0892b2419d6f8fc7.js></script></body></html>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+  <script src="/site/js/wowchemy-headroom.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/site/en/js/wowchemy.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,5 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine Learning | Sbonelo Mdluli</title><link>https://sbonelomdluli.github.io/site/tag/machine-learning/</link><atom:link href="https://sbonelomdluli.github.io/site/tag/machine-learning/index.xml" rel="self" type="application/rss+xml"/><description>Machine Learning</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate><image><url>https://sbonelomdluli.github.io/site/media/icon_hu_d618173b9ba69b7d.png</url><title>Machine Learning</title><link>https://sbonelomdluli.github.io/site/tag/machine-learning/</link></image><item><title>Probabilistic Graphical Models</title><link>https://sbonelomdluli.github.io/site/post/2026/02/22/probabilistic-graphical-models/</link><pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate><guid>https://sbonelomdluli.github.io/site/post/2026/02/22/probabilistic-graphical-models/</guid><description>&lt;p&gt;Probabilistic graphical models (PGMs) provide a mathematical framework that combines probability theory and graph theory in order to represent complex relationships among random variables. Two broad classes of PGMs are commonly distinguished: belief networks (Bayesian networks) and Markov networks (Markov random fields).&lt;/p&gt;
-&lt;h2 id="preliminaries-probability-and-graphs"&gt;Preliminaries: probability and graphs&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning | Sbonelo Mdluli</title>
+    <link>http://localhost:1313/site/tag/machine-learning/</link>
+      <atom:link href="http://localhost:1313/site/tag/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>Machine Learning</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png</url>
+      <title>Machine Learning</title>
+      <link>http://localhost:1313/site/tag/machine-learning/</link>
+    </image>
+    
+    <item>
+      <title>Probabilistic Graphical Models</title>
+      <link>http://localhost:1313/site/post/2026/02/22/probabilistic-graphical-models/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2026/02/22/probabilistic-graphical-models/</guid>
+      <description>&lt;p&gt;Probabilistic graphical models (PGMs) provide a mathematical framework that combines probability theory and graph theory in order to represent complex relationships among random variables. Two broad classes of PGMs are commonly distinguished: belief networks (Bayesian networks) and Markov networks (Markov random fields).&lt;/p&gt;
+&lt;h2 id=&#34;preliminaries-probability-and-graphs&#34;&gt;Preliminaries: probability and graphs&lt;/h2&gt;
 &lt;p&gt;A probability space is defined by the triplet $\left(\Omega, \mathcal{F}, \mathbb{P}\right)$, where $\Omega$ is the sample space (the set of all possible outcomes of an experiment), $\mathcal{F}$ is a $\sigma$-algebra of events (subsets of $\Omega$), and $\mathbb{P}$ is a probability measure assigning a probability to each event in $\mathcal{F}$.&lt;/p&gt;
 &lt;p&gt;Informally, a random variable $X$ is a measurable function $X: \Omega \to \mathbb{R}$, mapping outcomes in $\Omega$ to real numbers.&lt;/p&gt;
 &lt;p&gt;A fundamental identity in PGMs is the chain rule. Given random variables $X_1, \dots, X_n$, their joint distribution factorizes as:&lt;/p&gt;
@@ -13,13 +32,13 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;In undirected graphs, the notion of a clique is important.&lt;/p&gt;
 &lt;p&gt;Definition (clique): A clique is a complete subgraph; that is, a set of vertices $C \subseteq V$ such that every pair of vertices in $C$ is connected by an edge. A clique is maximal if it is not properly contained in any larger clique.&lt;/p&gt;
-&lt;h2 id="belief-networks-bayesian-networks"&gt;Belief networks (Bayesian networks)&lt;/h2&gt;
+&lt;h2 id=&#34;belief-networks-bayesian-networks&#34;&gt;Belief networks (Bayesian networks)&lt;/h2&gt;
 &lt;p&gt;A belief network is a directed acyclic graph (DAG) that represents conditional dependencies among random variables. The defining property is a local Markov condition: each variable is conditionally independent of its non-descendants given its parents. Consequently, the joint distribution factorizes as&lt;/p&gt;
 &lt;p&gt;$$
 \mathbb{P}(X_1,\ldots,X_n) = \prod_{i=1}^{n} \mathbb{P}\left(X_i \mid {\mathrm{Pa}(X_{i-1})}\right)
 $$&lt;/p&gt;
 &lt;p&gt;where $\mathrm{Pa}(X_{i-1})$ denotes the set of parent nodes of $X_{i-1}$ in the DAG.&lt;/p&gt;
-&lt;h3 id="d-separation"&gt;D-separation&lt;/h3&gt;
+&lt;h3 id=&#34;d-separation&#34;&gt;D-separation&lt;/h3&gt;
 &lt;p&gt;To formally describe conditional independence relationships among random variables in a belief network, one introduces directed separation (d-separation). The three canonical motifs are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -43,13 +62,13 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;These motifs determine when paths transmit or block statistical dependence under conditioning, and they provide a graphical criterion for reading off conditional independences implied by the model.&lt;/p&gt;
 &lt;p&gt;Belief networks provide an efficient and interpretable representation of complex joint distributions through conditional independence. However, they may incur substantial computational cost and can scale poorly for large or densely connected systems. Moreover, the acyclicity constraint restricts the class of interactions that can be represented directly, which motivates the consideration of alternative undirected models.&lt;/p&gt;
-&lt;h2 id="markov-networks-markov-random-fields"&gt;Markov networks (Markov random fields)&lt;/h2&gt;
+&lt;h2 id=&#34;markov-networks-markov-random-fields&#34;&gt;Markov networks (Markov random fields)&lt;/h2&gt;
 &lt;p&gt;A Markov network is a probabilistic model represented by an undirected graph. In contrast to belief networks, the joint distribution is expressed in terms of nonnegative potential functions defined over cliques. Let $\mathcal{C}$ denote a collection of maximal cliques. The joint distribution takes the form&lt;/p&gt;
 &lt;p&gt;$$
 \mathbb{P}(x) = \frac{1}{Z}\prod_{C \in \mathcal{C}} \psi_C(x_C)
 $$&lt;/p&gt;
 &lt;p&gt;where $\psi_C(x_C) \geq 0$ is a nonnegative potential function defined on the variables in clique $C$, and $Z$ is called the partition function. The partition function serves to normalize the distribution, ensuring that the total probability sums (or integrates) to 1.&lt;/p&gt;
-&lt;h3 id="the-partition-function"&gt;The partition function&lt;/h3&gt;
+&lt;h3 id=&#34;the-partition-function&#34;&gt;The partition function&lt;/h3&gt;
 &lt;p&gt;The partition function $Z$ is defined so that $\mathbb{P}(x)$ is a valid probability distribution. In the discrete case, where $x$ ranges over a finite or countable state space $\mathcal{X}$,&lt;/p&gt;
 &lt;p&gt;$$
 Z = \sum_{x \in \mathcal{X}} \prod_{C \in \mathcal{C}} \psi_C(x_C)
@@ -66,7 +85,7 @@ $$&lt;/p&gt;
 &lt;li&gt;Pairwise Markov property&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;They represent conditional independence via graph separation and are more flexible than belief networks in that they impose no acyclicity constraint. Nonetheless, due to the absence of edge orientation, Markov networks do not directly encode causal relationships. A belief network can be transformed into an undirected graph via moralization, although such transformations do not, in general, preserve all conditional independence relations.&lt;/p&gt;
-&lt;h2 id="markov-models-markov-chains"&gt;Markov models (Markov chains)&lt;/h2&gt;
+&lt;h2 id=&#34;markov-models-markov-chains&#34;&gt;Markov models (Markov chains)&lt;/h2&gt;
 &lt;p&gt;Separately from Markov networks, the term Markov model is often used to refer to Markov chains, i.e., stochastic processes ${X_{t\ge 0}}$ that satisfy the Markov property. In discrete time, this property states that the conditional distribution of the next state depends only on the present state:&lt;/p&gt;
 &lt;p&gt;$$
 \mathbb{P}(X_{t+1}=x \mid X_t, X_{t-1}, \ldots, X_0) = \mathbb{P}(X_{t+1}=x \mid X_t)
@@ -88,9 +107,9 @@ $$&lt;/p&gt;
 P(t) = \exp(Qt).
 $$&lt;/p&gt;
 &lt;p&gt;Common variants discussed in applications include discrete-time Markov chains (DTMCs), continuous-time Markov chains (CTMCs), absorbing chains, and reversible chains.&lt;/p&gt;
-&lt;h2 id="parameter-learning-and-structure-learning"&gt;Parameter learning and structure learning&lt;/h2&gt;
+&lt;h2 id=&#34;parameter-learning-and-structure-learning&#34;&gt;Parameter learning and structure learning&lt;/h2&gt;
 &lt;p&gt;It is important to distinguish between learning parameters and learning structure. These tasks play complementary roles in constructing and using graphical models.&lt;/p&gt;
-&lt;h3 id="parameter-learning"&gt;Parameter learning&lt;/h3&gt;
+&lt;h3 id=&#34;parameter-learning&#34;&gt;Parameter learning&lt;/h3&gt;
 &lt;p&gt;Parameter learning concerns the estimation of numerical quantities (e.g conditional probabilities in a Bayesian network) when the graph structure is known or assumed. In discrete Bayesian networks, the parameters are commonly represented as conditional probability tables (CPTs), which quantify the distribution of each variable conditional on its parent configuration.&lt;/p&gt;
 &lt;p&gt;Two broad approaches are typical:&lt;/p&gt;
 &lt;ul&gt;
@@ -98,19 +117,19 @@ $$&lt;/p&gt;
 &lt;li&gt;Bayesian estimation, which combines prior beliefs with observed data (e.g using conjugate priors such as Dirichlet distributions for multinomial parameters).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;When data are incomplete, parameter learning typically requires iterative procedures such as expectation–maximization (EM) or sampling-based methods (e.g Gibbs sampling).&lt;/p&gt;
-&lt;h3 id="structure-learning"&gt;Structure learning&lt;/h3&gt;
+&lt;h3 id=&#34;structure-learning&#34;&gt;Structure learning&lt;/h3&gt;
 &lt;p&gt;Structure learning aims to infer the graph topology from data, i.e., to determine which conditional dependencies should be represented by edges. This problem is substantially more difficult than parameter learning because the number of candidate structures grows rapidly with the number of variables.&lt;/p&gt;
 &lt;p&gt;Two major families of methods are:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Constraint-based methods, which use statistical tests of conditional independence to prune edges and orient a compatible structure (e.g PC algorithm).&lt;/li&gt;
+&lt;li&gt;Constraint-based methods, which use statistical tests of conditional independence to prune edges and orient a compatible structure (e.g  PC algorithm).&lt;/li&gt;
 &lt;li&gt;Score-based methods, which treat structure learning as an optimization problem by assigning scores that balance goodness-of-fit with complexity (e.g. BIC, BDe, MDL), then searching the space of structures via greedy or stochastic heuristics (e.g hill climbing, simulated annealing).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="inferred-causality-algorithm-pc-algorithm"&gt;Inferred causality algorithm (PC algorithm)&lt;/h3&gt;
+&lt;h3 id=&#34;inferred-causality-algorithm-pc-algorithm&#34;&gt;Inferred causality algorithm (PC algorithm)&lt;/h3&gt;
 &lt;p&gt;The PC algorithm is an example of this type of approach. It starts with a complete undirected graph that contains an edge linking every pair of variables, and gradually removes edges until the only edges remaining are directed edges oriented correctly.&lt;/p&gt;
 &lt;p&gt;Hybrid approaches combine these ideas, for example by learning an undirected skeleton via tests and then refining edge orientations using a scoring criterion. Practical challenges include computational complexity, the existence of Markov-equivalent structures, the need for increasing sample size as dimensionality grows, and the influence of latent variables.&lt;/p&gt;
-&lt;h3 id="key-distinctions-between-parameter-and-structure-learning"&gt;Key distinctions between parameter and structure learning&lt;/h3&gt;
+&lt;h3 id=&#34;key-distinctions-between-parameter-and-structure-learning&#34;&gt;Key distinctions between parameter and structure learning&lt;/h3&gt;
 &lt;p&gt;Parameter learning estimates numerical quantities associated with an assumed structure, whereas structure learning seeks to determine which conditional dependencies are present, often by identifying (in)dependencies among variables. In practice, parameter learning is typically computationally manageable under complete data, while structure learning is resource intensive and frequently relies on heuristic or approximate search procedures. Moreover, the sample complexity of structure learning increases rapidly with the number of variables, motivating constraints such as variable selection or limits on the maximum number of parents per node.&lt;/p&gt;
-&lt;h2 id="markov-blankets"&gt;Markov blankets&lt;/h2&gt;
+&lt;h2 id=&#34;markov-blankets&#34;&gt;Markov blankets&lt;/h2&gt;
 &lt;p&gt;The Markov blanket of a target variable $X$ is the minimal set of variables that separates $X$ from the remainder of the graph, in the sense that conditioning on this set renders $X$ conditionally independent of all other variables.&lt;/p&gt;
 &lt;p&gt;In a Bayesian network, the (Pearl) Markov blanket of $X$ is:&lt;/p&gt;
 &lt;ul&gt;
@@ -119,13 +138,13 @@ $$&lt;/p&gt;
 &lt;li&gt;Co-parents of $X$ (the other parents of $X$’s children)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The Markov blanket concept is frequently used for local prediction and inference: to predict $X$ it suffices, under the model assumptions, to condition on $\mathrm{MB}(X)$ rather than the full set of variables. Consequently, Markov blankets provide a principled criterion for identifying a compact set of variables that are most directly relevant to a target of interest.&lt;/p&gt;
-&lt;h3 id="types-of-markov-blankets"&gt;Types of Markov blankets&lt;/h3&gt;
+&lt;h3 id=&#34;types-of-markov-blankets&#34;&gt;Types of Markov blankets&lt;/h3&gt;
 &lt;p&gt;Two commonly cited notions are:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Pearl Markov blanket: the Bayesian-network construction described above (parents, children, and co-parents).&lt;/li&gt;
 &lt;li&gt;Friston Markov blanket: a boundary-state formalism used in active inference which partitions states into internal and external, mediated by sensory and active states.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id="advantages-and-limitations"&gt;Advantages and limitations&lt;/h3&gt;
+&lt;h3 id=&#34;advantages-and-limitations&#34;&gt;Advantages and limitations&lt;/h3&gt;
 &lt;p&gt;Advantages of applying Markov blankets include:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Computational efficiency: inference and prediction for a target variable can be localized to a comparatively small subset of variables.&lt;/li&gt;
@@ -136,35 +155,44 @@ $$&lt;/p&gt;
 &lt;li&gt;Discovery cost: in high-dimensional settings, identifying a minimal blanket (or a suitable approximation) can be computationally demanding.&lt;/li&gt;
 &lt;li&gt;Data requirements: reliable blanket identification may require substantial sample sizes. With limited data, estimated blankets may be unstable or misleading.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;read more &lt;a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/probabilistic_graphical_models.ipynb" target="_blank" rel="noopener"&gt;notebook&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Portfolio Optimization: Beyond Markowitz with Denoising</title><link>https://sbonelomdluli.github.io/site/post/2026/02/01/portfolio-optimization-beyond-markowitz-with-denoising/</link><pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate><guid>https://sbonelomdluli.github.io/site/post/2026/02/01/portfolio-optimization-beyond-markowitz-with-denoising/</guid><description>&lt;p&gt;The classical Markowitz Mean-Variance Optimization (MVO) remains one of the most influential frameworks in portfolio management. However, its practical application is plagued by estimation error in the covariance matrix, sensitivity to inputs, and a tendency to produce concentrated, unstable portfolios. In this post we explore three families of techniques — denoising, clustering, and back-testing — that address these limitations, and show how combining them can yield more robust, diversified portfolios.&lt;/p&gt;
+&lt;p&gt;read more &lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/probabilistic_graphical_models.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;notebook&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Portfolio Optimization: Beyond Markowitz with Denoising</title>
+      <link>http://localhost:1313/site/post/2026/02/01/portfolio-optimization-beyond-markowitz-with-denoising/</link>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2026/02/01/portfolio-optimization-beyond-markowitz-with-denoising/</guid>
+      <description>&lt;p&gt;The classical Markowitz Mean-Variance Optimization (MVO) remains one of the most influential frameworks in portfolio management. However, its practical application is plagued by estimation error in the covariance matrix, sensitivity to inputs, and a tendency to produce concentrated, unstable portfolios. In this post we explore three families of techniques — denoising, clustering, and back-testing — that address these limitations, and show how combining them can yield more robust, diversified portfolios.&lt;/p&gt;
 &lt;p&gt;We illustrate the ideas on a multi-stock universe spanning several sectors, using daily returns over a recent historical window split into training and testing periods.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="1-baseline-markowitz-mvo"&gt;1. Baseline: Markowitz MVO&lt;/h2&gt;
+&lt;h2 id=&#34;1-baseline-markowitz-mvo&#34;&gt;1. Baseline: Markowitz MVO&lt;/h2&gt;
 &lt;p&gt;The traditional MVO solves for the portfolio weights \(\mathbf{w}^{*}\) that maximise the Sharpe ratio:&lt;/p&gt;
 &lt;p&gt;$$\mathbf{w}^{*} = \underset{\mathbf{w}}{\operatorname{argmax}} \ \frac{\mathbf{w}^{\top} \mu}{\sqrt{\mathbf{w}^{\top} \Sigma \mathbf{w}}}$$&lt;/p&gt;
 &lt;p&gt;subject to \(\mathbf{w} \geq 0\), \(\sum w_{i} = 1\).&lt;/p&gt;
 &lt;p&gt;The efficient frontier traces all optimal risk-return trade-offs, but the weights that land on it are notoriously sensitive to small perturbations in \(\Sigma\). Even minor changes in the estimated covariance can produce wildly different allocations.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="2-denoising-the-covariance-matrix"&gt;2. Denoising the Covariance Matrix&lt;/h2&gt;
+&lt;h2 id=&#34;2-denoising-the-covariance-matrix&#34;&gt;2. Denoising the Covariance Matrix&lt;/h2&gt;
 &lt;p&gt;The covariance matrix \(\Sigma\) is the central weakness of MVO. With \(N\) assets the number of parameters grows as \(O(N^{2})\), and sampling noise accumulates fast, especially when the sample size \(T\) is not much larger than \(N\). Because MVO inverts \(\Sigma\), tiny noisy eigenvalues get amplified into large, erratic weight swings.&lt;/p&gt;
-&lt;h3 id="21-ledoit-wolf-shrinkage"&gt;2.1 Ledoit-Wolf Shrinkage&lt;/h3&gt;
+&lt;h3 id=&#34;21-ledoit-wolf-shrinkage&#34;&gt;2.1 Ledoit-Wolf Shrinkage&lt;/h3&gt;
 &lt;p&gt;The Ledoit-Wolf (LW) estimator replaces the sample covariance with a convex combination:&lt;/p&gt;
 &lt;p&gt;$$\Sigma_{\mathrm{shrunk}} = (1 - \alpha) S + \alpha T$$&lt;/p&gt;
 &lt;p&gt;where \(S\) is the sample covariance, \(T\) is a structured target (typically a diagonal matrix of sample variances), and \(\alpha\) is chosen to minimise the expected Frobenius loss against the true covariance.&lt;/p&gt;
 &lt;p&gt;The LW method shrinks all correlations uniformly toward zero, reducing noise without dramatically altering the portfolio structure.&lt;/p&gt;
-&lt;h3 id="22-enhanced-portfolio-optimization-epo"&gt;2.2 Enhanced Portfolio Optimization (EPO)&lt;/h3&gt;
+&lt;h3 id=&#34;22-enhanced-portfolio-optimization-epo&#34;&gt;2.2 Enhanced Portfolio Optimization (EPO)&lt;/h3&gt;
 &lt;p&gt;EPO controls the tension between a fully data-driven portfolio and a maximally diversified one through a single shrinkage parameter \(w \in [0, 1]\). Rather than denoising the covariance matrix in eigenvalue space, EPO acts directly on the off-diagonal correlations, blending the historical covariance with a diagonal target:&lt;/p&gt;
 &lt;p&gt;$$\tilde{\Sigma} = (1 - w)\ \Sigma_{\mathrm{hist}} + w\ \Sigma_{\mathrm{target}}$$&lt;/p&gt;
 &lt;p&gt;Here \(\Sigma_{\mathrm{hist}}\) is the sample covariance carrying all historical correlations, while \(\Sigma_{\mathrm{target}}\) retains only the diagonal variances — setting every cross-asset covariance to zero. As \(w\) increases from 0 to 1, the optimizer progressively ignores inter-asset correlations, transitioning the solution from a concentrated MVO portfolio toward a signal-weighted diversified one.&lt;/p&gt;
 &lt;p&gt;In its simplest form (Simple EPO), this shrinkage has a transparent closed-form interpretation. The resulting weight vector decomposes as a convex combination of two portfolios:&lt;/p&gt;
 &lt;p&gt;$$\mathbf{w}_{\mathrm{EPO}} = (1 - w)\ \mathbf{w}_{\mathrm{MVO}} + w\ \mathbf{w}_{\mathrm{signal}}$$&lt;/p&gt;
 &lt;p&gt;where \(\mathbf{w}_{\mathrm{MVO}}\) are the classical mean-variance weights (sensitive to noisy correlations in \(\Sigma_{\mathrm{hist}}\)) and \(\mathbf{w}_{\mathrm{signal}}\) are signal-only weights derived from expected returns alone, ignoring cross-asset structure entirely. The parameter \(w\) thus provides a direct, interpretable dial between estimation-risk-heavy MVO and a pure-signal allocation.&lt;/p&gt;
-&lt;h3 id="23-marchenkopastur-denoising"&gt;2.3 Marchenko–Pastur Denoising&lt;/h3&gt;
+&lt;h3 id=&#34;23-marchenkopastur-denoising&#34;&gt;2.3 Marchenko–Pastur Denoising&lt;/h3&gt;
 &lt;p&gt;Random Matrix Theory (RMT) offers a more surgical approach to denoising. The key insight is that when \(T\) observations of \(N\) asset returns are drawn from a true covariance matrix \(\Sigma\), the eigenvalues of the sample covariance \(S\) are systematically distorted. If the returns were purely random (i.e., \(\Sigma = I\)), the eigenvalue density of \(S\) would follow the &lt;strong&gt;Marchenko–Pastur distribution&lt;/strong&gt;:&lt;/p&gt;
 &lt;p&gt;$$f_{\mathrm{MP}}(\lambda) = \frac{T}{2 \pi \sigma^{2} N} \frac{\sqrt{(\lambda_{+} - \lambda)(\lambda - \lambda_{-})}}{\lambda}$$&lt;/p&gt;
 &lt;p&gt;for \(\lambda \in [\lambda_{-},\ \lambda_{+}]\), where the bounds are:&lt;/p&gt;
 &lt;p&gt;$$\lambda_{\pm} = \sigma^{2} \left(1 \pm \sqrt{\frac{N}{T}}\right)^{2}$$&lt;/p&gt;
-&lt;p&gt;and \(\sigma^{2}\) is the variance of the noise. Eigenvalues that fall within \([\lambda_{-},\ \lambda_{+}]\) are consistent with pure randomness — they carry no genuine signal. Eigenvalues above \(\lambda_{+}\) reflect true structure in the data: sector exposures, market factors, and other real correlations.&lt;/p&gt;
+&lt;p&gt;and \(\sigma^{2}\) is the variance of the noise. Eigenvalues that fall within \([\lambda_{-},\  \lambda_{+}]\) are consistent with pure randomness — they carry no genuine signal. Eigenvalues above \(\lambda_{+}\) reflect true structure in the data: sector exposures, market factors, and other real correlations.&lt;/p&gt;
 &lt;p&gt;The denoising procedure works as follows:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Compute the eigendecomposition&lt;/strong&gt; of the sample correlation matrix: \(C = Q \Lambda Q^{\top}\).&lt;/li&gt;
@@ -173,15 +201,15 @@ $$&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;$$\tilde{\lambda}_{i} = \frac{1}{\lvert \mathcal{N} \rvert} \sum_{j \in \mathcal{N}} \lambda_{j} \qquad \text{for } i \in \mathcal{N}$$&lt;/p&gt;
 &lt;p&gt;where \(\mathcal{N} = \{i : \lambda_{i} \leq \lambda_{+}\}\). The signal eigenvalues (\(\lambda_{i} &amp;gt; \lambda_{+}\)) are left untouched.&lt;/p&gt;
-&lt;ol start="4"&gt;
+&lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;&lt;strong&gt;Reconstruct&lt;/strong&gt; the denoised correlation matrix: \(\tilde{C} = Q \tilde{\Lambda} Q^{\top}\).&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The ratio \(q = N / T\) is critical: the higher it is, the wider the Marchenko–Pastur bulk and the more eigenvalues are noise-dominated. For a typical portfolio with \(N = 12\) stocks and \(T \approx 390\) daily observations, \(q \approx 0.03\), meaning the noise band is relatively narrow and most eigenvalues carry signal. But for larger universes say \(N = 500\) with a year of daily data \(q\) exceeds 1 and the majority of eigenvalues are pure noise. This is precisely where RMT denoising is useful.&lt;/p&gt;
 &lt;p&gt;Compared to Ledoit-Wolf shrinkage, which applies a uniform correction to every element of \(\Sigma\), the Marchenko–Pastur approach is &lt;strong&gt;selective&lt;/strong&gt;: it leaves the dominant eigenvectors (market, sector, and style factors) intact while collapsing the noisy directions. This surgical precision makes it particularly effective for large portfolios where the signal-to-noise separation is stark.&lt;/p&gt;
-&lt;h3 id="24-bayesian-approaches"&gt;2.4 Bayesian Approaches&lt;/h3&gt;
+&lt;h3 id=&#34;24-bayesian-approaches&#34;&gt;2.4 Bayesian Approaches&lt;/h3&gt;
 &lt;p&gt;The Bayesian framework treats \(\mu\), \(\Sigma\), and the weights \(\mathbf{w}\) as random variables, naturally incorporating parameter uncertainty:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Priors:&lt;/strong&gt; Normal for mean returns Half-Normal for volatilities; \(\mathrm{LKJ}(\eta = 2)\) for the correlation matrix (encouraging shrinkage toward independence); Dirichlet for weights (ensuring they sum to one and lie in \([0, 1]\)).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Priors:&lt;/strong&gt; Normal for mean returns  Half-Normal for volatilities; \(\mathrm{LKJ}(\eta = 2)\) for the correlation matrix (encouraging shrinkage toward independence); Dirichlet for weights (ensuring they sum to one and lie in \([0, 1]\)).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Constraints and objectives&lt;/strong&gt; (weight caps, Sharpe maximisation) are encoded as potential functions in the MCMC sampler, making parameter estimation and portfolio construction a single unified step.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In practice, the Bayesian Normal model substantially outperforms the baseline across Sharpe ratio, drawdown, and volatility. Two factors drive this:&lt;/p&gt;
@@ -191,9 +219,9 @@ $$&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;The Student-\(t\) variant adds robustness to fat-tailed returns, trading a little Sharpe for improved tail-risk control (lower VaR).&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="3-clustering-hierarchical-risk-parity-and-beyond"&gt;3. Clustering: Hierarchical Risk Parity and Beyond&lt;/h2&gt;
+&lt;h2 id=&#34;3-clustering-hierarchical-risk-parity-and-beyond&#34;&gt;3. Clustering: Hierarchical Risk Parity and Beyond&lt;/h2&gt;
 &lt;p&gt;Rather than inverting \(\Sigma\), clustering methods allocate capital through the hierarchical structure of asset correlations.&lt;/p&gt;
-&lt;h3 id="31-hierarchical-risk-parity-hrp"&gt;3.1 Hierarchical Risk Parity (HRP)&lt;/h3&gt;
+&lt;h3 id=&#34;31-hierarchical-risk-parity-hrp&#34;&gt;3.1 Hierarchical Risk Parity (HRP)&lt;/h3&gt;
 &lt;p&gt;HRP follows three steps:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Hierarchical clustering&lt;/strong&gt; — build a dendrogram from correlation-based distances using Ward linkage.&lt;/li&gt;
@@ -203,7 +231,7 @@ $$&lt;/p&gt;
 &lt;p&gt;$$w_{L} = 1 - \frac{V_{L}}{V_{L} + V_{R}}, \qquad w_{R} = 1 - w_{L}$$&lt;/p&gt;
 &lt;p&gt;where \(V_{L}\) and \(V_{R}\) are the inverse-variance-weighted portfolio variances of the left and right splits.&lt;/p&gt;
 &lt;p&gt;HRP avoids matrix inversion entirely, scales well, and naturally diversifies across clusters. In out-of-sample testing it consistently outperforms baseline MVO on risk-adjusted returns.&lt;/p&gt;
-&lt;h3 id="32-hierarchical-equal-risk-contribution-herc"&gt;3.2 Hierarchical Equal Risk Contribution (HERC)&lt;/h3&gt;
+&lt;h3 id=&#34;32-hierarchical-equal-risk-contribution-herc&#34;&gt;3.2 Hierarchical Equal Risk Contribution (HERC)&lt;/h3&gt;
 &lt;p&gt;HERC extends HRP with two refinements:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Early stopping&lt;/strong&gt; via a Gap Index selects the optimal number of clusters, preventing overfitting to noisy sub-clusters.&lt;/li&gt;
@@ -213,7 +241,7 @@ $$&lt;/p&gt;
 &lt;p&gt;where \(D_{q}\) is the portfolio drawdown at quantile \(q\).&lt;/p&gt;
 &lt;p&gt;HERC tends to achieve the strongest risk-adjusted returns among the methods studied, with improved diversification across sectors, though at marginally higher tail risk.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="4-back-testing-with-cpcv"&gt;4. Back-testing with CPCV&lt;/h2&gt;
+&lt;h2 id=&#34;4-back-testing-with-cpcv&#34;&gt;4. Back-testing with CPCV&lt;/h2&gt;
 &lt;p&gt;Standard train/test splits waste data and can introduce look-ahead bias. Combinatorial Purged Cross-Validation (CPCV) partitions the time series into \(G\) groups and selects \(K\) groups for testing, generating \(\binom{G}{K}\) paths while:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Purging&lt;/strong&gt; observations near the train/test boundary to prevent information leakage.&lt;/li&gt;
@@ -221,15 +249,24 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;With \(G = 5\) and \(K = 2\), CPCV produces 10 independent evaluation paths, giving a far richer picture of out-of-sample behaviour than a single train/test split.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="5-combining-techniques"&gt;5. Combining Techniques&lt;/h2&gt;
+&lt;h2 id=&#34;5-combining-techniques&#34;&gt;5. Combining Techniques&lt;/h2&gt;
 &lt;p&gt;The real power emerges from composition:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Denoising + Back-testing (EPO + CPCV):&lt;/strong&gt; CPCV searches over shrinkage parameters and selects the median optimal \(\alpha\) across paths, providing a stable, data-driven covariance estimate. This yields consistent incremental gains over standalone denoising.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Clustering + Back-testing (HRP/HERC + CPCV):&lt;/strong&gt; Clustering methods are sensitive to the quality of the hierarchical structure in each fold. Folds with weak or unstable clusters can degrade performance. Increasing fold size or sampling frequency mitigates this.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Denoising + Clustering:&lt;/strong&gt; A denoised correlation matrix feeds cleaner distances into the hierarchical clustering step, producing more stable dendrograms and, consequently, more robust weight allocations.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/portfolio_optimization.ipynb" target="_blank" rel="noopener"&gt;Read more →&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Image Retrieval</title><link>https://sbonelomdluli.github.io/site/post/2025/04/08/image-retrieval/</link><pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate><guid>https://sbonelomdluli.github.io/site/post/2025/04/08/image-retrieval/</guid><description>&lt;h1 id="image-retrieval-system-design"&gt;Image Retrieval System Design&lt;/h1&gt;
-&lt;h2 id="system-overview"&gt;System Overview&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/portfolio_optimization.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Image Retrieval</title>
+      <link>http://localhost:1313/site/post/2025/04/08/image-retrieval/</link>
+      <pubDate>Tue, 08 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2025/04/08/image-retrieval/</guid>
+      <description>&lt;h1 id=&#34;image-retrieval-system-design&#34;&gt;Image Retrieval System Design&lt;/h1&gt;
+&lt;h2 id=&#34;system-overview&#34;&gt;System Overview&lt;/h2&gt;
 &lt;p&gt;The Image Retrieval System is designed with a modular, separates concerns for optimal performance and maintainability. The system consists of four main components:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Data Pipeline&lt;/strong&gt;&lt;/li&gt;
@@ -237,21 +274,52 @@ $$&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Backend/Inference&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Frontend&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure &gt;
-&lt;div class="d-flex justify-content-center"&gt;
-&lt;div class="w-100" &gt;&lt;img src="https://sbonelomdluli.github.io/site/images/system_diag.jpg" alt="System Architecture" loading="lazy" data-zoomable /&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;http://localhost:1313/site/images/system_diag.jpg&#34; alt=&#34;System Architecture&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+
 &lt;p&gt;The system is composed of two main platforms: one dedicated to handling data and the other focused on inference and user interaction. This design offers a modular and flexible architecture, ensuring seamless integration between components. A scheduler is used to initiate the pipeline and perform batch training processes.&lt;/p&gt;
-&lt;h2 id="data-pipeline"&gt;Data Pipeline&lt;/h2&gt;
+&lt;h2 id=&#34;data-pipeline&#34;&gt;Data Pipeline&lt;/h2&gt;
 &lt;p&gt;The data pipeline manages feature engineering and data science tasks using Kedro, which applies software engineering principles to data science projects. This approach eliminates disorganised notebooks and ensures maintainability and production-grade quality.&lt;/p&gt;
-&lt;figure style="text-align: center;"&gt;
-&lt;img src="https://sbonelomdluli.github.io/site/images/kedro.png" alt="Kedro Pipeline" style="margin: 0 auto; display: block;"&gt;
+
+
+
+
+
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/kedro.png&#34; alt=&#34;Kedro Pipeline&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
 &lt;/figure&gt;
 &lt;p&gt;Dask enables distributed processing across a cluster, making the pipeline efficient for handling large multidimensional image arrays and parallel I/O operations.&lt;/p&gt;
-&lt;figure style="text-align: center;"&gt;
-&lt;img src="https://sbonelomdluli.github.io/site/images/dask.png" alt="Dask Workers" style="margin: 0 auto; display: block;"&gt;
+
+
+
+
+
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/dask.png&#34; alt=&#34;Dask Workers&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
 &lt;/figure&gt;
-&lt;h2 id="model-architecture"&gt;Model Architecture&lt;/h2&gt;
+&lt;h2 id=&#34;model-architecture&#34;&gt;Model Architecture&lt;/h2&gt;
 &lt;p&gt;The system uses the Contrastive Language-Image Pre-training (CLIP) model for embedding, which maps both images and text into a shared embedding space. CLIP is trained on image-text pairs and supports zero-shot prediction.&lt;/p&gt;
 &lt;p&gt;For efficient similarity searches, the system employs Faiss, which offers:&lt;/p&gt;
 &lt;ul&gt;
@@ -262,19 +330,25 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;The current implementation uses a flat index suitable for small-scale searches (1,000-10,000 entries), but can easily transition to larger-scale index types if needed.&lt;/p&gt;
 &lt;p&gt;We further add an image captioning model to generate text from the given retrieved images.&lt;/p&gt;
-&lt;h2 id="feature-store"&gt;Feature Store&lt;/h2&gt;
+&lt;h2 id=&#34;feature-store&#34;&gt;Feature Store&lt;/h2&gt;
 &lt;p&gt;The feature store houses images, embeddings, and image byte data using Feast, which provides:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;An offline store (Parquet files) designed for efficient data storage and quick data access&lt;/li&gt;
 &lt;li&gt;An online store (SQLite) optimised for fast inference&lt;/li&gt;
 &lt;li&gt;Reusability of data without repeating EDA, feature engineering, or modeling tasks&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure style="text-align: center;"&gt;
-&lt;img src="https://sbonelomdluli.github.io/site/images/feast.png" alt="Feast Project" style="margin: 0 auto; display: block;"&gt;
+
+
+
+
+
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/feast.png&#34; alt=&#34;Feast Project&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
 &lt;/figure&gt;
-&lt;h2 id="model-registry"&gt;Model Registry&lt;/h2&gt;
+&lt;h2 id=&#34;model-registry&#34;&gt;Model Registry&lt;/h2&gt;
 &lt;p&gt;The system uses a local file system as storage for models, mimicking a typical model registry. Models can be tested and approved for production readiness, with the potential to configure Kedro using MLflow for model management. We use DVC for data and model tracking.&lt;/p&gt;
-&lt;h2 id="backend"&gt;Backend&lt;/h2&gt;
+&lt;h2 id=&#34;backend&#34;&gt;Backend&lt;/h2&gt;
 &lt;p&gt;The backend features an API for inference built with FastAPI, including:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Basic schema validation for incoming requests&lt;/li&gt;
@@ -282,24 +356,45 @@ $$&lt;/p&gt;
 &lt;li&gt;Multi-model serving capabilities&lt;/li&gt;
 &lt;li&gt;Resource optimization by loading/unloading models between RAM and disk&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure style="text-align: center;"&gt;
-&lt;img src="https://sbonelomdluli.github.io/site/images/api.png" alt="Project Backend" style="margin: 0 auto; display: block;"&gt;
+
+
+
+
+
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/api.png&#34; alt=&#34;Project Backend&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
 &lt;/figure&gt;
-&lt;h2 id="frontend"&gt;Frontend&lt;/h2&gt;
+&lt;h2 id=&#34;frontend&#34;&gt;Frontend&lt;/h2&gt;
 &lt;p&gt;The frontend is designed to minimize redundant backend calls by storing search results in the browser&amp;rsquo;s local storage. If a user searches for fewer than k results for the same query, the system retrieves them from memory instead of making additional backend requests.&lt;/p&gt;
-&lt;figure style="text-align: center;"&gt;
-&lt;img src="https://sbonelomdluli.github.io/site/images/frontend.png" alt="System Frontend" style="margin: 0 auto; display: block;"&gt;
+
+
+
+
+
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/frontend.png&#34; alt=&#34;System Frontend&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
 &lt;/figure&gt;
 &lt;p&gt;The entire system can be easily deployed and containerised using existing Docker files.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/SboneloMdluli/Multi-Modal-Image-Retrieval" target="_blank" rel="noopener"&gt;View project →&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Principal Component Analysis: A Key Tool for Dimensionality Reduction</title><link>https://sbonelomdluli.github.io/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</link><pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate><guid>https://sbonelomdluli.github.io/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</guid><description>&lt;p&gt;Principal Component Analysis (PCA) is a powerful technique for reducing the dimensionality of financial data while preserving important relationships. This article explores the mathematical foundations and practical applications of PCA.&lt;/p&gt;
-&lt;h2 id="key-concepts"&gt;Key Concepts&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Multi-Modal-Image-Retrieval&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View project →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Principal Component Analysis: A Key Tool for Dimensionality Reduction</title>
+      <link>http://localhost:1313/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</link>
+      <pubDate>Sat, 13 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2024/01/13/principal-component-analysis-a-key-tool-for-dimensionality-reduction/</guid>
+      <description>&lt;p&gt;Principal Component Analysis (PCA) is a powerful technique for reducing the dimensionality of financial data while preserving important relationships. This article explores the mathematical foundations and practical applications of PCA.&lt;/p&gt;
+&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;
 &lt;p&gt;PCA works by:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Finding directions of maximum variance in the data&lt;/li&gt;
 &lt;li&gt;Creating orthogonal basis vectors (principal components)&lt;/li&gt;
 &lt;li&gt;Projecting data onto lower-dimensional spaces&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="mathematical-framework"&gt;Mathematical Framework&lt;/h2&gt;
+&lt;h2 id=&#34;mathematical-framework&#34;&gt;Mathematical Framework&lt;/h2&gt;
 &lt;p&gt;The optimization problem can be expressed as:&lt;/p&gt;
 &lt;p&gt;$$v^{*}=\underset{v}{\operatorname{argmax}} \frac{1}{N}\sum_{i=1}^{N}\langle x_i,v\rangle^2$$&lt;/p&gt;
 &lt;p&gt;where:&lt;/p&gt;
@@ -310,4 +405,9 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;This leads to eigenvalue decomposition of the covariance matrix:&lt;/p&gt;
 &lt;p&gt;$$\Sigma = \frac{1}{N}\sum_{i=1}^{N}(x_i-\mu)(x_i-\mu)^T$$&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/pca.ipynb" target="_blank" rel="noopener"&gt;Read more →&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/pca.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

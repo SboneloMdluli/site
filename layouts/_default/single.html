@@ -16,23 +16,7 @@
         <span class="article-read-time">{{ .ReadingTime }} min read</span>
         <span class="meta-dot">-</span>
         <span class="article-word-count">{{ .WordCount }} words</span>
-
-        {{ if .Params.categories }}
-        <div class="article-categories">
-          {{ range .GetTerms "categories" }}
-          <a class="badge badge-primary" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-          {{ end }}
-        </div>
-        {{ end }}
       </div>
-
-      {{ if .Params.tags }}
-      <div class="article-tags">
-        {{ range .GetTerms "tags" }}
-        <a class="badge badge-light" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-        {{ end }}
-      </div>
-      {{ end }}
     </header>
 
     {{ $toc := .TableOfContents }}

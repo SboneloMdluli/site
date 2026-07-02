@@ -22,7 +22,7 @@ sections:
           date_start: "2025-06-01"
           date_end: ""
           description: ""
-        - title: Consulting Software Engineer/Data Scientist
+        - title: Consulting Data Scientist/Software Engineer
           company: Blue Bean Software
           company_url: ""
           location: South Africa

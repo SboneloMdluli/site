@@ -1,32 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Quantitative Finance | Sbonelo Mdluli</title><link>https://sbonelomdluli.github.io/site/category/quantitative-finance/</link><atom:link href="https://sbonelomdluli.github.io/site/category/quantitative-finance/index.xml" rel="self" type="application/rss+xml"/><description>Quantitative Finance</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sun, 01 Feb 2026 00:00:00 +0000</lastBuildDate><image><url>https://sbonelomdluli.github.io/site/media/icon_hu_d618173b9ba69b7d.png</url><title>Quantitative Finance</title><link>https://sbonelomdluli.github.io/site/category/quantitative-finance/</link></image><item><title>Portfolio Optimization: Beyond Markowitz with Denoising</title><link>https://sbonelomdluli.github.io/site/post/2026/02/01/portfolio-optimization-beyond-markowitz-with-denoising/</link><pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate><guid>https://sbonelomdluli.github.io/site/post/2026/02/01/portfolio-optimization-beyond-markowitz-with-denoising/</guid><description>&lt;p&gt;The classical Markowitz Mean-Variance Optimization (MVO) remains one of the most influential frameworks in portfolio management. However, its practical application is plagued by estimation error in the covariance matrix, sensitivity to inputs, and a tendency to produce concentrated, unstable portfolios. In this post we explore three families of techniques — denoising, clustering, and back-testing — that address these limitations, and show how combining them can yield more robust, diversified portfolios.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quantitative Finance | Sbonelo Mdluli</title>
+    <link>http://localhost:1313/site/category/quantitative-finance/</link>
+      <atom:link href="http://localhost:1313/site/category/quantitative-finance/index.xml" rel="self" type="application/rss+xml" />
+    <description>Quantitative Finance</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en</language><lastBuildDate>Sun, 01 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png</url>
+      <title>Quantitative Finance</title>
+      <link>http://localhost:1313/site/category/quantitative-finance/</link>
+    </image>
+    
+    <item>
+      <title>Portfolio Optimization: Beyond Markowitz with Denoising</title>
+      <link>http://localhost:1313/site/post/2026/02/01/portfolio-optimization-beyond-markowitz-with-denoising/</link>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2026/02/01/portfolio-optimization-beyond-markowitz-with-denoising/</guid>
+      <description>&lt;p&gt;The classical Markowitz Mean-Variance Optimization (MVO) remains one of the most influential frameworks in portfolio management. However, its practical application is plagued by estimation error in the covariance matrix, sensitivity to inputs, and a tendency to produce concentrated, unstable portfolios. In this post we explore three families of techniques — denoising, clustering, and back-testing — that address these limitations, and show how combining them can yield more robust, diversified portfolios.&lt;/p&gt;
 &lt;p&gt;We illustrate the ideas on a multi-stock universe spanning several sectors, using daily returns over a recent historical window split into training and testing periods.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="1-baseline-markowitz-mvo"&gt;1. Baseline: Markowitz MVO&lt;/h2&gt;
+&lt;h2 id=&#34;1-baseline-markowitz-mvo&#34;&gt;1. Baseline: Markowitz MVO&lt;/h2&gt;
 &lt;p&gt;The traditional MVO solves for the portfolio weights \(\mathbf{w}^{*}\) that maximise the Sharpe ratio:&lt;/p&gt;
 &lt;p&gt;$$\mathbf{w}^{*} = \underset{\mathbf{w}}{\operatorname{argmax}} \ \frac{\mathbf{w}^{\top} \mu}{\sqrt{\mathbf{w}^{\top} \Sigma \mathbf{w}}}$$&lt;/p&gt;
 &lt;p&gt;subject to \(\mathbf{w} \geq 0\), \(\sum w_{i} = 1\).&lt;/p&gt;
 &lt;p&gt;The efficient frontier traces all optimal risk-return trade-offs, but the weights that land on it are notoriously sensitive to small perturbations in \(\Sigma\). Even minor changes in the estimated covariance can produce wildly different allocations.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="2-denoising-the-covariance-matrix"&gt;2. Denoising the Covariance Matrix&lt;/h2&gt;
+&lt;h2 id=&#34;2-denoising-the-covariance-matrix&#34;&gt;2. Denoising the Covariance Matrix&lt;/h2&gt;
 &lt;p&gt;The covariance matrix \(\Sigma\) is the central weakness of MVO. With \(N\) assets the number of parameters grows as \(O(N^{2})\), and sampling noise accumulates fast, especially when the sample size \(T\) is not much larger than \(N\). Because MVO inverts \(\Sigma\), tiny noisy eigenvalues get amplified into large, erratic weight swings.&lt;/p&gt;
-&lt;h3 id="21-ledoit-wolf-shrinkage"&gt;2.1 Ledoit-Wolf Shrinkage&lt;/h3&gt;
+&lt;h3 id=&#34;21-ledoit-wolf-shrinkage&#34;&gt;2.1 Ledoit-Wolf Shrinkage&lt;/h3&gt;
 &lt;p&gt;The Ledoit-Wolf (LW) estimator replaces the sample covariance with a convex combination:&lt;/p&gt;
 &lt;p&gt;$$\Sigma_{\mathrm{shrunk}} = (1 - \alpha) S + \alpha T$$&lt;/p&gt;
 &lt;p&gt;where \(S\) is the sample covariance, \(T\) is a structured target (typically a diagonal matrix of sample variances), and \(\alpha\) is chosen to minimise the expected Frobenius loss against the true covariance.&lt;/p&gt;
 &lt;p&gt;The LW method shrinks all correlations uniformly toward zero, reducing noise without dramatically altering the portfolio structure.&lt;/p&gt;
-&lt;h3 id="22-enhanced-portfolio-optimization-epo"&gt;2.2 Enhanced Portfolio Optimization (EPO)&lt;/h3&gt;
+&lt;h3 id=&#34;22-enhanced-portfolio-optimization-epo&#34;&gt;2.2 Enhanced Portfolio Optimization (EPO)&lt;/h3&gt;
 &lt;p&gt;EPO controls the tension between a fully data-driven portfolio and a maximally diversified one through a single shrinkage parameter \(w \in [0, 1]\). Rather than denoising the covariance matrix in eigenvalue space, EPO acts directly on the off-diagonal correlations, blending the historical covariance with a diagonal target:&lt;/p&gt;
 &lt;p&gt;$$\tilde{\Sigma} = (1 - w)\ \Sigma_{\mathrm{hist}} + w\ \Sigma_{\mathrm{target}}$$&lt;/p&gt;
 &lt;p&gt;Here \(\Sigma_{\mathrm{hist}}\) is the sample covariance carrying all historical correlations, while \(\Sigma_{\mathrm{target}}\) retains only the diagonal variances — setting every cross-asset covariance to zero. As \(w\) increases from 0 to 1, the optimizer progressively ignores inter-asset correlations, transitioning the solution from a concentrated MVO portfolio toward a signal-weighted diversified one.&lt;/p&gt;
 &lt;p&gt;In its simplest form (Simple EPO), this shrinkage has a transparent closed-form interpretation. The resulting weight vector decomposes as a convex combination of two portfolios:&lt;/p&gt;
 &lt;p&gt;$$\mathbf{w}_{\mathrm{EPO}} = (1 - w)\ \mathbf{w}_{\mathrm{MVO}} + w\ \mathbf{w}_{\mathrm{signal}}$$&lt;/p&gt;
 &lt;p&gt;where \(\mathbf{w}_{\mathrm{MVO}}\) are the classical mean-variance weights (sensitive to noisy correlations in \(\Sigma_{\mathrm{hist}}\)) and \(\mathbf{w}_{\mathrm{signal}}\) are signal-only weights derived from expected returns alone, ignoring cross-asset structure entirely. The parameter \(w\) thus provides a direct, interpretable dial between estimation-risk-heavy MVO and a pure-signal allocation.&lt;/p&gt;
-&lt;h3 id="23-marchenkopastur-denoising"&gt;2.3 Marchenko–Pastur Denoising&lt;/h3&gt;
+&lt;h3 id=&#34;23-marchenkopastur-denoising&#34;&gt;2.3 Marchenko–Pastur Denoising&lt;/h3&gt;
 &lt;p&gt;Random Matrix Theory (RMT) offers a more surgical approach to denoising. The key insight is that when \(T\) observations of \(N\) asset returns are drawn from a true covariance matrix \(\Sigma\), the eigenvalues of the sample covariance \(S\) are systematically distorted. If the returns were purely random (i.e., \(\Sigma = I\)), the eigenvalue density of \(S\) would follow the &lt;strong&gt;Marchenko–Pastur distribution&lt;/strong&gt;:&lt;/p&gt;
 &lt;p&gt;$$f_{\mathrm{MP}}(\lambda) = \frac{T}{2 \pi \sigma^{2} N} \frac{\sqrt{(\lambda_{+} - \lambda)(\lambda - \lambda_{-})}}{\lambda}$$&lt;/p&gt;
 &lt;p&gt;for \(\lambda \in [\lambda_{-},\ \lambda_{+}]\), where the bounds are:&lt;/p&gt;
 &lt;p&gt;$$\lambda_{\pm} = \sigma^{2} \left(1 \pm \sqrt{\frac{N}{T}}\right)^{2}$$&lt;/p&gt;
-&lt;p&gt;and \(\sigma^{2}\) is the variance of the noise. Eigenvalues that fall within \([\lambda_{-},\ \lambda_{+}]\) are consistent with pure randomness — they carry no genuine signal. Eigenvalues above \(\lambda_{+}\) reflect true structure in the data: sector exposures, market factors, and other real correlations.&lt;/p&gt;
+&lt;p&gt;and \(\sigma^{2}\) is the variance of the noise. Eigenvalues that fall within \([\lambda_{-},\  \lambda_{+}]\) are consistent with pure randomness — they carry no genuine signal. Eigenvalues above \(\lambda_{+}\) reflect true structure in the data: sector exposures, market factors, and other real correlations.&lt;/p&gt;
 &lt;p&gt;The denoising procedure works as follows:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Compute the eigendecomposition&lt;/strong&gt; of the sample correlation matrix: \(C = Q \Lambda Q^{\top}\).&lt;/li&gt;
@@ -35,15 +54,15 @@
 &lt;/ol&gt;
 &lt;p&gt;$$\tilde{\lambda}_{i} = \frac{1}{\lvert \mathcal{N} \rvert} \sum_{j \in \mathcal{N}} \lambda_{j} \qquad \text{for } i \in \mathcal{N}$$&lt;/p&gt;
 &lt;p&gt;where \(\mathcal{N} = \{i : \lambda_{i} \leq \lambda_{+}\}\). The signal eigenvalues (\(\lambda_{i} &amp;gt; \lambda_{+}\)) are left untouched.&lt;/p&gt;
-&lt;ol start="4"&gt;
+&lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;&lt;strong&gt;Reconstruct&lt;/strong&gt; the denoised correlation matrix: \(\tilde{C} = Q \tilde{\Lambda} Q^{\top}\).&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The ratio \(q = N / T\) is critical: the higher it is, the wider the Marchenko–Pastur bulk and the more eigenvalues are noise-dominated. For a typical portfolio with \(N = 12\) stocks and \(T \approx 390\) daily observations, \(q \approx 0.03\), meaning the noise band is relatively narrow and most eigenvalues carry signal. But for larger universes say \(N = 500\) with a year of daily data \(q\) exceeds 1 and the majority of eigenvalues are pure noise. This is precisely where RMT denoising is useful.&lt;/p&gt;
 &lt;p&gt;Compared to Ledoit-Wolf shrinkage, which applies a uniform correction to every element of \(\Sigma\), the Marchenko–Pastur approach is &lt;strong&gt;selective&lt;/strong&gt;: it leaves the dominant eigenvectors (market, sector, and style factors) intact while collapsing the noisy directions. This surgical precision makes it particularly effective for large portfolios where the signal-to-noise separation is stark.&lt;/p&gt;
-&lt;h3 id="24-bayesian-approaches"&gt;2.4 Bayesian Approaches&lt;/h3&gt;
+&lt;h3 id=&#34;24-bayesian-approaches&#34;&gt;2.4 Bayesian Approaches&lt;/h3&gt;
 &lt;p&gt;The Bayesian framework treats \(\mu\), \(\Sigma\), and the weights \(\mathbf{w}\) as random variables, naturally incorporating parameter uncertainty:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Priors:&lt;/strong&gt; Normal for mean returns Half-Normal for volatilities; \(\mathrm{LKJ}(\eta = 2)\) for the correlation matrix (encouraging shrinkage toward independence); Dirichlet for weights (ensuring they sum to one and lie in \([0, 1]\)).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Priors:&lt;/strong&gt; Normal for mean returns  Half-Normal for volatilities; \(\mathrm{LKJ}(\eta = 2)\) for the correlation matrix (encouraging shrinkage toward independence); Dirichlet for weights (ensuring they sum to one and lie in \([0, 1]\)).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Constraints and objectives&lt;/strong&gt; (weight caps, Sharpe maximisation) are encoded as potential functions in the MCMC sampler, making parameter estimation and portfolio construction a single unified step.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In practice, the Bayesian Normal model substantially outperforms the baseline across Sharpe ratio, drawdown, and volatility. Two factors drive this:&lt;/p&gt;
@@ -53,9 +72,9 @@
 &lt;/ol&gt;
 &lt;p&gt;The Student-\(t\) variant adds robustness to fat-tailed returns, trading a little Sharpe for improved tail-risk control (lower VaR).&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="3-clustering-hierarchical-risk-parity-and-beyond"&gt;3. Clustering: Hierarchical Risk Parity and Beyond&lt;/h2&gt;
+&lt;h2 id=&#34;3-clustering-hierarchical-risk-parity-and-beyond&#34;&gt;3. Clustering: Hierarchical Risk Parity and Beyond&lt;/h2&gt;
 &lt;p&gt;Rather than inverting \(\Sigma\), clustering methods allocate capital through the hierarchical structure of asset correlations.&lt;/p&gt;
-&lt;h3 id="31-hierarchical-risk-parity-hrp"&gt;3.1 Hierarchical Risk Parity (HRP)&lt;/h3&gt;
+&lt;h3 id=&#34;31-hierarchical-risk-parity-hrp&#34;&gt;3.1 Hierarchical Risk Parity (HRP)&lt;/h3&gt;
 &lt;p&gt;HRP follows three steps:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Hierarchical clustering&lt;/strong&gt; — build a dendrogram from correlation-based distances using Ward linkage.&lt;/li&gt;
@@ -65,7 +84,7 @@
 &lt;p&gt;$$w_{L} = 1 - \frac{V_{L}}{V_{L} + V_{R}}, \qquad w_{R} = 1 - w_{L}$$&lt;/p&gt;
 &lt;p&gt;where \(V_{L}\) and \(V_{R}\) are the inverse-variance-weighted portfolio variances of the left and right splits.&lt;/p&gt;
 &lt;p&gt;HRP avoids matrix inversion entirely, scales well, and naturally diversifies across clusters. In out-of-sample testing it consistently outperforms baseline MVO on risk-adjusted returns.&lt;/p&gt;
-&lt;h3 id="32-hierarchical-equal-risk-contribution-herc"&gt;3.2 Hierarchical Equal Risk Contribution (HERC)&lt;/h3&gt;
+&lt;h3 id=&#34;32-hierarchical-equal-risk-contribution-herc&#34;&gt;3.2 Hierarchical Equal Risk Contribution (HERC)&lt;/h3&gt;
 &lt;p&gt;HERC extends HRP with two refinements:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Early stopping&lt;/strong&gt; via a Gap Index selects the optimal number of clusters, preventing overfitting to noisy sub-clusters.&lt;/li&gt;
@@ -75,7 +94,7 @@
 &lt;p&gt;where \(D_{q}\) is the portfolio drawdown at quantile \(q\).&lt;/p&gt;
 &lt;p&gt;HERC tends to achieve the strongest risk-adjusted returns among the methods studied, with improved diversification across sectors, though at marginally higher tail risk.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="4-back-testing-with-cpcv"&gt;4. Back-testing with CPCV&lt;/h2&gt;
+&lt;h2 id=&#34;4-back-testing-with-cpcv&#34;&gt;4. Back-testing with CPCV&lt;/h2&gt;
 &lt;p&gt;Standard train/test splits waste data and can introduce look-ahead bias. Combinatorial Purged Cross-Validation (CPCV) partitions the time series into \(G\) groups and selects \(K\) groups for testing, generating \(\binom{G}{K}\) paths while:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Purging&lt;/strong&gt; observations near the train/test boundary to prevent information leakage.&lt;/li&gt;
@@ -83,22 +102,31 @@
 &lt;/ul&gt;
 &lt;p&gt;With \(G = 5\) and \(K = 2\), CPCV produces 10 independent evaluation paths, giving a far richer picture of out-of-sample behaviour than a single train/test split.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="5-combining-techniques"&gt;5. Combining Techniques&lt;/h2&gt;
+&lt;h2 id=&#34;5-combining-techniques&#34;&gt;5. Combining Techniques&lt;/h2&gt;
 &lt;p&gt;The real power emerges from composition:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Denoising + Back-testing (EPO + CPCV):&lt;/strong&gt; CPCV searches over shrinkage parameters and selects the median optimal \(\alpha\) across paths, providing a stable, data-driven covariance estimate. This yields consistent incremental gains over standalone denoising.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Clustering + Back-testing (HRP/HERC + CPCV):&lt;/strong&gt; Clustering methods are sensitive to the quality of the hierarchical structure in each fold. Folds with weak or unstable clusters can degrade performance. Increasing fold size or sampling frequency mitigates this.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Denoising + Clustering:&lt;/strong&gt; A denoised correlation matrix feeds cleaner distances into the hierarchical clustering step, producing more stable dendrograms and, consequently, more robust weight allocations.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/portfolio_optimization.ipynb" target="_blank" rel="noopener"&gt;Read more →&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Stochastic Pricing Models</title><link>https://sbonelomdluli.github.io/site/post/2025/05/10/stochastic-pricing-models/</link><pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate><guid>https://sbonelomdluli.github.io/site/post/2025/05/10/stochastic-pricing-models/</guid><description>&lt;h1 id="stochastic-pricing-models"&gt;Stochastic Pricing Models&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/portfolio_optimization.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Stochastic Pricing Models</title>
+      <link>http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/</link>
+      <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/</guid>
+      <description>&lt;h1 id=&#34;stochastic-pricing-models&#34;&gt;Stochastic Pricing Models&lt;/h1&gt;
 &lt;p&gt;This post presents the theoretical foundations of stochastic models for option pricing. We outline the mathematical structure and computational methods for European and American options under both the Heston and Merton jump-diffusion models, including the calculation of Greeks and barrier options.&lt;/p&gt;
-&lt;h2 id="1-introduction-to-stochastic-option-pricing"&gt;1. Introduction to Stochastic Option Pricing&lt;/h2&gt;
+&lt;h2 id=&#34;1-introduction-to-stochastic-option-pricing&#34;&gt;1. Introduction to Stochastic Option Pricing&lt;/h2&gt;
 &lt;p&gt;Stochastic models are essential for capturing the randomness in financial markets, especially for pricing derivatives like options. Two widely used models are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Heston Model&lt;/strong&gt;: Incorporates stochastic volatility, allowing volatility to evolve randomly over time.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Merton Jump Diffusion Model&lt;/strong&gt;: Extends the Black-Scholes framework by adding random jumps in asset prices, capturing sudden market moves.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="2-heston-model"&gt;2. Heston Model&lt;/h2&gt;
+&lt;h2 id=&#34;2-heston-model&#34;&gt;2. Heston Model&lt;/h2&gt;
 &lt;p&gt;The Heston model jointly evolves the asset price $S_t$ and its instantaneous variance $v_t$ (so volatility is $\sqrt{v_t}$):&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 dS_t = \mu S_t dt + \sqrt{v_t}\ S_t\ dW_t^S
@@ -128,8 +156,8 @@ $$&lt;/p&gt;
 L = \begin{pmatrix} 1 &amp;amp; 0 \ \rho &amp;amp; \sqrt{1-\rho^2} \end{pmatrix}
 $$&lt;/p&gt;
 &lt;p&gt;so that, for $\mathbf{Z}=(Z_1,Z_2)^T$, the correlated increments are $L\mathbf{Z}$.&lt;/p&gt;
-&lt;p&gt;For a detailed explanation see &lt;a href="https://www.youtube.com/watch?v=HG3s2StHB3k" target="_blank" rel="noopener"&gt;this video on the Heston model&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id="3-merton-jump-diffusion-model"&gt;3. Merton Jump Diffusion Model&lt;/h2&gt;
+&lt;p&gt;For a detailed explanation see &lt;a href=&#34;https://www.youtube.com/watch?v=HG3s2StHB3k&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this video on the Heston model&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;3-merton-jump-diffusion-model&#34;&gt;3. Merton Jump Diffusion Model&lt;/h2&gt;
 &lt;p&gt;The Merton model extends geometric Brownian motion by adding a jump component:&lt;/p&gt;
 &lt;p&gt;\begin{equation*}
 dS_t = (r - r_j) S_t dt + \sigma S_t dZ_t + J_t S_t dN_t
@@ -143,21 +171,36 @@ S_t = S_{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{d
 r_j = \lambda \left(e^{\mu_j+\frac{\delta^2}{2}}\right)-1
 \end{equation*}&lt;/p&gt;
 &lt;p&gt;In the discrete update, $S_{t-1}$ is the previous-step price, $z_t^1$ drives the diffusion term, and the jump term uses a random jump indicator/count $y_t$ together with jump-size shock $z_t^2$. Parameters $\lambda$, $\mu_j$, and $\delta$ denote jump intensity, mean log-jump size, and log-jump volatility, respectively. Simulation proceeds by combining diffusion and jump parts pathwise, then discounting payoffs.&lt;/p&gt;
-&lt;h2 id="4-greeks-calculation"&gt;4. Greeks Calculation&lt;/h2&gt;
+&lt;h2 id=&#34;4-greeks-calculation&#34;&gt;4. Greeks Calculation&lt;/h2&gt;
 &lt;p&gt;The Greeks measure sensitivities of option prices to various parameters. In this framework, Delta and Gamma are computed using finite difference methods:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Delta:&lt;/strong&gt; Sensitivity to underlying price.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Gamma:&lt;/strong&gt; Sensitivity of Delta to underlying price.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Finite difference approximations are used to estimate these derivatives numerically.&lt;/p&gt;
-&lt;h2 id="5-barrier-options"&gt;5. Barrier Options&lt;/h2&gt;
+&lt;h2 id=&#34;5-barrier-options&#34;&gt;5. Barrier Options&lt;/h2&gt;
 &lt;p&gt;Barrier options are path-dependent derivatives whose payoff depends on whether the underlying touches a preset barrier during the option life. In a &lt;strong&gt;knock-in&lt;/strong&gt; contract, the option becomes active only if the barrier is hit (for example, an up-and-in call activates only after the price rises to the barrier), while in a &lt;strong&gt;knock-out&lt;/strong&gt; contract, hitting the barrier cancels the option (for example, an up-and-out call is extinguished once the barrier is reached). This makes barrier options generally cheaper than plain vanilla options with similar strikes, since activation/cancellation conditions reduce expected payoff in many paths. Under both Heston and Merton dynamics, pricing is performed by simulating full paths, checking barrier events at each time step, and then discounting the payoff only on paths that satisfy the specific knock-in or knock-out rule.&lt;/p&gt;
-&lt;h2 id="6-conclusion"&gt;6. Conclusion&lt;/h2&gt;
+&lt;h2 id=&#34;6-conclusion&#34;&gt;6. Conclusion&lt;/h2&gt;
 &lt;p&gt;This theoretical overview provides the mathematical and computational foundation for advanced option pricing models, including simulation, pricing, and risk analysis. The methods described here are applicable to a wide range of financial derivatives and serve as a reference for both theory and practical implementation.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/stochastic_pricing.ipynb" target="_blank" rel="noopener"&gt;Read more →&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Lattice Pricing Models</title><link>https://sbonelomdluli.github.io/site/post/2025/03/02/lattice-pricing-models/</link><pubDate>Sun, 02 Mar 2025 00:00:00 +0000</pubDate><guid>https://sbonelomdluli.github.io/site/post/2025/03/02/lattice-pricing-models/</guid><description>&lt;h2 id="binomial-tree-model"&gt;Binomial Tree Model&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/stochastic_pricing.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lattice Pricing Models</title>
+      <link>http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/</link>
+      <pubDate>Sun, 02 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2025/03/02/lattice-pricing-models/</guid>
+      <description>&lt;h2 id=&#34;binomial-tree-model&#34;&gt;Binomial Tree Model&lt;/h2&gt;
 &lt;p&gt;We can price options in discrete time through lattice models. The first model we consider is the Cox-Ross-Rubinstein Model which is risk neutral under Martingale measure $\mathbb{Q}$. A process $S$ is a Martingale with respect to measure $\mathbb{Q}$ and filtration $\{\mathcal{F}_t\}_{t \geq 0}$, if $ \mathbb{E}^{\mathbb{Q}}[X_t \mid \mathcal{F}_s] = X_s \quad \forall , s\leq t$. This means the process is path unbiased.&lt;/p&gt;
-&lt;figure style="text-align: center;"&gt;
-&lt;img src="https://sbonelomdluli.github.io/site/images/binomial_tree.jpg" alt="Binomial Tree" style="margin: 0 auto; display: block;"&gt;
+
+
+
+
+
+&lt;figure style=&#34;text-align: center;&#34;&gt;
+  &lt;img src=&#34;http://localhost:1313/site/images/binomial_tree.jpg&#34; alt=&#34;Binomial Tree&#34;  style=&#34;margin: 0 auto; display: block;&#34;&gt;
+  
 &lt;/figure&gt;
 &lt;p&gt;According to this model the stock at time $t$ can move to up by a factor of $u$ with probability $p$ and down by a factor of $d$ with probability $(1-p)$ at the next time step $t+1$. Using the principle of no arbitrage, the stock earns a risk free interest ($r$) and parameters $d &amp;lt; 1 &amp;lt; u$. The risk neutral probability $p$ is then given by mean matching.&lt;/p&gt;
 &lt;p&gt;\begin{equation}
@@ -182,7 +225,7 @@ d &amp;amp;= e^{-\sigma \sqrt{\Delta t}}
 \end{aligned}
 \end{equation}&lt;/p&gt;
 &lt;p&gt;The above definitions rely on a sufficiently small $\Delta t$ for $p$ to be a valid probability.&lt;/p&gt;
-&lt;h2 id="delta-hedging"&gt;Delta Hedging&lt;/h2&gt;
+&lt;h2 id=&#34;delta-hedging&#34;&gt;Delta Hedging&lt;/h2&gt;
 &lt;p&gt;We define a portfolio $\Pi_{t}$, under the principle of no arbitrage the portfolio is worth the same at time $t$
 regardless of the path taken to $t+1$. No cash injection or deposits are allowed once the portfolio has been created, portfolio rebalancing is funded using assets within the portfolio. This is referred to as a self financing portfolio.&lt;/p&gt;
 &lt;p&gt;\begin{equation}
@@ -203,15 +246,24 @@ regardless of the path taken to $t+1$. No cash injection or deposits are allowed
 \end{aligned}
 \end{equation}&lt;/p&gt;
 &lt;p&gt;$\Delta$ is the amount of the underlying that we must own for the portfolio to be risk neutral.&lt;/p&gt;
-&lt;h2 id="american-binomial-tree"&gt;American Binomial Tree&lt;/h2&gt;
+&lt;h2 id=&#34;american-binomial-tree&#34;&gt;American Binomial Tree&lt;/h2&gt;
 &lt;p&gt;The American binomial tree extends the standard binomial model to handle early exercise options.
 At each node, we compare the immediate exercise value with the discounted expected future value to determine the optimal exercise strategy.&lt;/p&gt;
-&lt;h2 id="trinomial-tree"&gt;Trinomial Tree&lt;/h2&gt;
+&lt;h2 id=&#34;trinomial-tree&#34;&gt;Trinomial Tree&lt;/h2&gt;
 &lt;p&gt;The trinomial tree model extends the binomial model by allowing for an additional middle state.
 This provides more flexibility in modeling the underlying price process and can lead to faster convergence compared to binomial trees.&lt;/p&gt;
-&lt;h2 id="asian-binomial-tree"&gt;Asian Binomial Tree&lt;/h2&gt;
+&lt;h2 id=&#34;asian-binomial-tree&#34;&gt;Asian Binomial Tree&lt;/h2&gt;
 &lt;p&gt;The Asian binomial tree model is used for pricing Asian options where the payoff depends on the average price of the underlying asset over some time period. The model tracks the average price along each path and computes the option value accordingly.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/lattice_pricing_models.ipynb" target="_blank" rel="noopener"&gt;Read more →&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Put-Call Parity</title><link>https://sbonelomdluli.github.io/site/post/2024/02/08/put-call-parity/</link><pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate><guid>https://sbonelomdluli.github.io/site/post/2024/02/08/put-call-parity/</guid><description>&lt;p&gt;The put-call parity (PCP) establishes the relationship between call and put options that share the same underlying asset and expiration date. This relationship is especially relevant for European options. To illustrate it, we can create a portfolio composed of a long put option ($P(t)=max(K-S_{t},0)$), a short call option ($C(t)=max(S_{t}-K,0)$), and a long position in a non-dividend-paying stock ($S$) of the underlying. Both options have the same strike price ($K$) and expiration date ($T$). The portfolio&amp;rsquo;s structure before the expiration, at $t \leq T$, is described as follows:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/lattice_pricing_models.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Put-Call Parity</title>
+      <link>http://localhost:1313/site/post/2024/02/08/put-call-parity/</link>
+      <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/site/post/2024/02/08/put-call-parity/</guid>
+      <description>&lt;p&gt;The put-call parity (PCP) establishes the relationship between call and put options that share the same underlying asset and expiration date. This relationship is especially relevant for European options. To illustrate it, we can create a portfolio composed of a long put option ($P(t)=max(K-S_{t},0)$), a short call option ($C(t)=max(S_{t}-K,0)$), and a long position in a non-dividend-paying stock ($S$) of the underlying. Both options have the same strike price ($K$) and expiration date ($T$). The portfolio&amp;rsquo;s structure before the expiration, at $t \leq T$, is described as follows:&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 \begin{split}
 \prod_{t}^{} &amp;amp;= S_{t} + max(K-S_{t},0) - max(S_{t}-K,0)\
@@ -219,4 +271,9 @@ This provides more flexibility in modeling the underlying price process and can 
 \end{split}
 \end{equation}&lt;/p&gt;
 &lt;p&gt;for European options this portfolio is simply a bond with interest rate $r$ and maturity $T$, the portfolio then becomes $\prod_{T} = K$&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/put_call_parity.ipynb" target="_blank" rel="noopener"&gt;Read more →&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;&lt;a href=&#34;https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/put_call_parity.ipynb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Read more →&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

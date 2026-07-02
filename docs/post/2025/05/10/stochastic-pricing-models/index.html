@@ -1,33 +1,920 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=generator content="Hugo Blox Builder 5.9.7"><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload as=style href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap"><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media=print onload='this.media="all"'><script src=/site/js/mathjax-config.js></script><link rel=stylesheet href=/site/css/vendor-bundle.min.26c458e6907dc03073573976b7f4044e.css media=print onload='this.media="all"'><script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js integrity crossorigin=anonymous async></script><link rel=stylesheet href=/site/css/wowchemy.5adeb309104bf059bfce5194cee5d4d8.css><link rel=stylesheet href=/site/css/libs/chroma/github-light.min.css title=hl-light media=print onload='this.media="all"'><link rel=stylesheet href=/site/css/libs/chroma/dracula.min.css title=hl-dark media=print onload='this.media="all"' disabled><meta name=author content="Sbonelo Mdluli"><meta name=description content="This article provides an exposition of stochastic models for option pricing, focusing on the mathematical formulation and computational techniques underlying the Heston and Merton jump-diffusion frameworks. Analytical and simulation-based approaches for pricing, risk management, and sensitivity analysis are discussed in detail."><link rel=alternate hreflang=en href=https://sbonelomdluli.github.io/site/post/2025/05/10/stochastic-pricing-models/><link rel=canonical href=https://sbonelomdluli.github.io/site/post/2025/05/10/stochastic-pricing-models/><link rel=icon type=image/png href=/site/media/icon_hu_ae99fbc64983dc75.png><link rel=apple-touch-icon type=image/png href=/site/media/icon_hu_e06036a7df0a0b5f.png><meta name=theme-color content="#1565c0"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://sbonelomdluli.github.io/site/media/icon_hu_d618173b9ba69b7d.png"><meta property="og:type" content="article"><meta property="og:site_name" content="Sbonelo Mdluli"><meta property="og:url" content="https://sbonelomdluli.github.io/site/post/2025/05/10/stochastic-pricing-models/"><meta property="og:title" content="Stochastic Pricing Models | Sbonelo Mdluli"><meta property="og:description" content="This article provides an exposition of stochastic models for option pricing, focusing on the mathematical formulation and computational techniques underlying the Heston and Merton jump-diffusion frameworks. Analytical and simulation-based approaches for pricing, risk management, and sensitivity analysis are discussed in detail."><meta property="og:image" content="https://sbonelomdluli.github.io/site/media/icon_hu_d618173b9ba69b7d.png"><meta property="og:locale" content="en"><meta property="article:published_time" content="2025-05-10T00:00:00+00:00"><meta property="article:modified_time" content="2025-05-10T00:00:00+00:00"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://sbonelomdluli.github.io/site/post/2025/05/10/stochastic-pricing-models/"},"headline":"Stochastic Pricing Models","datePublished":"2025-05-10T00:00:00Z","dateModified":"2025-05-10T00:00:00Z","author":{"@type":"Person","name":"Sbonelo Mdluli"},"publisher":{"@type":"Organization","name":"Sbonelo Mdluli","logo":{"@type":"ImageObject","url":"https://sbonelomdluli.github.io/site/media/icon_hu_3fed93dbf0434f0e.png"}},"description":"This article provides an exposition of stochastic models for option pricing, focusing on the mathematical formulation and computational techniques underlying the Heston and Merton jump-diffusion frameworks. Analytical and simulation-based approaches for pricing, risk management, and sensitivity analysis are discussed in detail."}</script><title>Stochastic Pricing Models | Sbonelo Mdluli</title><link rel=stylesheet href=/site/css/custom.min.e4ba59803d06db5121305f648e58135cbccc10816af8bb3e71c48df3f6f5b30e.css integrity="sha256-5LpZgD0G21EhMF9kjlgTXLzMEIFq+Ls+ccSN8/b1sw4=" crossorigin=anonymous></head><body id=top data-spy=scroll data-offset=70 data-target=#TableOfContents class=page-wrapper data-wc-page-id=4467d7575e722a4cd39e9d0c9feb00d2><script src=/site/js/wowchemy-init.min.9e4214442a7711d35691acd58f6f6361.js></script><aside class=search-modal id=search><div class=container><section class=search-header><div class="row no-gutters justify-content-between mb-3"><div class=col-6><h1>Search</h1></div><div class="col-6 col-search-close"><a class=js-search href=# aria-label=Close><i class="fas fa-times-circle text-muted" aria-hidden=true></i></a></div></div><div id=search-box><input name=q id=search-query placeholder=Search... autocapitalize=off autocomplete=off autocorrect=off spellcheck=false type=search class=form-control aria-label=Search...></div></section><section class=section-search-results><div id=search-hits></div></section></div></aside><div class="page-header header--fixed"><header><nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main><div class=container-xl><div class="d-none d-lg-inline-flex"><a class=navbar-brand href=/site/>Sbonelo Mdluli</a></div><button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar-content aria-expanded=false aria-label="Toggle navigation">
-<span><i class="fas fa-bars"></i></span></button><div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none"><a class=navbar-brand href=/site/>Sbonelo Mdluli</a></div><div class="navbar-collapse main-menu-item collapse justify-content-center" id=navbar-content><ul class="navbar-nav d-md-inline-flex"><li class=nav-item><a class=nav-link href=/site/><span>Home</span></a></li><li class=nav-item><a class=nav-link href=/site/#section-about-biography><span>About</span></a></li><li class=nav-item><a class=nav-link href=/site/#section-experience><span>Experience</span></a></li><li class=nav-item><a class="nav-link active" href=/site/post/><span>Articles</span></a></li></ul></div><ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2"><li class=nav-item><a class="nav-link js-search" href=# aria-label=Search><i class="fas fa-search" aria-hidden=true></i></a></li><li class="nav-item dropdown theme-dropdown"><a href=# class=nav-link data-toggle=dropdown aria-haspopup=true aria-label="Display preferences"><i class="fas fa-moon" aria-hidden=true></i></a><div class=dropdown-menu><a href=# class="dropdown-item js-set-theme-light"><span>Light</span>
-</a><a href=# class="dropdown-item js-set-theme-dark"><span>Dark</span>
-</a><a href=# class="dropdown-item js-set-theme-auto"><span>Automatic</span></a></div></li></ul></div></nav></header></div><div class=page-body><article class=article><div class=reading-progress aria-hidden=true><div class=reading-progress-bar id=reading-progress-bar></div></div><div class=article-container><header class=article-hero><h1>Stochastic Pricing Models</h1><div class=article-metadata><span class=article-date>May 10, 2025
-</span><span class=meta-dot>-</span>
-<span class=article-read-time>4 min read</span>
-<span class=meta-dot>-</span>
-<span class=article-word-count>745 words</span><div class=article-categories><a class="badge badge-primary" href=/site/category/quantitative-finance/>Quantitative Finance</a></div></div><div class=article-tags><a class="badge badge-light" href=/site/tag/quantitative-finance/>Quantitative Finance</a>
-<a class="badge badge-light" href=/site/tag/derivatives/>Derivatives</a></div></header><div class=article-layout><aside class=article-toc-panel aria-label="Article contents"><p class=toc-title>On this page</p><div class=article-toc><nav id=TableOfContents><ul><li><a href=#1-introduction-to-stochastic-option-pricing>1. Introduction to Stochastic Option Pricing</a></li><li><a href=#2-heston-model>2. Heston Model</a></li><li><a href=#3-merton-jump-diffusion-model>3. Merton Jump Diffusion Model</a></li><li><a href=#4-greeks-calculation>4. Greeks Calculation</a></li><li><a href=#5-barrier-options>5. Barrier Options</a></li><li><a href=#6-conclusion>6. Conclusion</a></li></ul></nav></div></aside><div class=article-content><h1 id=stochastic-pricing-models>Stochastic Pricing Models</h1><p>This post presents the theoretical foundations of stochastic models for option pricing. We outline the mathematical structure and computational methods for European and American options under both the Heston and Merton jump-diffusion models, including the calculation of Greeks and barrier options.</p><h2 id=1-introduction-to-stochastic-option-pricing>1. Introduction to Stochastic Option Pricing</h2><p>Stochastic models are essential for capturing the randomness in financial markets, especially for pricing derivatives like options. Two widely used models are:</p><ul><li><strong>Heston Model</strong>: Incorporates stochastic volatility, allowing volatility to evolve randomly over time.</li><li><strong>Merton Jump Diffusion Model</strong>: Extends the Black-Scholes framework by adding random jumps in asset prices, capturing sudden market moves.</li></ul><h2 id=2-heston-model>2. Heston Model</h2><p>The Heston model jointly evolves the asset price $S_t$ and its instantaneous variance $v_t$ (so volatility is $\sqrt{v_t}$):</p><p>\begin{equation*}
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: July 2, 2026 --><html lang="en" >
+
+
+<head><script src="/site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=site/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Hugo Blox Builder 5.9.7" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+
+  
+  
+    
+    <script src="/site/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="/site/css/vendor-bundle.min.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/site/css/wowchemy.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/site/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/site/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Sbonelo Mdluli" />
+
+
+
+
+
+  
+
+<meta name="description" content="This article provides an exposition of stochastic models for option pricing, focusing on the mathematical formulation and computational techniques underlying the Heston and Merton jump-diffusion frameworks. Analytical and simulation-based approaches for pricing, risk management, and sensitivity analysis are discussed in detail." />
+
+
+
+<link rel="alternate" hreflang="en" href="http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/" />
+<link rel="canonical" href="http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/" />
+
+
+
+
+
+<link rel="icon" type="image/png" href="/site/media/icon_hu_ae99fbc64983dc75.png" />
+<link rel="apple-touch-icon" type="image/png" href="/site/media/icon_hu_e06036a7df0a0b5f.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:image" content="http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png" />
+
+
+
+  
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Sbonelo Mdluli" />
+<meta property="og:url" content="http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/" />
+<meta property="og:title" content="Stochastic Pricing Models | Sbonelo Mdluli" />
+<meta property="og:description" content="This article provides an exposition of stochastic models for option pricing, focusing on the mathematical formulation and computational techniques underlying the Heston and Merton jump-diffusion frameworks. Analytical and simulation-based approaches for pricing, risk management, and sensitivity analysis are discussed in detail." /><meta property="og:image" content="http://localhost:1313/site/media/icon_hu_d618173b9ba69b7d.png" /><meta property="og:locale" content="en" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2025-05-10T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2025-05-10T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/site/post/2025/05/10/stochastic-pricing-models/"
+  },
+  "headline": "Stochastic Pricing Models",
+  
+  "datePublished": "2025-05-10T00:00:00Z",
+  "dateModified": "2025-05-10T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Sbonelo Mdluli"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sbonelo Mdluli",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/site/media/icon_hu_3fed93dbf0434f0e.png"
+    }
+  },
+  "description": "This article provides an exposition of stochastic models for option pricing, focusing on the mathematical formulation and computational techniques underlying the Heston and Merton jump-diffusion frameworks. Analytical and simulation-based approaches for pricing, risk management, and sensitivity analysis are discussed in detail."
+}
+</script>
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Stochastic Pricing Models | Sbonelo Mdluli</title>
+
+  
+  
+  
+    
+
+  
+  <link rel="stylesheet" href="/site/css/custom.min.e4ba59803d06db5121305f648e58135cbccc10816af8bb3e71c48df3f6f5b30e.css" integrity="sha256-5LpZgD0G21EhMF9kjlgTXLzMEIFq&#43;Ls&#43;ccSN8/b1sw4=" crossorigin="anonymous">
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="4467d7575e722a4cd39e9d0c9feb00d2" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/site/js/wowchemy-init.min.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/site/">Sbonelo Mdluli</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/site/">Sbonelo Mdluli</a>
+      </div>
+      
+
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-center" id="navbar-content">
+
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+            
+          
+
+          
+          
+          
+          
+          
+          
+          
+
+          
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+            
+          
+
+          
+          
+          
+          
+          
+          
+          
+
+          
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-about-biography"><span>About</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+            
+          
+
+          
+          
+          
+          
+          
+          
+          
+
+          
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/site/#section-experience"><span>Experience</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+            
+          
+
+          
+          
+          
+          
+          
+          
+          
+
+          
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/site/post/"><span>Articles</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+          
+        
+
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    
+<article class="article">
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress-bar" id="reading-progress-bar"></div>
+  </div>
+
+  <div class="article-container">
+    <header class="article-hero">
+      <h1>Stochastic Pricing Models</h1>
+
+      <div class="article-metadata">
+        <span class="article-date">
+          May 10, 2025
+        </span>
+        <span class="meta-dot">-</span>
+        <span class="article-read-time">4 min read</span>
+        <span class="meta-dot">-</span>
+        <span class="article-word-count">745 words</span>
+      </div>
+    </header>
+
+    
+    <div class="article-layout">
+      
+      <aside class="article-toc-panel" aria-label="Article contents">
+        <p class="toc-title">On this page</p>
+        <div class="article-toc">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-introduction-to-stochastic-option-pricing">1. Introduction to Stochastic Option Pricing</a></li>
+    <li><a href="#2-heston-model">2. Heston Model</a></li>
+    <li><a href="#3-merton-jump-diffusion-model">3. Merton Jump Diffusion Model</a></li>
+    <li><a href="#4-greeks-calculation">4. Greeks Calculation</a></li>
+    <li><a href="#5-barrier-options">5. Barrier Options</a></li>
+    <li><a href="#6-conclusion">6. Conclusion</a></li>
+  </ul>
+</nav>
+        </div>
+      </aside>
+      
+
+      <div class="article-content">
+        <h1 id="stochastic-pricing-models">Stochastic Pricing Models</h1>
+<p>This post presents the theoretical foundations of stochastic models for option pricing. We outline the mathematical structure and computational methods for European and American options under both the Heston and Merton jump-diffusion models, including the calculation of Greeks and barrier options.</p>
+<h2 id="1-introduction-to-stochastic-option-pricing">1. Introduction to Stochastic Option Pricing</h2>
+<p>Stochastic models are essential for capturing the randomness in financial markets, especially for pricing derivatives like options. Two widely used models are:</p>
+<ul>
+<li><strong>Heston Model</strong>: Incorporates stochastic volatility, allowing volatility to evolve randomly over time.</li>
+<li><strong>Merton Jump Diffusion Model</strong>: Extends the Black-Scholes framework by adding random jumps in asset prices, capturing sudden market moves.</li>
+</ul>
+<h2 id="2-heston-model">2. Heston Model</h2>
+<p>The Heston model jointly evolves the asset price $S_t$ and its instantaneous variance $v_t$ (so volatility is $\sqrt{v_t}$):</p>
+<p>\begin{equation*}
 dS_t = \mu S_t dt + \sqrt{v_t}\ S_t\ dW_t^S
-\end{equation*}</p><p>\begin{equation*}
+\end{equation*}</p>
+<p>\begin{equation*}
 dv_t = \kappa (\theta - v_t) dt + \sigma \sqrt{v_t}\ dW_t^v
-\end{equation*}</p><p>Here, $\mu$ is the drift term, $\kappa$ is the speed of mean reversion of variance, $\theta$ is the long-run variance level, and $\sigma$ is the volatility of variance (vol-of-vol). The shocks $dW_t^S$ and $dW_t^v$ are Brownian increments for the price and variance processes, respectively, and they satisfy:</p><p>\begin{equation*}
+\end{equation*}</p>
+<p>Here, $\mu$ is the drift term, $\kappa$ is the speed of mean reversion of variance, $\theta$ is the long-run variance level, and $\sigma$ is the volatility of variance (vol-of-vol). The shocks $dW_t^S$ and $dW_t^v$ are Brownian increments for the price and variance processes, respectively, and they satisfy:</p>
+<p>\begin{equation*}
 dW_t^S dW_t^v = \rho dt
-\end{equation*}</p><p>Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.</p><p>To simulate correlated shocks, let $Z_1$ and $Z_2$ be independent standard normals and set:</p><p>Let $Z_1$ and $Z_2$ be independent standard normal random variables. The correlated Brownian increments can be constructed as:</p><p>\begin{equation*}
+\end{equation*}</p>
+<p>Simulation of the Heston model involves generating correlated random walks for price and variance, and pricing options via Monte Carlo and Least Squares Monte Carlo (LSMC) methods. LSMC is used for American options, regressing future payoffs to estimate optimal early exercise.</p>
+<p>To simulate correlated shocks, let $Z_1$ and $Z_2$ be independent standard normals and set:</p>
+<p>Let $Z_1$ and $Z_2$ be independent standard normal random variables. The correlated Brownian increments can be constructed as:</p>
+<p>\begin{equation*}
 dW_t^S = \sqrt{dt}\ Z_1
-\end{equation*}</p><p>\begin{equation*}
+\end{equation*}</p>
+<p>\begin{equation*}
 dW_t^v = \rho \sqrt{dt}\ Z_1 + \sqrt{1-\rho^2}\ \sqrt{dt}\ Z_2
-\end{equation*}</p><p>This guarantees the required instantaneous correlation $\rho$. In matrix form, the correlation matrix is</p><p>$$
-\Sigma = \begin{pmatrix} 1 & \rho \ \rho & 1 \end{pmatrix}
-$$</p><p>with Cholesky factor</p><p>$$
-L = \begin{pmatrix} 1 & 0 \ \rho & \sqrt{1-\rho^2} \end{pmatrix}
-$$</p><p>so that, for $\mathbf{Z}=(Z_1,Z_2)^T$, the correlated increments are $L\mathbf{Z}$.</p><p>For a detailed explanation see <a href="https://www.youtube.com/watch?v=HG3s2StHB3k" target=_blank rel=noopener>this video on the Heston model</a>.</p><h2 id=3-merton-jump-diffusion-model>3. Merton Jump Diffusion Model</h2><p>The Merton model extends geometric Brownian motion by adding a jump component:</p><p>\begin{equation*}
+\end{equation*}</p>
+<p>This guarantees the required instantaneous correlation $\rho$. In matrix form, the correlation matrix is</p>
+<p>$$
+\Sigma = \begin{pmatrix} 1 &amp; \rho \ \rho &amp; 1 \end{pmatrix}
+$$</p>
+<p>with Cholesky factor</p>
+<p>$$
+L = \begin{pmatrix} 1 &amp; 0 \ \rho &amp; \sqrt{1-\rho^2} \end{pmatrix}
+$$</p>
+<p>so that, for $\mathbf{Z}=(Z_1,Z_2)^T$, the correlated increments are $L\mathbf{Z}$.</p>
+<p>For a detailed explanation see <a href="https://www.youtube.com/watch?v=HG3s2StHB3k" target="_blank" rel="noopener">this video on the Heston model</a>.</p>
+<h2 id="3-merton-jump-diffusion-model">3. Merton Jump Diffusion Model</h2>
+<p>The Merton model extends geometric Brownian motion by adding a jump component:</p>
+<p>\begin{equation*}
 dS_t = (r - r_j) S_t dt + \sigma S_t dZ_t + J_t S_t dN_t
-\end{equation*}</p><p>In this model, $r$ is the risk-free rate, $dZ_t$ is the diffusion shock, and $\sigma$ is diffusion volatility (distinct from the Heston vol-of-vol parameter). The Poisson increment $dN_t$ captures random jump arrivals, and $J_t$ controls jump size. The compensator $r_j$ adjusts drift so jump risk is accounted for in expectation.</p><p>\begin{equation*}
+\end{equation*}</p>
+<p>In this model, $r$ is the risk-free rate, $dZ_t$ is the diffusion shock, and $\sigma$ is diffusion volatility (distinct from the Heston vol-of-vol parameter). The Poisson increment $dN_t$ captures random jump arrivals, and $J_t$ controls jump size. The compensator $r_j$ adjusts drift so jump risk is accounted for in expectation.</p>
+<p>\begin{equation*}
 S_t = S_{t-1} \left( e^{\left(r-r_j-\frac{\sigma^2}{2}\right)dt + \sigma \sqrt{dt} z_t^1}+
 \left(e^{\mu_j+\delta z_t^2}-1 \right) y_t \right)
-\end{equation*}</p><p>\begin{equation*}
+\end{equation*}</p>
+<p>\begin{equation*}
 r_j = \lambda \left(e^{\mu_j+\frac{\delta^2}{2}}\right)-1
-\end{equation*}</p><p>In the discrete update, $S_{t-1}$ is the previous-step price, $z_t^1$ drives the diffusion term, and the jump term uses a random jump indicator/count $y_t$ together with jump-size shock $z_t^2$. Parameters $\lambda$, $\mu_j$, and $\delta$ denote jump intensity, mean log-jump size, and log-jump volatility, respectively. Simulation proceeds by combining diffusion and jump parts pathwise, then discounting payoffs.</p><h2 id=4-greeks-calculation>4. Greeks Calculation</h2><p>The Greeks measure sensitivities of option prices to various parameters. In this framework, Delta and Gamma are computed using finite difference methods:</p><ul><li><strong>Delta:</strong> Sensitivity to underlying price.</li><li><strong>Gamma:</strong> Sensitivity of Delta to underlying price.</li></ul><p>Finite difference approximations are used to estimate these derivatives numerically.</p><h2 id=5-barrier-options>5. Barrier Options</h2><p>Barrier options are path-dependent derivatives whose payoff depends on whether the underlying touches a preset barrier during the option life. In a <strong>knock-in</strong> contract, the option becomes active only if the barrier is hit (for example, an up-and-in call activates only after the price rises to the barrier), while in a <strong>knock-out</strong> contract, hitting the barrier cancels the option (for example, an up-and-out call is extinguished once the barrier is reached). This makes barrier options generally cheaper than plain vanilla options with similar strikes, since activation/cancellation conditions reduce expected payoff in many paths. Under both Heston and Merton dynamics, pricing is performed by simulating full paths, checking barrier events at each time step, and then discounting the payoff only on paths that satisfy the specific knock-in or knock-out rule.</p><h2 id=6-conclusion>6. Conclusion</h2><p>This theoretical overview provides the mathematical and computational foundation for advanced option pricing models, including simulation, pricing, and risk analysis. The methods described here are applicable to a wide range of financial derivatives and serve as a reference for both theory and practical implementation.</p><p><a href=https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/stochastic_pricing.ipynb target=_blank rel=noopener>Read more →</a></p></div></div></div></article><script>(function(){var t=document.getElementById("reading-progress-bar");if(!t)return;function e(){var n=window.scrollY||document.documentElement.scrollTop,e=document.documentElement.scrollHeight-window.innerHeight,s=e>0?n/e*100:0;t.style.width=Math.min(Math.max(s,0),100)+"%"}e(),window.addEventListener("scroll",e,{passive:!0}),window.addEventListener("resize",e)})()</script></div><div class=page-footer><div class=container><footer class=site-footer><p class=powered-by>Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target=_blank rel=noopener>Hugo Blox Builder</a> — the free, <a href=https://github.com/HugoBlox/hugo-blox-builder target=_blank rel=noopener>open source</a> website builder that empowers creators.</p></footer></div></div><script src=/site/js/vendor-bundle.min.6782e3f6a4f06ea4766df038c45ecf40.js></script><script id=search-hit-fuse-template type=text/x-template>
+\end{equation*}</p>
+<p>In the discrete update, $S_{t-1}$ is the previous-step price, $z_t^1$ drives the diffusion term, and the jump term uses a random jump indicator/count $y_t$ together with jump-size shock $z_t^2$. Parameters $\lambda$, $\mu_j$, and $\delta$ denote jump intensity, mean log-jump size, and log-jump volatility, respectively. Simulation proceeds by combining diffusion and jump parts pathwise, then discounting payoffs.</p>
+<h2 id="4-greeks-calculation">4. Greeks Calculation</h2>
+<p>The Greeks measure sensitivities of option prices to various parameters. In this framework, Delta and Gamma are computed using finite difference methods:</p>
+<ul>
+<li><strong>Delta:</strong> Sensitivity to underlying price.</li>
+<li><strong>Gamma:</strong> Sensitivity of Delta to underlying price.</li>
+</ul>
+<p>Finite difference approximations are used to estimate these derivatives numerically.</p>
+<h2 id="5-barrier-options">5. Barrier Options</h2>
+<p>Barrier options are path-dependent derivatives whose payoff depends on whether the underlying touches a preset barrier during the option life. In a <strong>knock-in</strong> contract, the option becomes active only if the barrier is hit (for example, an up-and-in call activates only after the price rises to the barrier), while in a <strong>knock-out</strong> contract, hitting the barrier cancels the option (for example, an up-and-out call is extinguished once the barrier is reached). This makes barrier options generally cheaper than plain vanilla options with similar strikes, since activation/cancellation conditions reduce expected payoff in many paths. Under both Heston and Merton dynamics, pricing is performed by simulating full paths, checking barrier events at each time step, and then discounting the payoff only on paths that satisfy the specific knock-in or knock-out rule.</p>
+<h2 id="6-conclusion">6. Conclusion</h2>
+<p>This theoretical overview provides the mathematical and computational foundation for advanced option pricing models, including simulation, pricing, and risk analysis. The methods described here are applicable to a wide range of financial derivatives and serve as a reference for both theory and practical implementation.</p>
+<p><a href="https://github.com/SboneloMdluli/Financial-Engineering-Forum-Posts/blob/master/stochastic_pricing.ipynb" target="_blank" rel="noopener">Read more →</a></p>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<script>
+  (function () {
+    var progressBar = document.getElementById("reading-progress-bar");
+    if (!progressBar) return;
+
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+      progressBar.style.width = Math.min(Math.max(progress, 0), 100) + "%";
+    }
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+  })();
+</script>
+
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/site/js/vendor-bundle.min.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
     <div class="search-hit" id="summary-{{key}}">
       <div class="search-hit-content">
         <div class="search-hit-name">
@@ -37,4 +924,89 @@ r_j = \lambda \left(e^{\mu_j+\frac{\delta^2}{2}}\right)-1
         </div>
       </div>
     </div>
-  </script><script src=https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin=anonymous></script><script id=page-data type=application/json>{"use_headroom":true}</script><script src=/site/js/wowchemy-headroom.b95a7e109243f29d04930ae8cb49a756.js type=module></script><script src=/site/en/js/wowchemy.min.0e2a0f05cf2b31cd0892b2419d6f8fc7.js></script></body></html>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+  <script src="/site/js/wowchemy-headroom.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/site/en/js/wowchemy.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
